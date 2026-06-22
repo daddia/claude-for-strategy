@@ -1,0 +1,14 @@
+[
+  {
+    "event": "Weekly roadmap drift scan as-of 2026-06-22",
+    "description": "Scheduled Thursday-morning run — compare planned vs actual phase per profile horizon"
+  },
+  {
+    "event": "Targeted drift check: Now-track initiatives only, flag dependency knock-ons",
+    "description": "Ad-hoc run before quarterly planning"
+  },
+  {
+    "event": "Post-rebaseline scan after roadmap-builder output updated 2026-06-15",
+    "description": "Data-triggered run after roadmap refresh"
+  }
+]

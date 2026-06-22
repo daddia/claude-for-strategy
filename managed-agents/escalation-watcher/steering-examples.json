@@ -1,0 +1,14 @@
+[
+  {
+    "event": "Weekly RAID escalation scan as-of 2026-06-22",
+    "description": "Scheduled Monday-morning run — scan the RAID log against practice-profile thresholds"
+  },
+  {
+    "event": "Post-update scan after raid-log entry R-014 added at Critical severity",
+    "description": "Data-triggered run after a new or updated RAID item"
+  },
+  {
+    "event": "Targeted scan: open Issues only, flag anything above Amber per profile",
+    "description": "Ad-hoc run before a steering committee when the full log is noisy"
+  }
+]

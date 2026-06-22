@@ -1,0 +1,10 @@
+{
+  "name": "corporate-strategy",
+  "version": "0.1.0",
+  "description": "Growth strategy, portfolio and resource allocation, and strategic options — growth-gap diagnostics, resource-misallocation detection, exit-or-double-down portfolio calls, real-options-framed strategic decisions, build-vs-buy-vs-partner, and synergy stress-testing.",
+  "author": {
+    "name": "Jonathan Daddia",
+    "url": "https://github.com/daddia"
+  },
+  "keywords": ["corporate-strategy", "growth-strategy", "portfolio-management", "resource-allocation", "real-options", "m-and-a"]
+}

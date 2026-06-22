@@ -1,0 +1,160 @@
+---
+name: roadmap-builder
+description: >
+  This skill should be used when the user asks to "build a transformation
+  roadmap," "sequence this into now/next/later," "lay out the delivery
+  plan," or provides a current state and an ambition that need sequencing
+  into a phased roadmap.
+allowed-tools: Read, Grep, Glob
+metadata:
+  version: "0.2.0"
+---
+
+# Roadmap Builder
+
+Sequence a transformation ambition into a phased roadmap. Defaults to the user's named track model from the practice profile if one exists; otherwise falls back to a generic Now/Next/Later.
+
+## Trust spine
+
+```
+SOURCING: Tag every market figure, benchmark, competitor claim, and dollar amount as
+  [sourced: <where>] or [unverified — from training data, needs a real source].
+ASSUMPTIONS: State load-bearing assumptions at the top of the output — flag, don't fix.
+NUMBERS: Never invent an input — flag what's needed instead.
+CONFIDENCE: Label output defensible recommendation vs structured first pass.
+GATE: Before producing the board-/exec-facing final, confirm explicitly and stamp a
+  reviewer note recording what wasn't verified.
+```
+
+## Purpose
+
+Produce a sequencing argument — not a flat initiative list. Each item is placed in a phase because of dependencies, risk posture, and capacity, with explicit flags where the roadmap exceeds what the org can plausibly deliver.
+
+## Precondition: load profiles
+
+**Before sequencing, read both:**
+
+- `~/.claude/plugins/config/claude-for-strategy/org-profile.md`
+- `~/.claude/plugins/config/claude-for-strategy/transformation/CLAUDE.md`
+
+If missing or still template, surface the cold-start bounce (same pattern as `business-case`) with `/transformation:cold-start-interview` or **"provisional"**.
+
+### Provisional mode
+
+Defaults: Now (this quarter) / Next (1–2 quarters) / Later (beyond); balanced risk posture; no named governance gates. Tag `[PROVISIONAL]`. Ask once whether this is portfolio-level (Now/Next/Later) or execution-level (would benefit from a named track model once configured).
+
+## Workflow
+
+### Step 1: Orient
+
+| Question | Answer |
+|---|---|
+| **Current state** | What's true today — capabilities, constraints, in-flight work |
+| **Ambition** | Where this is headed — one sentence |
+| **Roadmap grain** | Portfolio (horizons) vs execution (tracks/sprints) |
+| **Audience** | Working team / sponsor / steering / board |
+| **Planning horizon** | How far out — matches profile labels if configured |
+
+If current state or ambition is vague, stop and clarify. A roadmap sequences a gap; vague endpoints produce vague sequencing.
+
+### Step 2: Track model routing
+
+Read `## Framework preferences → Roadmap track model` from the transformation profile.
+
+| Profile state | Action |
+|---|---|
+| Named track model configured | Use **exact track names and order** from profile |
+| Template / empty | Default to Now / Next / Later; note in output which model was used |
+| User says execution-level but only horizons exist | Flag: "Execution-level roadmap requested — configure track model in profile for finer grain" |
+
+Do not substitute a generic model when the profile names a specific one.
+
+### Step 3: Dependency mapping
+
+Before assigning phases, map dependencies:
+
+```
+DEPENDENCY MAP (working):
+[Initiative A] blocks → [Initiative B] because [reason]
+[Initiative C] unblocks → [Initiative D]
+```
+
+Initiatives with unresolved dependency inputs get `INPUT NEEDED: confirm whether [X] blocks [Y]` — do not guess sequencing order.
+
+### Step 4: Risk posture application
+
+Read risk posture from org profile or transformation profile (`conservative / balanced / aggressive`). State which is applied:
+
+| Posture | Sequencing bias |
+|---|---|
+| Conservative | Platform/foundation first; defer high-variance bets |
+| Balanced | Mix foundational and value delivery per dependency logic |
+| Aggressive | Front-load higher-risk, higher-reward items where dependencies allow |
+
+### Step 5: Phase placement
+
+Place each initiative in a phase with a **one-line rationale** — what it depends on, what it unblocks, why this phase and not the next.
+
+### Step 6: Capacity and gate alignment
+
+**Capacity check:** compare phase load to org size/structure from profiles. Flag overloaded phases explicitly.
+
+**Gate alignment:** check `## Review gates` in the transformation profile — note which initiatives require discovery exit, architecture review, investment approval, or release gate before the next phase can start.
+
+### Step 7: Kill / revisit criteria
+
+For the overall roadmap and any high-risk phase:
+
+```
+KILL / REVISIT CRITERIA:
+- Re-sequence if: [trigger — e.g. dependency slips, funding not approved]
+- Pause program if: [trigger]
+- Revisit horizon labels if: [trigger]
+```
+
+### Step 8: Board-ready gate
+
+Run the trust-spine **GATE** before a governance-facing or board-final roadmap. Working drafts for the delivery team skip the gate.
+
+## Output format
+
+```
+CONFIDENCE: [defensible recommendation | structured first pass]
+TRACK MODEL APPLIED: [named model from profile | Now/Next/Later provisional default]
+RISK POSTURE APPLIED: [conservative | balanced | aggressive]
+
+LOAD-BEARING ASSUMPTIONS:
+- ...
+
+AMBITION: [one sentence]
+
+DEPENDENCY MAP:
+- ...
+
+[Track/Phase 1 name]:
+  - [Initiative] — [rationale: depends on / unblocks / why here]
+  - ...
+
+[Track/Phase 2 name]:
+  - ...
+
+DEPENDENCIES (cross-phase): [explicit flags]
+CAPACITY FLAGS: [overloaded phases, with rationale]
+GATE ALIGNMENT: [initiatives requiring named approval before progression]
+KILL / REVISIT CRITERIA: [...]
+EVIDENCE GAPS: [INPUT NEEDED items]
+```
+
+## Quality checks before delivering
+
+- [ ] Both profiles loaded (or `[PROVISIONAL]` tagged)
+- [ ] Current state and ambition confirmed before sequencing
+- [ ] Named track model used when configured — not silently replaced
+- [ ] Every initiative has phase-placement rationale
+- [ ] Dependencies mapped before phase assignment
+- [ ] Capacity risk flagged where phases look overloaded
+- [ ] No invented dates, costs, or capacity figures
+
+## Close with next steps
+
+Offer branches: hand off approved scope to `business-case` for funding, refine execution grain after cold-start, re-run when dependency inputs arrive, take to steering for re-sequencing decision, or park Later-phase items pending gate evidence.

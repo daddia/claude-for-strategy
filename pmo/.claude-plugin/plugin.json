@@ -1,0 +1,10 @@
+{
+  "name": "pmo",
+  "version": "0.1.0",
+  "description": "RAID logs, status reporting, steering committee packs, milestone tracking, and decision logs for running a transformation program.",
+  "author": {
+    "name": "Jonathan Daddia",
+    "url": "https://github.com/daddia"
+  },
+  "keywords": ["pmo", "transformation", "raid", "governance", "status-reporting"]
+}

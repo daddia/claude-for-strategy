@@ -1,0 +1,42 @@
+{
+  "mcpServers": {
+    "slack": {
+      "type": "http",
+      "url": "https://mcp.slack.com/mcp",
+      "title": "Slack",
+      "description": "Search messages, read channels, and post summaries — the delivery surface for watchers, check-ins, and status updates."
+    },
+    "gmail": {
+      "type": "http",
+      "url": "https://gmailmcp.googleapis.com/mcp/v1",
+      "title": "Gmail",
+      "description": "Search and read email threads for stakeholder context, briefing packs, and follow-ups."
+    },
+    "google-drive": {
+      "type": "http",
+      "url": "https://drivemcp.googleapis.com/mcp/v1",
+      "title": "Google Drive",
+      "description": "Search, read, and fetch documents, decks, and spreadsheets from Google Drive."
+    },
+    "google-calendar": {
+      "type": "http",
+      "url": "https://calendarmcp.googleapis.com/mcp/v1",
+      "title": "Google Calendar",
+      "description": "Read upcoming meetings, steering cadence, and review cycles from Google Calendar."
+    },
+    "atlassian": {
+      "type": "http",
+      "url": "https://mcp.atlassian.com/v1/mcp",
+      "title": "Atlassian",
+      "description": "Read Jira issues, plans, Confluence pages, decisions, RAID logs and delivery artefacts scoped to the user's permissions."
+    }
+  },
+  "recommendedCategories": [
+    "chat",
+    "email",
+    "documents",
+    "calendar",
+    "project-tracker",
+    "knowledge-base"
+  ]
+}

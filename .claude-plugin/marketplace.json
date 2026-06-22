@@ -1,0 +1,114 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "claude-for-strategy",
+  "version": "0.1.0",
+  "owner": {
+    "name": "Jonathan Daddia",
+    "url": "https://github.com/daddia"
+  },
+  "metadata": {
+    "description": "Reference agents and skills for strategy and transformation work — consulting craft, corporate strategy, market intelligence, digital transformation, org design and decision rights, performance management, balanced scorecards, OKRs, and transformation PMO.",
+    "homepage": "https://github.com/daddia/claude-for-strategy"
+  },
+  "plugins": [
+    {
+      "name": "consulting",
+      "displayName": "Consulting Craft",
+      "source": "./consulting",
+      "category": "productivity",
+      "description": "Strategic narrative, hypothesis-driven problem solving, and deliverable craft — Minto pyramid structure, hypothesis trees, hypothesis-driven workplans, deck outlines, exec memos, so-what sharpening, and doc/deck review.",
+      "author": {
+        "name": "Jonathan Daddia",
+        "url": "https://github.com/daddia"
+      }
+    },
+    {
+      "name": "corporate-strategy",
+      "displayName": "Corporate Strategy",
+      "source": "./corporate-strategy",
+      "category": "productivity",
+      "description": "Growth strategy, portfolio and resource allocation, and strategic options — growth-gap diagnostics, resource-misallocation detection, exit-or-double-down portfolio calls, real-options-framed strategic decisions, build-vs-buy-vs-partner, and synergy stress-testing.",
+      "author": {
+        "name": "Jonathan Daddia",
+        "url": "https://github.com/daddia"
+      }
+    },
+    {
+      "name": "market-intelligence",
+      "displayName": "Market Intelligence",
+      "source": "./market-intelligence",
+      "category": "productivity",
+      "description": "Competitive landscape, incentive mapping, positioning, and information asymmetry — strategic-group mapping with mobility-barrier analysis, incentive-driven behavior prediction, positioning trade-off discipline, information-asymmetry analysis, and game-theory-grounded competitive response forecasting.",
+      "author": {
+        "name": "Jonathan Daddia",
+        "url": "https://github.com/daddia"
+      }
+    },
+    {
+      "name": "transformation",
+      "displayName": "Transformation Strategy",
+      "source": "./transformation",
+      "category": "productivity",
+      "description": "Digital maturity assessment, Now/Next/Later transformation roadmaps, target operating model design, technology strategy briefs, and transformation business cases.",
+      "author": {
+        "name": "Jonathan Daddia",
+        "url": "https://github.com/daddia"
+      }
+    },
+    {
+      "name": "operating-model",
+      "displayName": "Operating Model",
+      "source": "./operating-model",
+      "category": "productivity",
+      "description": "Org design and decision rights — structure-strategy fit diagnostics, single-point-accountability RACI/RAPID design, span-of-control and layers analysis, matrix-reporting stress tests, and Star Model alignment between structure, process, rewards, and people.",
+      "author": {
+        "name": "Jonathan Daddia",
+        "url": "https://github.com/daddia"
+      }
+    },
+    {
+      "name": "performance",
+      "displayName": "Performance Management",
+      "source": "./performance",
+      "category": "productivity",
+      "description": "KPI trees, metrics tracker builder, metrics glossary, and performance narratives.",
+      "author": {
+        "name": "Jonathan Daddia",
+        "url": "https://github.com/daddia"
+      }
+    },
+    {
+      "name": "balanced-scorecard",
+      "displayName": "Balanced Scorecard",
+      "source": "./balanced-scorecard",
+      "category": "productivity",
+      "description": "Strategy maps and balanced scorecards — perspective design, causal-link strategy mapping, lead/lag measure selection, target-and-initiative setting, cascaded business-unit scorecards, and periodic reviews that test the strategy's causal theory, not just the numbers.",
+      "author": {
+        "name": "Jonathan Daddia",
+        "url": "https://github.com/daddia"
+      }
+    },
+    {
+      "name": "okr",
+      "displayName": "OKR Management",
+      "source": "./okr",
+      "category": "productivity",
+      "description": "Objectives and Key Results — drafting objectives that aren't disguised metrics, writing outcome-based key results, target calibration, cascading with conflict detection, confidence-based check-ins, and end-of-cycle scoring with retro.",
+      "author": {
+        "name": "Jonathan Daddia",
+        "url": "https://github.com/daddia"
+      }
+    },
+    {
+      "name": "pmo",
+      "displayName": "Transformation PMO",
+      "source": "./pmo",
+      "category": "productivity",
+      "description": "RAID logs, status reporting, steering committee packs, milestone tracking, and decision logs for running a transformation program.",
+      "author": {
+        "name": "Jonathan Daddia",
+        "url": "https://github.com/daddia"
+      }
+    }
+  ]
+}
