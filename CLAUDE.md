@@ -44,6 +44,15 @@ python3 scripts/lint-tool-scope.py
 
 # 5. marketplace ↔ plugin.json field sync (name, description, author)
 python3 scripts/check-marketplace-sync.py --check
+
+# 6. skill frontmatter + required headings (skill-design-framework.md)
+python3 scripts/check-skill-frontmatter.py --check
+```
+
+Install the optional pre-commit hook to run step 6 on staged `SKILL.md` files only:
+
+```bash
+pre-commit install
 ```
 
 ### Marketplace invariants (I1–I11)
