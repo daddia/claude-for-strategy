@@ -89,7 +89,7 @@ Each plugin directory has the same shape:
   CLAUDE.md               # template practice profile — filled in by /<plugin>:cold-start-interview
   README.md
   skills/                 # skills — each is a /<plugin>:<skill> slash command
-  agents/                 # named workers and scheduled agents (if any)
+  agents/                 # scheduled/event-driven watchers only (if any)
   hooks/                  # pre- and post-tool hooks (if any)
 ```
 
@@ -147,7 +147,7 @@ Updates: `/plugin update`.
 |---|---|---|
 | **Plugins** | Self-contained practice-area bundles — skills, agents, hooks, and a template practice profile. Install the ones you need. | `<plugin>/` |
 | **Skills** | Domain expertise and step-by-step methods Claude draws on automatically when relevant — and slash actions you trigger explicitly: `/consulting:narrative-builder`, `/transformation:roadmap-builder`, `/pmo:status-report`. | `<plugin>/skills/<skill>/SKILL.md` |
-| **Agents** | Job-named workers (skill-backed) or scheduled workflows (check-in nudge, scorecard reminder). Named workers preload their backing skill; scheduled agents run on a cron cadence. | `<plugin>/agents/` |
+| **Agents** | Scheduled or event-driven watchers (check-in nudge, scorecard reminder, escalation scan). Job-style names in each plugin's README map to slash commands; they do not live as separate files under `agents/`. | `<plugin>/agents/` |
 | **Practice profile** | Two layers: shared `org-profile.md` (organisation, cadence, risk, financial conventions, escalation, house style) plus per-plugin `CLAUDE.md` (plugin-specific operating model, frameworks, thresholds, output formats, review gates). Every skill reads both. | `~/.claude/plugins/config/claude-for-strategy/org-profile.md` and `~/.claude/plugins/config/claude-for-strategy/<plugin>/CLAUDE.md` |
 | **Connectors** | [MCP servers](https://modelcontextprotocol.io/) that wire Claude to your data — chat, calendar, project tracker, observability, spreadsheets. | `.mcp.json` (per plugin) |
 | **Managed-agent cookbooks** | `agent.yaml` + depth-1 subagents + steering examples for headless deployment via the Managed Agents API. | [`managed-agents/<name>/`](./managed-agents/) |
@@ -236,7 +236,7 @@ These are reference templates. They get better when you tune them to how your te
 - **Swap connectors.** Point `.mcp.json` at your project tracker, slides tool, observability platform, and data sources. Skills fall back gracefully when a connector isn't configured.
 - **Bring your playbook and templates.** Drop your terminology, house style, and branded templates into the practice profile and `references/`. The skills will pick them up.
 - **Fork skills for house style.** Every skill is a markdown file under `skills/`. Edit the steps, the gates, the output format.
-- **Add agents.** Named workers under `<plugin>/agents/` preload a backing skill; scheduled agents use cron frontmatter. Add your own for the watchers your team needs.
+- **Add watchers.** Scheduled agents live under `<plugin>/agents/` with their system prompt and cadence. Job-style names for on-demand work map to slash commands in each plugin's README — not to duplicate subagent files.
 
 No build step. Everything is markdown and JSON.
 
@@ -379,8 +379,8 @@ The full map across all plugins. The cold-start interview is the first thing to 
 Everything here is markdown and JSON. Fork, edit, PR.
 
 - **New skill** → add `<plugin>/skills/<skill-name>/SKILL.md` with `name` and `description` frontmatter. The skill is invokable as `/<plugin>:<skill-name>`.
-- **New named agent** → add `<plugin>/agents/<name>.md` with job-style description, `skills:` preloading the backing skill, and the canonical `/<plugin>:<skill>` command in the body.
-- **New scheduled agent** → add `<plugin>/agents/<name>.md` with `schedule:` frontmatter and the system prompt. Add a matching `managed-agents/<name>/` cookbook when the agent should deploy headlessly (see [managed-agents/README.md](managed-agents/README.md)).
+- **New job-style name** → add the skill under `<plugin>/skills/<skill-name>/SKILL.md` and a row in the plugin README Agents table mapping the job title to `/<plugin>:<skill-name>`. Do not add a duplicate subagent file that preloads the skill.
+- **New scheduled agent** → add `<plugin>/agents/<name>.md` with the system prompt (and schedule/cadence in the body or frontmatter). Add a matching `managed-agents/<name>/` cookbook when the agent should deploy headlessly (see [managed-agents/README.md](managed-agents/README.md)).
 - **Validate before opening a PR** — see [CLAUDE.md](CLAUDE.md) for marketplace invariants and `claude plugin validate`.
 
 ## License

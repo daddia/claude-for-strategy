@@ -4,7 +4,7 @@ Strategic narrative, hypothesis-driven problem solving, and deliverable craft. T
 
 ## Agents
 
-Each agent is named for the job it does. They're the most common surface — invoke the agent or run the command directly.
+Job-style names in the table map to slash commands — run the command to invoke the skill. This plugin has no scheduled agents under `agents/`.
 
 | Agent | What it does | Command |
 |---|---|---|
