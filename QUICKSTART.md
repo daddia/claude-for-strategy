@@ -68,7 +68,7 @@ Each plugin learns your playbook through a cold-start interview. Organisation-wi
 
 ## What's in the box
 
-Nine practice-area plugins, scheduled watch agents across PMO/performance/transformation/OKR/scorecard/corporate-strategy/market-intelligence, and connectors. The full reference is in [README.md](./README.md).
+Nine practice-area plugins, the Strategy Builder Hub for discovering and installing community skills, scheduled watch agents across PMO/performance/transformation/OKR/scorecard/corporate-strategy/market-intelligence, and connectors. The full reference is in [README.md](./README.md).
 
 ## Stuck?
 

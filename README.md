@@ -72,6 +72,7 @@ performance/              # KPI trees, trackers, glossary, performance narrative
 pmo/                      # RAID, status reports, steering packs, milestones, decisions
 balanced-scorecard/       # strategy maps, perspectives, measures, cascade, review
 okr/                      # objectives, key results, targets, cascade, check-ins, scoring
+strategy-builder-hub/     # community skill discovery, installation, QA, and update management
 external-plugins/         # vendor plugins (future)
 managed-agents/           # CMA cookbooks — escalation-watcher, steering-prep, roadmap-drift-watcher, competitive-signal-scan
 scripts/                  # sync-references.py · check-marketplace-sync.py · lint-tool-scope.py · (deploy script planned)
@@ -120,6 +121,7 @@ After install, skills fire automatically when relevant, slash commands are avail
 /plugin install pmo@claude-for-strategy
 /plugin install balanced-scorecard@claude-for-strategy
 /plugin install okr@claude-for-strategy
+/plugin install strategy-builder-hub@claude-for-strategy
 
 # Restart Claude Code, then run setup for each plugin you installed.
 # This writes org-profile.md (once) and per-plugin CLAUDE.md to ~/.claude/plugins/config/claude-for-strategy/
@@ -132,6 +134,7 @@ After install, skills fire automatically when relevant, slash commands are avail
 /pmo:cold-start-interview
 /balanced-scorecard:cold-start-interview
 /okr:cold-start-interview
+/strategy-builder-hub:cold-start-interview
 ```
 
 **Run the cold-start interview first.** Every other skill in a plugin reads from the practice profile it writes. Skipping setup is the single most common reason a skill produces generic output. The interview takes 10–20 minutes per plugin and will ask you to point at seed documents. More seed material is better; a **quick start** option is available if you want to be productive in 2 minutes and refine later.
@@ -197,7 +200,13 @@ Grouped by where the work sits. Each plugin's cold-start interview is what tailo
 
 **If you run both BSC and OKR:** a common pattern is BSC setting multi-year strategic themes and the causal map, with OKR cascading quarterly execution underneath specific BSC objectives. Don't run both cascades on the same objective set independently — pick which plugin owns which layer and record it in both practice profiles.
 
-**Planned, not yet built:** `change-management`, `thought-leadership`, `value-realisation` .
+### Platform
+
+| Plugin | What it adds |
+|---|---|
+| **[strategy-builder-hub](./strategy-builder-hub)** | Community strategy skill discovery, installation, QA, and update management. Browses GitHub registries, surfaces related community skills inside other plugins, and applies a four-layer security gate (allowlist, raw display, heuristic scan, human approval) before anything is written. The cold-start interview IS the starter pack recommender — ask your engagement type and it recommends what to install. |
+
+**Planned, not yet built:** `change-management`, `thought-leadership`, `value-realisation`.
 
 ## MCP connectors
 
@@ -352,6 +361,20 @@ The full map across all plugins. The cold-start interview is the first thing to 
 | `/okr:check-in` | check-in | Confidence-based pulse per KR |
 | `/okr:score-and-retro` | score-and-retro | End-of-cycle grading; keep/kill/revise |
 | scheduled | check-in-nudge (agent) | Weekly KR confidence nudges via `~~chat` |
+
+### strategy-builder-hub
+
+| Command | Skill | What it does |
+|---|---|---|
+| `/strategy-builder-hub:cold-start-interview` | cold-start-interview | Engagement profile → starter pack recommendation; asks engagement type and recommends community skills to install |
+| `/strategy-builder-hub:registry-browser [query]` | registry-browser | Search watched registries for community strategy skills |
+| `/strategy-builder-hub:skill-installer [skill]` | skill-installer | Allowlist-gate, fetch, raw display, heuristic scan, QA, and install a community skill |
+| `/strategy-builder-hub:auto-updater` | auto-updater | Check for updates to installed skills; show full diff and trust review; apply only on explicit approval |
+| `/strategy-builder-hub:related-skills-surfacer` | related-skills-surfacer | Surface related community skills based on what you've been doing |
+| `/strategy-builder-hub:skills-qa [skill]` | skills-qa | Evaluate a skill against the Strategy Skill Design Framework (13 parameters + prompt-injection scan) before installing |
+| `/strategy-builder-hub:disable [skill]` | disable | Disable an installed community skill without removing files; re-enable later |
+| `/strategy-builder-hub:uninstall [skill]` | uninstall | Uninstall a community skill installed through the hub; refuses to touch first-party plugin skills |
+| scheduled | registry-sync (agent) | Weekly scan of watched registries for new and updated skills; posts notifications per update preferences |
 
 ## Contributing
 
