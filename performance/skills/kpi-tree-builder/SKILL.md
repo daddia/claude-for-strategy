@@ -4,6 +4,7 @@ description: >
   This skill should be used when the user asks to "build a KPI tree," "what
   drives this metric," "break this North Star down into drivers," or needs a
   top-level metric decomposed into leading indicators with clear ownership.
+work_shape: structured-aggregation
 allowed-tools: Read, Grep, Glob
 metadata:
   version: "0.2.0"
@@ -16,6 +17,11 @@ Decompose a North Star metric into drivers and leading indicators, with definiti
 ## Trust spine
 
 ```
+ANALYTICAL RIGOR: North Star definition is locked before decomposition; 3–5 MECE
+  drivers with explicit math or causal relationship to the top metric; double-counting
+  and lagging-only branches are flagged in the output block. Each indicator definition
+  is tight enough that two people would calculate it the same way — reject decorative
+  metric trees dressed up as analysis.
 SOURCING: Tag every market figure, benchmark, competitor claim, and dollar amount as
   [sourced: <where>] or [unverified — from training data, needs a real source].
 ASSUMPTIONS: State load-bearing assumptions at the top of the output — flag, don't fix.
