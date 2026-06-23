@@ -17,6 +17,11 @@ Produce an audience-specific status report — sponsor, steering committee, or w
 ## Trust spine
 
 ```
+INCENTIVE GAMING: Guards against RAG-washing — Amber or Red workstreams reported
+  as Green, vague "on track" language without profile thresholds applied, or
+  status invented when RAID/milestones are missing. RAG uses quoted thresholds
+  from the profile; missing evidence produces INPUT NEEDED skeletons, not plausible
+  Green statuses; every Red/Amber item states action and ask.
 SOURCING: Tag every market figure, benchmark, competitor claim, and dollar amount as
   [sourced: <where>] or [unverified — from training data, needs a real source].
 ASSUMPTIONS: State load-bearing assumptions at the top of the output — flag, don't fix.
@@ -25,6 +30,8 @@ CONFIDENCE: Label output defensible recommendation vs structured first pass.
 GATE: Before producing the board-/exec-facing final, confirm explicitly and stamp a
   reviewer note recording what wasn't verified.
 ```
+
+Full rules: repo-root `references/trust-conventions.md`.
 
 ## Purpose
 

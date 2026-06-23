@@ -14,6 +14,26 @@ metadata:
 
 The core failure mode this catches: grading the numbers and calling it done, without checking whether hitting the numbers actually served the objective. A KR scored 1.0 doesn't always mean the objective was achieved, and a KR scored 0.4 doesn't always mean it failed in any way that matters — those divergences are the most important output of a retro, not a footnote.
 
+## Trust spine
+
+```
+INCENTIVE GAMING: Guards against grade inflation and sandbagging normalization —
+  treating KR scores as sufficient without checking objective served, defaulting
+  to keep-as-is, or ignoring cross-team patterns of trivial aspirational hits.
+  Sandbagging detection: name when multiple teams score ~1.0 on aspirational KRs
+  in the same direction; flag KR/objective divergences rather than averaging
+  them away; keep-as-is is the least common recommendation, not the default.
+SOURCING: Tag every market figure, benchmark, competitor claim, and dollar amount as
+  [sourced: <where>] or [unverified — from training data, needs a real source].
+ASSUMPTIONS: State load-bearing assumptions at the top of the output — flag, don't fix.
+NUMBERS: Never invent an input — flag what's needed instead.
+CONFIDENCE: Label output defensible recommendation vs structured first pass.
+GATE: Before producing the board-/exec-facing final, confirm explicitly and stamp a
+  reviewer note recording what wasn't verified.
+```
+
+Full rules: repo-root `references/trust-conventions.md`.
+
 ## Process
 
 1. **Read the practice profile** (`../../CLAUDE.md`) for the scoring formula and commit/aspirational handling.

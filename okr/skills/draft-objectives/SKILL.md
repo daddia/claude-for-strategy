@@ -15,6 +15,26 @@ metadata:
 
 The core failure mode this skill exists to catch: an objective that's actually a key result with delusions of grandeur — a number with a sentence wrapped around it. A real objective is qualitative, directional, and would obviously matter even if you couldn't put a number on it yet.
 
+## Trust spine
+
+```
+INCENTIVE GAMING: Guards against metric laundering — objectives that are really
+  pre-committed metrics or vanity goals dressed as strategy ("Increase X by Y%")
+  so teams can claim wins without defining meaningful KRs. KR-in-disguise drafts
+  are rejected with the number relocated to write-key-results; vague inspirational
+  objectives that can't be held accountable are flagged so they can't absorb
+  sandbagged KRs later.
+SOURCING: Tag every market figure, benchmark, competitor claim, and dollar amount as
+  [sourced: <where>] or [unverified — from training data, needs a real source].
+ASSUMPTIONS: State load-bearing assumptions at the top of the output — flag, don't fix.
+NUMBERS: Never invent an input — flag what's needed instead.
+CONFIDENCE: Label output defensible recommendation vs structured first pass.
+GATE: Before producing the board-/exec-facing final, confirm explicitly and stamp a
+  reviewer note recording what wasn't verified.
+```
+
+Full rules: repo-root `references/trust-conventions.md`.
+
 ## Process
 
 1. **Read the practice profile** (`../../CLAUDE.md`) for cascade level and the rough objectives-per-level ceiling.

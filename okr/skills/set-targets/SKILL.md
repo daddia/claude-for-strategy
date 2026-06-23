@@ -14,6 +14,26 @@ metadata:
 
 The core failure mode: targets set without a stated commitment level, which makes scoring meaningless later — a KR scored at 60% reads as a miss if it was meant to be a commit, and as a healthy stretch if it was meant to be aspirational. Same number, opposite meaning. This skill won't let that ambiguity through.
 
+## Trust spine
+
+```
+INCENTIVE GAMING: Guards against sandbagging — targets set so low that hitting
+  1.0 is routine, or commit/aspirational labels smuggled to game the scoring
+  curve. Sandbagging detection: compare each target to baseline and prior-cycle
+  scores in seed data (consistent ~1.0 across KRs is named as a pattern, not
+  praised); flag commits with aspirational stretch and aspirational KRs with
+  trivial targets barely above baseline.
+SOURCING: Tag every market figure, benchmark, competitor claim, and dollar amount as
+  [sourced: <where>] or [unverified — from training data, needs a real source].
+ASSUMPTIONS: State load-bearing assumptions at the top of the output — flag, don't fix.
+NUMBERS: Never invent an input — flag what's needed instead.
+CONFIDENCE: Label output defensible recommendation vs structured first pass.
+GATE: Before producing the board-/exec-facing final, confirm explicitly and stamp a
+  reviewer note recording what wasn't verified.
+```
+
+Full rules: repo-root `references/trust-conventions.md`.
+
 ## Process
 
 1. **Read the practice profile** (`../../CLAUDE.md`) for the org's philosophy (commit-only vs. mixed) and scoring scale/formula.

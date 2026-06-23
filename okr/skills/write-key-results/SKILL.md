@@ -14,6 +14,26 @@ metadata:
 
 The core failure mode: a key result that measures whether work got *done* rather than whether it *worked*. "Ship the new onboarding flow" is an output — it can be 100% true and the objective can still have failed completely. The skill's job is forcing every KR to be a measurable change in a leading or lagging indicator, with the deliverable demoted to a supporting initiative if it shows up at all.
 
+## Trust spine
+
+```
+INCENTIVE GAMING: Guards against vanity metrics (easy-to-move numbers that don't
+  prove the objective) and sandbagging-by-proxy (KRs chosen because they're
+  hit-friendly, not because they're causal). Vanity-metric check asks whether
+  improvement for unrelated reasons would fool readers; sandbagging detection
+  flags KRs that would hit without advancing the objective or that measure
+  activity volume instead of outcome shift.
+SOURCING: Tag every market figure, benchmark, competitor claim, and dollar amount as
+  [sourced: <where>] or [unverified — from training data, needs a real source].
+ASSUMPTIONS: State load-bearing assumptions at the top of the output — flag, don't fix.
+NUMBERS: Never invent an input — flag what's needed instead.
+CONFIDENCE: Label output defensible recommendation vs structured first pass.
+GATE: Before producing the board-/exec-facing final, confirm explicitly and stamp a
+  reviewer note recording what wasn't verified.
+```
+
+Full rules: repo-root `references/trust-conventions.md`.
+
 ## Process
 
 1. **Get the objective this KR set serves** — every check below depends on having it explicit, not implied.
