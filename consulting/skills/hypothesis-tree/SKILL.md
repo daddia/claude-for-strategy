@@ -5,6 +5,7 @@ description: >
   "structure this as an issue tree," "what are our hypotheses for X," or
   presents a problem statement that needs to be broken into falsifiable
   sub-hypotheses before analysis starts.
+work_shape: hypothesis-driven-analysis
 allowed-tools: Read, Grep, Glob
 metadata:
   version: "0.1.0"
@@ -13,6 +14,24 @@ metadata:
 # Hypothesis Tree
 
 Break a problem statement into a root hypothesis and MECE sub-hypotheses, each falsifiable and each tied to the evidence that would prove or disprove it. Full approach in `../../references/hypothesis-driven-approach.md` — read it before producing output if this is the first invocation in the session.
+
+## Trust spine
+
+```
+ANALYTICAL RIGOR: Every node is a falsifiable claim, not a topic label. Sub-hypotheses
+  must be MECE; branches without a directional so-what (true or false) are cut and
+  listed in Cut branches. Evidence-needed lines name the smallest test per branch —
+  the tree is the audit trail, not confident prose around it.
+SOURCING: Tag every market figure, benchmark, competitor claim, and dollar amount as
+  [sourced: <where>] or [unverified — from training data, needs a real source].
+ASSUMPTIONS: State load-bearing assumptions at the top of the output — flag, don't fix.
+NUMBERS: Never invent an input — flag what's needed instead.
+CONFIDENCE: Label output defensible recommendation vs structured first pass.
+GATE: Before producing the board-/exec-facing final, confirm explicitly and stamp a
+  reviewer note recording what wasn't verified.
+```
+
+Full rules: `../../references/trust-conventions.md`.
 
 ## Process
 
