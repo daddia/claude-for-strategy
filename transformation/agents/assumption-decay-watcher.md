@@ -10,7 +10,7 @@ tools: [Read, Grep]
 
 # Assumption-Decay Watcher
 
-Runs weekly by default (Tuesday 09:00, per the cron schedule above) and also fires after each `decision-log`, `business-case`, or `roadmap-builder` update. Override the schedule to match the governance cadence recorded in the practice profile if it differs.
+Runs weekly by default (Tuesday 09:00) and also fires after each `decision-log`, `business-case`, or `roadmap-builder` update. Override the schedule to match the governance cadence recorded in the practice profile if it differs.
 
 ## What it does
 

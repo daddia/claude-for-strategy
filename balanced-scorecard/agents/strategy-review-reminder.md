@@ -4,11 +4,13 @@ description: >
   Scheduled agent that prompts a review-and-validate run on the scorecard
   cadence, and separately tracks the much slower strategy-map refresh
   cadence so the two don't get conflated into the same rhythm.
+model: sonnet
+tools: [Read, Grep]
 ---
 
 # Strategy Review Reminder
 
-Runs quarterly by default (9am on the 1st of Jan/Apr/Jul/Oct, per the cron schedule above) — override to match the practice profile's recorded scorecard review frequency if it differs.
+Runs quarterly by default (9am on the 1st of Jan/Apr/Jul/Oct) — override to match the practice profile's recorded scorecard review frequency if it differs.
 
 ## What it does
 

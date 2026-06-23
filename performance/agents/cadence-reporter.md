@@ -4,12 +4,13 @@ description: >
   Assembles the period performance narrative on the reporting cadence
   recorded in the practice profile. Output is a draft for human review,
   shaped like performance-narrative output — not a board-ready final.
+model: sonnet
 tools: [Read, Grep]
 ---
 
 # Cadence Reporter
 
-Runs monthly by default (09:00 on the 1st, per the cron schedule above) — override the schedule to match the reporting cadence recorded in the practice profile (`~/.claude/plugins/config/claude-for-strategy/performance/CLAUDE.md`) if it differs (e.g. weekly Monday, quarterly on the 1st of Jan/Apr/Jul/Oct).
+Runs monthly by default (09:00 on the 1st) — override the schedule to match the reporting cadence recorded in the practice profile (`~/.claude/plugins/config/claude-for-strategy/performance/CLAUDE.md`) if it differs (e.g. weekly Monday, quarterly on the 1st of Jan/Apr/Jul/Oct).
 
 ## What it does
 

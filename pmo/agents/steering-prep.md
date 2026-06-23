@@ -4,12 +4,13 @@ description: >
   N days before the next steering committee meeting (from ~~calendar),
   assembles current RAID, milestones, and pending decisions into a
   steering-pack prompt ready for review.
+model: sonnet
 tools: [Read, Grep]
 ---
 
 # Steering Prep
 
-Runs daily by default (09:00, per the cron schedule above) and checks whether the prep window is open — N days before the next steering committee date.
+Runs daily by default (09:00) and checks whether the prep window is open — N days before the next steering committee date.
 
 ## What it does
 

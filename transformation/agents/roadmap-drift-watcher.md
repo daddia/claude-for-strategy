@@ -10,7 +10,7 @@ tools: [Read, Grep]
 
 # Roadmap-Drift Watcher
 
-Runs weekly by default (Thursday 09:00, per the cron schedule above) — override the schedule to match the planning-check cadence recorded in the practice profile if it differs.
+Runs weekly by default (Thursday 09:00) — override the schedule to match the planning-check cadence recorded in the practice profile if it differs.
 
 ## What it does
 

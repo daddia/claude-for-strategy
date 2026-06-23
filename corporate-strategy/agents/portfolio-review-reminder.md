@@ -3,6 +3,8 @@ name: portfolio-review-reminder
 description: >
   Scheduled agent that prompts a portfolio review (allocate-resources +
   exit-or-double-down) on the cadence recorded in the practice profile.
+model: sonnet
+tools: [Read, Grep]
 ---
 
 # Portfolio Review Reminder

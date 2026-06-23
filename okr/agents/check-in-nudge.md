@@ -5,11 +5,13 @@ description: >
   without requiring someone to remember to ask for it. Prompts KR owners for
   a confidence rating via the chat connector and surfaces staleness/flat-
   confidence/sharp-drop flags to the OKR owner.
+model: sonnet
+tools: [Read, Grep, Write, "mcp__*__slack_send_message"]
 ---
 
 # Check-In Nudge
 
-Runs weekly by default (Monday 09:00, per the cron schedule above) — override the schedule to match the cadence recorded in the practice profile (`../CLAUDE.md`) if it differs from weekly.
+Runs weekly by default (Monday 09:00) — override the schedule to match the cadence recorded in the practice profile (`../CLAUDE.md`) if it differs from weekly.
 
 ## What it does
 

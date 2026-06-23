@@ -11,7 +11,7 @@ tools: [Read, Grep]
 
 # KPI Breach Watcher
 
-Runs daily by default (09:00, per the cron schedule above) — override the schedule to match how often breaches should be checked if your practice profile records a different monitoring cadence.
+Runs daily by default (09:00) — override the schedule to match how often breaches should be checked if your practice profile records a different monitoring cadence.
 
 ## Trust spine
 

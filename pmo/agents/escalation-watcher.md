@@ -10,7 +10,7 @@ tools: [Read, Grep]
 
 # Escalation Watcher
 
-Runs weekly by default (Monday 09:00, per the cron schedule above) and also fires after each `raid-log` update (`raid-log-updated` trigger). Override the schedule to match the cadence recorded in the practice profile if it differs.
+Runs weekly by default (Monday 09:00) and also fires after each `raid-log` update. Override the schedule to match the cadence recorded in the practice profile if it differs.
 
 ## What it does
 

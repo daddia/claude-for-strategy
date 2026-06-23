@@ -5,6 +5,8 @@ description: >
   practice profile defines as a meaningful signal, and flags anything that
   would change the strategic-group map or incentive map. Notably usable
   with no MCP connector at all — see notes below.
+model: sonnet
+tools: [Read, Grep, WebSearch, WebFetch, "mcp__*__slack_send_message"]
 ---
 
 # Competitive Signal Scan
