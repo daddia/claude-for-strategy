@@ -7,7 +7,7 @@ description: >
   objective heading into the next cycle.
 allowed-tools: Read, Grep, Glob
 metadata:
-  version: "0.1.0"
+  version: "0.2.0"
 ---
 
 # Score and Retro
@@ -32,37 +32,130 @@ GATE: Before producing the board-/exec-facing final, confirm explicitly and stam
   reviewer note recording what wasn't verified.
 ```
 
-Full rules: repo-root `references/trust-conventions.md`.
+## Precondition: load profiles
+
+**Before scoring, read both:**
+
+- `~/.claude/plugins/config/claude-for-strategy/org-profile.md` — calibration norms, public vs internal OKR policy
+- `~/.claude/plugins/config/claude-for-strategy/okr/CLAUDE.md` — scoring formula, commit/aspirational philosophy, expected aspirational band, sandbagging history in seed data
+
+If either file is missing or still has template placeholders, use the **default scoring doctrine** below and tag output `[PROVISIONAL — configure profile for org-calibrated scoring]`.
+
+## Scoring doctrine (inline)
+
+Apply the formula recorded in the practice profile. If none is set, use this default:
+
+### Default formula — increase-is-better KRs
+
+```
+score = (actual − baseline) ÷ (target − baseline)
+```
+
+Cap at **1.0** unless the profile explicitly allows overachievement above 1.0. If `actual` is below `baseline`, score is **0.0** (do not extrapolate negative scores unless the profile says otherwise).
+
+### Decrease-is-better KRs (cost, churn, defects)
+
+```
+score = (baseline − actual) ÷ (baseline − target)
+```
+
+Same cap rules. If baseline or target is missing, score is **`INPUT NEEDED`** — do not guess.
+
+### Binary / milestone KRs
+
+| Outcome | Score |
+|---|---|
+| Fully achieved | 1.0 |
+| Partially achieved (profile or user defines partial) | 0.5–0.7 per profile; default 0.5 |
+| Not achieved | 0.0 |
+
+### Commit vs aspirational at scoring time
+
+| Type | How to read the score |
+|---|---|
+| **Commit** | 0.7–1.0 = delivered as promised. Below 0.7 = a miss worth explaining — not automatically a failure of the objective, but a miss on this KR. Scoring 1.0 on a commit is **expected**, not exceptional — don't treat it as retro "success" by itself. |
+| **Aspirational** | 0.6–0.7 = healthy stretch zone `[unverified — common OKR convention]`. Below 0.4 may still be valuable progress if the objective was substantially advanced anyway (see objective rollup). **1.0 on aspirational** = either genuine overperformance or a sandbagged target — check calibration from `set-targets`. |
+
+### Sandbagging signals (name if present)
+
+- Multiple aspirational KRs scored **≥ 0.95** in the same cycle across a team
+- Historical seed data shows **consistent ~1.0** on most KRs across prior cycles
+- Targets were set trivially above baseline at cycle start (flagged in `set-targets`)
+
+Do not normalize sandbagging away — name the pattern and let it inform next-cycle recommendations.
 
 ## Process
 
-1. **Read the practice profile** (`../../CLAUDE.md`) for the scoring formula and commit/aspirational handling.
+### Step 1: Score each KR
 
-2. **Score each KR** using the formula set in `set-targets`. State the score plainly.
+For each KR, state: baseline, target, actual, formula used, computed score, commit/aspirational label. Show the arithmetic in one line when inputs exist — scoring should not be reverse-engineered later.
 
-3. **Roll up to objective level, but don't just average.** For each objective, ask explicitly: given how the KRs scored, was the objective actually achieved in spirit? Two specific divergences to look for and name if found:
-   - **KRs scored well, objective wasn't really served** — the KRs turned out to be a weak proxy after all (a `write-key-results` miss surfacing late), or the result was achieved in a way that didn't matter (e.g. hit a growth number through a one-off channel that won't repeat).
-   - **KRs missed numerically, objective was substantially advanced anyway** — sometimes the target was miscalibrated (`set-targets` overreach) rather than the work falling short; don't let a missed number erase real progress if that's what actually happened.
+### Step 2: Roll up to objective level — do not average
 
-4. **For each objective, recommend keep / kill / revise / promote-to-commit** for next cycle, with the one-line reason. "Keep as-is" should be the least common recommendation, not the default — a cycle that changes nothing usually means the retro wasn't honest.
+For each objective, assign an **objective-level call** using this decision tree (KR scores inform but do not mechanically determine the call):
 
-5. **If multiple teams' retros are being reviewed together**, look for cross-team patterns: a shared external cause behind several misses (worth naming once rather than re-litigating per team), or a sandbagging pattern across multiple teams' aspirational KRs in the same direction.
+| Objective-level call | When to use |
+|---|---|
+| **Achieved** | The outcome the objective described actually happened — even if some KRs missed numerically |
+| **Partially achieved** | Material progress but the full outcome wasn't reached; or mixed KR results that net to meaningful but incomplete delivery |
+| **Not achieved** | The objective's outcome did not materialize in any way that matters |
+
+**Mandatory divergence checks** — name explicitly if either applies:
+
+1. **KRs scored well, objective wasn't really served** — weak proxy KRs (a `write-key-results` miss surfacing late), or the number was hit in a way that doesn't repeat or doesn't matter (one-off channel, pulled-forward revenue, scope cut that left the underlying outcome unchanged).
+2. **KRs missed numerically, objective was substantially advanced anyway** — target miscalibration from `set-targets` overreach, or the KR was a poor measure of what actually moved; don't let a missed number erase real progress.
+
+A simple KR average is **not** the objective-level call unless the user explicitly uses average-as-rollup in their profile.
+
+### Step 3: Next-cycle recommendation per objective
+
+| Recommendation | When to use | Not when |
+|---|---|---|
+| **keep** | Objective still right; KRs and targets were well-calibrated; execution gap was the issue, not strategy | Objective was wrong but numbers looked fine |
+| **kill** | Objective no longer a strategic priority, or retro proved the objective itself was misguided | One bad quarter on a still-valid multi-year objective |
+| **revise** | Objective direction right but KRs, targets, or wording need rework | Objective itself is obsolete |
+| **promote-to-commit** | An aspirational KR was consistently hit or nearly hit — ready to formalize as a commit next cycle | First cycle on a genuinely stretch target that scored 0.7 |
+
+**"Keep as-is" should be the least common recommendation**, not the default. A cycle that changes nothing usually means the retro wasn't honest.
+
+### Step 4: Cross-team patterns (if multiple teams)
+
+- **Shared external cause** behind several misses — name once at portfolio level rather than re-litigating per team
+- **Sandbagging pattern** — multiple teams' aspirational KRs all scoring ~1.0 in the same direction
+- **Systematic proxy failure** — same KR type (e.g. all vanity pipeline metrics) scoring well while objectives aren't served
 
 ## Output format
 
 ```
+CONFIDENCE: [defensible recommendation | structured first pass]
+SCORING FORMULA: [from profile, or default as stated above]
+
 OBJECTIVE: [text]
 
 KR scores:
-  [KR text]: [score] ([commit | aspirational])
+  [KR text]: [score] ([commit | aspirational]) — baseline [x] → target [y], actual [z]
   [KR text]: [score] (...)
 
-OBJECTIVE-LEVEL CALL: [achieved / partially achieved / not achieved] — [one line, may
-  diverge from a simple score average; explain if so]
+OBJECTIVE-LEVEL CALL: [achieved | partially achieved | not achieved] — [one line; explain
+  if this diverges from KR scores]
 
-NEXT CYCLE: [keep | kill | revise | promote-to-commit] — [why]
+DIVERGENCE FLAG: [none | KRs hit / objective missed | KRs missed / objective advanced] —
+  [evidence]
+
+NEXT CYCLE: [keep | kill | revise | promote-to-commit] — [why per rubric above]
 
 [repeat per objective]
 
-CROSS-TEAM PATTERNS (if applicable): [shared causes, shared sandbagging, etc.]
+CROSS-TEAM PATTERNS (if applicable): [shared causes, sandbagging, proxy failures]
+
+CALIBRATION NOTES: [any sandbagging signals, targets to revisit via set-targets]
 ```
+
+## Quality checks before delivering
+
+- [ ] Profile loaded (or `[PROVISIONAL]` tagged)
+- [ ] Every KR has stated formula and arithmetic (or `INPUT NEEDED`)
+- [ ] Objective-level calls do not default to KR averages
+- [ ] Both divergence types explicitly checked per objective
+- [ ] "Keep" is justified, not assumed
+- [ ] Sandbagging signals named if present
