@@ -58,8 +58,6 @@ Each agent is named for the job it does. They're the most common surface — sta
 | **Portfolio Review Reminder** | Quarterly prompt to run `allocate-resources` and recheck `exit-or-double-down` holds past their re-rating date | `corporate-strategy` | scheduled agent |
 | **Competitive Signal Scan** | Weekly scan for competitor moves that would change the strategic-group or incentive map; works with native web search, no connector required | `market-intelligence` | scheduled agent |
 
-**Planned V1.2 watchers** (not yet shipped): Convention Monitor (`consulting`).
-
 ## Repository layout
 
 ```
