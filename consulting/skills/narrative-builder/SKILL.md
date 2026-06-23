@@ -5,6 +5,7 @@ description: >
   these notes," "what's my storyline here," "structure this into a pyramid,"
   or provides raw findings, interview notes, or analysis output and wants it
   turned into a governing thought with supporting argument structure.
+work_shape: narrative-synthesis
 allowed-tools: Read, Grep, Glob
 metadata:
   version: "0.1.0"
@@ -13,6 +14,25 @@ metadata:
 # Narrative Builder
 
 Turn raw input (notes, findings, analysis output, a brain-dump) into a Minto-structured narrative: one governing thought, 3-5 MECE key line points, and supporting evidence underneath each. Full method in `../../references/minto-pyramid.md` — read it before producing output if this is the first invocation in the session.
+
+## Trust spine
+
+```
+ANALYTICAL RIGOR: Output is a structured outline — governing thought, 3–5 MECE key
+  line points, support sub-bullets — not prose paragraphs. Overlap and gaps in MECE
+  coverage are named explicitly in Known gaps / flags, not smoothed over with
+  confident narrative. Grouping logic (deductive vs inductive) is stated so the
+  reader can audit the argument structure rather than accept a polished storyline.
+SOURCING: Tag every market figure, benchmark, competitor claim, and dollar amount as
+  [sourced: <where>] or [unverified — from training data, needs a real source].
+ASSUMPTIONS: State load-bearing assumptions at the top of the output — flag, don't fix.
+NUMBERS: Never invent an input — flag what's needed instead.
+CONFIDENCE: Label output defensible recommendation vs structured first pass.
+GATE: Before producing the board-/exec-facing final, confirm explicitly and stamp a
+  reviewer note recording what wasn't verified.
+```
+
+Full rules: `../../references/trust-conventions.md`.
 
 ## Process
 
