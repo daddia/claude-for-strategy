@@ -5,6 +5,7 @@ description: >
   roadmap," "sequence this into now/next/later," "lay out the delivery
   plan," or provides a current state and an ambition that need sequencing
   into a phased roadmap.
+work_shape: structured-aggregation
 allowed-tools: Read, Grep, Glob
 metadata:
   version: "0.2.0"
@@ -17,6 +18,10 @@ Sequence a transformation ambition into a phased roadmap. Defaults to the user's
 ## Trust spine
 
 ```
+ANALYTICAL RIGOR: Sequence is justified by an explicit dependency map before phase
+  placement — no initiative lands in a phase without a one-line rationale tied to
+  dependencies, capacity, or gates. Overloaded phases and unresolved INPUT NEEDED
+  items are flagged in the output block, not buried in confident sequencing prose.
 SOURCING: Tag every market figure, benchmark, competitor claim, and dollar amount as
   [sourced: <where>] or [unverified — from training data, needs a real source].
 ASSUMPTIONS: State load-bearing assumptions at the top of the output — flag, don't fix.
