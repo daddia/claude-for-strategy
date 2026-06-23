@@ -6,6 +6,7 @@ description: >
   candidate objectives that need an explicit causal mechanism linking each
   one to the perspective above it — the actual intellectual core of a
   balanced scorecard, not just objectives sorted into four boxes.
+work_shape: structured-aggregation
 allowed-tools: Read, Grep, Glob
 metadata:
   version: "0.1.0"
@@ -14,6 +15,25 @@ metadata:
 # Build Strategy Map
 
 A strategy map without stated mechanisms is just four lists with arrows drawn out of habit. The discipline this skill enforces: every objective must state, in causal language, *why* achieving it would produce the effect claimed in the perspective above — "if we achieve X, we expect Y because [mechanism]," not just an arrow pointing upward.
+
+## Trust spine
+
+```
+ANALYTICAL RIGOR: Every upward link requires a stated mechanism ("because …") or
+  is tagged UNVALIDATED — do not supply plausible-sounding causal prose on the
+  user's behalf. Orphan objectives, unfunded mandates, and redundant objectives
+  within a perspective are listed explicitly in the output block, not hidden
+  behind clean-looking arrows.
+SOURCING: Tag every market figure, benchmark, competitor claim, and dollar amount as
+  [sourced: <where>] or [unverified — from training data, needs a real source].
+ASSUMPTIONS: State load-bearing assumptions at the top of the output — flag, don't fix.
+NUMBERS: Never invent an input — flag what's needed instead.
+CONFIDENCE: Label output defensible recommendation vs structured first pass.
+GATE: Before producing the board-/exec-facing final, confirm explicitly and stamp a
+  reviewer note recording what wasn't verified.
+```
+
+Full rules: `../../references/trust-conventions.md` (consulting plugin) or repo-root `references/trust-conventions.md`.
 
 ## Process
 
