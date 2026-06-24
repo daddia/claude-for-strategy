@@ -6,16 +6,43 @@ description: >
   accountable for this benefit," or needs each mapped benefit turned
   into a formal register entry — baseline, target, owner, and
   realisation date — before tracking can begin.
-tools: Read, Grep, Glob, Write
+allowed-tools: Read, Grep, Glob, Write
 metadata:
-  version: "0.1.0"
+  version: "0.3.0"
+  owner: "value-realisation practice"
+  review_cadence: "quarterly"
+  work_shape: "structured-aggregation"
+  output_class: "structured-data"
+  sourcing_policy: "volatile-facts-must-be-sourced"
 ---
 
 # Benefits Register
 
-Two disciplines most registers skip, both non-negotiable here: a baseline captured *before* the business change starts (a baseline taken afterward is no longer a clean counterfactual, no matter how carefully it's reconstructed), and a named owner who is explicitly not the delivery PM — accountability for the *number*, held by someone who's still in post long after the project team has moved on.
+## When to use
 
-## Process
+Turn mapped benefits into register entries — baseline, target, owner distinct from delivery PM.
+
+## What this skill does not do
+
+- **Does not accept retrofitted baselines as clean** — RETROFITTED BASELINE flag carries forward.
+- **Does not duplicate metric definitions** — hand off to `performance:metrics-glossary` when installed.
+
+## Preconditions
+
+| Input | If missing |
+|---|---|
+| `benefits-map` output | Ask user to map first or provide chain |
+| Practice profile baseline discipline | Flag conservatively |
+
+## Provisional mode
+
+Owner same as PM → governance gap flag, not silent default.
+
+## Trust spine
+
+Structured-aggregation bands; baseline-before-change enforced; double-counting checked.
+
+## Workflow
 
 1. **Read the practice profile** (`../../CLAUDE.md`) for the baseline-discipline answer from setup and the benefit type taxonomy, and read `benefits-map` output for the benefit chain being registered.
 
@@ -48,3 +75,19 @@ BENEFIT: [name] — Type: [cash-releasing | cash-releasable | non-cash/qualitati
 
 DOUBLE-COUNTING FLAGS: [list, or "none"]
 ```
+
+## Worked example
+
+**Input:** Baseline dated after go-live.
+
+**Expected output:** Baseline check: RETROFITTED — flag carries forward to all tracking cycles.
+
+## Quality checks before delivering
+
+- [ ] Baseline vs go-live checked per benefit
+- [ ] Owner distinct from delivery PM or flagged
+- [ ] Double-counting assessed
+
+## Outputs
+
+Follows plugin `CLAUDE.md` § Outputs. Next: `benefits-tracking`.
