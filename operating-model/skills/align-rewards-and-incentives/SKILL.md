@@ -9,38 +9,97 @@ description: >
   check.
 allowed-tools: Read, Grep, Glob
 metadata:
-  version: "0.1.0"
+  version: "0.3.0"
+  owner: "operating-model practice"
+  review_cadence: "quarterly"
+  work_shape: "structured-aggregation"
+  output_class: "draft-for-review"
+  sourcing_policy: "volatile-facts-must-be-sourced"
 ---
 
 # Align Rewards and Incentives
 
-Structure is the cheapest of the four things that actually determine how an org behaves — drawing new boxes is easy. This skill checks the three things that are harder to change and that determine whether the new boxes mean anything: whether the reward system reinforces the structure's intent, whether existing processes still assume the old structure, and whether the org has people with the capabilities the new structure assumes.
+## When to use
 
-## Process
+Star Model integration check — whether rewards, processes, and capabilities reinforce structure intent, not just the org chart.
 
-1. **Read the practice profile** (`../../CLAUDE.md`) for how people are actually measured and paid.
+## What this skill does not do
 
-2. **State the structure's intent plainly** — what behavior is the new or current structure meant to produce (e.g., cross-functional collaboration, faster local decisions, deeper specialization).
+- **Does not redesign structure** — route to `/operating-model:diagnose-structure-fit`.
+- **Does not map external incentives** — route to `/market-intelligence:map-incentives` for competitors/partners.
+- **Does not implement comp changes** — recommends specific changes for HR/leadership.
 
-3. **Check the reward system against that intent.** Apply the same incentive logic as `market-intelligence:map-incentives`, pointed internally: if the structure is meant to produce cross-functional collaboration but individual metrics and bonuses remain entirely siloed, predict — explicitly — that people will keep behaving like the old structure regardless of the new chart, because the reward system still pays them to. Don't soften this into "may face some friction"; if the incentive misalignment is real, state plainly that the reorg will likely fail to change behavior without a reward change.
+## Preconditions
 
-4. **Check process fit** — do existing approval chains, planning cycles, or systems still assume the old structure (e.g., a budget process that only knows how to allocate by the old divisional lines)? Name specific processes that would create friction against the new structure if left unchanged.
+| Input | If missing |
+|---|---|
+| Structure intent (current or proposed) | Ask what behavior the structure should produce |
+| Reward mechanism (practice profile or user) | Ask how people are measured/paid; flag `[PROVISIONAL]` |
+| Process and capability context | Ask; proceed with labeled gaps |
 
-5. **Check people/capability fit** — does the org currently have people with the skills the new structure assumes (e.g., a move to a more autonomous team structure assumes managers who can coach rather than direct — does that capability exist, or is it assumed)? Flag the gap rather than assuming capability will simply appear because the structure now requires it.
+## Provisional mode
 
-6. **Recommend the specific reward, process, or capability changes needed** to make the structure change real — a structure recommendation with no corresponding changes here should be flagged as incomplete, not shipped as if structure alone will do the work.
+Without comp detail: reward fit labeled `[review]`; do not assert "supports" without mechanism evidence.
+
+## Trust spine
+
+- **Confidence bands** (`structured-aggregation`):
+  - **High:** Reward, process, people checks complete with specific mechanisms named.
+  - **Medium:** Some gaps inferred; verdict qualified.
+  - **Low:** Structure intent unstated — halt.
+- **Failure modes:**
+  - **Strategic advice vs. support:** Verdict is diagnostic; leadership owns implementation.
+  - **Client confidentiality:** Comp details highly sensitive — CONFIDENTIAL header; internal-only gate.
+  - **Accountability gap:** "Structure alone sufficient" only when all three fits support intent.
+  - **Analytical Rigor:** MECE across reward/process/people dimensions.
+  - **Incentive Gaming:** Predicts behavior from actual incentives, not values statements.
+- **Escalation triggers:** Reward system actively undermines structure — state plainly reorg will fail without reward change.
+
+## Workflow
+
+1. **Read practice profile** for how people are measured and paid.
+2. **State structure's intent** plainly.
+3. **Check reward fit** — apply `map-incentives` logic internally; predict behavior if unchanged.
+4. **Check process fit** — approval chains, planning cycles assuming old structure.
+5. **Check people/capability fit** — skills the new structure assumes.
+6. **Recommend specific changes** beyond org chart.
+7. **Completeness check** before output.
 
 ## Output format
 
 ```
+CONFIDENCE: [defensible recommendation | structured first pass]
 STRUCTURE'S INTENT: [what behavior this is meant to produce]
 
-REWARD FIT: [supports / undermines] — [specific mechanism, and predicted behavior if unchanged]
-PROCESS FIT: [specific processes still assuming the old structure, if any]
-PEOPLE/CAPABILITY FIT: [capability the new structure assumes — present / gap]
+REWARD FIT: [supports / undermines] — [specific mechanism, predicted behavior if unchanged]
+PROCESS FIT: [processes still assuming old structure, if any]
+PEOPLE/CAPABILITY FIT: [capability assumed — present / gap]
 
 RECOMMENDED CHANGES (beyond the org chart): [reward, process, capability — specific]
 
 VERDICT: [structure change alone is sufficient] or [structure change will likely NOT
-  produce the intended behavior without the changes above — be direct about this]
+  produce the intended behavior without the changes above]
 ```
+
+## Worked example
+
+**Input:** Matrix for cross-functional delivery; bonuses 100% on functional P&L.
+
+**Expected output (excerpt):**
+
+```
+REWARD FIT: undermines — functional bonuses predict siloed behavior despite matrix [review]
+VERDICT: structure change will likely NOT produce intended behavior without reward changes
+```
+
+## Quality checks before delivering
+
+- [ ] Structure intent stated
+- [ ] Reward fit uses incentive mechanism, not values doc
+- [ ] Process and capability gaps named
+- [ ] Verdict direct when misalignment real
+- [ ] Comp-sensitive content gated
+
+## Outputs
+
+Follows plugin `CLAUDE.md` § Outputs. Next: HR/people leadership review, `design-decision-rights`, or revise structure.
