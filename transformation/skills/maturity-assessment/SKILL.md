@@ -7,24 +7,36 @@ description: >
   that need to be scored against a maturity framework.
 allowed-tools: Read, Grep, Glob
 metadata:
-  version: "0.2.0"
+  version: "0.3.0"
+  owner: "transformation practice"
+  review_cadence: "quarterly"
+  work_shape: "structured-aggregation"
+  output_class: "draft-for-review"
+  sourcing_policy: "volatile-facts-must-be-sourced"
 ---
 
 # Maturity Assessment
 
-Score current-state digital maturity against a capability model and produce a scorecard with a narrative explaining the score, not just the number.
+## When to use
+
+Score digital maturity with evidence-backed scorecard — every score cites specific observations, not generic level descriptions.
+
+## What this skill does not do
+
+- **Does not invent interview evidence** — `INPUT NEEDED` when observations missing.
+- **Does not sequence roadmap** — hand off binding constraint to `roadmap-builder`.
+
+## Preconditions
+
+Load org + transformation profiles; provisional mode available.
+
+## Provisional mode
+
+Default six dimensions, 1–5 scale — see workflow below.
 
 ## Trust spine
 
-```
-SOURCING: Tag every market figure, benchmark, competitor claim, and dollar amount as
-  [sourced: <where>] or [unverified — from training data, needs a real source].
-ASSUMPTIONS: State load-bearing assumptions at the top of the output — flag, don't fix.
-NUMBERS: Never invent an input — flag what's needed instead.
-CONFIDENCE: Label output defensible recommendation vs structured first pass.
-GATE: Before producing the board-/exec-facing final, confirm explicitly and stamp a
-  reviewer note recording what wasn't verified.
-```
+Structured-aggregation bands; evidence per score; GATE before board/exec final.
 
 ## Purpose
 
@@ -126,6 +138,17 @@ EVIDENCE GAPS: [INPUT NEEDED]
 - [ ] Binding constraint identified — not just lowest average
 - [ ] No invented survey results or benchmark scores
 
-## Close with next steps
+## Worked example
 
-Branches: gather evidence for insufficient dimensions, hand off sequencing to `roadmap-builder`, fund level-up work via `business-case`, re-run after discovery exit, or take binding-constraint finding to steering.
+**Input:** Technology dimension — evidence: manual deployments, no CI/CD.
+
+**Expected output (excerpt):**
+
+```
+Technology: 2/5 — Evidence: releases monthly via manual runbook [user provided]
+BINDING CONSTRAINT: Technology blocks Operations target state [review]
+```
+
+## Outputs
+
+Follows plugin `CLAUDE.md` § Outputs. Next: `roadmap-builder`, `business-case`, gather evidence, or steering on binding constraint.
