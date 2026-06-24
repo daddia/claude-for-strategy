@@ -7,28 +7,65 @@ description: >
   actual coordination need the strategy requires.
 allowed-tools: Read, Grep, Glob
 metadata:
-  version: "0.1.0"
+  version: "0.3.0"
+  owner: "operating-model practice"
+  review_cadence: "quarterly"
+  work_shape: "hypothesis-driven-analysis"
+  output_class: "draft-for-review"
+  sourcing_policy: "volatile-facts-must-be-sourced"
 ---
 
 # Diagnose Structure Fit
 
-A structure is only "right" relative to a specific coordination need — there's no universally best org chart. This skill tests fit against what the strategy actually requires, and separately flags the most common reason structures drift away from that: being shaped by who currently reports to whom rather than by the work itself.
+## When to use
 
-## Process
+Test current/proposed structure against coordination needs the strategy requires — no universally "best" org chart.
 
-1. **Read the practice profile** (`../../CLAUDE.md`) for what the structure is meant to optimize for.
+## What this skill does not do
 
-2. **State the coordination need precisely** — does the strategy require fast cross-functional decisions, deep functional expertise concentrated in one place, tight local responsiveness across markets, or centralized control for consistency? Most real strategies need more than one of these in different places; identify where each applies rather than picking one for the whole org.
+- **Does not align rewards** — route to `/operating-model:align-rewards-and-incentives`.
+- **Does not design RACI** — route to `/operating-model:design-decision-rights`.
+- **Does not recommend full redesign by default** — targeted fixes only.
 
-3. **Test the current/proposed structure against that need, by area.** A strict functional hierarchy with no integrating mechanism is a mismatch for an area needing fast cross-functional decisions — name the specific mismatch, don't just assert "the structure feels wrong."
+## Preconditions
 
-4. **Run the blank-page test on the structure itself**: if this org were designed today from scratch around the actual work and coordination needs — with no regard for who currently holds which title — would it look like this? If a structure persists mainly because it mirrors the current leadership team's personalities or political balance rather than the work, name that directly. This is uncomfortable to say plainly and is exactly why it's worth saying plainly.
+| Input | If missing |
+|---|---|
+| Strategic priority / coordination need | Ask what structure should optimize for |
+| Current or proposed structure by area | Ask user to describe or provide org chart |
+| Practice profile | Proceed with labeled assumptions |
 
-5. **Recommend specific structural changes** where mismatches were found — not a full redesign by default, targeted fixes to the areas where fit actually breaks down.
+## Provisional mode
+
+Without area breakdown: assess at highest level available; flag `[review]` on incomplete area coverage.
+
+## Trust spine
+
+- **Confidence bands** (`hypothesis-driven-analysis`):
+  - **High:** Coordination needs stated per area; fit/mismatch specific; blank-page test complete.
+  - **Medium:** Some areas inferred; mismatches flagged with hypotheses.
+  - **Low:** Strategy priority unstated — halt.
+- **Failure modes:**
+  - **Strategic advice vs. support:** Recommendations are options; leadership owns reorg decision.
+  - **Client confidentiality:** Structure politics sensitive — CONFIDENTIAL header.
+  - **Accountability gap:** Blank-page test names political drivers when present `[review]`.
+  - **Analytical Rigor:** MECE area coverage; mismatches falsifiable.
+  - **Incentive Gaming:** N/A — structure focus.
+- **Escalation triggers:** Structure driven by personalities not work — name directly.
+
+## Workflow
+
+1. **Read practice profile** for structure optimization goal.
+2. **State coordination need precisely** by area — cross-functional speed, expertise depth, local responsiveness, central control.
+3. **Test structure against need per area** — name specific mismatches.
+4. **Run blank-page test** — designed fresh around work, or legacy of titles/politics?
+5. **Recommend targeted changes** where fit breaks down.
+6. **MECE check** before output: areas in scope covered.
 
 ## Output format
 
 ```
+CONFIDENCE: [defensible recommendation | structured first pass]
 STRATEGIC PRIORITY: [what the structure should optimize for]
 
 AREA: [function/business line] — Coordination need: [...]
@@ -36,8 +73,32 @@ AREA: [function/business line] — Coordination need: [...]
 
 [repeat per area]
 
-BLANK-PAGE TEST: [would this look the same designed fresh around the work? yes/no — if
-  no, name what's actually driving the current shape]
+BLANK-PAGE TEST: [yes/no — if no, what's driving current shape]
 
 RECOMMENDED CHANGES: [targeted, by area]
 ```
+
+## Worked example
+
+**Input:** Strategy needs fast cross-functional product decisions; strict functional hierarchy with no integrator.
+
+**Expected output (excerpt):**
+
+```
+AREA: Product delivery — Coordination need: fast cross-functional decisions
+  Current structure: strict functional silos — Fit: mismatch — no integrating mechanism [review]
+BLANK-PAGE TEST: no — structure mirrors current VP titles [review]
+RECOMMENDED CHANGES: Add product integrator role or cross-functional squad layer for delivery area only
+```
+
+## Quality checks before delivering
+
+- [ ] Coordination need stated per area
+- [ ] Mismatches specific, not vague
+- [ ] Blank-page test completed
+- [ ] Changes targeted, not blanket redesign
+- [ ] MECE area coverage
+
+## Outputs
+
+Follows plugin `CLAUDE.md` § Outputs. Next: `align-rewards-and-incentives`, `design-decision-rights`, or exec workshop.
