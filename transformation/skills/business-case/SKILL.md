@@ -7,24 +7,37 @@ description: >
   together into a decision-ready business case.
 allowed-tools: Read, Grep, Glob
 metadata:
-  version: "0.2.0"
+  version: "0.3.0"
+  owner: "transformation practice"
+  review_cadence: "quarterly"
+  work_shape: "option-evaluation"
+  output_class: "draft-for-review"
+  sourcing_policy: "volatile-facts-must-be-sourced"
 ---
 
 # Business Case
 
-Build a transformation business case: problem, options, cost/benefit, sequencing, risk, and a specific ask — BLUF structured, conclusion first.
+## When to use
+
+Decision-ready transformation business case — problem, options, cost/benefit, sequencing, risk, specific ask; BLUF structured.
+
+## What this skill does not do
+
+- **Does not invent financials** — tag assumptions; `INPUT NEEDED` for missing costs.
+- **Does not approve funding** — draft for sponsor/finance gate.
+- **Does not sequence roadmap** — hand off detail to `/transformation:roadmap-builder`.
+
+## Preconditions
+
+Load org + transformation profiles before building; provisional mode on user request.
+
+## Provisional mode
+
+See workflow section below — generic defaults with `[PROVISIONAL]` tags.
 
 ## Trust spine
 
-```
-SOURCING: Tag every market figure, benchmark, competitor claim, and dollar amount as
-  [sourced: <where>] or [unverified — from training data, needs a real source].
-ASSUMPTIONS: State load-bearing assumptions at the top of the output — flag, don't fix.
-NUMBERS: Never invent an input — flag what's needed instead.
-CONFIDENCE: Label output defensible recommendation vs structured first pass.
-GATE: Before producing the board-/exec-facing final, confirm explicitly and stamp a
-  reviewer note recording what wasn't verified.
-```
+Option-evaluation bands; benefit confidence labels; GATE before board/exec final. Guards invented financials and unsigned assumptions.
 
 ## Purpose
 
@@ -209,6 +222,18 @@ EVIDENCE GAPS: [what's still INPUT NEEDED before this becomes defensible]
 - [ ] Recommendation appears before detailed tables (BLUF)
 - [ ] Board/exec final has reviewer note if gate was run
 
-## Close with next steps
+## Worked example
 
-End with a short decision tree customized to this case — e.g. "Fill cost inputs and re-run for ROI," "Approve and hand off to `roadmap-builder`," "Take structured first pass to finance for baseline validation," "Defer — revisit when [trigger]," or "Escalate to [forum] before board circulation." The user picks the branch.
+**Input:** Platform consolidation initiative; sponsor audience; partial cost data.
+
+**Expected output (excerpt):**
+
+```
+RECOMMENDATION: Proceed with minimum viable consolidation — staged funding reduces risk [review]
+CONFIDENCE: structured first pass
+EVIDENCE GAPS: INPUT NEEDED — integration run-rate from finance
+```
+
+## Outputs
+
+Follows plugin `CLAUDE.md` § Outputs. End with decision tree — fill cost inputs, approve and hand off to `roadmap-builder`, finance validation, defer, or escalate per profile forums.
