@@ -7,36 +7,82 @@ description: >
   check with slippage flagged.
 allowed-tools: Read, Grep, Glob
 metadata:
-  version: "0.1.0"
+  version: "0.3.0"
+  owner: "pmo practice"
+  review_cadence: "quarterly"
+  work_shape: "governance-tracking"
+  output_class: "tracking-update"
+  sourcing_policy: "volatile-facts-must-be-sourced"
 ---
 
 # Milestone Tracker
 
-Check current progress against a milestone plan, identify the critical path, and flag slippage against the tolerance recorded in the practice profile — not just a list of dates, an assessment of what the slippage actually threatens.
+## When to use
 
-## Process
+Critical-path milestone status with slippage against profile tolerance — knock-on effects, not flat date lists.
 
-1. **Read the practice profile** (`~/.claude/plugins/config/claude-for-strategy/pmo/CLAUDE.md`) for where the milestone plan lives and the slippage tolerance (how much delay before something is "at risk" vs. just noted).
+## What this skill does not do
 
-2. **Get the milestone plan and current actuals.** Ask for both if not provided — don't infer progress from partial information.
+- **Does not invent progress** — ask for plan and actuals.
+- **Does not escalate non-critical float slips** — distinguish timeline threats from noise.
 
-3. **Identify the critical path** — which milestones, if delayed, push out the end date, versus which have float (can slip without affecting the overall timeline). This distinction matters more than a flat list of every milestone's status.
+## Preconditions
 
-4. **For each critical-path milestone, compare planned vs. actual/forecast date.** Apply the tolerance from the practice profile to classify: on track, at risk (within tolerance but trending late), or slipped (beyond tolerance).
+| Input | If missing |
+|---|---|
+| Milestone plan | Ask — halt if absent |
+| Current actuals/forecast | Ask — don't infer |
+| Slippage tolerance (profile) | Default with `[PROVISIONAL]` |
 
-5. **For anything at risk or slipped, state the knock-on effect** — what downstream milestone or the overall end date is now threatened, not just that this one item is late.
+## Provisional mode
 
-6. **For non-critical-path items with float, note status but don't escalate** — distinguishing genuine threats to the timeline from cosmetic schedule noise is the actual value of this skill.
+Partial actuals: assess available milestones; flag incomplete coverage.
+
+## Trust spine
+
+- **Confidence bands** (`governance-tracking`):
+  - **High:** Critical path identified; slippage classified; knock-on effects stated.
+  - **Medium:** Some forecasts uncertain — tagged `[review]`.
+  - **Low:** Plan missing — halt.
+- **Failure modes:**
+  - **Incentive Gaming:** N/A — schedule focus.
+- **Escalation triggers:** Critical-path slip beyond tolerance — overall end date at risk.
+
+## Workflow
+
+1. Read profile for plan location and slippage tolerance.
+2. Get plan and actuals.
+3. Identify critical path vs float.
+4. Classify each critical milestone: on track / at risk / slipped.
+5. State knock-on effects for at-risk/slipped items.
+6. Note non-critical items briefly without escalation.
+7. Gaming-pattern check before output.
 
 ## Output format
 
 ```
+CONFIDENCE: [defensible recommendation | structured first pass]
 CRITICAL PATH STATUS:
-[Milestone] — Planned: [date] | Actual/Forecast: [date] | Status: [on track | at risk | slipped]
-  Knock-on effect: [if at risk/slipped — what this threatens downstream]
+[Milestone] — Planned: [date] | Actual/Forecast: [date] | Status: [...]
+  Knock-on effect: [...]
 
-NON-CRITICAL (float available):
-[Milestone] — [status, brief]
-
-OVERALL END DATE: [on track | at risk | slipped] — [why, in one line]
+NON-CRITICAL (float available): [...]
+OVERALL END DATE: [on track | at risk | slipped] — [why]
 ```
+
+## Worked example
+
+**Input:** Integration milestone 2 weeks late on critical path; QA milestone 1 week late with float.
+
+**Expected output:** Integration slipped with end-date knock-on; QA noted non-critical only.
+
+## Quality checks before delivering
+
+- [ ] Critical path distinguished from float
+- [ ] Tolerance from profile applied
+- [ ] Knock-on effects for critical slips
+- [ ] No invented actuals
+
+## Outputs
+
+Follows plugin `CLAUDE.md` § Outputs. Next: `status-report`, `raid-log` entry, or recovery plan.
