@@ -7,68 +7,82 @@ description: >
   and so-what discipline rather than a line edit or rewrite.
 allowed-tools: Read, Grep, Glob
 metadata:
-  version: "0.1.0"
+  version: "0.2.0"
+  owner: "consulting practice"
+  review_cadence: "quarterly"
+  work_shape: "narrative-synthesis"
+  output_class: "draft-for-review"
+  sourcing_policy: "volatile-facts-must-be-sourced"
 ---
 
 # Doc Reviewer
 
-Critique an existing deck or memo's structure against Minto discipline. This produces a structured critique, not a rewrite — the point is to give the user a sharp diagnostic they apply themselves, the same way a reviewing partner would mark up a draft rather than silently fix it.
+## When to use
+
+When the user wants a structured structural critique of an existing deck or memo — partner-style markup, not a rewrite.
+
+## What this skill does not do
+
+- **Does not rewrite the document** — critique only; rewrite is separate request.
+- **Does not line-edit prose** — pyramid, MECE, so-what, trust spine.
+- **Does not approve for external send** — flags gate issues; user decides.
+
+## Preconditions
+
+| Input | If missing |
+|---|---|
+| Full document readable end-to-end | Report read failure; do not partial-critique |
+
+## Provisional mode
+
+Partial read (large doc): record coverage in reviewer note; critique only read sections.
 
 ## Trust spine
 
-This review pass includes trust-discipline checks alongside pyramid structure. Full rules: `../../references/trust-conventions.md`.
+- **Confidence bands** (`narrative-synthesis`): High = full doc read, ranked fixes; Low = partial read flagged.
+- **Analytical Rigor:** MECE and governing-thought tests with specific locations, not generic "tighten up."
+- **Escalation:** Buried governing thought → priority fix #1; recommendation without sourcing → CONFIDENCE flag.
 
 ```
-SOURCING: Flag material numbers and external claims missing `[sourced: <where>]` or
-  `[unverified — from training data, needs a real source]` tags.
-ASSUMPTIONS: Flag load-bearing assumptions that are unstated, buried below the recommendation,
-  or stated without impact-if-wrong — flag, don't fix.
-NUMBERS: Flag invented inputs, placeholder metrics, or fake precision; should be INPUT NEEDED
-  or explicitly unverified.
-CONFIDENCE: Flag recommendation language when key inputs are unverified or missing; output should
-  be labeled defensible recommendation vs structured first pass.
-GATE: Flag board-/exec-facing finals produced without explicit confirmation and a reviewer note
-  recording what wasn't verified.
+SOURCING / ASSUMPTIONS / NUMBERS / CONFIDENCE / GATE — per trust-conventions.md
 ```
 
-## Process
+## Workflow
 
-1. **Read the full document first**, end to end, before critiquing anything — a structural review needs the whole shape, not a paragraph-by-paragraph read.
-
-2. **Run the governing-thought test**: Is there a single, identifiable answer, and does it appear near the top? If the actual conclusion is buried, name where it currently sits and where it should move.
-
-3. **Run the MECE test on the main supporting structure**: Are there 3-5 main points? Do any overlap? Is anything material missing? Call out specific points that overlap or specific gaps, not just "this could be tighter."
-
-4. **Run the so-what test on supporting material**: Walk the major sections/slides and flag any that don't clearly trace back to a key line point — these are candidates to cut or demote to an appendix.
-
-5. **Check title/heading discipline**: Are section headers and slide titles action titles stating a takeaway, or topic labels? Quote 2-3 specific examples of weak titles and what a stronger version would say, rather than a general comment.
-
-6. **Check for grouping-logic mixing**: Does the document mix deductive and inductive structure within the same level without realizing it? Point to the specific spot.
-
-7. **Run the trust-spine checks** (see block above): sourcing tags on material numbers and claims, load-bearing assumptions surfaced at the top, no invented inputs, honest confidence labeling, and a reviewer note on board-/exec-facing finals.
-
-8. **Summarize as a structured critique**, ranked by how much each issue actually costs the reader (a buried governing thought matters more than an inconsistent exhibit label).
+1. Read full document end to end.
+2. Governing-thought test — location of actual conclusion.
+3. MECE test — overlaps and gaps, specific.
+4. So-what test — sections that don't earn place.
+5. Title discipline — quote 2–3 weak titles + stronger versions.
+6. Grouping-logic mixing — name location.
+7. Trust-spine checks.
+8. Rank priority fixes by reader cost.
 
 ## Output format
 
 ```
 GOVERNING THOUGHT TEST: [pass/fail + specifics]
-MECE TEST: [pass/fail + specific overlaps or gaps]
-SO-WHAT TEST: [sections/slides that don't earn their place]
-TITLE DISCIPLINE: [specific weak titles + suggested stronger versions]
-GROUPING LOGIC: [any mixing, with location]
-
-TRUST SPINE:
-SOURCING: [untagged material numbers/claims, with location]
-ASSUMPTIONS: [hidden or unstated load-bearing assumptions]
-NUMBERS: [invented inputs or fake precision]
-CONFIDENCE: [recommendation language vs sourcing state]
-GATE: [final without confirmation/reviewer note, if applicable]
-
-PRIORITY FIXES (ranked):
-1. ...
-2. ...
-3. ...
+MECE TEST: [pass/fail + specifics]
+SO-WHAT TEST: [...]
+TITLE DISCIPLINE: [...]
+GROUPING LOGIC: [...]
+TRUST SPINE: [sourcing, assumptions, numbers, confidence, gate]
+PRIORITY FIXES (ranked): 1. ... 2. ... 3. ...
 ```
 
-Do not rewrite the document as part of this skill — that's a separate request if the user wants it after seeing the critique.
+## Worked example
+
+**Input:** Memo with recommendation in paragraph 4, topic slide titles, untagged $50M claim.
+
+**Excerpt:** GOVERNING THOUGHT TEST: fail — conclusion paragraph 4, should be line 1. SOURCING: $50M revenue claim slide 7 untagged.
+
+## Quality checks before delivering
+
+- [ ] Full doc read (or coverage stated)
+- [ ] No rewrite included
+- [ ] Fixes ranked by impact
+- [ ] Specific quotes/locations, not generic advice
+
+## Outputs
+
+Follows plugin `CLAUDE.md` § Outputs. Next: user applies fixes, or request rewrite via `narrative-builder` / `exec-memo`.
