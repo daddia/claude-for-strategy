@@ -7,60 +7,101 @@ description: >
   scoring formula attached.
 allowed-tools: Read, Grep, Glob
 metadata:
-  version: "0.1.0"
+  version: "0.3.0"
+  owner: "okr practice"
+  review_cadence: "quarterly"
+  work_shape: "governance-tracking"
+  output_class: "draft-for-review"
+  sourcing_policy: "volatile-facts-must-be-sourced"
 ---
 
 # Set Targets
 
-The core failure mode: targets set without a stated commitment level, which makes scoring meaningless later — a KR scored at 60% reads as a miss if it was meant to be a commit, and as a healthy stretch if it was meant to be aspirational. Same number, opposite meaning. This skill won't let that ambiguity through.
+## When to use
+
+Attach baseline, target, commit/aspirational label, and scoring formula — same number means opposite things without commitment level.
+
+## What this skill does not do
+
+- **Does not instrument metrics** — route unknown baselines to `/okr:instrument-metrics` first.
+- **Does not write KRs** — route to `/okr:write-key-results`.
+- **Does not score the cycle** — route to `/okr:score-and-retro`.
+
+## Preconditions
+
+| Input | If missing |
+|---|---|
+| KRs with known baselines | Halt — route to `instrument-metrics` |
+| Practice profile (philosophy, formula) | Default linear interpolation; tag `[PROVISIONAL]` |
+| Explicit commit/aspirational label per KR | Ask — do not infer from number |
+
+## Provisional mode
+
+Without seed history: set-level sandbagging check limited to trivial-target flags on current set.
 
 ## Trust spine
 
-```
-INCENTIVE GAMING: Guards against sandbagging — targets set so low that hitting
-  1.0 is routine, or commit/aspirational labels smuggled to game the scoring
-  curve. Sandbagging detection: compare each target to baseline and prior-cycle
-  scores in seed data (consistent ~1.0 across KRs is named as a pattern, not
-  praised); flag commits with aspirational stretch and aspirational KRs with
-  trivial targets barely above baseline.
-SOURCING: Tag every market figure, benchmark, competitor claim, and dollar amount as
-  [sourced: <where>] or [unverified — from training data, needs a real source].
-ASSUMPTIONS: State load-bearing assumptions at the top of the output — flag, don't fix.
-NUMBERS: Never invent an input — flag what's needed instead.
-CONFIDENCE: Label output defensible recommendation vs structured first pass.
-GATE: Before producing the board-/exec-facing final, confirm explicitly and stamp a
-  reviewer note recording what wasn't verified.
-```
+- **Confidence bands** (`governance-tracking`):
+  - **High:** Every KR has type, baseline, target, formula, calibration flag.
+  - **Medium:** Some calibration flags on commit/aspirational mismatch.
+  - **Low:** Baselines unknown — halt, route to instrument-metrics.
+- **Failure modes:**
+  - **Strategic advice vs. support:** Targets are draft for calibration approval.
+  - **Client confidentiality:** Targets may be pre-approval — CONFIDENTIAL header.
+  - **Accountability gap:** Sandbagging patterns named, not praised.
+  - **Analytical Rigor:** N/A — governance shape.
+  - **Incentive Gaming:** Guards sandbagging — trivial aspirational targets and commit labels on stretch goals flagged.
+- **Escalation triggers:** Consistent ~1.0 history in seed data — name sandbagging pattern for calibration.
 
-Full rules: repo-root `references/trust-conventions.md`.
+## Workflow
 
-## Process
-
-1. **Read the practice profile** (`../../CLAUDE.md`) for the org's philosophy (commit-only vs. mixed) and scoring scale/formula.
-
-2. **For each KR, get an explicit commit-or-aspirational label** — don't infer it from the number. If the practice profile says commit-only, every KR is a commit by definition and the rest of this process is about realism, not stretch calibration.
-
-3. **Set baseline and target explicitly.** If `write-key-results` flagged the baseline as unknown, stop here and route to `instrument-metrics` first — a target against an unknown baseline is a guess wearing a number.
-
-4. **Apply the scoring formula** from the practice profile (default: linear interpolation, baseline = 0.0, target = 1.0) and state it alongside the KR so scoring isn't reverse-engineered later.
-
-5. **Run the calibration check across the set**:
-   - For **commits**: is the target realistically achievable with current resourcing, or is it aspirational language smuggled into a commit slot? Flag if so.
-   - For **aspirational KRs**: is the target genuinely a stretch (meaningful chance of landing well below 1.0), or is it set just barely above baseline — i.e. dressed up as aspirational but actually trivial? Flag trivial targets explicitly.
-   - **Across history** (if the practice profile's seed documents include prior-cycle scores): if this org has consistently scored ~1.0 on most KRs across past cycles, say so directly — that's a sandbagging pattern, not a track record to be proud of, and it's worth surfacing even though it's an uncomfortable thing to point out.
+1. **Read practice profile** for philosophy and scoring formula.
+2. **Get explicit commit/aspirational label** per KR — don't infer.
+3. **Set baseline and target** — halt if baseline unknown.
+4. **State scoring formula** alongside each KR.
+5. **Calibration check:** commits realistic? aspirational genuinely stretch? history of ~1.0?
+6. **Gaming-pattern check** before output.
 
 ## Output format
 
 ```
+CONFIDENCE: [defensible recommendation | structured first pass]
+LOAD-BEARING ASSUMPTIONS: [if any]
+
 KR: [text]
   Type: [commit | aspirational]
   Baseline: [value] → Target: [value]
-  Scoring formula: [as recorded in practice profile]
-  Calibration flag: [none] or [target looks trivial for an aspirational KR] or
-                     [target looks unrealistic for a commit] or
-                     [baseline unknown — route to instrument-metrics first]
+  Scoring formula: [from profile]
+  Calibration flag: [none | trivial aspirational | unrealistic commit | baseline unknown]
 
 [repeat per KR]
 
-SET-LEVEL PATTERN CHECK: [any history of sandbagging or consistent overreach, if seed data exists]
+SET-LEVEL PATTERN CHECK: [sandbagging or overreach history if seed data exists]
 ```
+
+## Worked example
+
+**Input:** Aspirational KR "NPS 50." Baseline 38. Target 40 (2pt lift).
+
+**Expected output (excerpt):**
+
+```
+KR: NPS 50
+  Type: aspirational
+  Baseline: 38 → Target: 40
+  Scoring formula: linear interpolation
+  Calibration flag: target looks trivial for an aspirational KR [review]
+```
+
+## Quality checks before delivering
+
+- [ ] Commit/aspirational explicit per KR
+- [ ] Baselines known or routed to instrument-metrics
+- [ ] Formula stated per KR
+- [ ] Calibration flags applied
+- [ ] Sandbagging pattern named if history supports it
+- [ ] Gaming-pattern check run
+
+## Outputs
+
+Follows plugin `CLAUDE.md` § Outputs. Next: calibration approval, `check-in` cadence, or revise targets.
