@@ -6,18 +6,39 @@ description: >
   once, non-intrusively. Use when the user says "is there a community skill for
   this", "what else is out there", or asks for skill recommendations; also runs
   passively as part of other plugins' workflows.
+argument-hint: ""
+allowed-tools: Read, Grep, Glob
+metadata:
+  version: "0.3.0"
+  owner: "strategy-builder-hub practice"
+  review_cadence: "quarterly"
+  work_shape: "structured-aggregation"
+  output_class: "draft-for-review"
+  sourcing_policy: "volatile-facts-must-be-sourced"
 ---
 
 # /related-skills-surfacer
 
-1. Load `~/.claude/plugins/config/claude-for-strategy/strategy-builder-hub/CLAUDE.md` → engagement profile.
-2. Use the workflow below.
-3. Check what other plugins have been doing. Match against registry.
-4. Suggest: "You've been doing X — community has a skill for Y that's related."
+## When to use
 
----
+Suggest community skills matching recent task — once, non-intrusively; strong matches only.
 
-## Purpose
+## Preconditions
+
+| Input | If missing |
+|---|---|
+| Hub engagement profile | Offer cold-start |
+| Task context or user query | Ask what they were doing |
+
+## Provisional mode
+
+Notifications set to none in profile — skill off.
+
+## Trust spine
+
+Structured-aggregation; frequency limit via surfaced.json; no nag on weak matches.
+
+## Workflow
 
 The community might have built the thing you're about to build. This skill notices and mentions it — once, briefly, non-annoyingly.
 
@@ -61,9 +82,15 @@ Per `~/.claude/plugins/config/claude-for-strategy/strategy-builder-hub/CLAUDE.md
 - **Matching engagement profile:** Filter by profile (default)
 - **None:** This skill is off
 
-## Close with the next-steps decision tree
+## Worked example
 
-End with the next-steps decision tree per CLAUDE.md `## Outputs`. Customize the options to what this skill just produced.
+**Input:** User finished competitive landscape work; strong registry match exists; not installed.
+
+**Expected output:** One-line suggestion with `/strategy-builder-hub:skill-installer` handoff.
+
+## Outputs
+
+Follows plugin `CLAUDE.md` § Outputs. Silent if no strong match. Decision tree when match surfaced.
 
 ## What this skill does not do
 
