@@ -7,28 +7,65 @@ description: >
   than by surface product category.
 allowed-tools: Read, Grep, Glob
 metadata:
-  version: "0.1.0"
+  version: "0.3.0"
+  owner: "market-intelligence practice"
+  review_cadence: "quarterly"
+  work_shape: "structured-aggregation"
+  output_class: "draft-for-review"
+  sourcing_policy: "volatile-facts-must-be-sourced"
 ---
 
 # Map Competitive Landscape
 
-The failure this catches: grouping competitors by what's visible and discussed internally (the loud incumbent already fighting you for the same deals) rather than by actual strategic logic — cost structure, target segment, channel, business model. The quiet player in an adjacent group, structurally capable of moving into your space, is the one usually missed.
+## When to use
 
-## Process
+CI and product strategy practitioners grouping competitors by strategic logic — cost structure, segment, channel, model — not surface product labels.
 
-1. **Read the practice profile** (`../../CLAUDE.md`) for the market definition and known competitor set.
+## What this skill does not do
 
-2. **Group competitors into strategic groups** by actual strategic logic — same cost structure, same target segment, same channel, same business model — not by product category labels. Two competitors selling the "same" product through fundamentally different cost structures or channels belong in different groups; they compete differently and will respond to moves differently.
+- **Does not forecast responses** — route to `/market-intelligence:forecast-competitive-response`.
+- **Does not test positioning** — route to `/market-intelligence:test-positioning`.
+- **Does not invent market share data** — tag figures `[verify]` or omit.
 
-3. **Identify mobility barriers between groups** — what would it actually take for a player in one group to move into another (capital, channel access, brand repositioning, regulatory)? Rate each barrier realistically: a "high" barrier that's actually just inertia is a false sense of safety.
+## Preconditions
 
-4. **Identify white space** — a position no group currently occupies — and ask the harder question directly: is it unoccupied because nobody's spotted it, or because it's structurally unattractive or undefendable (low margin, easily copied, regulatory exposure)? Don't present white space as automatically attractive; state which explanation looks more likely and why.
+| Input | If missing |
+|---|---|
+| Market definition (practice profile or user) | Ask; do not assume category from product name alone |
+| Named competitors or candidate set | Ask user to name players; flag `[review]` if list may be incomplete |
+| Practice profile | Proceed from user input; label assumptions |
 
-5. **Flag the under-the-radar competitor explicitly** — scan the adjacent groups for any player with a low mobility barrier into your group, regardless of how much internal attention they currently get. This is usually the most useful single output of the exercise and the easiest thing to skip.
+## Provisional mode
+
+Thin competitor list: output groups with explicit **UNDER-THE-RADAR THREAT: unknown — competitor set incomplete** flag; do not present white space as validated.
+
+## Trust spine
+
+- **Confidence bands** (`structured-aggregation`):
+  - **High:** MECE groups, mobility barriers rated with evidence, white space hypothesis stated with structural rationale.
+  - **Medium:** Groups solid, some barrier ratings `[review]`, under-the-radar scan attempted.
+  - **Low:** Incomplete competitor set or category-only grouping — scaffold only.
+- **Failure modes:**
+  - **Strategic advice vs. support:** Surfaces groups and threats; does not recommend which position to take.
+  - **Client confidentiality:** Competitor intelligence sensitive — CONFIDENTIAL header per plugin `CLAUDE.md`.
+  - **Accountability gap:** White space labeled attractive vs. structurally unattractive — strategist validates.
+  - **Analytical Rigor:** Groups MECE by strategic logic; mobility barriers falsifiable.
+  - **Incentive Gaming:** N/A for this shape.
+- **Escalation triggers:** User insists on category-only grouping — explain failure mode, proceed only if acknowledged.
+
+## Workflow
+
+1. **Read the practice profile** (`../../CLAUDE.md`) for market definition and known competitor set.
+2. **Group competitors into strategic groups** by cost structure, target segment, channel, business model — not product category labels.
+3. **Identify mobility barriers between groups** — capital, channel, brand, regulatory; rate realistically (inertia ≠ high barrier).
+4. **Identify white space** — ask: unoccupied because unseen or structurally unattractive? State which explanation is more likely.
+5. **Flag under-the-radar competitor** — adjacent group player with low mobility barrier into your space.
+6. **Completeness check** before output: every named competitor placed; market figures source-tagged.
 
 ## Output format
 
 ```
+CONFIDENCE: [defensible recommendation | structured first pass]
 STRATEGIC GROUP: [name — defined by cost structure/segment/channel/model]
   Members: [...]
 
@@ -43,3 +80,37 @@ WHITE SPACE: [position] — Unoccupied because: [nobody's spotted it / structura
 UNDER-THE-RADAR THREAT: [player, group, low-barrier path into your space, even if not
   currently visible as a competitor]
 ```
+
+## Worked example
+
+**Input:** Workflow automation market. User names Incumbent A (enterprise suite), Challenger B (mid-market SaaS), Adjacent C (RPA vendor expanding).
+
+**Expected output (excerpt):**
+
+```
+CONFIDENCE: structured first pass
+STRATEGIC GROUP: Enterprise integrated suite
+  Members: Incumbent A
+
+STRATEGIC GROUP: Mid-market point solution
+  Members: Challenger B
+
+MOBILITY BARRIERS:
+Mid-market → Enterprise: high (implementation services, brand trust)
+
+WHITE SPACE: Vertical-specific compliance workflows — Unoccupied because: structurally unattractive (small TAM per vertical) [verify]
+
+UNDER-THE-RADAR THREAT: Adjacent C — RPA/automation group — low-barrier path via workflow module launch into mid-market [review]
+```
+
+## Quality checks before delivering
+
+- [ ] Groups defined by strategic logic, not category labels only
+- [ ] Every named competitor placed in a group
+- [ ] White space includes structural attractiveness assessment
+- [ ] Under-the-radar threat explicitly named or gap flagged
+- [ ] Market figures source-tagged or omitted
+
+## Outputs
+
+Follows plugin `CLAUDE.md` § Outputs. Next: `forecast-competitive-response`, `test-positioning`, or `map-incentives` on key players.
