@@ -33,6 +33,7 @@ FIRST_PARTY_PLUGINS = (
     "balanced-scorecard",
     "okr",
     "pmo",
+    "value-realisation",
 )
 
 SHARED_PLUGIN_REFERENCES = (

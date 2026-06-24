@@ -1,0 +1,10 @@
+{
+  "name": "value-realisation",
+  "version": "0.1.0",
+  "description": "Benefits mapping, baseline-and-accountability discipline, realisation tracking with attribution rigor, at-risk recovery decisions, and post-implementation review — closes the loop from an approved business case to proven delivered value.",
+  "author": {
+    "name": "Jonathan Daddia",
+    "url": "https://github.com/daddia"
+  },
+  "keywords": ["value-realisation", "benefits-management", "benefits-tracking", "post-implementation-review", "transformation"]
+}

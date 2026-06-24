@@ -7,7 +7,7 @@
     "url": "https://github.com/daddia"
   },
   "metadata": {
-    "description": "Reference agents and skills for strategy and transformation work — consulting craft, corporate strategy, market intelligence, digital transformation, org design and decision rights, performance management, balanced scorecards, OKRs, and transformation PMO.",
+    "description": "Reference agents and skills for strategy and transformation work — consulting craft, corporate strategy, market intelligence, digital transformation, org design and decision rights, performance management, balanced scorecards, OKRs, transformation PMO, and post-investment value realisation.",
     "homepage": "https://github.com/daddia/claude-for-strategy"
   },
   "plugins": [
@@ -105,6 +105,17 @@
       "source": "./pmo",
       "category": "productivity",
       "description": "RAID logs, status reporting, steering committee packs, milestone tracking, and decision logs for running a transformation program.",
+      "author": {
+        "name": "Jonathan Daddia",
+        "url": "https://github.com/daddia"
+      }
+    },
+    {
+      "name": "value-realisation",
+      "displayName": "Value Realisation",
+      "source": "./value-realisation",
+      "category": "productivity",
+      "description": "Benefits mapping, baseline-and-accountability discipline, realisation tracking with attribution rigor, at-risk recovery decisions, and post-implementation review — closes the loop from an approved business case to proven delivered value.",
       "author": {
         "name": "Jonathan Daddia",
         "url": "https://github.com/daddia"

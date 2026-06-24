@@ -1,12 +1,12 @@
 # CLAUDE.md
 
-Guidance for working on this repo. `claude-for-strategy` is a Claude Code plugin marketplace — nine first-party strategy plugins, vendor plugins (future), and managed-agent cookbooks.. Most work here is editing prompt content (skills), plugin metadata, or reference material — not application code.
+Guidance for working on this repo. `claude-for-strategy` is a Claude Code plugin marketplace — eleven first-party strategy plugins, vendor plugins (future), and managed-agent cookbooks. Most work here is editing prompt content (skills), plugin metadata, or reference material — not application code.
 
 ## Layout
 
 ```
 .claude-plugin/marketplace.json   # the marketplace manifest — one entry per plugin
-<plugin>/                         # 10 first-party plugins (consulting, corporate-strategy, market-intelligence, transformation, operating-model, performance, balanced-scorecard, okr, pmo, strategy-builder-hub)
+<plugin>/                         # 11 first-party plugins (consulting, corporate-strategy, market-intelligence, transformation, operating-model, performance, balanced-scorecard, okr, pmo, value-realisation, strategy-builder-hub)
   .claude-plugin/plugin.json      # plugin manifest (name, version, description, author)
   .mcp.json                       # MCP servers the plugin connects to
   CLAUDE.md                       # practice-profile TEMPLATE (see "Plugin CLAUDE.md" below)

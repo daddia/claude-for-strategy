@@ -195,6 +195,7 @@ Grouped by where the work sits. Each plugin's cold-start interview is what tailo
 |---|---|
 | **[balanced-scorecard](./balanced-scorecard)** | Strategy maps and balanced scorecards — perspective design, causal strategy mapping, lead/lag measures, targets and initiatives, cascaded scorecards, and reviews that test the strategy's causal theory. |
 | **[okr](./okr)** | Objectives and key results — drafting objectives, outcome-based key results, target calibration, cascading, confidence-based check-ins, and end-of-cycle scoring. |
+| **[value-realisation](./value-realisation)** | Benefits mapping, baseline discipline, realisation tracking with attribution, at-risk recovery, and post-implementation review — closes the loop from approved business case to proven delivered value. |
 
 **If you run both BSC and OKR:** a common pattern is BSC setting multi-year strategic themes and the causal map, with OKR cascading quarterly execution underneath specific BSC objectives. Don't run both cascades on the same objective set independently — pick which plugin owns which layer and record it in both practice profiles.
 
@@ -204,7 +205,7 @@ Grouped by where the work sits. Each plugin's cold-start interview is what tailo
 |---|---|
 | **[strategy-builder-hub](./strategy-builder-hub)** | Community strategy skill discovery, installation, QA, and update management. Browses GitHub registries, surfaces related community skills inside other plugins, and applies a four-layer security gate (allowlist, raw display, heuristic scan, human approval) before anything is written. The cold-start interview IS the starter pack recommender — ask your engagement type and it recommends what to install. |
 
-**Planned, not yet built:** `change-management`, `thought-leadership`, `value-realisation`.
+**Planned, not yet built:** `change-management`, `thought-leadership`.
 
 ## MCP connectors
 

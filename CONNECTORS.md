@@ -83,6 +83,7 @@ Each first-party plugin ships its own connector reference:
 | balanced-scorecard | [balanced-scorecard/CONNECTORS.md](./balanced-scorecard/CONNECTORS.md) |
 | okr | [okr/CONNECTORS.md](./okr/CONNECTORS.md) |
 | pmo | [pmo/CONNECTORS.md](./pmo/CONNECTORS.md) |
+| value-realisation | [value-realisation/CONNECTORS.md](./value-realisation/CONNECTORS.md) |
 
 The per-plugin file is authoritative for which categories that plugin uses, which MCP servers are pre-configured in `.mcp.json`, and plugin-specific notes.
 
@@ -101,6 +102,10 @@ Some plugins defer to each other for canonical data without sharing connectors:
 
 - `okr:instrument-metrics` → `performance:metrics-glossary` for metric definitions
 - `balanced-scorecard:select-measures` → `performance:metrics-glossary` for metric definitions
+- `value-realisation:benefits-map` → `transformation:business-case` or `corporate-strategy:evaluate-strategic-option` for seed business cases
+- `value-realisation:benefits-register` → `performance:metrics-glossary` for formal metric definitions
+- `value-realisation:benefits-recovery` → `pmo:decision-log` for continue-or-write-down governance decisions
+- `value-realisation:realisation-review` → `transformation:business-case` / `corporate-strategy:evaluate-strategic-option` for optimism-bias calibration on future cases
 - `corporate-strategy:evaluate-strategic-option` → `transformation:business-case` for initiative-level cases once a strategic direction is set — see `corporate-strategy/README.md`
 - `market-intelligence:map-incentives` → `operating-model:align-rewards-and-incentives` when the incentive problem is internal — see `market-intelligence/README.md`
 - `market-intelligence` competitive findings → `corporate-strategy:evaluate-strategic-option` when a signal becomes a portfolio decision

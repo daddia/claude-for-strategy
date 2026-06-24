@@ -1,0 +1,42 @@
+{
+  "mcpServers": {
+    "slack": {
+      "type": "http",
+      "url": "https://mcp.slack.com/mcp",
+      "title": "Slack",
+      "description": "Search messages, read channels, and post summaries — the delivery surface for checkpoint reminders and owner nudges."
+    },
+    "gmail": {
+      "type": "http",
+      "url": "https://gmailmcp.googleapis.com/mcp/v1",
+      "title": "Gmail",
+      "description": "Search and read email threads for stakeholder context and follow-ups."
+    },
+    "google-drive": {
+      "type": "http",
+      "url": "https://drivemcp.googleapis.com/mcp/v1",
+      "title": "Google Drive",
+      "description": "Search, read, and fetch business cases, benefits registers, and tracking logs from Google Drive."
+    },
+    "google-calendar": {
+      "type": "http",
+      "url": "https://calendarmcp.googleapis.com/mcp/v1",
+      "title": "Google Calendar",
+      "description": "Read calendar events for go-live dates, baseline cutoffs, and realisation-window milestones."
+    },
+    "atlassian": {
+      "type": "http",
+      "url": "https://mcp.atlassian.com/v1/mcp",
+      "title": "Atlassian",
+      "description": "Read Jira issues and Confluence pages for benefits registers, tracking logs, and recovery decisions."
+    }
+  },
+  "recommendedCategories": [
+    "chat",
+    "email",
+    "spreadsheet",
+    "calendar",
+    "project-tracker",
+    "knowledge-base"
+  ]
+}
