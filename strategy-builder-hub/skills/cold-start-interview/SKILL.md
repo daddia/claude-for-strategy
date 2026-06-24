@@ -8,23 +8,41 @@ description: >
   install", or to re-run the integration-availability check after adding or
   removing an MCP connector.
 argument-hint: "[--redo] [--check-integrations]"
+allowed-tools: Read, Grep, Glob, Write
+disable-model-invocation: true
+metadata:
+  version: "0.3.0"
+  owner: "strategy-builder-hub practice"
+  review_cadence: "quarterly"
+  work_shape: "structured-aggregation"
+  output_class: "structured-data"
+  sourcing_policy: "volatile-facts-must-be-sourced"
 ---
 
 # /cold-start-interview
 
-1. Check `~/.claude/plugins/config/claude-for-strategy/strategy-builder-hub/CLAUDE.md`. If a populated CLAUDE.md (no `[PLACEHOLDER]` markers) exists at `~/.claude/plugins/cache/claude-for-strategy/strategy-builder-hub/*/CLAUDE.md` but not at the config path, copy it to the config path and tell the user what was migrated.
-2. Run Part 0 (role + integration check), then the five questions (engagement type, industry, team, tooling comfort), per the workflow below.
-3. Match profile to registry skills. Recommend starter pack.
-4. Show each recommended skill's SKILL.md summary. User picks.
-5. Install picked skills. Write `~/.claude/plugins/config/claude-for-strategy/strategy-builder-hub/CLAUDE.md` (creating parent directories as needed) with `## Who's using this`, `## Available integrations`, profile + installed list.
+## When to use
 
-**`--check-integrations`:** Re-run only the Part 0 integration-availability check. Updates the `## Available integrations` table in `~/.claude/plugins/config/claude-for-strategy/strategy-builder-hub/CLAUDE.md` without touching the role or engagement profile. Use this after adding or removing an MCP connector.
+Hub onboarding — engagement profile, integration check, starter pack recommendations. Explicit invocation only.
 
-When probing: only report ✓ if an MCP tool call actually succeeded. Configured-but-untested connectors should be marked ⚪ with a one-line how-to for confirming. Never report ✓ based on `.mcp.json` declarations alone.
+## What this skill does not do
 
----
+- **Does not install without user picking skills** from recommendations.
+- **Does not report integration ✓ without successful MCP probe.**
 
-## Cold-start check
+## Preconditions
+
+Detect existing profile; offer `--redo` or `--check-integrations` per flags.
+
+## Provisional mode
+
+Partial profile → offer resume or fresh start.
+
+## Trust spine
+
+Structured-aggregation; integration table only ✓ on successful probe.
+
+## Workflow
 
 Read `~/.claude/plugins/config/claude-for-strategy/strategy-builder-hub/CLAUDE.md`:
 - **Does not exist** → start the interview.
@@ -255,3 +273,13 @@ After writing the engagement profile, close with this note:
 ## Registries watched by default
 
 No default registries are pre-configured. Add registries you trust via `/strategy-builder-hub:registry-browser` or by editing your allowlist directly.
+
+## Worked example
+
+**Input:** Corporate strategist, mid-size firm, picks two registry skills from starter recommendations.
+
+**Expected output:** Profile written to config path; installed table updated; integration table with probed statuses.
+
+## Outputs
+
+Follows plugin `CLAUDE.md` § Outputs. Next: `registry-browser`, `skill-installer`, or `--check-integrations`.
