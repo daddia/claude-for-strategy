@@ -5,31 +5,39 @@ description: >
   roadmap," "sequence this into now/next/later," "lay out the delivery
   plan," or provides a current state and an ambition that need sequencing
   into a phased roadmap.
-work_shape: structured-aggregation
 allowed-tools: Read, Grep, Glob
 metadata:
-  version: "0.2.0"
+  version: "0.3.0"
+  owner: "transformation practice"
+  review_cadence: "quarterly"
+  work_shape: "structured-aggregation"
+  output_class: "draft-for-review"
+  sourcing_policy: "volatile-facts-must-be-sourced"
 ---
 
 # Roadmap Builder
 
-Sequence a transformation ambition into a phased roadmap. Defaults to the user's named track model from the practice profile if one exists; otherwise falls back to a generic Now/Next/Later.
+## When to use
+
+Sequence transformation ambition into phased roadmap — dependency map before phase placement, not flat initiative lists.
+
+## What this skill does not do
+
+- **Does not build business case** — route to `/transformation:business-case`.
+- **Does not invent capacity** — flag overloaded phases.
+- **Does not use generic Now/Next/Later** when profile defines named track model.
+
+## Preconditions
+
+Load org + transformation profiles; provisional mode available.
+
+## Provisional mode
+
+Defaults: Now/Next/Later; balanced risk — see workflow below.
 
 ## Trust spine
 
-```
-ANALYTICAL RIGOR: Sequence is justified by an explicit dependency map before phase
-  placement — no initiative lands in a phase without a one-line rationale tied to
-  dependencies, capacity, or gates. Overloaded phases and unresolved INPUT NEEDED
-  items are flagged in the output block, not buried in confident sequencing prose.
-SOURCING: Tag every market figure, benchmark, competitor claim, and dollar amount as
-  [sourced: <where>] or [unverified — from training data, needs a real source].
-ASSUMPTIONS: State load-bearing assumptions at the top of the output — flag, don't fix.
-NUMBERS: Never invent an input — flag what's needed instead.
-CONFIDENCE: Label output defensible recommendation vs structured first pass.
-GATE: Before producing the board-/exec-facing final, confirm explicitly and stamp a
-  reviewer note recording what wasn't verified.
-```
+Structured-aggregation bands; every initiative has phase rationale tied to dependencies; GATE before board/exec final.
 
 ## Purpose
 
@@ -160,6 +168,17 @@ EVIDENCE GAPS: [INPUT NEEDED items]
 - [ ] Capacity risk flagged where phases look overloaded
 - [ ] No invented dates, costs, or capacity figures
 
-## Close with next steps
+## Worked example
 
-Offer branches: hand off approved scope to `business-case` for funding, refine execution grain after cold-start, re-run when dependency inputs arrive, take to steering for re-sequencing decision, or park Later-phase items pending gate evidence.
+**Input:** Identity platform must precede customer portal; three initiatives in Now quarter.
+
+**Expected output (excerpt):**
+
+```
+Now: Identity platform — Rationale: blocks portal SSO dependency
+CAPACITY FLAGS: Now quarter overloaded — 3 initiatives vs. 2-team capacity [review]
+```
+
+## Outputs
+
+Follows plugin `CLAUDE.md` § Outputs. Next: `business-case`, resolve capacity flags, or GATE before steering publish.
