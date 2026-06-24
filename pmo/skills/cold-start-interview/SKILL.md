@@ -11,41 +11,74 @@ description: >
 allowed-tools: Read, Grep, Glob, Write
 disable-model-invocation: true
 metadata:
-  version: "0.2.0"
+  version: "0.3.0"
+  owner: "pmo practice"
+  review_cadence: "quarterly"
+  work_shape: "structured-aggregation"
+  output_class: "structured-data"
+  sourcing_policy: "volatile-facts-must-be-sourced"
 ---
 
 # Cold-Start Interview — pmo
 
-Run before `raid-log`, `status-report`, `steering-pack`, `milestone-tracker`, or `decision-log` produce tailored output.
+## When to use
+
+Run before `raid-log`, `status-report`, `steering-pack`, `milestone-tracker`, or `decision-log` produce tailored output. Explicit invocation only.
+
+## What this skill does not do
+
+- **Does not run governance tasks** — writes profiles only.
+- **Does not auto-write without confirmation.**
+
+## Preconditions
+
+Per `../../references/cold-start-framework.md` — detect setup, offer quick/full.
+
+## Provisional mode
+
+Quick mode: RAG thresholds and RAID distinctions must be explicit, not silent defaults.
+
+## Trust spine
+
+Structured-aggregation bands; explicit confirmation before write; concrete RAG/RAID definitions captured.
 
 ## Shared framework
 
-Read and follow `../../references/cold-start-framework.md` with `pmo` as the plugin name.
+Read `../../references/cold-start-framework.md` with `pmo` as plugin name.
 
-**Org profile:** `~/.claude/plugins/config/claude-for-strategy/org-profile.md`  
-**Plugin profile:** `~/.claude/plugins/config/claude-for-strategy/pmo/CLAUDE.md`
+**Org:** `~/.claude/plugins/config/claude-for-strategy/org-profile.md`  
+**Plugin:** `~/.claude/plugins/config/claude-for-strategy/pmo/CLAUDE.md`
 
 ## Plugin-specific interview
 
-After the org layer is satisfied (governance forums and escalation path may already be in org profile):
-
-1. **Full mode:** review an existing status report, RAID log, or steering pack.
-
-2. **Governance structure** — steering cadence; concrete escalation thresholds; RAID format and Risk/Issue/Assumption/Dependency definitions.
-
-3. **Status reporting** — audiences, concrete RAG thresholds, cadence per audience.
-
-4. **Milestone tracking** — where the plan lives; slippage tolerance before "at risk."
-
-5. **Decision log** — format and storage location.
-
-6. **Write profiles** — be precise on RAG and RAID distinctions.
-
-7. **Confirm and summarize.**
+1. Full mode: existing status report, RAID, or steering pack.
+2. Governance structure — steering cadence, escalation thresholds, RAID definitions.
+3. Status reporting — audiences, RAG thresholds, cadence.
+4. Milestone tracking — plan location, slippage tolerance.
+5. Decision log — format and storage.
+6. Write profiles — precise RAG/RAID distinctions.
+7. Confirm and summarize.
 
 ## Living profile
 
-**Profile paths:** org `org-profile.md`; plugin `pmo/CLAUDE.md` under `~/.claude/plugins/config/claude-for-strategy/`.
+Auto-apply this skill only after confirmation; other skills use propose profile update.
 
-- **Auto-apply:** this skill only, after user confirms the summary.
-- **Propose profile update:** all other skills — org facts to org profile; RAID/RAG/milestone facts to plugin profile.
+## Output format
+
+Summary of org + plugin changes; files written on confirmation.
+
+## Worked example
+
+**Input:** `--quick`, weekly sponsor report, Red = missed critical milestone, RAID in Jira.
+
+**Summary excerpt:** RAG thresholds recorded; escalation = program schedule impact; milestone source Jira.
+
+## Quality checks before delivering
+
+- [ ] RAG thresholds concrete
+- [ ] RAID category definitions captured
+- [ ] Confirmation before write
+
+## Outputs
+
+Follows plugin `CLAUDE.md` § Outputs. Next: `status-report` or `raid-log`.
