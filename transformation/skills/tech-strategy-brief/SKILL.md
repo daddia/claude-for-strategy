@@ -7,61 +7,89 @@ description: >
   pattern) framed as options with a recommendation.
 allowed-tools: Read, Grep, Glob
 metadata:
-  version: "0.1.0"
+  version: "0.3.0"
+  owner: "transformation practice"
+  review_cadence: "quarterly"
+  work_shape: "option-evaluation"
+  output_class: "draft-for-review"
+  sourcing_policy: "volatile-facts-must-be-sourced"
 ---
 
 # Tech Strategy Brief
 
-Produce a BLUF-structured decision brief for a technology strategy call — options, recommendation, risks, stated conclusion-first. Apply the BLUF convention: bottom line first, then the MECE reasons, then the ask, then supporting detail.
+## When to use
+
+BLUF decision brief for technology strategy calls — options including do-nothing, recommendation first, explicit ask.
+
+## What this skill does not do
+
+- **Does not make architecture decisions** — draft for ARB/sign-off.
+- **Does not invent vendor pricing** — tag `[verify]` or `INPUT NEEDED`.
+- **Does not skip do-nothing option** — always one of the real choices.
+
+## Preconditions
+
+| Input | If missing |
+|---|---|
+| Precise decision statement | Ask to narrow |
+| Transformation practice profile | Proceed `[PROVISIONAL]` on platform vocabulary |
+
+## Provisional mode
+
+Without EA principles from profile: flag recommendations `[review]` against house rules once configured.
 
 ## Trust spine
 
-```
-SOURCING: Tag every market figure, benchmark, competitor claim, and dollar amount as
-  [sourced: <where>] or [unverified — from training data, needs a real source].
-ASSUMPTIONS: State load-bearing assumptions at the top of the output — flag, don't fix.
-NUMBERS: Never invent an input — flag what's needed instead.
-CONFIDENCE: Label output defensible recommendation vs structured first pass.
-GATE: Before producing the board-/exec-facing final, confirm explicitly and stamp a
-  reviewer note recording what wasn't verified.
-```
+Option-evaluation bands; recommendation before detail; conditions that would flip recommendation stated; GATE before board/exec final.
 
-## Process
+## Workflow
 
-1. **Read the practice profile** (`~/.claude/plugins/config/claude-for-strategy/transformation/CLAUDE.md`) for platform vocabulary and risk posture.
-
-2. **State the decision being made**, precisely — not "should we improve our architecture" but the actual specific choice (e.g. "should Identity be a shared platform service or remain per-product").
-
-3. **Lay out the options** — including the implicit "do nothing / stay as-is" option, which is often skipped but is always one of the real choices.
-
-4. **For each option, give**: what it requires, what it costs (not just dollars — also time, org disruption, lock-in), and the main risk.
-
-5. **State the recommendation first**, before the options detail — this is a BLUF document, the reader should know the answer in the first two sentences.
-
-6. **Give the reasoning as 2-4 MECE points**, not a narrative walk-through of the analysis process.
-
-7. **State the ask explicitly** — sign-off, budget, a specific decision needed by a specific date.
-
-8. **Flag what would change the recommendation** — what new information or changed constraint would flip the call. This is a hypothesis-driven habit worth carrying into decision briefs: state the conditions under which you'd be wrong.
+1. Read practice profile for platform vocabulary and risk posture.
+2. State decision precisely.
+3. Lay out options including do-nothing.
+4. Per option: requirements, cost (time/disruption/lock-in), main risk.
+5. State recommendation first (BLUF).
+6. 2–4 MECE reasoning points.
+7. Explicit ask — sign-off, budget, date.
+8. Flag what would change the recommendation.
 
 ## Output format
 
 ```
-RECOMMENDATION: [one to two sentences — the answer, stated first]
+CONFIDENCE: [defensible recommendation | structured first pass]
+RECOMMENDATION: [one to two sentences — stated first]
 
-WHY:
-1. [point]
-2. [point]
-3. [point]
+REASONING:
+1. [...]
+2. [...]
 
-ASK: [decision/budget/sign-off needed, by when]
-
-OPTIONS CONSIDERED:
-| Option | Requires | Cost (time/$/disruption) | Main risk |
+OPTIONS:
+| Option | Requires | Cost | Main risk |
 |---|---|---|---|
-| [Recommended option] | ... | ... | ... |
-| [Alternative] | ... | ... | ... |
-| Do nothing | ... | ... | ... |
 
-WHAT WOULD CHANGE THIS CALL: [conditions that would flip the recommendation]
+ASK: [decision needed, by when, from whom]
+WOULD FLIP RECOMMENDATION IF: [...]
 ```
+
+## Worked example
+
+**Input:** Shared Identity platform vs per-product IdP.
+
+**Expected output (excerpt):**
+
+```
+RECOMMENDATION: Adopt shared Identity platform — reduces duplicate security review [review]
+WOULD FLIP RECOMMENDATION IF: Regulatory separation requires per-BU identity boundary [review]
+```
+
+## Quality checks before delivering
+
+- [ ] Decision precise, not vague architecture improvement
+- [ ] Do-nothing option included
+- [ ] Recommendation before options detail
+- [ ] Flip conditions stated
+- [ ] Figures source-tagged
+
+## Outputs
+
+Follows plugin `CLAUDE.md` § Outputs. Next: ARB sign-off, `business-case` for funding, or `target-operating-model` alignment.
