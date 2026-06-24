@@ -6,18 +6,37 @@ description: >
   the user says "browse", "search skills", "find a skill for", "what's out
   there for", or wants to add a new registry to the watchlist.
 argument-hint: "[search query]"
+allowed-tools: Read, Grep, Glob, WebFetch, Write
+metadata:
+  version: "0.3.0"
+  owner: "strategy-builder-hub practice"
+  review_cadence: "quarterly"
+  work_shape: "structured-aggregation"
+  output_class: "structured-data"
+  sourcing_policy: "volatile-facts-must-be-sourced"
 ---
 
 # /registry-browser
 
-1. Load `~/.claude/plugins/config/claude-for-strategy/strategy-builder-hub/CLAUDE.md` → watched registries.
-2. Use the workflow below.
-3. Search each registry. Show matches with descriptions.
-4. Offer to show full SKILL.md for any match.
+## When to use
 
----
+Search watched registries; preview full SKILL.md; add registries to watchlist on confirmation.
 
-## Purpose
+## Preconditions
+
+| Input | If missing |
+|---|---|
+| Hub profile with watched registries | Offer to add registry or cold-start |
+
+## Provisional mode
+
+Empty watchlist — guide user to add first trusted registry.
+
+## Trust spine
+
+Structured-aggregation; browse only — no install without skill-installer.
+
+## Workflow
 
 Find skills across the watched registries. Search, preview, decide.
 
@@ -79,3 +98,13 @@ No default registries are pre-configured. Add registries you trust via this comm
 - Install anything. It browses. skill-installer installs.
 - Rate or review skills. It shows you the SKILL.md; you judge.
 - Search the whole internet. Only watched registries.
+
+## Worked example
+
+**Input:** Search "competitive landscape" across two watched registries.
+
+**Expected output:** Match list with descriptions; offer full SKILL.md preview per match.
+
+## Outputs
+
+Follows plugin `CLAUDE.md` § Outputs. Next: `skill-installer` or add registry to watchlist.
