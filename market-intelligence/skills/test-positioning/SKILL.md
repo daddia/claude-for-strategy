@@ -7,30 +7,66 @@ description: >
   what are you choosing not to do.
 allowed-tools: Read, Grep, Glob
 metadata:
-  version: "0.1.0"
+  version: "0.3.0"
+  owner: "market-intelligence practice"
+  review_cadence: "quarterly"
+  work_shape: "option-evaluation"
+  output_class: "draft-for-review"
+  sourcing_policy: "volatile-facts-must-be-sourced"
 ---
 
 # Test Positioning
 
-A real position requires choosing not to do something. A positioning statement with no stated trade-off is usually marketing language, not strategy — this skill forces the trade-off out into the open and checks for the specific failure of trying to be everything at once.
+## When to use
 
-## Process
+When a positioning claim needs trade-off discipline — what you're choosing not to do — before treating it as strategy.
 
-1. **Read the practice profile** (`../../CLAUDE.md`) for current positioning.
+## What this skill does not do
 
+- **Does not write positioning from scratch** — tests an existing claim; cold-start captures baseline.
+- **Does not map competitors** — route to `/market-intelligence:map-competitive-landscape`.
+- **Does not validate marketing slogans without trade-offs** — flags aspiration vs. strategic choice.
+
+## Preconditions
+
+| Input | If missing |
+|---|---|
+| Positioning statement (profile or user) | Ask user to state claim |
+| Practice profile | Proceed from user input |
+| `map-incentives` output (optional) | Skip incentive coherence check; note gap |
+
+## Provisional mode
+
+No trade-off named by user: output **TRADE-OFF: NONE FOUND** and stop short of validating as real strategic choice.
+
+## Trust spine
+
+- **Confidence bands** (`option-evaluation`):
+  - **High:** Trade-off explicit, stuck-in-the-middle check passed, alienation assessed, incentive coherence checked.
+  - **Medium:** Trade-off named but alienation acceptance unclear — `[review]`.
+  - **Low:** No trade-off — positioning flagged as aspiration only.
+- **Failure modes:**
+  - **Strategic advice vs. support:** Surfaces trade-offs and failures; does not declare positioning "good" or "bad."
+  - **Client confidentiality:** Positioning may be pre-release — CONFIDENTIAL header.
+  - **Accountability gap:** "Who this alienates" forces deliberate acceptance question.
+  - **Analytical Rigor:** Stuck-in-the-middle pattern named directly when present.
+  - **Incentive Gaming:** Checks whether internal incentives undermine stated position.
+- **Escalation triggers:** Stuck-in-the-middle with no structural mechanism — flag as blocking for strategy credibility.
+
+## Workflow
+
+1. **Read the practice profile** for current positioning.
 2. **State the positioning as claimed**, plainly.
-
-3. **Demand the trade-off.** Ask directly: what customer segment, use case, or feature set are you deliberately walking away from to hold this position? If none can be named, say so explicitly — this is evidence the positioning isn't yet a real strategic choice, just an aspiration, and the skill should stop short of validating it as one.
-
-4. **Check for "stuck in the middle"** — claiming both cost leadership and meaningful differentiation simultaneously, without a credible structural mechanism for achieving both (most attempts to be "the best of both" end up neither cheap enough nor differentiated enough to win on either axis). If this pattern shows up, name it directly rather than softening it into "broad appeal."
-
-5. **Stress-test who this alienates.** A real position alienates someone — ask who, specifically, and whether that's an acceptable, deliberate cost the org has actually agreed to, or an unexamined side-effect nobody's confronted. If it's the latter, that's the more useful finding than the positioning statement itself.
-
-6. **Check coherence against `map-incentives` output, if available** — does the org's actual internal incentive structure support this position, or does it (per the sales-volume-vs-premium-positioning example) quietly undermine it day to day?
+3. **Demand the trade-off** — segment, use case, or feature set walked away from. If none: flag explicitly.
+4. **Check stuck-in-the-middle** — cost leadership + differentiation without credible mechanism.
+5. **Stress-test who this alienates** — deliberate and accepted, or unexamined side-effect?
+6. **Check incentive coherence** against `map-incentives` if available.
+7. **Validate** before output: trade-off discipline applied; no false validation of slogans.
 
 ## Output format
 
 ```
+CONFIDENCE: [defensible recommendation | structured first pass]
 POSITIONING AS CLAIMED: [statement]
 
 TRADE-OFF: [named explicitly] or [NONE FOUND — flag: not yet a real strategic choice]
@@ -43,3 +79,34 @@ WHO THIS ALIENATES: [segment/use case] — Deliberate and accepted? [yes/no — 
 
 INCENTIVE COHERENCE (if map-incentives available): [supports / undermines the stated position]
 ```
+
+## Worked example
+
+**Input:** "Best workflow automation for everyone — enterprise power at mid-market price."
+
+**Expected output (excerpt):**
+
+```
+CONFIDENCE: structured first pass
+POSITIONING AS CLAIMED: Best workflow automation for everyone — enterprise power at mid-market price
+
+TRADE-OFF: NONE FOUND — flag: not yet a real strategic choice
+
+STUCK-IN-THE-MIDDLE CHECK: flag — claiming cost leadership and differentiation with no credible mechanism for both [review]
+
+WHO THIS ALIENATES: none stated — Deliberate and accepted? no — unexamined; real position must alienate someone [review]
+
+INCENTIVE COHERENCE: not assessed — run map-incentives
+```
+
+## Quality checks before delivering
+
+- [ ] Trade-off demanded and recorded or NONE FOUND flagged
+- [ ] Stuck-in-the-middle check run
+- [ ] Alienation assessed with deliberate-acceptance question
+- [ ] Incentive coherence checked if data available
+- [ ] Output does not validate positioning without trade-off
+
+## Outputs
+
+Follows plugin `CLAUDE.md` § Outputs. Next: refine positioning, run `map-incentives`, or `map-competitive-landscape`.
