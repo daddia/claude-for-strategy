@@ -6,16 +6,43 @@ description: >
   it off," "diagnose why this benefit isn't showing up," or needs an
   at-risk benefit's root cause split apart and a continue-or-write-down
   decision made without sunk-cost bias.
-tools: Read, Grep, Glob
+allowed-tools: Read, Grep, Glob
 metadata:
-  version: "0.1.0"
+  version: "0.3.0"
+  owner: "value-realisation practice"
+  review_cadence: "quarterly"
+  work_shape: "option-evaluation"
+  output_class: "decision-support"
+  sourcing_policy: "volatile-facts-must-be-sourced"
 ---
 
 # Benefits Recovery
 
-The bias this skill exists to neutralize: how much has already been spent chasing a benefit is irrelevant to whether it's worth continuing to chase. The only question that matters is forward-looking — what would it cost, from today, to recover the remaining value, and is that less than the value still on the table? "We've come this far" is the sunk-cost tell; if it surfaces in the conversation, name it as such rather than letting it quietly steer the recommendation.
+## When to use
 
-## Process
+At-risk benefits — root-cause split and continue-vs-write-down without sunk-cost bias.
+
+## What this skill does not do
+
+- **Does not remeasure** — uses tracking history from `benefits-tracking`.
+- **Does not edit register silently** — write-down updates register with reason.
+
+## Preconditions
+
+| Input | If missing |
+|---|---|
+| Register entry + tracking history | Ask |
+| Practice profile | Default conservative recovery test |
+
+## Provisional mode
+
+Marginal cost/remaining value estimates tagged `[review]` when data thin.
+
+## Trust spine
+
+Option-evaluation bands; sunk-cost bias flagged; MEASUREMENT LAG stand-down honored.
+
+## Workflow
 
 1. **Read the practice profile** (`../../CLAUDE.md`), the benefit's register entry, and its full tracking history — the pattern across periods matters more than the most recent number alone.
 
@@ -61,3 +88,19 @@ DECISION: WRITE DOWN — reason for register: [specific reason]
 
 LOGGED TO pmo:decision-log: [yes, if installed] or [pmo not installed — record manually]
 ```
+
+## Worked example
+
+**Input:** Benefit AT-RISK; team says "we've invested too much to stop."
+
+**Expected output:** Sunk-cost FLAG; recommendation re-tested without cumulative spend reasoning.
+
+## Quality checks before delivering
+
+- [ ] Root cause classified with evidence
+- [ ] Sunk-cost language checked
+- [ ] CONTINUE has operational change plan
+
+## Outputs
+
+Follows plugin `CLAUDE.md` § Outputs. Next: `pmo:decision-log`, update register, or `realisation-review`.
