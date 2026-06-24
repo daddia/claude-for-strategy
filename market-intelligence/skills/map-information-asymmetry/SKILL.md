@@ -8,32 +8,67 @@ description: >
   doesn't.
 allowed-tools: Read, Grep, Glob
 metadata:
-  version: "0.1.0"
+  version: "0.3.0"
+  owner: "market-intelligence practice"
+  review_cadence: "quarterly"
+  work_shape: "hypothesis-driven-analysis"
+  output_class: "draft-for-review"
+  sourcing_policy: "volatile-facts-must-be-sourced"
 ---
 
 # Map Information Asymmetry
 
-The most distinctive skill in this plugin. Most strategic analysis assumes both sides see roughly the same picture; this skill assumes they usually don't, and asks what that means. The discipline: identify exactly what each side knows that the other doesn't, determine which side you're on, and reason about signaling (the informed party credibly proving what they know) and screening (the uninformed party testing for it) — because the asymmetry itself, not just the surrounding deal terms, often determines who wins.
+## When to use
 
-## Process
+Negotiations, deals, hiring, customer relationships — when one party plausibly knows something the other doesn't and signaling/screening mechanics matter.
 
-1. **State the situation precisely** — a negotiation, a market transaction, a hiring decision, a customer relationship, a deal under evaluation.
+## What this skill does not do
 
-2. **List what each party knows that the other plausibly doesn't.** Be specific and concrete — not "they know more about their business," but the actual category of hidden information (true cost structure, true churn rate, true intent to renew, true quality of an asset being sold).
+- **Does not value the deal** — surfaces asymmetry implications; does not replace financial modeling.
+- **Does not invent hidden information** — asks user or flags gaps `[review]`.
+- **Does not recommend proceed/abandon** — states strategic implication; strategist decides.
 
-3. **Determine which side is structurally informed and which is uninformed**, and which side you're actually on. This is the step most people skip because it requires admitting, sometimes, that you're the uninformed party in your own deal.
+## Preconditions
 
-4. **If you're the informed party**: what credible, *costly* signal could you send that an uninformed party would find believable precisely because it would be expensive or risky for a low-quality counterpart to fake? A signal that costs nothing to send is not a signal — anyone can send it. Name the actual costly signal available, or note that none exists yet.
+| Input | If missing |
+|---|---|
+| Situation stated precisely (deal, negotiation, relationship) | Ask once to narrow |
+| Parties identified | Ask who is on each side |
+| Known private information categories | Proceed with `[PROVISIONAL]` — label asymmetries as hypotheses |
 
-5. **If you're the uninformed party**: what screening mechanism could you apply to force the informed party to reveal information indirectly (a structure where their choices reveal their type — e.g., an earnout structure that only a seller confident in future performance would accept)? Name the specific mechanism, not just "do more diligence."
+## Provisional mode
 
-6. **Apply the "market for lemons" logic where it fits**: if quality is genuinely hard to verify before commitment, the market tends to adversely select toward lower quality unless a credible signal or screen breaks the spiral — check whether that dynamic is actually present here, and if so, whether anything currently breaks it.
+Without diligence data: map hypothesized asymmetries tagged `[review]`; do not assert informed/uninformed position as fact.
 
-7. **State the strategic implication directly**: is the current strategy knowingly exploiting an informed position, unknowingly giving one away, or exposed to one held against it? This is the actual point of the exercise — don't stop at describing the asymmetry without saying what it means for the decision at hand.
+## Trust spine
+
+- **Confidence bands** (`hypothesis-driven-analysis`):
+  - **High:** Concrete hidden-info categories per party; costly signal or screen mechanism named; adverse-selection assessed.
+  - **Medium:** Some categories inferred; signal/screen options listed with gaps.
+  - **Low:** Situation vague — refuse to map until scoped.
+- **Failure modes:**
+  - **Strategic advice vs. support:** Strategic implication is diagnostic, not a deal recommendation.
+  - **Client confidentiality:** Deal terms and hidden info highly sensitive — CONFIDENTIAL header.
+  - **Accountability gap:** Forces admission when user is uninformed party — `[review]` on exposure.
+  - **Analytical Rigor:** Specific hidden-info categories; costly-signal test applied (cheap signals rejected).
+  - **Incentive Gaming:** N/A — information-structure focus.
+- **Escalation triggers:** Adverse-selection spiral present with no credible signal/screen — flag blocking risk.
+
+## Workflow
+
+1. **State the situation precisely.**
+2. **List what each party knows that the other plausibly doesn't** — specific categories, not vague "knows more."
+3. **Determine informed vs. uninformed side** — including when user is uninformed.
+4. **If informed:** name credible costly signal available, or "none currently available."
+5. **If uninformed:** name screening mechanism, or "none currently applied."
+6. **Apply market-for-lemons logic** where quality is hard to verify pre-commitment.
+7. **State strategic implication** — exploiting advantage, giving one away, or exposed.
+8. **MECE check:** both parties' hidden-info lists complete for stated situation.
 
 ## Output format
 
 ```
+CONFIDENCE: [defensible recommendation | structured first pass]
 SITUATION: [the deal/negotiation/relationship in question]
 
 WHAT [PARTY A] KNOWS THAT [PARTY B] DOESN'T: [specific, concrete]
@@ -48,3 +83,37 @@ ADVERSE SELECTION RISK: [present / not present — explain]
 
 STRATEGIC IMPLICATION: [exploiting an advantage / giving one away / exposed to one — be direct]
 ```
+
+## Worked example
+
+**Input:** Acquiring a SaaS target; seller claims 5% churn; buyer lacks cohort data.
+
+**Expected output (excerpt):**
+
+```
+CONFIDENCE: structured first pass
+SITUATION: Acquisition of TargetCo at 8x ARR
+
+WHAT SELLER KNOWS THAT BUYER DOESN'T: True logo churn by cohort, expansion vs. contraction drivers
+WHAT BUYER KNOWS THAT SELLER DOESN'T: Integration cost estimate, synergy capture timeline
+
+YOUR POSITION: uninformed on churn quality
+
+IF UNINFORMED: Available screening mechanism: tiered earnout tied to net retention at 12 months [review]
+
+ADVERSE SELECTION RISK: present — churn unverified pre-close may select for overstated retention
+
+STRATEGIC IMPLICATION: exposed — price assumes stated churn; structure or diligence required before proceeding [review]
+```
+
+## Quality checks before delivering
+
+- [ ] Hidden information specific, not vague
+- [ ] Informed/uninformed position stated honestly
+- [ ] Costly-signal test applied (cheap signals rejected)
+- [ ] Strategic implication stated directly
+- [ ] Output does not read as deal recommendation
+
+## Outputs
+
+Follows plugin `CLAUDE.md` § Outputs. Next: diligence plan, deal-structure revision, or corp-strategy evaluation.
