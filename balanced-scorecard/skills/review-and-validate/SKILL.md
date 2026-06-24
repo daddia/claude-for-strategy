@@ -6,28 +6,75 @@ description: >
   review," or needs measures scored against targets AND the strategy map's
   causal links tested against what actually happened — the distinctively
   BSC discipline that separates a failed initiative from a failed theory.
-allowed-tools: Read, Grep, Glob
+allowed-tools: Read, Grep, Glob, Write
 metadata:
-  version: "0.2.0"
+  version: "0.3.0"
+  owner: "balanced-scorecard practice"
+  review_cadence: "quarterly"
+  work_shape: "governance-tracking"
+  output_class: "tracking-update"
+  sourcing_policy: "volatile-facts-must-be-sourced"
 ---
 
 # Review and Validate
 
-Scoring the measures and calling it a review misses the actual point of a balanced scorecard. The distinctive move — the one OKR retros have no real equivalent for — is testing whether the causal links from `build-strategy-map` held up in the data. When a leading measure improved but the downstream lagging measure didn't follow as the map predicted, that's evidence the *strategy's theory* may be wrong, not necessarily evidence anyone executed poorly. Conflating those two diagnoses is the single most common way a scorecard review wastes its own most valuable signal.
+## When to use
 
-## Precondition: load artifacts
+For strategy office, FP&A, or scorecard owners running periodic BSC reviews. Scoring measures alone misses the point — this skill tests whether causal links from `build-strategy-map` held in the data, separating execution failure from theory failure.
+
+## What this skill does not do
+
+- **Does not build or revise the strategy map** — recommends `build-strategy-map` revisit when theory problems are diagnosed; does not rewrite mechanisms inline.
+- **Does not set targets or select measures** — reads existing scorecard artifacts only.
+- **Does not invent actuals** — missing data → `INPUT NEEDED` / structured first pass.
+- **Does not replace OKR retros** — BSC causal-link testing is distinct from quarterly KR scoring.
+
+## Preconditions
+
+| Input | If missing |
+|---|---|
+| Live strategy map (profile location) | Halt — produce structured first pass with `INPUT NEEDED` |
+| Current-period measure actuals vs targets | List gaps; do not invent values or causal verdicts |
+| Practice profile scoring convention | Use default RAG with `[PROVISIONAL]` tag |
+
+## Provisional mode
+
+When map or period data is incomplete:
+
+- Label **CONFIDENCE: structured first pass**.
+- Score only measures with data; mark links **NOT TESTABLE THIS PERIOD** where leading data absent.
+- Do not assign CONTRADICTED without evidence.
+
+## Trust spine
+
+- **Confidence bands** (`governance-tracking`):
+  - **High:** Data current and instrumented; every measure scored; every link tested with lag rules applied.
+  - **Medium:** Partially current data or `[PROVISIONAL]` scoring convention; some links NOT YET OBSERVABLE.
+  - **Low:** Stale or missing actuals — flag explicitly; no causal verdicts presented as fact.
+- **Tag vocabulary:** `[verify]`, `[review]`, `[PROVISIONAL]`, `[unverified — planning convention]` on default lag windows.
+- **Failure modes:**
+  - **Strategic advice vs. support:** Diagnoses execution vs theory with evidence; recommends map revisit — strategist decides whether to refresh.
+  - **Client confidentiality:** Review may contain proprietary performance data — CONFIDENTIAL header; destination check.
+  - **Accountability gap:** CONTRADICTED links require execution-vs-theory split with evidence — not a single RAG rollup that hides theory failure.
+  - **Analytical Rigor:** N/A — governance review, not MECE decomposition.
+  - **Incentive Gaming:** Guards against **RAG-washing** (green leading measures while lagging outcomes flat) and **execution-default bias** (blaming teams when theory is contradicted). Requires explicit theory-problem call when conditions met; early map refresh trigger prevents deferring uncomfortable map revisions.
+- **Escalation triggers:**
+  - Two+ theory-problem links or one on load-bearing top link → recommend early map refresh.
+  - Measure definition changed mid-period → flag execution diagnosis unreliable.
+  - Mixed evidence on CONTRADICTED link → **inconclusive**; name data needed next period.
+  - External confound on leading measure → execution problem or NOT TESTABLE; do not confirm theory.
+
+## Workflow
+
+### Step 1: Load artifacts
 
 Read:
 
-- `~/.claude/plugins/config/claude-for-strategy/balanced-scorecard/CLAUDE.md` — scoring/status convention (RAG, numeric, % to target), typical lag assumptions
-- The **live strategy map** at the location recorded in the profile (perspectives, objectives, mechanism statements, causal links)
+- `~/.claude/plugins/config/claude-for-strategy/balanced-scorecard/CLAUDE.md` — scoring/status convention, lag assumptions
+- The **live strategy map** at the profile location
 - Current-period measure actuals vs targets
 
-If the map or period data is missing, produce a **structured first pass** with `INPUT NEEDED` — do not invent measure values or causal verdicts.
-
-## Process
-
-### Step 1: Score each measure
+### Step 2: Score each measure
 
 For each measure: current value, target, status per profile convention, trend vs prior period.
 
@@ -39,28 +86,25 @@ For each measure: current value, target, status per profile convention, trend vs
 
 Use the profile's convention if it differs. Tag `[PROVISIONAL]` if using defaults.
 
-### Step 2: Causal link test (the core discipline)
+### Step 3: Causal link test (core discipline)
 
-For **every upward causal link** in the strategy map (lower objective → upper objective, with stated mechanism), run this test against period data:
-
-**Link verdict decision tree:**
+For **every upward causal link** in the strategy map, run against period data:
 
 ```
-1. Did the LEADING (lower-perspective) measure move in the direction
-   the map predicted this period?
-   → No: NOT TESTABLE THIS PERIOD (leading side didn't move — link idle)
+1. Did the LEADING measure move as predicted?
+   → No: NOT TESTABLE THIS PERIOD
    → Yes: continue
 
-2. Has enough time passed for the downstream effect to plausibly appear?
+2. Has enough lag elapsed?
    → No: NOT YET OBSERVABLE
    → Yes: continue
 
-3. Did the LAGGING (upper-perspective) measure move in the predicted direction?
+3. Did the LAGGING measure move as predicted?
    → Yes: CONFIRMED
    → No: CONTRADICTED
 ```
 
-**Default lag windows** (use profile overrides when set) `[unverified — planning convention]`:
+**Default lag windows** (profile overrides when set) `[unverified — planning convention]`:
 
 | Link direction | Typical lag |
 |---|---|
@@ -68,42 +112,29 @@ For **every upward causal link** in the strategy map (lower objective → upper 
 | Internal Process → Customer | 1 period |
 | Customer → Financial / Mission | 1–2 periods |
 
-Do not force **CONTRADICTED** inside the lag window — use **NOT YET OBSERVABLE** and state when the link becomes testable.
+Do not force **CONTRADICTED** inside the lag window.
 
-### Step 3: Execution vs theory split (for every CONTRADICTED link)
+### Step 4: Execution vs theory split (every CONTRADICTED link)
 
-This is the step that matters most. Do not default to "execution problem" because it's the easier conversation.
+Do not default to "execution problem" because it's the easier conversation.
 
-**Execution problem** — assign when **any** of these is true:
+**Execution problem** — when any of: initiative unfunded/unstaffed; delivered differently than designed; leading move from external confound; measure definition changed; artifact not real improvement.
 
-| Evidence | Example |
-|---|---|
-| Initiative behind the leading measure wasn't funded or staffed | Budget cut mid-quarter |
-| Initiative delivered differently than designed | Training rolled out to 20% of cohort |
-| Leading measure moved for an **external** reason unrelated to the initiative | Market tailwind inflated NPS |
-| Measure definition or collection method changed mid-period | Survey instrument swapped |
-| Leading measure improvement is artifact, not real | Sample size too small |
+**Theory problem** — only when all hold: initiative ran as designed; leading move attributable to initiative; adequate lag elapsed; downstream still did not move as mechanism predicted.
 
-**Fix:** Re-commit to execution or revise the initiative. The strategy map may still be sound.
+**Fix for theory problem:** Revisit `build-strategy-map` for this link — state explicitly.
 
-**Theory problem** — assign only when **all** of these are true:
+If mixed → **inconclusive**; name data for next period.
 
-| Condition | Must hold |
-|---|---|
-| Initiative ran as designed | Evidence of delivery, not intent |
-| Leading measure movement is attributable to the initiative | Not external confound |
-| Adequate lag has elapsed | Per lag table above |
-| Downstream measure still did not move as the mechanism predicted | Despite 1–3 |
+### Step 5: Roll up and escalation
 
-**Fix:** Revisit `build-strategy-map` for this link — the stated mechanism was wrong. Say this explicitly even when uncomfortable. Trying harder at the same initiative will not fix a wrong theory.
+Per perspective: measure status + link counts (CONFIRMED / CONTRADICTED / NOT YET OBSERVABLE).
 
-If evidence is mixed, state **inconclusive** and what data would resolve it next period — do not guess.
+**Early map refresh trigger:** Two+ theory-problem links, or one on load-bearing top link → recommend pulling forward annual map refresh.
 
-### Step 4: Roll up and escalation
+### Step 6: Gaming-pattern check
 
-Per perspective: summarize measure status and how many links are CONFIRMED / CONTRADICTED / NOT YET OBSERVABLE.
-
-**Early map refresh trigger:** If **two or more** CONTRADICTED links are diagnosed as **theory problems** in the same review — or one theory problem on a load-bearing top-perspective link — recommend pulling forward the annual map refresh rather than waiting for its scheduled date.
+Before output: confirm no perspective shows all-green measures while top-level lagging outcomes are red without a CONTRADICTED or theory-problem flag on the relevant links.
 
 ## Output format
 
@@ -127,9 +158,7 @@ CAUSAL LINK VALIDATION:
   [If CONTRADICTED:]
     Diagnosis: [execution problem | theory problem | inconclusive]
     Evidence: [specific — not assertion]
-    Recommended fix: [re-execute initiative | revisit build-strategy-map for this link | gather [data] next period]
-
-[repeat per causal link]
+    Recommended fix: [re-execute initiative | revisit build-strategy-map | gather [data] next period]
 
 PERSPECTIVE ROLLUP:
 | Perspective | Measure summary | Link summary |
@@ -139,11 +168,35 @@ PERSPECTIVE ROLLUP:
 OVERALL: [verdict] — [whether theory problems warrant early map refresh]
 ```
 
+## Worked example
+
+**Input:** Q1 review. Map link: "Onboarding NPS → Grow ARR" with mechanism "NPS lift reduces churn." NPS improved 32→45 (green); ARR growth flat (amber). Initiative ran on schedule; 2-period lag elapsed for Customer→Financial.
+
+**Expected output (excerpt):**
+
+```
+CAUSAL LINK VALIDATION:
+Improve onboarding NPS → Grow ARR 25%
+  Mechanism: NPS lift reduces churn, improving net retention
+  Leading measure: moved as predicted
+  Lag elapsed: yes
+  Downstream measure: did not move as predicted
+  Verdict: CONTRADICTED
+    Diagnosis: theory problem
+    Evidence: onboarding delivered per plan; NPS gain attributable; ARR flat after lag window
+    Recommended fix: revisit build-strategy-map — churn may be driven by factors other than onboarding NPS
+```
+
 ## Quality checks before delivering
 
 - [ ] Every measure scored with status and trend
 - [ ] Every map causal link tested (not just measures scored)
-- [ ] Lag windows applied — NOT YET OBSERVABLE used where appropriate
+- [ ] Lag windows applied — NOT YET OBSERVABLE where appropriate
 - [ ] CONTRADICTED links get execution-vs-theory split with evidence
-- [ ] Theory problems explicitly recommend map revisit, not "try harder"
+- [ ] Theory problems recommend map revisit, not "try harder"
 - [ ] Early refresh flagged if threshold met
+- [ ] RAG-washing pattern checked before output
+
+## Outputs
+
+Follows plugin `CLAUDE.md` § Outputs. Offer dashboard when measure table exceeds ~10 rows. Natural next branches: early `build-strategy-map` refresh, initiative re-commitment, or gather data for inconclusive links.
