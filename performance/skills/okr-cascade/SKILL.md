@@ -7,171 +7,101 @@ description: >
   and cross-team conflict checks.
 allowed-tools: Read, Grep, Glob
 metadata:
-  version: "0.2.0"
+  version: "0.3.0"
+  owner: "performance practice"
+  review_cadence: "quarterly"
+  work_shape: "structured-aggregation"
+  output_class: "draft-for-review"
+  sourcing_policy: "volatile-facts-must-be-sourced"
 ---
 
 # OKR Cascade
 
-Map company-level OKRs down to team-level objectives — running contribution, restatement, coverage, fan-out capacity, and cross-team conflict checks so the cascade adds alignment rather than bureaucracy.
+## When to use
+
+Map company OKRs to team level with contribution, coverage, capacity, and cross-team conflict checks — performance plugin's cascade view (see also `/okr:cascade`).
+
+## What this skill does not do
+
+- **Does not invent parent OKRs** — `INPUT NEEDED` if missing.
+- **Does not draft objectives/KRs** — route to `/okr:draft-objectives` and `/okr:write-key-results`.
+- **Does not publish company-wide without GATE** — confirm before board-visible finals.
+
+## Preconditions
+
+| Input | If missing |
+|---|---|
+| Org + performance profiles | Tag `[PROVISIONAL]`; bounce to cold-start |
+| Parent objectives and KRs | Halt — `INPUT NEEDED: parent objectives and KRs` |
+| Org structure for capacity/conflict checks | Ask; flag fan-out `[review]` |
+
+## Provisional mode
+
+`[PROVISIONAL]` — company→team two levels; ~5 objectives, ~4 KRs per objective defaults.
 
 ## Trust spine
 
-```
-SOURCING: Tag every market figure, benchmark, competitor claim, and dollar amount as
-  [sourced: <where>] or [unverified — from training data, needs a real source].
-ASSUMPTIONS: State load-bearing assumptions at the top of the output — flag, don't fix.
-NUMBERS: Never invent an input — flag what's needed instead.
-CONFIDENCE: Label output defensible recommendation vs structured first pass.
-GATE: Before producing the board-/exec-facing final, confirm explicitly and stamp a
-  reviewer note recording what wasn't verified.
-```
-
-## Purpose
-
-Produce a cascaded OKR set where every child objective is a genuine contribution to a parent KR, capacity is plausible, and sibling teams aren't quietly working against each other — the failure modes most cascade exercises skip.
-
-## Precondition: load profiles
-
-**Before cascading, read both:**
-
-- `~/.claude/plugins/config/claude-for-strategy/org-profile.md`
-- `~/.claude/plugins/config/claude-for-strategy/performance/CLAUDE.md`
-
-If missing or template, surface cold-start bounce with `/performance:cold-start-interview` or **"provisional"**.
-
-### Provisional mode
-
-Defaults: company → team cascade (two levels); ceiling ~5 objectives per level, ~4 KRs per objective `[unverified — generic OKR hygiene]`. Tag `[PROVISIONAL]`.
-
-Read `## Reporting → OKR cascade structure` from the performance profile for configured levels and limits.
+- **Confidence bands** (`structured-aggregation`):
+  - **High:** Contribution, coverage, fan-out, conflict checks complete.
+  - **Medium:** Some capacity data gaps; conflicts flagged.
+  - **Low:** Parent OKRs missing — halt.
+- **Failure modes:**
+  - **Strategic advice vs. support:** Cascade is draft for leadership workshop.
+  - **Client confidentiality:** OKR content internal — CONFIDENTIAL header.
+  - **Accountability gap:** Cross-team conflicts surfaced, not averaged away.
+  - **Analytical Rigor:** Orphans and uncovered parents both checked.
+  - **Incentive Gaming:** Sibling KR conflicts that game one metric at another's expense flagged.
+- **Escalation triggers:** Overloaded parent KR — flag too broad or too many children.
 
 ## Workflow
 
-### Step 1: Orient
+### Step 1: Orient — parent/child levels, parent OKRs, org structure, cycle.
 
-| Question | Answer |
-|---|---|
-| **Parent level** | Company / BU / department — what's being cascaded from |
-| **Child levels** | Teams / squads / individuals — target depth |
-| **Parent OKRs** | Objectives and KRs provided or INPUT NEEDED |
-| **Org structure** | Teams and owners — for capacity and conflict checks |
-| **Audience** | Working session / leadership review / company-wide publish |
-| **Cycle** | Quarter / half / year |
+### Step 2: Contribution test per child objective.
 
-If parent OKRs are missing, stop — produce structure with `INPUT NEEDED: parent objectives and KRs`. Do not invent company goals.
+### Step 3: Restatement check.
 
-### Step 2: Contribution test
+### Step 4: Alignment/coverage — orphans and uncovered parent KRs.
 
-For every cascaded child objective, ask:
+### Step 5: Fan-out and capacity check.
 
-> If this level's objective is fully achieved, does it move the needle on the **specific parent KR** it claims to serve?
+### Step 6: Cross-team conflict check across siblings.
 
-| Result | Action |
-|---|---|
-| Genuine contribution | Keep — document the link |
-| Weak or tangential | Flag — reframe or remove |
-| No movement | Remove — even if it sounds related |
-
-### Step 3: Restatement check
-
-Detect when a child objective is the **same goal with a different owner** — scope unchanged, no level-specific contribution.
-
-```
-→ [Child objective, owner] — Contribution: genuine | restatement — [explain]
-```
-
-Restatement adds bureaucracy without alignment. Ask what this level would do **differently** from the parent.
-
-### Step 4: Alignment and coverage check
-
-Across the full cascade:
-
-| Check | Flag |
-|---|---|
-| **Orphaned KRs** | Leaf KRs with no upward contribution path |
-| **Uncovered parent KRs** | Parent KRs with no cascaded contribution at all |
-
-Coverage gaps are as important as orphans — a parent KR with no children is a planning hole.
-
-### Step 5: Fan-out and capacity check
-
-For each parent KR, count child objectives mapped to it.
-
-Compare to org size/structure from org profile or user input:
-
-| Fan-out | Verdict |
-|---|---|
-| Within plausible capacity | Note count |
-| Overloaded | Flag — parent KR too broad, or too many teams competing for one parent's capacity; name which |
-
-Do not invent team sizes — use profile or ask.
-
-### Step 6: Cross-team conflict check
-
-Read sibling-level objectives/KRs (same parent, different owners) **against each other** — not just individually.
-
-Look for pairs where one team's KR improves at another's expense:
-
-| Conflict type | Example |
-|---|---|
-| Speed vs quality | Team A optimizes cycle time; Team B optimizes defect rate on same flow |
-| Cost vs service level | Team A cuts cost; Team B holds SLA Team A depends on |
-| Capacity grab | Two teams' KRs assume the same shared resource |
-
-Flag every plausible pair — false positives cost a clarifying conversation; missed conflicts cost a quarter.
-
-```
-CROSS-TEAM CONFLICT CHECK:
-  [Team A KR] vs [Team B KR]: [nature] or none found
-```
-
-### Step 7: Publish gate
-
-Before company-wide or board-visible cascade finals, run trust-spine **GATE**. Working drafts for OKR workshops skip the gate.
+### Step 7: Completeness and gaming-pattern check before output.
 
 ## Output format
 
 ```
 CONFIDENCE: [defensible recommendation | structured first pass]
-PARENT LEVEL: [company | BU | department]
-CHILD LEVELS: [teams | squads | individuals]
-CYCLE: [quarter | half | year]
+PARENT LEVEL: [...] — CHILD LEVELS: [...] — CYCLE: [...]
 
-LOAD-BEARING ASSUMPTIONS:
-- ...
+PARENT: [objective] — KR: [...]
+  → [Child objective, owner] — Contribution: [genuine | restatement]
 
-PARENT: [objective]
-  KR: [parent KR]
+FAN-OUT CHECK: [table]
+ALIGNMENT CHECK: Orphaned KRs: [...] — Uncovered parent KRs: [...]
+CROSS-TEAM CONFLICT CHECK: [...]
+CAPACITY FLAGS: [...]
+```
 
-  → [Child objective, owner] — Contribution: [genuine | restatement — explain]
-    KR: [child KR]
-  → ...
+## Worked example
 
-FAN-OUT CHECK:
-| Parent KR | # children | Verdict |
-|---|---|---|
+**Input:** Parent KR "Reduce churn to 8%." Child: "Ship onboarding v2."
 
-ALIGNMENT CHECK:
-  Orphaned KRs: [...]
-  Uncovered parent KRs: [...]
+**Expected output (excerpt):**
 
-CROSS-TEAM CONFLICT CHECK:
-  [pairs and nature, or none found]
-
-CAPACITY FLAGS: [overloaded parent KRs]
-EVIDENCE GAPS: [INPUT NEEDED]
+```
+→ Ship onboarding v2 (Product) — Contribution: restatement — output-shaped, not churn-linked [review]
 ```
 
 ## Quality checks before delivering
 
-- [ ] Both profiles loaded (or `[PROVISIONAL]` tagged)
-- [ ] Parent OKRs provided — not invented
-- [ ] Contribution test run on every child objective
-- [ ] Restatements flagged — not passed through as alignment
-- [ ] Orphans and uncovered parent KRs both checked
-- [ ] Fan-out compared to plausible capacity
-- [ ] Cross-team conflicts checked across siblings — not just individual KR quality
+- [ ] Parent OKRs not invented
+- [ ] Contribution and restatement checks run
+- [ ] Orphans and uncovered parents listed
+- [ ] Cross-team conflicts checked
+- [ ] GATE before company-wide publish
 
-## Close with next steps
+## Outputs
 
-Branches: resolve flagged conflicts in a leadership session, narrow overloaded parent KRs, fill coverage gaps for uncovered parents, hand off instrumentation to `tracker-builder`, or confirm gate before company-wide publish.
+Follows plugin `CLAUDE.md` § Outputs. Next: leadership session on conflicts, `/okr:cascade` for OKR-plugin workflow, or `tracker-builder`.
