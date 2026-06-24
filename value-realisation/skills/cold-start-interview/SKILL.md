@@ -6,44 +6,74 @@ description: >
   value-realisation plugin," "teach Claude how we track benefits," or
   wants to redo that setup after the benefits framework, governance
   model, or realisation cadence changes materially.
-tools: Read, Grep, Glob, Write
+allowed-tools: Read, Grep, Glob, Write
 disable-model-invocation: true
 metadata:
-  version: "0.1.0"
+  version: "0.3.0"
+  owner: "value-realisation practice"
+  review_cadence: "quarterly"
+  work_shape: "structured-aggregation"
+  output_class: "structured-data"
+  sourcing_policy: "volatile-facts-must-be-sourced"
 ---
 
 # Cold-Start Interview — value-realisation
 
-Writes the practice profile (`~/.claude/plugins/config/claude-for-strategy/value-realisation/CLAUDE.md`) every other skill in this plugin reads. Run this before `benefits-map`, `benefits-register`, `benefits-tracking`, `benefits-recovery`, or `realisation-review` produce tailored output. The baseline-discipline question below matters more than it sounds — get an honest answer before anything else.
+## When to use
 
-## Process
+Run before benefits skills produce tailored output. Baseline-discipline answer matters — get honest answer before anything else.
 
-1. **Offer quick vs. full setup** — quick is 4-5 questions with sensible defaults filled in elsewhere; full includes reviewing a seed business case and any existing benefits register or tracker.
+## What this skill does not do
 
-2. **Ask about the benefits framework**:
-   - Is there a named framework already in use (Cranfield Benefits Management, HM Treasury's five-case model, an internal house framework) — or none yet, in which case this plugin's default chain (enabler → business change → benefit → strategic objective) becomes the working model?
-   - What's the benefit type taxonomy — cash-releasing, cash-releasable, non-cash/qualitative, or different labels? Get the org's own terms rather than imposing these three if they already have a convention.
+- **Does not map or track benefits** — writes profile only.
+- **Does not auto-write without confirmation.**
 
-3. **Ask about governance and accountability, directly**:
-   - Who normally holds the benefit owner role today — and is it already distinguished from the delivery PM, or does the same person tend to hold both? If the same person holds both, say plainly that this is the most common reason benefits go unfollowed after go-live, and ask whether splitting them is feasible for this org.
-   - Who decides whether an at-risk benefit gets more recovery investment versus a write-down? Steering committee, benefit owner alone, a finance gate?
-   - Where do recovery decisions get recorded — `pmo:decision-log` if that plugin is installed, or somewhere else?
+## Preconditions
 
-4. **Ask about baseline discipline, and don't accept a vague answer**:
-   - Are baselines normally captured *before* a change goes live, or reconstructed afterward from whatever data exists? Most orgs answer "afterward" honestly if pushed — record this plainly rather than letting the user round up to "before." `benefits-register` needs the true answer to know how hard to flag retrofitted baselines going forward.
-   - What's the default measurement source — system of record, manual extract, a survey?
+Offer quick vs full; read org profile via shared framework when applicable.
 
-5. **Ask about attribution convention** — does the org normally run anything like a formal counterfactual or control group, or is attribution handled by judgment-based discounting when external factors are in play? Most consultancies and internal teams do the latter; that's a fine answer, just record it so `benefits-tracking` calibrates its attribution language to match.
+## Provisional mode
 
-6. **Ask about cadence**:
-   - Typical realisation window length post go-live (6/12/24 months, or varies by initiative).
-   - Tracking cadence (monthly, quarterly).
-   - What normally triggers a `realisation-review` — end of window, program closure, an annual portfolio cycle?
+Unanswered items → "no strong preference — will flag baselines and attribution conservatively by default."
 
-7. **Ask whether `transformation` and/or `corporate-strategy` are installed** — if so, `benefits-map` should seed directly from `transformation:business-case` or `corporate-strategy:evaluate-strategic-option` output rather than starting blank.
+## Trust spine
 
-8. **Request seed documents** for the full interview — a prior business case with a benefits section, an existing register or tracker, a past post-implementation review if one exists. Read for vocabulary, taxonomy, and structure, not to copy specific numbers.
+Structured-aggregation bands; explicit confirmation; baseline discipline recorded honestly.
 
-9. **Write the practice profile** to `~/.claude/plugins/config/claude-for-strategy/value-realisation/CLAUDE.md`, following the section structure in the in-repo template (`../../CLAUDE.md`). Do not modify the installed plugin's template file. Fill every section. Mark genuinely unanswered items as "no strong preference — will flag baselines and attribution conservatively by default" so downstream skills know to default to caution rather than optimism.
+## Shared framework
 
-10. **Confirm and summarize**, and tell the user they can edit `~/.claude/plugins/config/claude-for-strategy/value-realisation/CLAUDE.md` directly for small corrections or re-run this interview for a full refresh.
+Read `../../references/cold-start-framework.md` with `value-realisation` as plugin name where org layer needed.
+
+**Plugin profile:** `~/.claude/plugins/config/claude-for-strategy/value-realisation/CLAUDE.md`
+
+## Plugin-specific interview
+
+1. Benefits framework and taxonomy.
+2. Governance — benefit owner vs delivery PM; escalation; decision log home.
+3. Baseline discipline — before vs after go-live (push for honest answer).
+4. Attribution convention.
+5. Cadence — realisation window, tracking, review triggers.
+6. Cross-plugin: transformation/corporate-strategy installed?
+7. Seed documents (full mode).
+8. Write profile per `../../CLAUDE.md`.
+9. Confirm and summarize.
+
+## Output format
+
+Summary of profile changes; files written on confirmation.
+
+## Worked example
+
+**Input:** Baselines usually reconstructed after go-live; judgment-based attribution; quarterly tracking.
+
+**Summary excerpt:** Baseline discipline recorded as post-go-live; downstream skills will flag RETROFITTED BASELINE conservatively.
+
+## Quality checks before delivering
+
+- [ ] Baseline discipline honest (not rounded up)
+- [ ] Benefit owner vs PM distinction captured
+- [ ] Confirmation before write
+
+## Outputs
+
+Follows plugin `CLAUDE.md` § Outputs. Next: `benefits-map` or `benefits-register`.
