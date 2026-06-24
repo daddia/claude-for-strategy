@@ -8,11 +8,39 @@ description: >
   decision rights, or reward mechanics change materially. Writes the shared
   org profile and the operating-model practice profile.
 allowed-tools: Read, Grep, Glob, Write
+disable-model-invocation: true
 metadata:
-  version: "0.2.0"
+  version: "0.3.0"
+  owner: "operating-model practice"
+  review_cadence: "quarterly"
+  work_shape: "structured-aggregation"
+  output_class: "structured-data"
+  sourcing_policy: "volatile-facts-must-be-sourced"
 ---
 
 # Cold-Start Interview — operating-model
+
+## When to use
+
+Org design leads configuring structure fit, decision rights, matrix rules, span/layers, and reward mechanics — explicit invocation only.
+
+## What this skill does not do
+
+- **Does not run org design analysis** — writes profiles only.
+- **Does not auto-write without confirmation.**
+- **Does not modify other plugins' profiles.**
+
+## Preconditions
+
+Per `../../references/cold-start-framework.md` — detect setup, offer quick/full.
+
+## Provisional mode
+
+Quick mode: structure-fit priority and reward mechanism must be recorded or flagged for `diagnose-structure-fit` and `align-rewards-and-incentives`.
+
+## Trust spine
+
+Structured-aggregation bands; explicit confirmation before write; rewards captured as actual measurement/pay, not values doc.
 
 ## Shared framework
 
@@ -25,25 +53,37 @@ Read and follow `../../references/cold-start-framework.md` with `operating-model
 
 After the org layer is satisfied:
 
-1. **Full mode:** include a current org chart and any existing RACI documentation as seed documents.
-
-2. **Structure fit** — what the structure is meant to optimize for (efficiency/scale, innovation/speed, customer intimacy, coordination across geography/business lines). Push for a real answer; `diagnose-structure-fit` needs a genuine priority.
-
-3. **Decision-rights gaps** — decisions everyone privately agrees are unclear or contested in ownership.
-
-4. **Matrix relationships** — dual reporting and whether tie-breaker rules exist ("no known tie-breaker" is valid).
-
-5. **Span and layers** — typical team sizes by function, layers from top to frontline.
-
-6. **Rewards and incentives** — how people are actually measured and paid, not the values document. Re-ask if the answer sounds sanitized.
-
-7. **Write profiles** to the paths above, following `../../CLAUDE.md`.
-
+1. **Full mode:** current org chart and RACI documentation as seed.
+2. **Structure fit** — what structure optimizes for (efficiency, innovation, customer intimacy, coordination).
+3. **Decision-rights gaps** — contested or unclear ownership decisions.
+4. **Matrix relationships** — dual reporting and tie-breaker rules.
+5. **Span and layers** — typical team sizes, layer count.
+6. **Rewards and incentives** — how people are actually measured and paid; re-ask if sanitized.
+7. **Write profiles** following `../../CLAUDE.md`.
 8. **Confirm and summarize.**
 
 ## Living profile
 
-**Profile paths:** org `org-profile.md`; plugin `operating-model/CLAUDE.md` under `~/.claude/plugins/config/claude-for-strategy/`.
-
 - **Auto-apply:** this skill only, after user confirms the summary.
-- **Propose profile update:** all other skills — org facts to org profile; structure/RACI/span/rewards facts to plugin profile.
+- **Propose profile update:** all other skills.
+
+## Output format
+
+Summary of org + plugin changes; defaults used; files written on confirmation.
+
+## Worked example
+
+**Input:** `--quick`, matrix product/geo, no documented tie-breakers, functional bonuses, 6 layers.
+
+**Summary excerpt:** Structure optimizes customer intimacy; matrix tie-breakers flagged unknown; reward mechanism functional P&L — note for `align-rewards-and-incentives`.
+
+## Quality checks before delivering
+
+- [ ] Structure-fit priority recorded
+- [ ] Reward mechanism captured (not values-only)
+- [ ] Matrix/tie-breaker status recorded
+- [ ] Confirmation before write
+
+## Outputs
+
+Follows plugin `CLAUDE.md` § Outputs. Next: `diagnose-structure-fit` or `design-decision-rights`.
