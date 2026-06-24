@@ -7,50 +7,97 @@ description: >
   narrative rather than a table of numbers.
 allowed-tools: Read, Grep, Glob
 metadata:
-  version: "0.1.0"
+  version: "0.3.0"
+  owner: "performance practice"
+  review_cadence: "quarterly"
+  work_shape: "narrative-synthesis"
+  output_class: "draft-for-review"
+  sourcing_policy: "volatile-facts-must-be-sourced"
 ---
 
 # Performance Narrative
 
-Turn metrics/results into a BLUF-structured narrative for the audience recorded in the practice profile. Apply the BLUF convention: bottom line first, then why, then what's needed, then detail.
+## When to use
+
+Turn metrics/tracker results into BLUF narrative for the audience in the practice profile — bottom line first, not metric-by-metric walkthrough.
+
+## What this skill does not do
+
+- **Does not invent actuals** — flag missing numbers `[verify]`.
+- **Does not build trackers** — route to `/performance:tracker-builder`.
+- **Does not replace finance sign-off** — board numbers need finance validation per profile gates.
+
+## Preconditions
+
+| Input | If missing |
+|---|---|
+| Metrics or tracker results | Ask user to provide |
+| Practice profile (audience, cadence) | Use org default audiences; tag `[PROVISIONAL]` |
+| Headline-worthy context | Ask what audience will act on |
+
+## Provisional mode
+
+Without audience in profile: default to sponsor/exec; tag `[PROVISIONAL]`; apply quiet mode for external-facing per plugin `CLAUDE.md`.
 
 ## Trust spine
 
-```
-SOURCING: Tag every market figure, benchmark, competitor claim, and dollar amount as
-  [sourced: <where>] or [unverified — from training data, needs a real source].
-ASSUMPTIONS: State load-bearing assumptions at the top of the output — flag, don't fix.
-NUMBERS: Never invent an input — flag what's needed instead.
-CONFIDENCE: Label output defensible recommendation vs structured first pass.
-GATE: Before producing the board-/exec-facing final, confirm explicitly and stamp a
-  reviewer note recording what wasn't verified.
-```
+- **Confidence bands** (`narrative-synthesis`):
+  - **High:** BLUF headline, 2–4 MECE supporting points, explicit what's-needed, sourced figures.
+  - **Medium:** Some unsourced movements tagged `[verify]`.
+  - **Low:** Numbers missing for headline claim — halt or narrow scope.
+- **Failure modes:**
+  - **Strategic advice vs. support:** Narrative surfaces findings; audience decides action.
+  - **Client confidentiality:** Board/sponsor content — CONFIDENTIAL header; quiet mode for external.
+  - **Accountability gap:** What's-needed stated explicitly, not inferred.
+  - **Analytical Rigor:** MECE supporting points; so-what test on each metric.
+  - **Incentive Gaming:** N/A — narrative shape.
+- **Escalation triggers:** Headline depends on unverified figure — tag before BLUF.
 
-## Process
+## Workflow
 
-1. **Read the practice profile** (`~/.claude/plugins/config/claude-for-strategy/performance/CLAUDE.md`) for audience and reporting cadence.
-
-2. **Identify the headline** before writing anything else — across all the metrics provided, what's the one thing the audience most needs to know this period? Not every metric that moved; the one that matters most given the audience and what they'd act on.
-
-3. **Write the bottom line first** — the headline finding, one to two sentences, stated as a conclusion ("Conversion is down 8% this month, driven almost entirely by the mid-tier price change") not a topic ("Here's our conversion performance this month").
-
-4. **Group supporting metrics into 2-4 MECE points** that explain the headline — not a metric-by-metric walkthrough of everything that moved. Apply the so-what test: a metric that moved but doesn't change the picture for the audience belongs in an appendix, not the main narrative.
-
-5. **State what's needed, if anything** — a decision, an investment, awareness only. Make this explicit rather than letting the reader infer it.
-
-6. **Put the full metric detail last**, as supporting reference — this is where every number that moved gets its due, for the reader who wants it, without competing with the headline for attention.
+1. **Read practice profile** for audience and cadence.
+2. **Identify headline** — one thing audience must know this period.
+3. **Write bottom line first** — conclusion not topic.
+4. **Group supporting metrics** into 2–4 MECE points; so-what test.
+5. **State what's needed** — decision, investment, awareness.
+6. **Full metric detail last** as reference appendix.
+7. **MECE/falsifiability check** before output.
 
 ## Output format
 
 ```
-HEADLINE: [bottom line — the one thing that matters most this period]
+CONFIDENCE: [defensible recommendation | structured first pass]
+HEADLINE: [bottom line]
 
 WHY:
 1. [supporting point]
 2. [supporting point]
 
-WHAT'S NEEDED: [decision/investment/awareness-only — be explicit]
+WHAT'S NEEDED: [decision/investment/awareness-only]
 
 FULL DETAIL:
-[metric-by-metric breakdown, all movements, for reference]
+[metric-by-metric breakdown for reference]
 ```
+
+## Worked example
+
+**Input:** Conversion down 8%; mid-tier price change; board audience.
+
+**Expected output (excerpt):**
+
+```
+HEADLINE: Conversion fell 8% this month, driven almost entirely by the mid-tier price change [sourced: tracker].
+WHAT'S NEEDED: Decision whether to revert price test or accept conversion hit for margin gain [review]
+```
+
+## Quality checks before delivering
+
+- [ ] BLUF headline is conclusion not topic
+- [ ] Supporting points MECE; trivial movers in appendix
+- [ ] What's-needed explicit
+- [ ] Figures source-tagged
+- [ ] Quiet mode for external-facing deliverables
+
+## Outputs
+
+Follows plugin `CLAUDE.md` § Outputs. Next: finance validation, deeper dive on flagged metric, or exec decision on what's-needed.
