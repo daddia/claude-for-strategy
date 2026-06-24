@@ -7,37 +7,97 @@ description: >
   for over- and under-management.
 allowed-tools: Read, Grep, Glob
 metadata:
-  version: "0.1.0"
+  version: "0.3.0"
+  owner: "operating-model practice"
+  review_cadence: "quarterly"
+  work_shape: "structured-aggregation"
+  output_class: "draft-for-review"
+  sourcing_policy: "volatile-facts-must-be-sourced"
 ---
 
 # Check Span and Layers
 
-Both directions of this failure are real and look different: too-narrow spans broadly across an org usually signal over-management and unnecessary layers; too-wide spans for roles that need real coaching or integration mean work falls through cracks. Layers compound the problem — each additional layer typically adds communication delay and some information distortion, and should be justified by genuine complexity, not assumed neutral.
+## When to use
 
-## Process
+Diagnose span of control and layer count — both over-management (narrow spans, excess layers) and under-management (wide spans where coaching needed).
 
-1. **Read the practice profile** (`../../CLAUDE.md`) for known span and layer data.
+## What this skill does not do
 
-2. **Get span of control by function/level.** For each, assess against role type: narrow spans (roughly 1-5 direct reports) are defensible for highly technical, judgment-heavy, or closely-coached roles; broadly narrow spans across less specialized roles usually signal excess management layers rather than genuine coordination need. Wide spans (roughly 12+) are defensible for largely independent, self-directed roles; wide spans for roles needing real coaching or quality oversight are a red flag regardless of how efficient they look on an org chart.
+- **Does not redesign decision rights** — route to `/operating-model:design-decision-rights`.
+- **Does not assess strategic structure fit** — route to `/operating-model:diagnose-structure-fit`.
+- **Does not recommend blanket flattening** — changes tied to role-type reasoning.
 
-3. **Count layers from the top to the frontline**, and assess whether the count is justified by genuine complexity (distinct businesses, regulatory separation, deep technical specialization) or has simply accumulated. More layers should be argued for explicitly, not treated as a neutral byproduct of growth.
+## Preconditions
 
-4. **Estimate the practical cost of excess layers** — decision latency (how many approvals does a typical decision pass through) and information distortion (how much does a message change shape by the time it travels from frontline to top, or top to frontline) — even a rough estimate makes this concrete rather than abstract.
+| Input | If missing |
+|---|---|
+| Span by function/level | Ask user for org data or HRIS export |
+| Layer count top to frontline | Ask; estimate with `[review]` if partial |
+| Practice profile targets | Use industry norms; flag `[PROVISIONAL]` |
 
-5. **Recommend specific changes** — flattening specific layers, widening or narrowing specific spans — tied to the role-type reasoning above, not a blanket "reduce layers" recommendation that ignores where layers are actually earning their place.
+## Provisional mode
+
+Partial org data: assess available spans/layers; flag incomplete coverage in output header.
+
+## Trust spine
+
+- **Confidence bands** (`structured-aggregation`):
+  - **High:** Spans assessed by role type; layers justified or flagged; latency estimated.
+  - **Medium:** Some functions missing; recommendations qualified.
+  - **Low:** No span data — halt.
+- **Failure modes:**
+  - **Strategic advice vs. support:** Recommendations are draft for exec/HR review.
+  - **Client confidentiality:** Headcount data sensitive — CONFIDENTIAL header.
+  - **Accountability gap:** Flags tied to role types, not generic "reduce layers."
+  - **Analytical Rigor:** Every function/level in scope assessed.
+  - **Incentive Gaming:** N/A for this shape.
+- **Escalation triggers:** Layer count with no complexity justification — flag decision latency cost.
+
+## Workflow
+
+1. **Read practice profile** for span/layer data and targets.
+2. **Assess span by function/level** against role type (coaching vs. independent work).
+3. **Count layers** top to frontline; justify by complexity or flag accumulation.
+4. **Estimate practical cost** of excess layers — decision latency, distortion.
+5. **Recommend specific changes** with role-type rationale.
+6. **Completeness check** before output.
 
 ## Output format
 
 ```
+CONFIDENCE: [defensible recommendation | structured first pass]
 SPAN ANALYSIS:
-[Function/Level] — Span: [N] — Role type: [highly coordinated/specialized vs.
-  independent/self-directed] — Assessment: [defensible / flag — too narrow / flag — too wide]
-
-[repeat]
+[Function/Level] — Span: [N] — Role type: [...] — Assessment: [defensible / flag — too narrow / too wide]
 
 LAYER ANALYSIS: [N] layers, top to frontline
-  Justified by: [genuine complexity — name it] or [no clear justification found — flag]
-  Estimated decision latency: [rough — number of approvals for a typical decision]
+  Justified by: [complexity] or [no clear justification — flag]
+  Estimated decision latency: [rough approvals for typical decision]
 
 RECOMMENDED CHANGES: [specific layers/spans, with role-type rationale]
 ```
+
+## Worked example
+
+**Input:** Engineering managers span 4 on mostly independent IC work; 7 layers to frontline in single-product company.
+
+**Expected output (excerpt):**
+
+```
+SPAN ANALYSIS:
+Engineering Manager — Span: 4 — Role type: independent ICs — Assessment: flag — too narrow
+
+LAYER ANALYSIS: 7 layers — Justified by: no clear justification found — flag
+RECOMMENDED CHANGES: Widen EM spans to 8–10; remove one coordination layer between VP and directors [review]
+```
+
+## Quality checks before delivering
+
+- [ ] Span assessed against role type, not single universal number
+- [ ] Layers justified or flagged
+- [ ] Latency/distortion estimated when layers excess
+- [ ] Recommendations specific, not blanket flattening
+- [ ] Coverage gaps noted if data incomplete
+
+## Outputs
+
+Follows plugin `CLAUDE.md` § Outputs. Next: exec/HR review, `diagnose-structure-fit`, or org design workshop.
