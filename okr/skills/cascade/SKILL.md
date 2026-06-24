@@ -7,30 +7,66 @@ description: >
   check, and a check for goals that work against each other across teams.
 allowed-tools: Read, Grep, Glob
 metadata:
-  version: "0.1.0"
+  version: "0.3.0"
+  owner: "okr practice"
+  review_cadence: "quarterly"
+  work_shape: "structured-aggregation"
+  output_class: "draft-for-review"
+  sourcing_policy: "volatile-facts-must-be-sourced"
 ---
 
 # Cascade
 
-Three checks this skill runs that a naive cascade skips: whether a child objective is a real contribution rather than a restatement, whether too many children are competing for one parent's capacity, and whether two sibling teams' goals are quietly working against each other. The third is the one most cascade tools never do, and it's often where transformation programs actually stall.
+## When to use
 
-## Process
+OKR cycle owners cascading objectives/KRs down levels — with contribution, capacity, alignment, and cross-team conflict checks naive cascades skip.
 
-1. **Read the practice profile** (`../../CLAUDE.md`) for cascade levels and the rough ceiling on objectives-per-level / KRs-per-objective.
+## What this skill does not do
 
-2. **Run the contribution test on every cascaded objective**: if this level's objective is fully achieved, does it move the needle on the specific parent KR it claims to serve? If achieving it wouldn't meaningfully move that KR, it doesn't belong in the cascade — even if it sounds related.
+- **Does not draft objectives** — route to `/okr:draft-objectives`.
+- **Does not write KRs** — route to `/okr:write-key-results`.
+- **Does not set targets** — route to `/okr:set-targets`.
 
-3. **Run the restatement check**: is the child objective genuinely this level's *contribution* to the parent, or the same goal with a different owner's name on it and the scope unchanged? Restatement adds a layer of bureaucracy without adding alignment — flag it and ask what this level would specifically do differently.
+## Preconditions
 
-4. **Run the alignment/coverage check** across the whole cascade: does every leaf-level KR trace back to a real contribution? Flag orphaned KRs (no upward contribution) and uncovered parent KRs (no cascaded contribution at all — a coverage gap).
+| Input | If missing |
+|---|---|
+| Parent objectives/KRs to cascade | Ask user to provide |
+| Practice profile (cascade levels, ceilings) | Proceed with defaults (3–5 objectives, 2–5 KRs); flag `[review]` |
+| Child-level draft objectives/KRs | Ask user to provide or offer to draft via other skills |
 
-5. **Run the fan-out/capacity check**: how many child objectives are mapped to one parent KR, relative to what's plausible given the org size/structure recorded elsewhere in this repo's other plugins (or ask, if unknown)? Too many children competing for one parent's worth of capacity is a sign the parent KR is too broad, or that not everyone cascading into it can realistically be prioritized — name which.
+## Provisional mode
 
-6. **Run the cross-team conflict check** — the one most cascade exercises skip entirely. Look across sibling-level objectives/KRs (same parent, different owners) for goals that improve one team's number at another's expense: a speed-optimizing KR that depends on a process another team's KR wants to slow down for quality; a cost-reduction KR that depends on a service-level commitment another team has made. This requires actually reading the KRs against each other, not just checking they're individually well-formed — flag every pair you find, even if you're not certain it's a real conflict; a false positive here costs a clarifying conversation, a missed one costs a quarter.
+Without org structure data: fan-out/capacity check labeled `[review]`; cross-team conflict check still runs on provided KRs.
+
+## Trust spine
+
+- **Confidence bands** (`structured-aggregation`):
+  - **High:** MECE cascade coverage, contribution tests complete, conflicts named.
+  - **Medium:** Some restatements or coverage gaps flagged.
+  - **Low:** Parent KRs missing or child set incomplete — scaffold only.
+- **Failure modes:**
+  - **Strategic advice vs. support:** Flags restatements and conflicts; does not resolve ownership disputes.
+  - **Client confidentiality:** OKR content may be internal-only — CONFIDENTIAL header.
+  - **Accountability gap:** Cross-team conflicts surfaced for conversation, not silently merged.
+  - **Analytical Rigor:** Contribution test MECE; orphans and uncovered parents listed.
+  - **Incentive Gaming:** Catches cross-team KR pairs that game one metric at another's expense.
+- **Escalation triggers:** Overloaded fan-out on single parent KR — flag parent KR too broad.
+
+## Workflow
+
+1. **Read the practice profile** for cascade levels and objectives/KR ceilings.
+2. **Run contribution test** on every cascaded objective — does achieving it move the parent KR?
+3. **Run restatement check** — contribution vs. same goal with different owner.
+4. **Run alignment/coverage check** — orphaned KRs and uncovered parent KRs.
+5. **Run fan-out/capacity check** — too many children on one parent KR.
+6. **Run cross-team conflict check** — sibling KRs that improve one team at another's expense.
+7. **Completeness check** before output.
 
 ## Output format
 
 ```
+CONFIDENCE: [defensible recommendation | structured first pass]
 PARENT: [objective/KR]
 
   → [Child objective, owner] — Contribution: [genuine / restatement — explain]
@@ -45,3 +81,30 @@ ALIGNMENT CHECK:
 CROSS-TEAM CONFLICT CHECK:
   [Team A's KR] vs. [Team B's KR]: [nature of the conflict, or "none found"]
 ```
+
+## Worked example
+
+**Input:** Parent KR "Reduce enterprise churn to 8%." Child A: "Ship onboarding v2"; Child B: "Slow release cadence for QA depth."
+
+**Expected output (excerpt):**
+
+```
+PARENT: Reduce enterprise churn to 8%
+  → Ship onboarding v2 (Product) — Contribution: restatement — output-shaped, not churn-linked [review]
+  → Improve 90-day retention cohort by 5pts (Product) — Contribution: genuine
+
+CROSS-TEAM CONFLICT CHECK:
+  Product release-cadence KR vs. Platform stability KR: speed vs. quality tension on shared customers [review]
+```
+
+## Quality checks before delivering
+
+- [ ] Contribution test on every child objective
+- [ ] Orphans and uncovered parents listed
+- [ ] Fan-out/capacity assessed
+- [ ] Cross-team conflict check run across siblings
+- [ ] Output does not read as approved cascade
+
+## Outputs
+
+Follows plugin `CLAUDE.md` § Outputs. Next: revise children via `draft-objectives`/`write-key-results`, or escalate conflicts to leadership.
