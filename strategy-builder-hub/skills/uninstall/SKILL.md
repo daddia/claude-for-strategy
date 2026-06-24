@@ -6,30 +6,66 @@ description: >
   action. Use when the user wants to fully remove a community skill
   ("uninstall [skill]", "remove this skill") rather than just disable it.
 argument-hint: "[skill name]"
+allowed-tools: Read, Grep, Glob, Write
+disable-model-invocation: true
+metadata:
+  version: "0.3.0"
+  owner: "strategy-builder-hub practice"
+  review_cadence: "quarterly"
+  work_shape: "governance-tracking"
+  output_class: "tracking-update"
+  sourcing_policy: "volatile-facts-must-be-sourced"
 ---
 
 # /uninstall
 
-Run the `uninstall` workflow from the skill-manager reference skill against
-the named skill.
+## When to use
+
+Fully remove hub-installed community skill — confirm paths, delete files, log uninstall.
+
+## What this skill does not do
+
+- **Does not touch first-party plugins.**
+- **Does not delete without explicit yes.**
+- **Does not disable-only** — suggest `/strategy-builder-hub:disable` to keep files.
+
+## Preconditions
+
+| Input | If missing |
+|---|---|
+| Skill name | Ask |
+| Install log entry | Refuse if not recorded |
+| Load `skill-manager` reference | Required before substantive work |
+
+## Provisional mode
+
+N/A — confirm-before-delete always.
+
+## Trust spine
+
+Governance-tracking; install-log audit; built-in plugin refusal.
+
+## Workflow
+
+Run the `uninstall` workflow from the skill-manager reference skill.
 
 Safety rules:
 
-1. **Only uninstall community skills installed through this hub.** Check
-   `~/.claude/plugins/config/claude-for-strategy/strategy-builder-hub/install-log.yaml`
-   and the CLAUDE.md installed starter pack table. If the skill is not recorded
-   there, refuse and tell the user.
-2. **Never uninstall a first-party plugin's skill.** The 9 core plugins that
-   ship with claude-for-strategy are off-limits from this command. If the named
-   skill resolves to a path inside one of those plugins, refuse.
-3. **Confirm before removing files.** Show the user every path that will be
-   deleted. Proceed only on explicit `yes`.
-4. **Log the uninstall.** Append to `install-log.yaml` with action `uninstall`
-   and timestamp so the audit trail is intact.
+1. **Only uninstall community skills installed through this hub.**
+2. **Never uninstall first-party plugin skills.**
+3. **Confirm before removing files** — show every path; proceed only on explicit `yes`.
+4. **Log the uninstall** to `install-log.yaml`.
 
-If the user wants to stop a skill from running but keep the files (e.g., for
-later re-enable, or to preserve configuration), suggest `/strategy-builder-hub:disable`
-instead.
+If the user wants to keep files, suggest `/strategy-builder-hub:disable` instead.
 
-> Detailed uninstall, disable, and re-enable workflows live in the
-> `skill-manager` reference skill — load it before doing substantive work.
+> Detailed workflows live in the `skill-manager` reference skill.
+
+## Worked example
+
+**Input:** `uninstall old-scan` — in install log, not first-party.
+
+**Expected output:** Deletion paths listed; user types yes; files removed; log entry `uninstall`.
+
+## Outputs
+
+Follows plugin `CLAUDE.md` § Outputs. Next: `registry-browser` for replacement skill, or done.
