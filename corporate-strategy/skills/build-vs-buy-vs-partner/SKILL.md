@@ -5,38 +5,77 @@ description: >
   acquire it, or partner for it," has a capability gap that needs a
   build/buy/partner decision, or wants that decision checked against the
   known failure pattern each path tends toward.
-allowed-tools: Read, Grep, Glob
+allowed-tools: Read, Grep, Glob, Write
 metadata:
-  version: "0.1.0"
+  version: "0.2.0"
+  owner: "corporate-strategy practice"
+  review_cadence: "quarterly"
+  work_shape: "option-evaluation"
+  output_class: "draft-for-review"
+  sourcing_policy: "volatile-facts-must-be-sourced"
 ---
 
 # Build vs. Buy vs. Partner
 
-Each path has a well-known way it tends to go wrong, and the failure pattern is rarely the one being discussed when the decision is made. This skill forces each path's specific risk into the conversation rather than letting the decision get made on cost comparison alone.
+## When to use
 
-## Process
+When a capability gap needs build/buy/partner framing — forces each path's known failure pattern into the conversation, not cost comparison alone.
 
-1. **State the capability gap precisely** — what's missing, and why it matters to the strategy (if it doesn't clearly connect to a strategic priority, question whether it's worth closing at all before evaluating how).
+## What this skill does not do
 
-2. **Test whether this is core or commodity.** A genuinely differentiating capability that competitors can't easily replicate is a stronger build case; a commodity capability available externally at good quality is a weaker one — name which this looks like, and don't let "we could probably build it" substitute for "we should."
+- **Does not close capability gaps without strategic relevance** — question worth closing first.
+- **Does not re-derive synergy discipline** — buy path defers to `synergy-stress-test`.
+- **Does not pick path without naming failure pattern** — recommendation includes mitigation.
 
-3. **Evaluate Build** against its known failure pattern: building systematically underestimates both time and cost, especially outside the org's core competency. Ask for the team's track record on past build estimates — if there's a history of overrun, apply a haircut to this estimate too rather than treating it as independent.
+## Preconditions
 
-4. **Evaluate Buy** against its known failure pattern: acquisitions systematically overestimate synergy capture and underestimate integration cost and culture risk. If this path is live, hand off to `synergy-stress-test` for the synergy case specifically rather than re-deriving that discipline here.
+| Input | If missing |
+|---|---|
+| Capability gap stated precisely | Ask before evaluating paths |
+| Strategic priority link | Question whether gap worth closing |
 
-5. **Evaluate Partner** against its known failure pattern: partnerships underestimate governance complexity while running and exit difficulty when they end. Ask directly: what happens when this partnership needs to end — is there an exit mechanism, or is the assumption that it'll just continue indefinitely?
+## Provisional mode
 
-6. **Recommend**, stating which failure pattern is most likely to bite for this specific case and what would mitigate it if the recommended path is chosen anyway.
+Missing build track record: note haircut cannot be calibrated — `[review]`.
+
+## Trust spine
+
+- **Strategic advice vs. support (mandatory):** Compares paths with failure patterns; strategist owns choice.
+- **Escalation:** No exit mechanism on partner path → flag; buy without synergy test → route to `synergy-stress-test`.
+
+## Workflow
+
+1. State capability gap and strategic relevance.
+2. Core vs commodity test.
+3. **Build:** time/cost + overrun failure pattern + haircut from track record.
+4. **Buy:** headline terms + synergy handoff if live.
+5. **Partner:** structure + exit mechanism.
+6. Recommend with most likely failure pattern and mitigation.
 
 ## Output format
 
 ```
-CAPABILITY GAP: [what's missing, strategic relevance]
-CORE OR COMMODITY: [which, and why]
-
-BUILD: [time/cost estimate] — Failure pattern risk: [org's build track record] — Haircut applied: [if any]
-BUY: [headline terms] — Failure pattern risk: [defer to synergy-stress-test if live]
-PARTNER: [structure] — Exit mechanism: [exists / does not exist — flag if not]
-
-RECOMMENDATION: [build | buy | partner] — [most likely failure pattern for this path, and mitigation]
+CAPABILITY GAP: [...]
+CORE OR COMMODITY: [...]
+BUILD: [...] — Failure pattern risk: [...]
+BUY: [...] — [synergy-stress-test if live]
+PARTNER: [...] — Exit mechanism: [...]
+RECOMMENDATION: [build | buy | partner] — [failure pattern + mitigation]
 ```
+
+## Worked example
+
+**Input:** Need ML fraud model. Team has no ML delivery track record.
+
+**Excerpt:** Commodity-adjacent capability; BUILD failure pattern high (overrun history); PARTNER exit mechanism missing — flag. Recommend partner with defined exit or buy `[review]`.
+
+## Quality checks before delivering
+
+- [ ] Core/commodity named
+- [ ] Each path's failure pattern explicit
+- [ ] Partner exit asked
+- [ ] Buy synergies routed if needed
+
+## Outputs
+
+Follows plugin `CLAUDE.md` § Outputs. Next: `synergy-stress-test`, `evaluate-strategic-option`, or implementation planning.
