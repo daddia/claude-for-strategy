@@ -7,35 +7,96 @@ description: >
   single-point-accountability enforced.
 allowed-tools: Read, Grep, Glob
 metadata:
-  version: "0.1.0"
+  version: "0.3.0"
+  owner: "operating-model practice"
+  review_cadence: "quarterly"
+  work_shape: "structured-aggregation"
+  output_class: "draft-for-review"
+  sourcing_policy: "volatile-facts-must-be-sourced"
 ---
 
 # Design Decision Rights
 
-The discipline a naive RACI skips: exactly one party Accountable per decision. Zero accountable parties means the decision will stall or get endlessly re-opened; more than one means the same failure wearing a different disguise — diffused accountability that looks like coverage but isn't. This skill enforces both directions and also checks for the slower failure: too many people Consulted, inflating decision latency.
+## When to use
 
-## Process
+Assign RACI/RAPID roles with exactly one Accountable per decision — enforce single-point accountability and flag Consulted bloat.
 
-1. **Read the practice profile** (`../../CLAUDE.md`) for existing decision-rights gaps already flagged.
+## What this skill does not do
 
-2. **For each decision or process in scope, assign roles** — Responsible (does the work), Accountable (owns the outcome, answers for it), Consulted (input sought before deciding), Informed (told after). RAPID terms (Recommend/Agree/Perform/Input/Decide) work the same way if that's the house convention — check the practice profile.
+- **Does not diagnose structure fit** — route to `/operating-model:diagnose-structure-fit`.
+- **Does not resolve political ownership** — forces a choice; strategist decides.
+- **Does not implement governance systems** — produces artifact for adoption.
 
-3. **Enforce exactly one Accountable/Decide party per decision.** If zero are named, stop and ask who actually should own it rather than leaving it unassigned. If more than one are named, flag this explicitly as diffused accountability and force a choice — "shared ownership" is rarely real ownership when something goes wrong.
+## Preconditions
 
-4. **Check for Consulted/Input bloat.** If the list of people who must be consulted before a decision is long enough that reaching them all would take weeks, flag it — that's a decision-speed problem hiding inside what looks like thorough governance. Recommend trimming to who genuinely needs to weigh in versus who'd just like to be asked.
+| Input | If missing |
+|---|---|
+| Decisions or processes in scope | Ask user to list |
+| Practice profile (RACI vs RAPID convention) | Default RACI; flag `[PROVISIONAL]` |
+| Named roles/parties for assignment | Ask; halt if decisions unnamed |
 
-5. **Check for decisions with no clear home at all** — if walking through the org's actual decisions turns up one nobody in the exercise claims ownership of, name it specifically rather than letting it pass as an oversight to fix later.
+## Provisional mode
+
+Multiple Accountable proposed: flag diffused accountability; do not finalize until single owner chosen or explicitly `[review]`.
+
+## Trust spine
+
+- **Confidence bands** (`structured-aggregation`):
+  - **High:** Every decision has exactly one Accountable; bloat flags applied.
+  - **Medium:** Some ownership gaps with recommended owners.
+  - **Low:** Zero Accountable on key decisions — halt output until resolved.
+- **Failure modes:**
+  - **Strategic advice vs. support:** Assignments are draft for exec confirmation.
+  - **Client confidentiality:** RACI may expose sensitive authority lines — CONFIDENTIAL header.
+  - **Accountability gap:** "Shared ownership" rejected; forces single Accountable.
+  - **Analytical Rigor:** MECE decision coverage in scope.
+  - **Incentive Gaming:** Consulted bloat flagged as latency/gaming risk.
+- **Escalation triggers:** Unowned decisions found — name specifically, do not defer.
+
+## Workflow
+
+1. **Read practice profile** for decision-rights gaps and house convention.
+2. **Assign roles** per decision — R/A/C/I or RAPID equivalent.
+3. **Enforce exactly one Accountable** — stop if zero; flag if multiple.
+4. **Check Consulted bloat** — long lists that slow decisions materially.
+5. **Find unowned decisions** — no claimed owner during exercise.
+6. **Completeness check** before output.
 
 ## Output format
 
 ```
+CONFIDENCE: [defensible recommendation | structured first pass]
 DECISION: [name]
-  Accountable: [single name/role — flag if zero or multiple were initially proposed]
+  Accountable: [single name/role — flag if zero or multiple initially proposed]
   Responsible: [...]
-  Consulted: [...] — Bloat flag: [if list is long enough to slow the decision materially]
+  Consulted: [...] — Bloat flag: [if applicable]
   Informed: [...]
 
 [repeat per decision]
 
-UNOWNED DECISIONS FOUND: [any decision with no claimed owner during this exercise]
+UNOWNED DECISIONS FOUND: [list or none]
 ```
+
+## Worked example
+
+**Input:** "Product pricing changes" — Accountable: Product VP and Finance VP.
+
+**Expected output (excerpt):**
+
+```
+DECISION: Product pricing changes
+  Accountable: FLAG — multiple proposed (Product VP, Finance VP); force choice [review]
+UNOWNED DECISIONS FOUND: none
+```
+
+## Quality checks before delivering
+
+- [ ] Exactly one Accountable per decision (or explicit flag)
+- [ ] Consulted bloat assessed
+- [ ] Unowned decisions listed
+- [ ] House convention (RACI/RAPID) applied
+- [ ] Output does not read as final governance policy
+
+## Outputs
+
+Follows plugin `CLAUDE.md` § Outputs. Next: exec workshop to resolve flags, socialize artifact, or `stress-test-matrix-reporting`.
