@@ -7,31 +7,48 @@ description: >
   milestone status.
 allowed-tools: Read, Grep, Glob
 metadata:
-  version: "0.2.0"
+  version: "0.3.0"
+  owner: "pmo practice"
+  review_cadence: "quarterly"
+  work_shape: "narrative-synthesis"
+  output_class: "draft-for-review"
+  sourcing_policy: "volatile-facts-must-be-sourced"
 ---
 
 # Status Report
 
-Produce an audience-specific status report — sponsor, steering committee, or working team versions differ in detail and framing, not just length. BLUF-structured: bottom line first.
+## When to use
+
+Audience-specific RAG status report from RAID and milestones — BLUF first; sponsor vs steering vs team calibration.
+
+## What this skill does not do
+
+- **Does not fabricate RAID/milestone status** — `INPUT NEEDED` skeleton only.
+- **Does not replace steering pack** — route to `/pmo:steering-pack` for governance deck.
+- **Does not RAG-wash** — profile thresholds required.
+
+## Preconditions
+
+| Input | If missing |
+|---|---|
+| Org + pmo profiles | Tag `[PROVISIONAL]`; bounce to cold-start |
+| RAID log (open items) | Stop — ask; skeleton with `INPUT NEEDED` only |
+| Milestone status | Stop — ask; skeleton with `INPUT NEEDED` only |
+| Audience | Ask once; default sponsor with `[PROVISIONAL]` |
+
+## Provisional mode
+
+`[PROVISIONAL]` — generic RAG thresholds; confirm audience.
 
 ## Trust spine
 
-```
-INCENTIVE GAMING: Guards against RAG-washing — Amber or Red workstreams reported
-  as Green, vague "on track" language without profile thresholds applied, or
-  status invented when RAID/milestones are missing. RAG uses quoted thresholds
-  from the profile; missing evidence produces INPUT NEEDED skeletons, not plausible
-  Green statuses; every Red/Amber item states action and ask.
-SOURCING: Tag every market figure, benchmark, competitor claim, and dollar amount as
-  [sourced: <where>] or [unverified — from training data, needs a real source].
-ASSUMPTIONS: State load-bearing assumptions at the top of the output — flag, don't fix.
-NUMBERS: Never invent an input — flag what's needed instead.
-CONFIDENCE: Label output defensible recommendation vs structured first pass.
-GATE: Before producing the board-/exec-facing final, confirm explicitly and stamp a
-  reviewer note recording what wasn't verified.
-```
-
-Full rules: repo-root `references/trust-conventions.md`.
+- **Confidence bands** (`narrative-synthesis`):
+  - **High:** BLUF, profile RAG rules quoted, sourced RAID/milestones, Red/Amber action+ask.
+  - **Medium:** Partial inputs; structured first pass with gaps listed.
+  - **Low:** Missing RAID and milestones — skeleton only, no fake Green.
+- **Failure modes:**
+  - **Incentive Gaming:** Guards RAG-washing — vague "on track" without thresholds.
+- **Escalation triggers:** Red workstream — explicit ask in BLUF.
 
 ## Purpose
 
@@ -170,6 +187,18 @@ EVIDENCE GAPS: [INPUT NEEDED items]
 - [ ] Every Red/Amber has action and ask
 - [ ] Sponsor version is short enough to read in two minutes
 
-## Close with next steps
+## Worked example
 
-Branches: provide missing RAID/milestones and re-run, escalate Red items per profile thresholds, hand off to `steering-pack` for governance meeting, or confirm external distribution through the gate.
+**Input:** Sponsor audience; one Red workstream (integration slipped); RAID provided.
+
+**Expected output (excerpt):**
+
+```
+OVERALL STATUS: Amber — integration workstream Red threatens Q3 go-live
+HEADLINE: Integration milestone 2 weeks late on critical path [sourced: milestone tracker]
+ASK: Sponsor decision on descoping vs. adding vendor capacity [review]
+```
+
+## Outputs
+
+Follows plugin `CLAUDE.md` § Outputs. Next: provide missing inputs and re-run, `steering-pack`, or confirm GATE before external distribution.
