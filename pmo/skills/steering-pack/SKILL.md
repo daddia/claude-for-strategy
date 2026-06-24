@@ -7,24 +7,47 @@ description: >
   presentation outline for a governance meeting.
 allowed-tools: Read, Grep, Glob
 metadata:
-  version: "0.2.0"
+  version: "0.3.0"
+  owner: "pmo practice"
+  review_cadence: "quarterly"
+  work_shape: "narrative-synthesis"
+  output_class: "draft-for-review"
+  sourcing_policy: "volatile-facts-must-be-sourced"
 ---
 
 # Steering Pack
 
-Build a steering committee pack as a deck outline: agenda, overall RAG, key risks, decisions needed. Governing-thought-first, same as any other deck — the committee's time is the scarcest resource in the room.
+## When to use
+
+Steering committee deck outline — decisions first, escalation-filtered risks, action titles, appendix for detail.
+
+## What this skill does not do
+
+- **Does not fabricate status** — use `status-report` or verified inputs.
+- **Does not present full RAID** — escalation threshold only in live deck.
+- **Does not pad without decisions** — shorten pack if none pending.
+
+## Preconditions
+
+| Input | If missing |
+|---|---|
+| Org + pmo profiles | Tag `[PROVISIONAL]` |
+| RAID + milestones or existing `status-report` | Skeleton with `INPUT NEEDED` |
+| Time budget | Ask; default 60 min `[PROVISIONAL]` |
+
+## Provisional mode
+
+`[PROVISIONAL]` — monthly cadence; generic escalation thresholds.
 
 ## Trust spine
 
-```
-SOURCING: Tag every market figure, benchmark, competitor claim, and dollar amount as
-  [sourced: <where>] or [unverified — from training data, needs a real source].
-ASSUMPTIONS: State load-bearing assumptions at the top of the output — flag, don't fix.
-NUMBERS: Never invent an input — flag what's needed instead.
-CONFIDENCE: Label output defensible recommendation vs structured first pass.
-GATE: Before producing the board-/exec-facing final, confirm explicitly and stamp a
-  reviewer note recording what wasn't verified.
-```
+- **Confidence bands** (`narrative-synthesis`):
+  - **High:** Decisions lead; risks filtered; action titles; time budget respected or bloat flagged.
+  - **Medium:** Status derived from partial inputs with gaps listed.
+  - **Low:** No inputs — skeleton only.
+- **Failure modes:**
+  - **Accountability gap:** Each decision slide has explicit Ask.
+- **Escalation triggers:** Pack exceeds time budget — BLOAT FLAG.
 
 ## Purpose
 
@@ -156,6 +179,19 @@ EVIDENCE GAPS: [INPUT NEEDED]
 - [ ] Time budget respected or bloat flagged
 - [ ] Appendix holds detail stripped from the live deck
 
-## Close with next steps
+## Worked example
 
-Branches: run `status-report` first if inputs are thin, circulate draft for PMO review, confirm gate before sending to committee, or split overflow items to a pre-read/working session.
+**Input:** 60-minute steering; 2 pending decisions; status-report exists; 3 risks above escalation threshold.
+
+**Expected output (excerpt):**
+
+```
+AGENDA: Decisions 25 min | RAG 5 min | Risks 15 min | Milestones 10 min | Buffer 5 min
+DECISIONS NEEDED:
+Slide — Approve descoped Phase 2 go-live date
+  Ask: Committee approves 30 Sept vs. hold for full scope [review]
+```
+
+## Outputs
+
+Follows plugin `CLAUDE.md` § Outputs. Next: run `status-report` if inputs thin, PMO review, GATE before committee circulation.
