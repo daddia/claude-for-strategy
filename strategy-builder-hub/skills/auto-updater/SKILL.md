@@ -6,18 +6,38 @@ description: >
   updates", "update my skills", "anything new for my installed skills", or
   when invoked from the registry-sync agent.
 argument-hint: "[--apply to update all, otherwise notify only]"
+allowed-tools: Read, Grep, Glob, Write
+metadata:
+  version: "0.3.0"
+  owner: "strategy-builder-hub practice"
+  review_cadence: "quarterly"
+  work_shape: "governance-tracking"
+  output_class: "tracking-update"
+  sourcing_policy: "volatile-facts-must-be-sourced"
 ---
 
 # /auto-updater
 
-1. Load `~/.claude/plugins/config/claude-for-strategy/strategy-builder-hub/CLAUDE.md` → installed skills + auto-update prefs.
-2. Use the workflow below.
-3. Check each installed skill's source for newer version.
-4. Per preference: apply / notify / show diff.
+## When to use
 
----
+Check installed community skills for updates; show diff; apply only after explicit human approval.
 
-## Purpose
+## Preconditions
+
+| Input | If missing |
+|---|---|
+| Hub engagement profile with installed list | Offer cold-start |
+| User approval for each apply | Never auto-apply |
+
+## Provisional mode
+
+N/A — updates always require diff review.
+
+## Trust spine
+
+Governance-tracking; fail-closed on skills-qa regression; security-surface diffs force human approval.
+
+## Workflow
 
 Community skills improve. This skill notices when, shows you what changed, and applies updates only with your explicit approval.
 
@@ -167,3 +187,13 @@ If an update breaks something: `/strategy-builder-hub:auto-updater --rollback [s
 - Auto-apply updates. Ever. Every update gets a diff and an approval.
 - Update skills that weren't installed through the hub (manually placed skills are the user's to manage).
 - Trust tags, branches, or version numbers. Only commit SHAs are pinned, because only commit SHAs are immutable.
+
+## Worked example
+
+**Input:** Installed skill SHA differs from registry; hooks.json changed in diff.
+
+**Expected output:** Full diff shown; security-surface flag on hooks; "Apply? [y/n]" — no write until yes.
+
+## Outputs
+
+Follows plugin `CLAUDE.md` § Outputs. Next: apply approved updates, rollback, or defer.
