@@ -8,55 +8,101 @@ description: >
   clothes.
 allowed-tools: Read, Grep, Glob
 metadata:
-  version: "0.1.0"
+  version: "0.3.0"
+  owner: "okr practice"
+  review_cadence: "quarterly"
+  work_shape: "structured-aggregation"
+  output_class: "draft-for-review"
+  sourcing_policy: "volatile-facts-must-be-sourced"
 ---
 
 # Draft Objectives
 
-The core failure mode this skill exists to catch: an objective that's actually a key result with delusions of grandeur — a number with a sentence wrapped around it. A real objective is qualitative, directional, and would obviously matter even if you couldn't put a number on it yet.
+## When to use
+
+When candidate objectives need the KR-in-disguise test — qualitative, directional, strategically linked — not numbers wearing objective clothes.
+
+## What this skill does not do
+
+- **Does not write KRs** — route numbers to `/okr:write-key-results`.
+- **Does not set targets** — route to `/okr:set-targets`.
+- **Does not cascade** — route to `/okr:cascade`.
+
+## Preconditions
+
+| Input | If missing |
+|---|---|
+| Candidate objectives | Ask user to provide |
+| Practice profile (cascade level, ceiling) | Default 3–5 per level; flag `[PROVISIONAL]` |
+| Parent strategy or parent KR (if cascaded) | Ask; flag linkage gap if absent |
+
+## Provisional mode
+
+Without parent linkage: flag every objective **Strategic linkage: none found**; do not PASS without connection at cascaded levels.
 
 ## Trust spine
 
-```
-INCENTIVE GAMING: Guards against metric laundering — objectives that are really
-  pre-committed metrics or vanity goals dressed as strategy ("Increase X by Y%")
-  so teams can claim wins without defining meaningful KRs. KR-in-disguise drafts
-  are rejected with the number relocated to write-key-results; vague inspirational
-  objectives that can't be held accountable are flagged so they can't absorb
-  sandbagged KRs later.
-SOURCING: Tag every market figure, benchmark, competitor claim, and dollar amount as
-  [sourced: <where>] or [unverified — from training data, needs a real source].
-ASSUMPTIONS: State load-bearing assumptions at the top of the output — flag, don't fix.
-NUMBERS: Never invent an input — flag what's needed instead.
-CONFIDENCE: Label output defensible recommendation vs structured first pass.
-GATE: Before producing the board-/exec-facing final, confirm explicitly and stamp a
-  reviewer note recording what wasn't verified.
-```
+- **Confidence bands** (`structured-aggregation`):
+  - **High:** MECE objective set within ceiling; each PASS with linkage.
+  - **Medium:** Some vague or KR-in-disguise flags with suggested rewrites.
+  - **Low:** Majority metric-laundered or inspirational mush — scaffold only.
+- **Failure modes:**
+  - **Strategic advice vs. support:** Verdicts are diagnostic; strategist owns final wording.
+  - **Client confidentiality:** Objectives may be pre-release — CONFIDENTIAL header.
+  - **Accountability gap:** KR-in-disguise rejected with number relocated, not silently accepted.
+  - **Analytical Rigor:** Set-level count and overlap check MECE.
+  - **Incentive Gaming:** Guards metric laundering — objectives that are pre-committed metrics or vanity goals dressed as strategy.
+- **Escalation triggers:** Set exceeds ceiling with no deprioritization plan — flag focus risk.
 
-Full rules: repo-root `references/trust-conventions.md`.
+## Workflow
 
-## Process
-
-1. **Read the practice profile** (`../../CLAUDE.md`) for cascade level and the rough objectives-per-level ceiling.
-
-2. **For each candidate objective, run the test**: would achieving this be obviously good even without a number attached? If the draft already contains a quantity, percentage, or target baked into the wording ("Increase revenue by 20%," "Reduce churn to under 5%"), it's a key result, not an objective — say so explicitly, and propose the actual objective underneath it ("Become the clear value leader in the mid-market segment," with the revenue/churn number relocated to `write-key-results`).
-
-3. **Check strategic linkage.** If this is a cascaded level, does the objective plausibly connect to something above it (a parent KR, or the org's stated strategy)? An objective with no visible connection to anything above it is either mis-scoped or belongs to a level that doesn't have a clear parent yet — flag which.
-
-4. **Check the count.** Compare against the practice profile's ceiling (default 3-5 per level if unset). More than that and focus is gone in practice even if it reads fine on paper — flag the set as a whole, don't just wave each one through individually.
-
-5. **Check for vague inspirational mush** in the other direction — an objective so abstract it can't meaningfully guide what KRs would prove it ("Be great at customer experience"). The test: could two different people write completely unrelated KR sets for this and both plausibly be right? If so, it's too vague — push for specificity without smuggling a number back in.
+1. **Read practice profile** for cascade level and objectives-per-level ceiling.
+2. **For each candidate:** would achieving this be good without a number? Reject quantity-in-objective as KR-in-disguise.
+3. **Check strategic linkage** to parent KR or org strategy.
+4. **Check count** against ceiling — flag set if over.
+5. **Check vague inspirational mush** — two people could write unrelated KRs?
+6. **Completeness check** before output: set-level overlap assessed.
 
 ## Output format
 
 ```
+CONFIDENCE: [defensible recommendation | structured first pass]
+LOAD-BEARING ASSUMPTIONS: [if any]
+
 Objective 1: [text]
-  Verdict: [PASS — qualitative, bounded, strategically linked]
-          or [FLAG — contains a number; likely KR-in-disguise; suggested objective: ...]
-          or [FLAG — too vague to guide distinct KRs; suggest narrowing to: ...]
+  Verdict: [PASS | FLAG — KR-in-disguise | FLAG — too vague]
   Strategic linkage: [what this connects to, or "none found — flag"]
 
 [repeat per objective]
 
 SET-LEVEL CHECK: [count vs. ceiling; any overlap between objectives]
 ```
+
+## Worked example
+
+**Input:** "Increase revenue by 20%"; "Be great at customer experience."
+
+**Expected output (excerpt):**
+
+```
+Objective 1: Increase revenue by 20%
+  Verdict: FLAG — KR-in-disguise; suggested objective: Become clear value leader in mid-market segment
+  Strategic linkage: none stated [review]
+
+Objective 2: Be great at customer experience
+  Verdict: FLAG — too vague; suggest narrowing to: Reduce onboarding friction for enterprise tier
+
+SET-LEVEL CHECK: 2 objectives — within ceiling; overlap: none
+```
+
+## Quality checks before delivering
+
+- [ ] KR-in-disguise test on every candidate
+- [ ] Strategic linkage checked for cascaded levels
+- [ ] Set count vs. ceiling
+- [ ] Vague objectives flagged with narrowing suggestions
+- [ ] Figures source-tagged or omitted
+
+## Outputs
+
+Follows plugin `CLAUDE.md` § Outputs. Next: `write-key-results`, `cascade`, or revise flagged objectives.
