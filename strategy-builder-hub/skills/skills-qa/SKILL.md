@@ -10,9 +10,36 @@ description: >
   this?" or "is this skill well-designed?". Runs automatically as part of
   /strategy-builder-hub:skill-installer.
 argument-hint: "[skill path | SKILL.md path | paste content]"
+allowed-tools: Read, Grep, Glob
+metadata:
+  version: "0.3.0"
+  owner: "strategy-builder-hub practice"
+  review_cadence: "quarterly"
+  work_shape: "hypothesis-driven-analysis"
+  output_class: "decision-support"
+  sourcing_policy: "volatile-facts-must-be-sourced"
 ---
 
 # /skills-qa
+
+## When to use
+
+Evaluate skill against Strategy Skill Design Framework — 13 parameters, failure modes, Ready / Some Concern / Material Concerns verdict.
+
+## Preconditions
+
+| Input | If missing |
+|---|---|
+| Skill path, SKILL.md path, or pasted content | Ask once |
+| Hub profile (optional) | Proceed; flag conflict check incomplete |
+
+## Provisional mode
+
+SKILL.md only — flag incomplete dependency mapping; ask once for commands/agents/hooks.
+
+## Trust spine
+
+Hypothesis-driven-analysis; injection heuristic scan before design eval; fail-closed on update regression; verdict advisory not install block (except installer integration).
 
 ## Inputs accepted
 
@@ -446,6 +473,12 @@ you would deploy it with confidence.]
 - **Evaluate skills not written in the SKILL.md format.** It reads what it can find and flags what is missing.
 - **Replace piloting.** QA evaluates design. Piloting in a controlled environment with real inputs is a separate step and should follow a "Ready" verdict before team-wide deployment.
 
-## Close with the next-steps decision tree
+## Worked example
 
-End with the next-steps decision tree per CLAUDE.md `## Outputs`. Customize the options to what this skill just produced — the five default branches (draft the X, escalate, get more facts, watch and wait, something else) are a starting point, not a lock-in. The tree is the output; the strategist picks.
+**Input:** Community SKILL.md with hooks.json and missing `## Outputs` heading.
+
+**Expected output:** Schema parameter 🔴; Trust Surface ⚠️ for hooks; verdict Material Concerns with top fixes listed.
+
+## Outputs
+
+Follows plugin `CLAUDE.md` § Outputs — end with customized next-steps decision tree; strategist picks branch.
