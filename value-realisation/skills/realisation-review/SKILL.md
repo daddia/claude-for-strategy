@@ -6,16 +6,43 @@ description: >
   case," "post-implementation review," or needs a portfolio-level
   planned-vs-actual comparison at the end of a realisation window, with
   an explicit check on whether estimates were systematically optimistic.
-tools: Read, Grep, Glob
+allowed-tools: Read, Grep, Glob
 metadata:
-  version: "0.1.0"
+  version: "0.3.0"
+  owner: "value-realisation practice"
+  review_cadence: "quarterly"
+  work_shape: "narrative-synthesis"
+  output_class: "draft-for-review"
+  sourcing_policy: "volatile-facts-must-be-sourced"
 ---
 
 # Realisation Review
 
-The point of this review isn't scoring each benefit and stopping there — it's closing the loop back to estimating. If this initiative realised 60% of its planned benefit, and the last three reviews show the same pattern, that's a calibration finding about how business cases get built, not just a result to file away. This skill is the financial-estimation analogue of `okr:score-and-retro`'s outcome-vs-output divergence catch.
+## When to use
 
-## Process
+End-of-window planned-vs-actual portfolio review — optimism-bias calibration across initiatives.
+
+## What this skill does not do
+
+- **Does not re-litigate LAPSED reasons** — carry forward from `benefits-recovery`.
+- **Does not blend benefit types** in one headline cash figure.
+
+## Preconditions
+
+| Input | If missing |
+|---|---|
+| Full register + tracking history | Ask |
+| Prior realisation reviews (optional) | Skip optimism-bias cross-review |
+
+## Provisional mode
+
+Single-initiative review without portfolio history — note optimism-bias check limited.
+
+## Trust spine
+
+Narrative-synthesis BLUF; root-cause cluster diagnosis; calibration discount for future cases.
+
+## Workflow
 
 1. **Read the practice profile** (`../../CLAUDE.md`), the full benefits register, the complete tracking history, and any `benefits-recovery` decisions for benefits in the window under review.
 
@@ -54,3 +81,20 @@ OPTIMISM-BIAS CHECK: [no prior reviews to compare] or
 ROOT-CAUSE CLUSTER (from benefits-recovery, this portfolio): [dominant cause(s) — what
   this implies should change in HOW benefits get planned next time]
 ```
+
+## Worked example
+
+**Input:** 60% realisation; three prior reviews averaged 55%.
+
+**Expected output:** OPTIMISM-BIAS CHECK: pattern across 4 reviews; suggested calibration discount for future cases [review].
+
+## Quality checks before delivering
+
+- [ ] Types reported separately in roll-up
+- [ ] Optimism-bias check run when history exists
+- [ ] Root-cause cluster named with planning implication
+- [ ] BLUF recommendation first
+
+## Outputs
+
+Follows plugin `CLAUDE.md` § Outputs. Next: `transformation:business-case` calibration, `consulting:exec-memo`, or steering PIR.
