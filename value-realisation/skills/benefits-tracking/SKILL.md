@@ -6,16 +6,43 @@ description: >
   getting the savings we claimed," or needs a periodic remeasurement
   against baseline with an explicit attribution call — distinct from a
   status report, which tracks delivery progress, not realised value.
-tools: Read, Grep, Glob, Write
+allowed-tools: Read, Grep, Glob, Write
 metadata:
-  version: "0.1.0"
+  version: "0.3.0"
+  owner: "value-realisation practice"
+  review_cadence: "quarterly"
+  work_shape: "governance-tracking"
+  output_class: "tracking-update"
+  sourcing_policy: "volatile-facts-must-be-sourced"
 ---
 
 # Benefits Tracking
 
-A status report and a benefits track are different instruments asking different questions. A status report asks "did we deliver what we said we'd deliver." This asks "did the number move, and did it move *because of us*." A measure trending the right direction is a hypothesis, not proof — the attribution call below is the actual discipline this skill exists to enforce, and it persists an append-only log, the same convention as `okr:check-in` and `pmo:raid-log`/`decision-log`.
+## When to use
 
-## Process
+Periodic remeasurement with explicit attribution call — not delivery status reporting.
+
+## What this skill does not do
+
+- **Does not fix at-risk benefits** — route AT-RISK/LAPSED to `benefits-recovery`.
+- **Does not default to FULLY ATTRIBUTABLE** when data insufficient.
+
+## Preconditions
+
+| Input | If missing |
+|---|---|
+| Benefits register | Halt |
+| Prior tracking log | Start new; note first period |
+
+## Provisional mode
+
+Attribution per profile convention; UNKNOWN when data insufficient.
+
+## Trust spine
+
+Governance-tracking bands; gaming-pattern check on claimed-but-not-remeasured; append-only log.
+
+## Workflow
 
 1. **Read the practice profile** (`../../CLAUDE.md`) for the attribution convention and tracking cadence, the benefits register, and the prior tracking log if one exists — this skill appends, it doesn't restart the log each cycle.
 
@@ -54,3 +81,20 @@ BENEFIT: [name]
 
 ROUTED TO benefits-recovery: [list of AT-RISK/LAPSED benefits, or "none"]
 ```
+
+## Worked example
+
+**Input:** Number improved but seasonal pattern explains movement.
+
+**Expected output:** Attribution: NOT ATTRIBUTABLE; Status may be AT-RISK despite favorable number.
+
+## Quality checks before delivering
+
+- [ ] Attribution call before status
+- [ ] Remeasurement freshness checked
+- [ ] Log appended not overwritten
+- [ ] AT-RISK/LAPSED routed to recovery
+
+## Outputs
+
+Follows plugin `CLAUDE.md` § Outputs. Next: `benefits-recovery` or next tracking period.
