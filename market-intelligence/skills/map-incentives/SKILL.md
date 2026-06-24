@@ -7,28 +7,64 @@ description: >
   structure — not their stated motivation — needs to be reasoned through.
 allowed-tools: Read, Grep, Glob
 metadata:
-  version: "0.1.0"
+  version: "0.3.0"
+  owner: "market-intelligence practice"
+  review_cadence: "quarterly"
+  work_shape: "hypothesis-driven-analysis"
+  output_class: "draft-for-review"
+  sourcing_policy: "volatile-facts-must-be-sourced"
 ---
 
 # Map Incentives
 
-"Show me the incentive and I'll show you the outcome." This skill applies that discipline literally: for any player relevant to a strategic situation, map what they're actually rewarded or penalized for — not what they say motivates them — and predict behavior from that, then check whether the prediction matches what stated motivation alone would have implied.
+## When to use
 
-## Process
+When behavior must be predicted from actual reward/penalty structures — internal stakeholders, competitors, channels, regulators — not stated motivations.
 
-1. **Name every player relevant to the situation** — internal stakeholders, competitors, customer segments, channel partners, regulators, whoever's behavior actually matters to the outcome.
+## What this skill does not do
 
-2. **For each player, state the actual incentive structure**, as specifically as possible: how are they measured, paid, evaluated, or otherwise rewarded/penalized — by whom, on what timeframe. "Wants the deal to succeed" is a stated motivation; "is paid a bonus tied to this quarter's volume, not retention" is an incentive structure. Insist on the second kind.
+- **Does not fix misaligned incentives** — route structural fixes to `/operating-model:align-rewards-and-incentives`.
+- **Does not forecast competitive retaliation** — route to `/market-intelligence:forecast-competitive-response` once maps exist.
+- **Does not accept vague motivations** — insists on measurable incentive structures.
 
-3. **Predict behavior from the incentive structure alone**, independent of any stated motivation or stated strategy. State this prediction explicitly before checking it against anything else.
+## Preconditions
 
-4. **Compare to the stated motivation or stated strategy.** If they match, the situation is straightforward. If they diverge — flag this as the more important and more reliable signal. A sales team incented purely on volume will discount aggressively regardless of a company-wide stated commitment to premium positioning; the incentive wins, almost always, and predicting otherwise because of the stated strategy is the actual mistake to avoid.
+| Input | If missing |
+|---|---|
+| Situation and relevant players named | Ask once to scope |
+| Incentive data (comp plan, KPIs, evaluation criteria) | Proceed with `[PROVISIONAL]` — flag predictions `[review]`; ask user for specifics |
 
-5. **Flag misaligned incentives as a named problem**, not just an observation — if an internal player's incentive structure works against the stated strategic direction, that's a fixable problem (see `operating-model:align-rewards-and-incentives` if the fix is structural) rather than just a fact to note and move past.
+## Provisional mode
+
+Without comp/KPI detail: state predictions as hypotheses from partial data; tag every player **Actual incentive structure: incomplete — [review]**.
+
+## Trust spine
+
+- **Confidence bands** (`hypothesis-driven-analysis`):
+  - **High:** Specific incentive structures cited; behavior predictions falsifiable; divergence analysis complete.
+  - **Medium:** Some structures inferred; divergences flagged openly.
+  - **Low:** Stated-motivation-only input — refuse to validate as incentive map.
+- **Failure modes:**
+  - **Strategic advice vs. support:** Predictions are hypotheses for strategist validation, not behavioral verdicts.
+  - **Client confidentiality:** Comp structures may be sensitive — CONFIDENTIAL header.
+  - **Accountability gap:** Divergence flags force engagement with misalignment, not silent acceptance.
+  - **Analytical Rigor:** MECE player coverage; incentive-before-stated-motivation discipline enforced.
+  - **Incentive Gaming:** Names when players may game stated metrics — flag pattern explicitly.
+- **Escalation triggers:** Internal misalignment threatens stated strategy — name as fixable problem, route to operating-model.
+
+## Workflow
+
+1. **Name every player** relevant to the situation.
+2. **For each player, state actual incentive structure** — measured, paid, evaluated, by whom, what timeframe. Reject "wants success" as substitute.
+3. **Predict behavior from incentive structure alone** — before checking stated motivation.
+4. **Compare to stated motivation.** Divergence = incentive prediction trusted.
+5. **Flag misaligned incentives** as named fixable problems.
+6. **MECE check** before output: all relevant players covered.
 
 ## Output format
 
 ```
+CONFIDENCE: [defensible recommendation | structured first pass]
 PLAYER: [name/role]
   Stated motivation: [what they'd say drives them]
   Actual incentive structure: [how they're measured/paid/evaluated, by whom, what timeframe]
@@ -41,3 +77,33 @@ PLAYER: [name/role]
 MISALIGNED INCENTIVE FLAGS: [any internal player whose incentive works against the
   stated strategy — name it as a fixable problem]
 ```
+
+## Worked example
+
+**Input:** Premium positioning push; enterprise sales team paid on quarterly new-logo ARR only.
+
+**Expected output (excerpt):**
+
+```
+CONFIDENCE: defensible recommendation
+PLAYER: Enterprise AE team
+  Stated motivation: Win strategic accounts aligned with premium brand
+  Actual incentive structure: 100% variable on quarterly new-logo ARR; no retention component
+  Predicted behavior FROM INCENTIVE: Discount to close before quarter-end; prioritize volume over margin
+  Predicted behavior FROM STATED MOTIVATION: Hold price, walk from bad-fit deals
+  Divergence: significant — incentive prediction should be trusted
+
+MISALIGNED INCENTIVE FLAGS: Sales comp undermines premium positioning — fixable via operating-model align-rewards-and-incentives [review]
+```
+
+## Quality checks before delivering
+
+- [ ] Every relevant player covered
+- [ ] Incentive structures specific (not stated motivation disguised)
+- [ ] Prediction-from-incentive stated before comparison
+- [ ] Misalignments named as fixable problems
+- [ ] Output does not read as concluded org redesign
+
+## Outputs
+
+Follows plugin `CLAUDE.md` § Outputs. Next: `forecast-competitive-response`, `test-positioning`, or `operating-model:align-rewards-and-incentives`.
