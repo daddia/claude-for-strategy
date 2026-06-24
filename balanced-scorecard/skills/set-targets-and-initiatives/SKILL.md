@@ -5,34 +5,85 @@ description: >
   scorecard," "what initiatives support this objective," or needs each
   measure given a target and each objective checked against whether a real
   program of work is actually driving it.
-allowed-tools: Read, Grep, Glob
+allowed-tools: Read, Grep, Glob, Write
 metadata:
-  version: "0.1.0"
+  version: "0.2.0"
+  owner: "balanced-scorecard practice"
+  review_cadence: "quarterly"
+  work_shape: "structured-aggregation"
+  output_class: "draft-for-review"
+  sourcing_policy: "volatile-facts-must-be-sourced"
 ---
 
 # Set Targets and Initiatives
 
-The classic BSC four-column structure is Objective, Measure, Target, Initiative — and the Initiative column is where most scorecards quietly fail. An objective with a target but no named initiative is a wish with a number attached; an initiative with no objective behind it is busywork that happens to be funded. This skill checks both directions, not just the target-setting.
+## When to use
 
-## Process
+For strategy office or program leads completing the classic BSC four-column structure: Objective, Measure, Target, Initiative. The Initiative column is where most scorecards fail — this skill checks both directions (objective without initiative, initiative without objective).
 
-1. **Read the practice profile** (`../../CLAUDE.md`) for scoring/status convention.
+## What this skill does not do
 
-2. **Set current value and target for each measure** from `select-measures`. Where the current value is unknown, route to measurement first rather than guessing a baseline.
+- **Does not select measures** — requires `select-measures` output.
+- **Does not build or revise the strategy map** — reads objectives from `build-strategy-map`.
+- **Does not invent baselines** — unknown current values → route to measurement first.
+- **Does not duplicate transformation roadmaps** — references `transformation` items when installed.
 
-3. **For every objective, require at least one named strategic initiative** — an actual program of work, with enough specificity to tell whether it's happening (not "improve customer experience" as its own initiative, but "redesign the onboarding flow" as the initiative meant to move the Customer-perspective objective). If an objective has a target but no initiative, flag it explicitly: this objective currently has no engine behind it.
+## Preconditions
 
-4. **Check the reverse direction** if the user provides an existing initiative portfolio: for every initiative, does it map to a specific strategic objective on the map? An initiative with no objective it's meant to serve is a candidate for descoping — it's consuming resourcing that isn't traceable to the strategy, regardless of how locally reasonable it seems. This is the check that catches strategy/execution drift before it compounds across a planning cycle.
+| Input | If missing |
+|---|---|
+| Measures per objective from `select-measures` | Halt — route to `select-measures` |
+| Current values for targets (or explicit unknown) | Flag `BASELINE NEEDED`; do not guess |
+| Practice profile scoring convention | Use profile or tag `[PROVISIONAL]` |
 
-5. **Flag initiative overload per objective** — many initiatives mapped to one objective usually means either the objective is too broad or the initiatives are genuinely redundant; name which.
+## Provisional mode
 
-6. **Cross-check against `transformation`'s roadmap, if relevant and installed** — an Internal Process or Technology-flavored objective's initiative is often literally a transformation roadmap item; don't duplicate the initiative definition, reference it.
+When current values unknown or initiative portfolio incomplete:
+
+- Set targets only where baseline exists; others flagged `BASELINE NEEDED`.
+- Flag objectives with targets but no initiative as **NONE — no engine behind this target**.
+- Reverse check runs only when user provides initiative portfolio.
+
+## Trust spine
+
+- **Confidence bands** (`structured-aggregation`):
+  - **High:** Every measure has current→target where baseline known; every objective has ≥1 named initiative or explicit NONE flag; reverse check complete if portfolio provided.
+  - **Medium:** Some baselines missing; initiative names generic but flagged.
+  - **Low:** Scaffold only — measures missing or majority targets invented without data.
+- **Tag vocabulary:** `[verify]`, `[review]`, `BASELINE NEEDED`, `NONE — flagged`.
+- **Failure modes:**
+  - **Strategic advice vs. support:** Surfaces unmapped initiatives and overload flags; strategist decides descoping — does not cancel programs unilaterally.
+  - **Client confidentiality:** Targets and initiative names may be sensitive — CONFIDENTIAL header when appropriate.
+  - **Accountability gap:** NONE flags and reverse-check unmapped list prevent wishes-with-numbers passing as strategy.
+  - **Analytical Rigor:** N/A — linkage completeness, not MECE analysis.
+  - **Incentive Gaming:** N/A — no status scoring here.
+- **Escalation triggers:**
+  - Objective with target, no initiative → explicit NONE flag; do not silently omit Initiative column.
+  - Initiative with no mapped objective → list in REVERSE CHECK for descoping consideration.
+  - Many initiatives on one objective → INITIATIVE OVERLOAD flag; suggest split objective or merge initiatives.
+  - Generic initiative text ("improve CX") → flag insufficient specificity.
+
+## Workflow
+
+1. **Read the practice profile** for scoring/status convention.
+
+2. **Set current value and target for each measure** from `select-measures`. Unknown current → `BASELINE NEEDED`, route to measurement.
+
+3. **For every objective, require at least one named strategic initiative** — specific enough to tell whether it's happening. Target but no initiative → flag **NONE — no engine behind this target**.
+
+4. **Reverse check** (if initiative portfolio provided): every initiative maps to a strategic objective? Unmapped → list for descoping.
+
+5. **Flag initiative overload** per objective — broad objective or redundant initiatives; name which.
+
+6. **Cross-check `transformation` roadmap** if installed — reference existing roadmap items; don't duplicate definitions.
+
+7. **Completeness check:** no invented baselines; every NONE and unmapped item explicit in output.
 
 ## Output format
 
 ```
 OBJECTIVE: [text]
-  Measure: [name] — Current: [value] → Target: [value]
+  Measure: [name] — Current: [value | BASELINE NEEDED] → Target: [value]
   Initiative(s): [name(s)] or [NONE — flagged: no engine behind this target]
 
 [repeat per objective]
@@ -43,3 +94,36 @@ REVERSE CHECK (if initiative portfolio provided):
 INITIATIVE OVERLOAD FLAGS: [objectives with many initiatives — broad objective or
   redundant initiatives, specify which]
 ```
+
+## Worked example
+
+**Input:** Customer objective "Improve onboarding NPS." Measure: Onboarding NPS, current unknown, target 50. User names initiative "Redesign onboarding flow (Q2)."
+
+**Expected output (excerpt):**
+
+```
+OBJECTIVE: Improve onboarding NPS
+  Measure: Onboarding NPS — Current: BASELINE NEEDED → Target: 50
+  Initiative(s): Redesign onboarding flow (Q2)
+
+INITIATIVE OVERLOAD FLAGS: none
+```
+
+**Input variant:** Same objective, target 50, no initiative named.
+
+```
+  Initiative(s): NONE — flagged: no engine behind this target
+```
+
+## Quality checks before delivering
+
+- [ ] Every measure has current→target or BASELINE NEEDED
+- [ ] Every objective has initiative(s) or explicit NONE flag
+- [ ] Reverse check run when portfolio provided
+- [ ] Overload flags applied
+- [ ] Transformation references used instead of duplicate definitions
+- [ ] No invented baseline values
+
+## Outputs
+
+Follows plugin `CLAUDE.md` § Outputs. Natural next branches: measurement/baseline capture, `/balanced-scorecard:review-and-validate` at period end, or descoping unmapped initiatives.
