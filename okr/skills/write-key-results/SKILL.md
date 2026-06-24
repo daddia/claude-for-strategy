@@ -7,59 +7,99 @@ description: >
   outcome or just confirm a deliverable shipped.
 allowed-tools: Read, Grep, Glob
 metadata:
-  version: "0.1.0"
+  version: "0.3.0"
+  owner: "okr practice"
+  review_cadence: "quarterly"
+  work_shape: "structured-aggregation"
+  output_class: "draft-for-review"
+  sourcing_policy: "volatile-facts-must-be-sourced"
 ---
 
 # Write Key Results
 
-The core failure mode: a key result that measures whether work got *done* rather than whether it *worked*. "Ship the new onboarding flow" is an output — it can be 100% true and the objective can still have failed completely. The skill's job is forcing every KR to be a measurable change in a leading or lagging indicator, with the deliverable demoted to a supporting initiative if it shows up at all.
+## When to use
+
+When KRs need the outcome test — measurable change in an indicator, not confirmation a deliverable shipped.
+
+## What this skill does not do
+
+- **Does not draft objectives** — route to `/okr:draft-objectives`.
+- **Does not set targets** — route to `/okr:set-targets` after baselines known.
+- **Does not instrument metrics** — route unknown baselines to `/okr:instrument-metrics`.
+
+## Preconditions
+
+| Input | If missing |
+|---|---|
+| Objective the KR set serves | Ask — every check depends on it |
+| Candidate KRs (or request to draft) | Ask user to provide or draft from objective |
+
+## Provisional mode
+
+Without baseline data: flag **Baseline status: unknown** per KR; do not imply targets are ready.
 
 ## Trust spine
 
-```
-INCENTIVE GAMING: Guards against vanity metrics (easy-to-move numbers that don't
-  prove the objective) and sandbagging-by-proxy (KRs chosen because they're
-  hit-friendly, not because they're causal). Vanity-metric check asks whether
-  improvement for unrelated reasons would fool readers; sandbagging detection
-  flags KRs that would hit without advancing the objective or that measure
-  activity volume instead of outcome shift.
-SOURCING: Tag every market figure, benchmark, competitor claim, and dollar amount as
-  [sourced: <where>] or [unverified — from training data, needs a real source].
-ASSUMPTIONS: State load-bearing assumptions at the top of the output — flag, don't fix.
-NUMBERS: Never invent an input — flag what's needed instead.
-CONFIDENCE: Label output defensible recommendation vs structured first pass.
-GATE: Before producing the board-/exec-facing final, confirm explicitly and stamp a
-  reviewer note recording what wasn't verified.
-```
+- **Confidence bands** (`structured-aggregation`):
+  - **High:** Outcome-shaped KRs, vanity risks named, set collectively sufficient.
+  - **Medium:** Some output-shaped flags with reframes.
+  - **Low:** Majority deliverable-shaped — set not ready for targets.
+- **Failure modes:**
+  - **Strategic advice vs. support:** Verdicts diagnostic; strategist owns final KRs.
+  - **Client confidentiality:** KRs may be pre-release — CONFIDENTIAL header.
+  - **Accountability gap:** Deliverables relocated to tasks, not silently kept as KRs.
+  - **Analytical Rigor:** Set-level sufficiency check — hitting all KRs proves objective?
+  - **Incentive Gaming:** Vanity-metric and sandbagging-by-proxy checks — easy-to-hit numbers that don't prove objective.
+- **Escalation triggers:** Set insufficient even if every KR passes individually — name gap.
 
-Full rules: repo-root `references/trust-conventions.md`.
+## Workflow
 
-## Process
-
-1. **Get the objective this KR set serves** — every check below depends on having it explicit, not implied.
-
-2. **For each candidate KR, run the outcome test**: if this number moves the stated amount, does that prove the objective happened, or does it just prove some work got done? Deliverable-shaped language ("launch," "complete," "deliver," "ship") is the tell — when you see it, ask what the deliverable was *for*, and write the KR as that outcome instead. Relocate the original deliverable to a supporting initiative or task list, not a KR.
-
-3. **Run the vanity-metric check.** A KR can be a genuine outcome metric and still be the wrong one — chosen because it's easy to measure or easy to move, not because it actually correlates with the objective. Ask explicitly: if this metric improved for reasons unrelated to the objective (a one-off promotion, a seasonal effect, a measurement change), would anyone be fooled into thinking the objective was served? If yes, it's too loosely coupled — either tighten the metric or pair it with a second KR that catches the gap.
-
-4. **Check the baseline exists.** A KR with no real current value to measure from isn't ready — flag it for `instrument-metrics` rather than letting a target get set against an unknown starting point (see `set-targets`, which depends on this).
-
-5. **Check the set is collectively sufficient.** 2-5 KRs per objective is the usual range. More importantly: if every KR in the set were hit, would the objective genuinely be achieved, or is there an obvious gap a skeptical reader would spot? Name the gap if one exists rather than letting the set look complete by count alone.
+1. **Get the objective** — explicit, not implied.
+2. **Outcome test** per KR — deliverable language ("ship," "launch") → reframe to outcome.
+3. **Vanity-metric check** — would unrelated improvement fool readers?
+4. **Baseline check** — unknown → flag for `instrument-metrics`.
+5. **Set sufficiency** — would hitting all KRs prove the objective?
+6. **Completeness check** before output.
 
 ## Output format
 
 ```
+CONFIDENCE: [defensible recommendation | structured first pass]
+LOAD-BEARING ASSUMPTIONS: [if any]
 OBJECTIVE: [text]
 
 KR 1: [text]
-  Verdict: [PASS — measurable outcome, plausibly causal to objective]
-          or [FLAG — output-shaped; this measures work done, not impact; suggested
-              outcome reframe: ...; original phrasing relocated to a supporting task]
-          or [FLAG — vanity metric risk: could move for unrelated reasons; consider
-              pairing with: ...]
-  Baseline status: [known / unknown — flag for instrument-metrics]
+  Verdict: [PASS | FLAG — output-shaped | FLAG — vanity metric risk]
+  Baseline status: [known | unknown — flag for instrument-metrics]
 
 [repeat per KR]
 
-SET-LEVEL CHECK: [would hitting all KRs genuinely prove the objective? any gap?]
+SET-LEVEL CHECK: [would hitting all KRs prove the objective? any gap?]
 ```
+
+## Worked example
+
+**Input:** Objective "Improve enterprise retention." KR "Ship onboarding v2."
+
+**Expected output (excerpt):**
+
+```
+KR 1: Ship onboarding v2
+  Verdict: FLAG — output-shaped; suggested outcome: 90-day logo retention ≥ 92%
+  Baseline status: unknown — flag for instrument-metrics
+
+SET-LEVEL CHECK: insufficient — single output KR doesn't prove retention objective
+```
+
+## Quality checks before delivering
+
+- [ ] Objective explicit at top
+- [ ] Outcome test on every KR
+- [ ] Vanity-metric check run
+- [ ] Baseline status per KR
+- [ ] Set-level sufficiency assessed
+- [ ] Figures source-tagged or omitted
+
+## Outputs
+
+Follows plugin `CLAUDE.md` § Outputs. Next: `instrument-metrics`, `set-targets`, or revise flagged KRs.
