@@ -7,9 +7,34 @@ description: >
   every action. Loaded by the /strategy-builder-hub:uninstall and
   /strategy-builder-hub:disable skills.
 user-invocable: false
+allowed-tools: Read, Grep, Glob, Write
+metadata:
+  version: "0.3.0"
+  owner: "strategy-builder-hub practice"
+  review_cadence: "quarterly"
+  work_shape: "governance-tracking"
+  output_class: "structured-data"
+  sourcing_policy: "volatile-facts-must-be-sourced"
 ---
 
 # Skill Manager
+
+## When to use
+
+Reference loaded by `uninstall` and `disable` — not user-invocable directly.
+
+## What this skill does not do
+
+- **Does not act on first-party plugin skills.**
+- **Does not act without install-log proof of hub install.**
+
+## Preconditions
+
+Read `install-log.yaml` before any file operation.
+
+## Trust spine
+
+Governance-tracking; confirm-before-mutate; audit log append.
 
 ## Purpose
 
@@ -129,3 +154,13 @@ to re-enable: reverse the renames, log `action: enable`.
   `~/.claude/plugins/config/claude-for-strategy/<plugin>/` are preserved unless
   the user asks for them explicitly.
 - Act on more than one skill per invocation. One name, one action.
+
+## Worked example
+
+**Input:** Uninstall community skill listed in install-log with last action `install`.
+
+**Expected output:** Paths listed; user confirms yes; files removed; log `uninstall`.
+
+## Outputs
+
+Reference only — invoked via `uninstall` or `disable` skills per plugin `CLAUDE.md` § Outputs.
