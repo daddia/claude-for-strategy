@@ -6,16 +6,43 @@ description: >
   actually claiming this will deliver," or needs an approved business
   case's benefit claims decomposed into enablers, business changes, and
   benefits before a register can be built.
-tools: Read, Grep, Glob
+allowed-tools: Read, Grep, Glob
 metadata:
-  version: "0.1.0"
+  version: "0.3.0"
+  owner: "value-realisation practice"
+  review_cadence: "quarterly"
+  work_shape: "structured-aggregation"
+  output_class: "draft-for-review"
+  sourcing_policy: "volatile-facts-must-be-sourced"
 ---
 
 # Benefits Map
 
-The discipline this catches: a delivered system is not a benefit, and neither is a process going live — both are enablers. A benefit only exists once someone is doing something differently *because* the enabler exists, and that different behavior produces a result someone will actually value. Most business cases blur enabler and benefit together; this skill forces them apart before a register gets built on the blurred version.
+## When to use
 
-## Process
+Decompose benefit claims into enabler → business change → benefit → strategic objective before register build.
+
+## What this skill does not do
+
+- **Does not set baselines** — route to `/value-realisation:benefits-register`.
+- **Does not track actuals** — route to `/value-realisation:benefits-tracking`.
+
+## Preconditions
+
+| Input | If missing |
+|---|---|
+| Practice profile | Proceed with default chain; `[PROVISIONAL]` |
+| Source business case or strategic option | Build from user input; note SOURCE |
+
+## Provisional mode
+
+Default enabler→change→benefit chain; conservative deadweight and cash-type flags.
+
+## Trust spine
+
+Structured-aggregation bands; benefit-washing and deadweight checks; orphan/coverage gaps flagged.
+
+## Workflow
 
 1. **Read the practice profile** (`../../CLAUDE.md`) for the benefit type taxonomy and named framework, if any. If `transformation` or `corporate-strategy` is installed, read the relevant `transformation:business-case` or `corporate-strategy:evaluate-strategic-option` output as the seed rather than starting from a blank page — the case's cost/benefit table is the input, not a separate exercise.
 
@@ -54,3 +81,19 @@ ORPHAN BENEFITS (no strategic linkage): [list, or "none"]
 COVERAGE GAPS (objective with no mapped benefit): [list, or "none"]
 CASH-RELEASABLE-PRESENTED-AS-CASH FLAGS: [list, or "none"]
 ```
+
+## Worked example
+
+**Input:** "New CRM delivered" claimed as benefit.
+
+**Expected output:** FLAG benefit-washing — enabler only; business change and measurable benefit required.
+
+## Quality checks before delivering
+
+- [ ] Every benefit has enabler/change/benefit chain
+- [ ] Benefit-washing test run
+- [ ] Orphan and coverage gaps listed
+
+## Outputs
+
+Follows plugin `CLAUDE.md` § Outputs. Next: `benefits-register`.
