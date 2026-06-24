@@ -7,24 +7,37 @@ description: >
   organization, process, technology, and data.
 allowed-tools: Read, Grep, Glob
 metadata:
-  version: "0.2.0"
+  version: "0.3.0"
+  owner: "transformation practice"
+  review_cadence: "quarterly"
+  work_shape: "narrative-synthesis"
+  output_class: "draft-for-review"
+  sourcing_policy: "volatile-facts-must-be-sourced"
 ---
 
 # Target Operating Model
 
-Design a target operating model (TOM) across the standard layers, anchored to a stated ambition and current state — not a generic TOM template, a specific design for this organization's gap.
+## When to use
+
+Design TOM across capability, org, process, technology, data — anchored to stated ambition and current-state gap.
+
+## What this skill does not do
+
+- **Does not invent platform names** — use profile vocabulary or `INPUT NEEDED`.
+- **Does not approve architecture** — draft for ARB/steering.
+- **Does not sequence delivery** — hand off to `roadmap-builder`.
+
+## Preconditions
+
+Load org + transformation profiles; provisional mode available.
+
+## Provisional mode
+
+Generic layering; platform terms `INPUT NEEDED` — see workflow below.
 
 ## Trust spine
 
-```
-SOURCING: Tag every market figure, benchmark, competitor claim, and dollar amount as
-  [sourced: <where>] or [unverified — from training data, needs a real source].
-ASSUMPTIONS: State load-bearing assumptions at the top of the output — flag, don't fix.
-NUMBERS: Never invent an input — flag what's needed instead.
-CONFIDENCE: Label output defensible recommendation vs structured first pass.
-GATE: Before producing the board-/exec-facing final, confirm explicitly and stamp a
-  reviewer note recording what wasn't verified.
-```
+Narrative-synthesis bands; layer constraints flagged; GATE before board/exec final.
 
 ## Purpose
 
@@ -147,6 +160,17 @@ EVIDENCE GAPS: [INPUT NEEDED]
 - [ ] New vs modified marked for change sizing
 - [ ] No invented system names, headcount, or cost figures
 
-## Close with next steps
+## Worked example
 
-Branches: validate tech layer with architecture forum, run `maturity-assessment` on weak dimensions, build `business-case` for funded elements, hand off sequencing to `roadmap-builder`, or fill evidence gaps before steering circulation.
+**Input:** Ambition = unified customer data; current = siloed CRM per BU.
+
+**Expected output (excerpt):**
+
+```
+DATA: Single customer golden record — depends on IDENTITY platform layer constraint [review]
+INTERDEPENDENCY FLAGS: Org federated squads not yet in place [review]
+```
+
+## Outputs
+
+Follows plugin `CLAUDE.md` § Outputs. Next: `roadmap-builder`, ARB review, `maturity-assessment`, or GATE before steering.
