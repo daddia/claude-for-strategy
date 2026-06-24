@@ -7,37 +7,73 @@ description: >
   insight statements.
 allowed-tools: Read, Grep, Glob
 metadata:
-  version: "0.1.0"
+  version: "0.2.0"
+  owner: "consulting practice"
+  review_cadence: "quarterly"
+  work_shape: "narrative-synthesis"
+  output_class: "draft-for-review"
+  sourcing_policy: "volatile-facts-must-be-sourced"
 ---
 
 # So-What Sharpener
 
-Turn raw observations into sharpened insight statements by forcing the observation → implication → insight chain explicitly, one point at a time. This is the smallest unit of the Minto discipline (see `../../references/minto-pyramid.md`) — useful standalone when the user has a pile of facts and needs to know what they actually mean before building a full narrative around them.
+## When to use
 
-## Process
+Sharpen observations into insight via observation → implication → insight chain. Smallest Minto unit before full narrative.
 
-For each observation or data point provided:
+## What this skill does not do
 
-1. **State the observation as given** — the raw fact, unchanged.
-2. **State the implication** — what does this fact suggest, on its own? This is still fairly literal (e.g. "revenue per user dropped 12% in the mid-tier" → "mid-tier users are spending less").
-3. **State the insight** — what does this mean for the decision at hand? This is the so-what that actually matters to the reader (e.g. "the mid-tier price increase priced out exactly the segment it was meant to monetize better — the pricing change should be reconsidered, not just monitored").
+- **Does not skip implication step** — catches lazy insights.
+- **Does not force insight on non-load-bearing facts** — "No insight earned" section.
+- **Does not build full pyramid** — use `narrative-builder` for that.
 
-Run this chain explicitly for every point — don't skip straight from observation to insight, since the implication step is usually where the laziest version of the insight gets caught and corrected.
+## Preconditions
 
-4. **Flag observations that don't earn an insight.** Some facts are just facts — true, but not load-bearing for any decision. Say so rather than manufacturing a forced insight to make every point look productive.
+| Input | If missing |
+|---|---|
+| Observations or data points | Ask user to list |
+| Decision context | Ask what decision insights must support |
 
-5. **Group sharpened insights** if there are several, checking for overlap or redundancy — two insights that are really the same point stated twice should be merged.
+## Provisional mode
+
+Missing decision context: implications literal only; insights tagged `[review]`.
+
+## Trust spine
+
+- **Analytical Rigor (mandatory):** Explicit three-step chain per point; merge redundant insights.
+- Per `trust-conventions.md` on tagged figures in observations.
+
+## Workflow
+
+For each observation:
+1. State observation unchanged.
+2. State implication (literal).
+3. State insight (so-what for decision).
+4. Flag observations with no earned insight.
+5. Group and merge overlapping insights.
 
 ## Output format
 
 ```
-Observation: [raw fact]
-  → Implication: [what it suggests]
-  → Insight: [what it means for the decision]
+Observation: [...]
+  → Implication: [...]
+  → Insight: [...]
 
-Observation: [raw fact]
-  → Implication: ...
-  → Insight: ...
-
-No insight earned: [observations that are true but not decision-relevant, with why]
+No insight earned: [...]
 ```
+
+## Worked example
+
+**Input:** "Mid-tier ARPU down 12% QoQ." Decision: pricing revert?
+
+**Excerpt:** Implication: mid-tier spending less; Insight: increase likely priced out intended segment — reconsider pricing `[review]`.
+
+## Quality checks before delivering
+
+- [ ] Three-step chain per point
+- [ ] No insight earned section when applicable
+- [ ] Overlaps merged
+
+## Outputs
+
+Follows plugin `CLAUDE.md` § Outputs. Next: `/consulting:narrative-builder` to assemble insights.
