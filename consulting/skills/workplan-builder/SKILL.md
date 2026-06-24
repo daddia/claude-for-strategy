@@ -5,30 +5,50 @@ description: >
   "build a hypothesis-driven workplan," "who's doing what on this analysis,"
   or has a hypothesis tree (from this plugin or elsewhere) that needs owners,
   timelines, and data sources attached.
-allowed-tools: Read, Grep, Glob
+allowed-tools: Read, Grep, Glob, Write
 metadata:
-  version: "0.1.0"
+  version: "0.2.0"
+  owner: "consulting practice"
+  review_cadence: "quarterly"
+  work_shape: "structured-aggregation"
+  output_class: "draft-for-review"
+  sourcing_policy: "volatile-facts-must-be-sourced"
 ---
 
 # Workplan Builder
 
-Translate a hypothesis tree into an executable workplan: one row per sub-hypothesis, with the analysis needed, the data source, an owner, a timeline, and the expected so-what restated so it can be checked against the actual result later.
+## When to use
 
-## Process
+Translate hypothesis tree into executable workplan with owners, timelines, data sources, pre-stated so-whats.
 
-1. **Get the hypothesis tree.** If the user hasn't provided one, ask whether to run `hypothesis-tree` first or whether they're supplying their own structure directly.
+## What this skill does not do
 
-2. **For each sub-hypothesis, populate the workplan row**:
-   - **Hypothesis** — carried over verbatim from the tree.
-   - **Analysis** — the specific method (not just "analyze the data" — name the actual technique: a cohort comparison, a sensitivity model, a structured interview set).
-   - **Data source** — where the evidence actually comes from. If unknown, flag it rather than inventing a plausible-sounding source.
-   - **Owner** — ask if not supplied; don't assign names without confirmation.
-   - **Timeline** — ask for real constraints (a steering committee date, a sprint boundary) rather than defaulting to an arbitrary number of days.
-   - **Expected so-what** — carry over from the tree. This is written *before* the analysis runs, deliberately, so the actual result can be checked against it afterward.
+- **Does not build hypothesis tree** — route to `hypothesis-tree` if missing.
+- **Does not assign owners without confirmation** — flag TBD.
+- **Does not invent data sources** — flag unknown.
 
-3. **Sanity-check effort against payoff.** If a row's analysis looks disproportionately heavy relative to its expected so-what, flag it — that's usually a sign the hypothesis tree needs revisiting, not that the workplan should just proceed as drafted.
+## Preconditions
 
-4. **Output as a table**, ready to drop into a tracker or deck.
+| Input | If missing |
+|---|---|
+| Hypothesis tree | Ask to run `hypothesis-tree` or supply structure |
+| Owner/timeline constraints | Ask; no arbitrary day counts |
+
+## Provisional mode
+
+Missing owners/timelines: table with TBD flags; no silent placeholders.
+
+## Trust spine
+
+- **Confidence bands** (`structured-aggregation`): High = all rows complete; Medium = some TBD; Low = tree missing branches.
+- **Escalation:** Disproportionate effort vs so-what → flag revisit tree.
+
+## Workflow
+
+1. Get hypothesis tree.
+2. Per sub-hypothesis: analysis method, data source, owner, timeline, expected so-what (from tree).
+3. Sanity-check effort vs payoff.
+4. Output table; flag incomplete rows.
 
 ## Output format
 
@@ -36,4 +56,20 @@ Translate a hypothesis tree into an executable workplan: one row per sub-hypothe
 |---|---|---|---|---|---|
 | ... | ... | ... | ... | ... | ... |
 
-Flag any row where effort looks disproportionate to payoff, and any row missing a confirmed owner, timeline, or data source — don't silently fill these with placeholders.
+Flags: effort/payoff mismatches; missing owner/timeline/source.
+
+## Worked example
+
+**Input:** Tree branch "elasticity >15% in mid-tier."
+
+**Row:** Cohort price-volume analysis | billing warehouse | TBD owner | before steering 3/15 | if true, supports revert recommendation.
+
+## Quality checks before delivering
+
+- [ ] So-what carried from tree pre-analysis
+- [ ] No invented sources or owners
+- [ ] Effort flags applied
+
+## Outputs
+
+Follows plugin `CLAUDE.md` § Outputs. Next: drop into tracker or steering deck.
