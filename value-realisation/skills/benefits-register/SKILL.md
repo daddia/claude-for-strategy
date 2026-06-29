@@ -44,7 +44,7 @@ Structured-aggregation bands; baseline-before-change enforced; double-counting c
 
 ## Workflow
 
-1. **Read the practice profile** (`../../CLAUDE.md`) for the baseline-discipline answer from setup and the benefit type taxonomy, and read `benefits-map` output for the benefit chain being registered.
+1. **Read the practice profile** — `~/.claude/plugins/config/claude-for-strategy/org-profile.md` and `~/.claude/plugins/config/claude-for-strategy/value-realisation/CLAUDE.md` — for the baseline-discipline answer from setup and the benefit type taxonomy, and read `benefits-map` output for the benefit chain being registered.
 
 2. **For each benefit, capture**:
    - **Measure** — the exact formula, not a description. If `performance` is installed, hand off the formal metric definition to `performance:metrics-glossary` and reference it here rather than duplicating it — same seam pattern as `okr:instrument-metrics` and `balanced-scorecard:select-measures`. This skill owns the benefit-to-measure mapping, the baseline, and the accountability assignment, not the metric's formal definition.

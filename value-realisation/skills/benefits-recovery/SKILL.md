@@ -44,7 +44,7 @@ Option-evaluation bands; sunk-cost bias flagged; MEASUREMENT LAG stand-down hono
 
 ## Workflow
 
-1. **Read the practice profile** (`../../CLAUDE.md`), the benefit's register entry, and its full tracking history — the pattern across periods matters more than the most recent number alone.
+1. **Read the practice profile** — `~/.claude/plugins/config/claude-for-strategy/org-profile.md` and `~/.claude/plugins/config/claude-for-strategy/value-realisation/CLAUDE.md` — the benefit's register entry, and its full tracking history — the pattern across periods matters more than the most recent number alone.
 
 2. **Run the diagnostic split.** Classify the root cause as exactly one of:
    - **MEASUREMENT LAG** — too little time has passed since the business change to expect the benefit to show up yet. Not actually at risk; say so and stand down the escalation rather than treating every early AT-RISK flag as real trouble.

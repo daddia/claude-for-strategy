@@ -44,7 +44,7 @@ Governance-tracking bands; gaming-pattern check on claimed-but-not-remeasured; a
 
 ## Workflow
 
-1. **Read the practice profile** (`../../CLAUDE.md`) for the attribution convention and tracking cadence, the benefits register, and the prior tracking log if one exists — this skill appends, it doesn't restart the log each cycle.
+1. **Read the practice profile** — `~/.claude/plugins/config/claude-for-strategy/org-profile.md` and `~/.claude/plugins/config/claude-for-strategy/value-realisation/CLAUDE.md` — for the attribution convention and tracking cadence, the benefits register, and the prior tracking log if one exists — this skill appends, it doesn't restart the log each cycle.
 
 2. **For each benefit due for tracking, get the current measured value** against its registered baseline and target.
 

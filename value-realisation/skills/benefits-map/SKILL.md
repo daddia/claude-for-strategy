@@ -44,7 +44,7 @@ Structured-aggregation bands; benefit-washing and deadweight checks; orphan/cove
 
 ## Workflow
 
-1. **Read the practice profile** (`../../CLAUDE.md`) for the benefit type taxonomy and named framework, if any. If `transformation` or `corporate-strategy` is installed, read the relevant `transformation:business-case` or `corporate-strategy:evaluate-strategic-option` output as the seed rather than starting from a blank page — the case's cost/benefit table is the input, not a separate exercise.
+1. **Read the practice profile** — `~/.claude/plugins/config/claude-for-strategy/org-profile.md` and `~/.claude/plugins/config/claude-for-strategy/value-realisation/CLAUDE.md` — for the benefit type taxonomy and named framework, if any. If `transformation` or `corporate-strategy` is installed, read the relevant `/transformation:business-case` or `/corporate-strategy:evaluate-strategic-option` output as the seed rather than starting from a blank page — the case's cost/benefit table is the input, not a separate exercise.
 
 2. **For each benefit claimed in the source material, build the chain**:
    - **Enabler** — the capability actually being delivered (a system, a process, a policy, a tool).

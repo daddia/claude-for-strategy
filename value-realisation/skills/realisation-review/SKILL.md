@@ -44,7 +44,7 @@ Narrative-synthesis BLUF; root-cause cluster diagnosis; calibration discount for
 
 ## Workflow
 
-1. **Read the practice profile** (`../../CLAUDE.md`), the full benefits register, the complete tracking history, and any `benefits-recovery` decisions for benefits in the window under review.
+1. **Read the practice profile** — `~/.claude/plugins/config/claude-for-strategy/org-profile.md` and `~/.claude/plugins/config/claude-for-strategy/value-realisation/CLAUDE.md` — the full benefits register, the complete tracking history, and any `benefits-recovery` decisions for benefits in the window under review.
 
 2. **Score each benefit**: REALISED IN FULL / PARTIALLY REALISED (state the percentage) / NOT REALISED / LAPSED (carry forward the specific reason recorded in `benefits-recovery`, don't re-litigate it here).
 

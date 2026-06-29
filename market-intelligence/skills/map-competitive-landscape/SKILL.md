@@ -55,7 +55,7 @@ Thin competitor list: output groups with explicit **UNDER-THE-RADAR THREAT: unkn
 
 ## Workflow
 
-1. **Read the practice profile** (`../../CLAUDE.md`) for market definition and known competitor set.
+1. **Read the practice profile** — `~/.claude/plugins/config/claude-for-strategy/org-profile.md` and `~/.claude/plugins/config/claude-for-strategy/market-intelligence/CLAUDE.md` — for market definition and known competitor set.
 2. **Group competitors into strategic groups** by cost structure, target segment, channel, business model — not product category labels.
 3. **Identify mobility barriers between groups** — capital, channel, brand, regulatory; rate realistically (inertia ≠ high barrier).
 4. **Identify white space** — ask: unoccupied because unseen or structurally unattractive? State which explanation is more likely.
