@@ -56,6 +56,12 @@ Each agent is named for the job it does. They're the most common surface — sta
 | **OKR Cascader** | Maps company OKRs to team-level objectives with coverage checks | `okr` | `/okr:cascade` |
 | **Check-In Nudge** | Weekly confidence pulses to KR owners; flags staleness to the OKR lead | `okr` | scheduled agent |
 | **Strategy Review Reminder** | Quarterly scorecard review prompt; separately tracks annual map-refresh cadence | `balanced-scorecard` | scheduled agent |
+| **Growth Vector Assessor** | Categorizes initiatives core/adjacent/transformational; tests whether the portfolio sums to the stated growth target | `corporate-strategy` | `/corporate-strategy:assess-growth-vectors` |
+| **Resource Allocator** | Maps spend/headcount/attention against strategic priority; flags misallocation | `corporate-strategy` | `/corporate-strategy:allocate-resources` |
+| **Exit-or-Double-Down Analyst** | Blank-page test per unit; surfaces sunk-cost reasoning; exit/hold/double-down call | `corporate-strategy` | `/corporate-strategy:exit-or-double-down` |
+| **Strategic Option Evaluator** | Real-options framing — staging, kill criteria, case against written by the skill | `corporate-strategy` | `/corporate-strategy:evaluate-strategic-option` |
+| **Build-vs-Buy Analyst** | Capability gap vs. build/buy/partner paths with failure priors | `corporate-strategy` | `/corporate-strategy:build-vs-buy-vs-partner` |
+| **Synergy Stress Tester** | Cost vs. revenue synergies; base-rate haircut; double-count check | `corporate-strategy` | `/corporate-strategy:synergy-stress-test` |
 | **Portfolio Review Reminder** | Quarterly prompt to run `allocate-resources` and recheck `exit-or-double-down` holds past their re-rating date | `corporate-strategy` | scheduled agent |
 | **Competitive Signal Scan** | Weekly scan for competitor moves that would change the strategic-group or incentive map; works with native web search, no connector required | `market-intelligence` | scheduled agent |
 | **Realisation Checkpoint Reminder** | Prompts benefits-tracking on cadence; escalates benefits approaching go-live with no baseline captured | `value-realisation` | scheduled agent |

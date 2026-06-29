@@ -11,8 +11,16 @@ Growth strategy, portfolio and resource allocation, and strategic options.
 
 ## Agents
 
+Job-style names in the table map to slash commands — run the command to invoke the skill.
+
 | Agent | What it does | Command |
 |---|---|---|
+| **Growth Vector Assessor** | Categorizes initiatives core/adjacent/transformational; tests whether the portfolio sums to the stated growth target | `/corporate-strategy:assess-growth-vectors` |
+| **Resource Allocator** | Maps spend/headcount/attention against strategic priority; flags misallocation | `/corporate-strategy:allocate-resources` |
+| **Exit-or-Double-Down Analyst** | Blank-page test per unit; surfaces sunk-cost reasoning; exit/hold/double-down call | `/corporate-strategy:exit-or-double-down` |
+| **Strategic Option Evaluator** | Real-options framing — staging, kill criteria, case against written by the skill | `/corporate-strategy:evaluate-strategic-option` |
+| **Build-vs-Buy Analyst** | Capability gap vs. build/buy/partner paths with failure priors | `/corporate-strategy:build-vs-buy-vs-partner` |
+| **Synergy Stress Tester** | Cost vs. revenue synergies; base-rate haircut; double-count check | `/corporate-strategy:synergy-stress-test` |
 | **Portfolio Review Reminder** | Quarterly prompt to run `allocate-resources` and recheck `exit-or-double-down` holds past their re-rating date | scheduled agent |
 
 ## Skill & command reference
