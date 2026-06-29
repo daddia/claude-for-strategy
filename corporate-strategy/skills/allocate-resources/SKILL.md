@@ -5,16 +5,16 @@ description: >
   allocation," "are we funding the right things," "build a portfolio
   allocation view," or needs current spend, headcount, or management
   attention checked against strategic priority for misallocation.
-allowed-tools: Read, Grep, Glob, Write
+allowed-tools: Read, Grep, Glob
 metadata:
   version: "0.3.0"
   owner: "corporate-strategy practice"
   review_cadence: "quarterly"
   work_shape: "option-evaluation"
+  permission_tier: advisory
   output_class: "draft-for-review"
   sourcing_policy: "volatile-facts-must-be-sourced"
 ---
-
 # Allocate Resources
 
 ## When to use

@@ -5,16 +5,16 @@ description: >
   business units," "build a team-level scorecard," or needs corporate
   strategy-map objectives translated into business-unit or team scorecards
   via a genuine causal-mechanism test, not just contribution-counting.
-allowed-tools: Read, Grep, Glob, Write
+allowed-tools: Read, Grep, Glob
 metadata:
   version: "0.2.0"
   owner: "balanced-scorecard practice"
   review_cadence: "quarterly"
   work_shape: "structured-aggregation"
+  permission_tier: advisory
   output_class: "draft-for-review"
   sourcing_policy: "volatile-facts-must-be-sourced"
 ---
-
 # Cascade to Scorecards
 
 ## When to use

@@ -12,10 +12,10 @@ metadata:
   owner: "value-realisation practice"
   review_cadence: "quarterly"
   work_shape: "governance-tracking"
+  permission_tier: artefact-writer
   output_class: "tracking-update"
   sourcing_policy: "volatile-facts-must-be-sourced"
 ---
-
 # Benefits Tracking
 
 ## When to use

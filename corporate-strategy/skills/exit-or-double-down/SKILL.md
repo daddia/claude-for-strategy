@@ -5,16 +5,16 @@ description: >
   business," "is this worth continuing to fund," "do a portfolio pruning
   review," or needs an explicit exit/hold/double-down call on a unit —
   with sunk-cost reasoning named directly when it appears.
-allowed-tools: Read, Grep, Glob, Write
+allowed-tools: Read, Grep, Glob
 metadata:
   version: "0.3.0"
   owner: "corporate-strategy practice"
   review_cadence: "quarterly"
   work_shape: "option-evaluation"
+  permission_tier: advisory
   output_class: "draft-for-review"
   sourcing_policy: "volatile-facts-must-be-sourced"
 ---
-
 # Exit or Double Down
 
 ## When to use

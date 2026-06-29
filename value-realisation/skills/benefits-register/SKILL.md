@@ -6,16 +6,16 @@ description: >
   accountable for this benefit," or needs each mapped benefit turned
   into a formal register entry — baseline, target, owner, and
   realisation date — before tracking can begin.
-allowed-tools: Read, Grep, Glob, Write
+allowed-tools: Read, Grep, Glob
 metadata:
   version: "0.3.0"
   owner: "value-realisation practice"
   review_cadence: "quarterly"
   work_shape: "structured-aggregation"
+  permission_tier: advisory
   output_class: "structured-data"
   sourcing_policy: "volatile-facts-must-be-sourced"
 ---
-
 # Benefits Register
 
 ## When to use

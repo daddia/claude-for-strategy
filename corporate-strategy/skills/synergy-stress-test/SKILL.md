@@ -5,16 +5,16 @@ description: >
   synergies," "is this deal's synergy case realistic," or has a deal or
   partnership's projected synergies that need cost/revenue separation,
   evidence checks, and a base-rate haircut.
-allowed-tools: Read, Grep, Glob, Write
+allowed-tools: Read, Grep, Glob
 metadata:
   version: "0.3.0"
   owner: "corporate-strategy practice"
   review_cadence: "quarterly"
   work_shape: "hypothesis-driven-analysis"
+  permission_tier: advisory
   output_class: "draft-for-review"
   sourcing_policy: "volatile-facts-must-be-sourced"
 ---
-
 # Synergy Stress Test
 
 ## When to use

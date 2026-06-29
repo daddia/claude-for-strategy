@@ -12,10 +12,10 @@ metadata:
   owner: "value-realisation practice"
   review_cadence: "quarterly"
   work_shape: "option-evaluation"
+  permission_tier: advisory
   output_class: "decision-support"
   sourcing_policy: "volatile-facts-must-be-sourced"
 ---
-
 # Benefits Recovery
 
 ## When to use

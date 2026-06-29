@@ -11,10 +11,10 @@ metadata:
   owner: "okr practice"
   review_cadence: "quarterly"
   work_shape: "structured-aggregation"
+  permission_tier: advisory
   output_class: "structured-data"
   sourcing_policy: "volatile-facts-must-be-sourced"
 ---
-
 # Instrument Metrics
 
 ## When to use

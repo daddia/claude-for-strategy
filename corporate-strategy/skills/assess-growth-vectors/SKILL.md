@@ -5,16 +5,16 @@ description: >
   options," "where should our growth come from," "build a growth strategy,"
   or has a portfolio of growth initiatives that need to be checked against
   a real growth target — not just sorted into categories.
-allowed-tools: Read, Grep, Glob, Write
+allowed-tools: Read, Grep, Glob
 metadata:
   version: "0.2.0"
   owner: "corporate-strategy practice"
   review_cadence: "quarterly"
   work_shape: "hypothesis-driven-analysis"
+  permission_tier: advisory
   output_class: "draft-for-review"
   sourcing_policy: "volatile-facts-must-be-sourced"
 ---
-
 # Assess Growth Vectors
 
 ## When to use

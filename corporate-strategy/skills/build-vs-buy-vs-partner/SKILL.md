@@ -5,16 +5,16 @@ description: >
   acquire it, or partner for it," has a capability gap that needs a
   build/buy/partner decision, or wants that decision checked against the
   known failure pattern each path tends toward.
-allowed-tools: Read, Grep, Glob, Write
+allowed-tools: Read, Grep, Glob
 metadata:
   version: "0.2.0"
   owner: "corporate-strategy practice"
   review_cadence: "quarterly"
   work_shape: "option-evaluation"
+  permission_tier: advisory
   output_class: "draft-for-review"
   sourcing_policy: "volatile-facts-must-be-sourced"
 ---
-
 # Build vs. Buy vs. Partner
 
 ## When to use

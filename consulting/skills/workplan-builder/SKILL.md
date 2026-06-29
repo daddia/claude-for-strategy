@@ -5,16 +5,16 @@ description: >
   "build a hypothesis-driven workplan," "who's doing what on this analysis,"
   or has a hypothesis tree (from this plugin or elsewhere) that needs owners,
   timelines, and data sources attached.
-allowed-tools: Read, Grep, Glob, Write
+allowed-tools: Read, Grep, Glob
 metadata:
   version: "0.2.0"
   owner: "consulting practice"
   review_cadence: "quarterly"
   work_shape: "structured-aggregation"
+  permission_tier: advisory
   output_class: "draft-for-review"
   sourcing_policy: "volatile-facts-must-be-sourced"
 ---
-
 # Workplan Builder
 
 ## When to use

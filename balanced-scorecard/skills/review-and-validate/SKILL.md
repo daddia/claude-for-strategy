@@ -6,16 +6,16 @@ description: >
   review," or needs measures scored against targets AND the strategy map's
   causal links tested against what actually happened — the distinctively
   BSC discipline that separates a failed initiative from a failed theory.
-allowed-tools: Read, Grep, Glob, Write
+allowed-tools: Read, Grep, Glob
 metadata:
   version: "0.3.0"
   owner: "balanced-scorecard practice"
   review_cadence: "quarterly"
   work_shape: "governance-tracking"
+  permission_tier: advisory
   output_class: "tracking-update"
   sourcing_policy: "volatile-facts-must-be-sourced"
 ---
-
 # Review and Validate
 
 ## When to use

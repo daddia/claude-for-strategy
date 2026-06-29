@@ -10,10 +10,10 @@ metadata:
   owner: "performance practice"
   review_cadence: "quarterly"
   work_shape: "structured-aggregation"
+  permission_tier: advisory
   output_class: "draft-for-review"
   sourcing_policy: "volatile-facts-must-be-sourced"
 ---
-
 # KPI Tree Builder
 
 ## When to use

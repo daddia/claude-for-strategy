@@ -11,10 +11,10 @@ metadata:
   owner: "transformation practice"
   review_cadence: "quarterly"
   work_shape: "narrative-synthesis"
+  permission_tier: advisory
   output_class: "draft-for-review"
   sourcing_policy: "volatile-facts-must-be-sourced"
 ---
-
 # Target Operating Model
 
 ## When to use

@@ -6,16 +6,16 @@ description: >
   deal," or has a major strategic decision (market entry, M&A, large
   capital commitment) that needs real-options framing rather than a binary
   go/no-go.
-allowed-tools: Read, Grep, Glob, Write
+allowed-tools: Read, Grep, Glob
 metadata:
   version: "0.3.0"
   owner: "corporate-strategy practice"
   review_cadence: "quarterly"
   work_shape: "option-evaluation"
+  permission_tier: advisory
   output_class: "draft-for-review"
   sourcing_policy: "volatile-facts-must-be-sourced"
 ---
-
 # Evaluate Strategic Option
 
 ## When to use

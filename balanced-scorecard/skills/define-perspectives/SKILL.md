@@ -5,16 +5,16 @@ description: >
   "set up our scorecard structure," "should we use the standard four
   perspectives," or needs to decide the perspective set and causal-chain
   order before any objectives get drafted.
-allowed-tools: Read, Grep, Glob, Write
+allowed-tools: Read, Grep, Glob
 metadata:
   version: "0.3.0"
   owner: "balanced-scorecard practice"
   review_cadence: "quarterly"
   work_shape: "structured-aggregation"
+  permission_tier: advisory
   output_class: "draft-for-review"
   sourcing_policy: "volatile-facts-must-be-sourced"
 ---
-
 # Define Perspectives
 
 ## When to use

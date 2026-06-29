@@ -12,10 +12,10 @@ metadata:
   owner: "okr practice"
   review_cadence: "quarterly"
   work_shape: "structured-aggregation"
+  permission_tier: advisory
   output_class: "draft-for-review"
   sourcing_policy: "volatile-facts-must-be-sourced"
 ---
-
 # Draft Objectives
 
 ## When to use

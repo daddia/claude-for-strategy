@@ -11,10 +11,10 @@ metadata:
   owner: "transformation practice"
   review_cadence: "quarterly"
   work_shape: "structured-aggregation"
+  permission_tier: advisory
   output_class: "draft-for-review"
   sourcing_policy: "volatile-facts-must-be-sourced"
 ---
-
 # Maturity Assessment
 
 ## When to use

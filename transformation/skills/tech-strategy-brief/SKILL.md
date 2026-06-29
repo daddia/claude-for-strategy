@@ -11,10 +11,10 @@ metadata:
   owner: "transformation practice"
   review_cadence: "quarterly"
   work_shape: "option-evaluation"
+  permission_tier: advisory
   output_class: "draft-for-review"
   sourcing_policy: "volatile-facts-must-be-sourced"
 ---
-
 # Tech Strategy Brief
 
 ## When to use

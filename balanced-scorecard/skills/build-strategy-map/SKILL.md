@@ -12,10 +12,10 @@ metadata:
   owner: "balanced-scorecard practice"
   review_cadence: "quarterly"
   work_shape: "structured-aggregation"
+  permission_tier: artefact-writer
   output_class: "draft-for-review"
   sourcing_policy: "volatile-facts-must-be-sourced"
 ---
-
 # Build Strategy Map
 
 ## When to use

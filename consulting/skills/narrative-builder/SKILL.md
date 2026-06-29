@@ -5,16 +5,16 @@ description: >
   these notes," "what's my storyline here," "structure this into a pyramid,"
   or provides raw findings, interview notes, or analysis output and wants it
   turned into a governing thought with supporting argument structure.
-allowed-tools: Read, Grep, Glob, Write
+allowed-tools: Read, Grep, Glob
 metadata:
   version: "0.2.0"
   owner: "consulting practice"
   review_cadence: "quarterly"
   work_shape: "narrative-synthesis"
+  permission_tier: advisory
   output_class: "draft-for-review"
   sourcing_policy: "volatile-facts-must-be-sourced"
 ---
-
 # Narrative Builder
 
 ## When to use

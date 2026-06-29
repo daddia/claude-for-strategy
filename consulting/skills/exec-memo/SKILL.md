@@ -4,16 +4,16 @@ description: >
   This skill should be used when the user asks to "write an exec memo,"
   "BLUF this," "turn this into a one-pager," or needs a narrative or raw
   notes condensed into a conclusion-first executive memo.
-allowed-tools: Read, Grep, Glob, Write
+allowed-tools: Read, Grep, Glob
 metadata:
   version: "0.2.0"
   owner: "consulting practice"
   review_cadence: "quarterly"
   work_shape: "narrative-synthesis"
+  permission_tier: advisory
   output_class: "draft-for-review"
   sourcing_policy: "volatile-facts-must-be-sourced"
 ---
-
 # Exec Memo
 
 ## When to use

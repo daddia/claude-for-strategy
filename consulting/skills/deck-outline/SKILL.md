@@ -4,16 +4,16 @@ description: >
   This skill should be used when the user asks to "outline a deck on X,"
   "what's the storyline for this deck," "build a slide-by-slide outline," or
   needs a presentation structured before any actual slide design happens.
-allowed-tools: Read, Grep, Glob, Write
+allowed-tools: Read, Grep, Glob
 metadata:
   version: "0.2.0"
   owner: "consulting practice"
   review_cadence: "quarterly"
   work_shape: "narrative-synthesis"
+  permission_tier: advisory
   output_class: "draft-for-review"
   sourcing_policy: "volatile-facts-must-be-sourced"
 ---
-
 # Deck Outline
 
 ## When to use

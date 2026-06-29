@@ -5,16 +5,16 @@ description: >
   these objectives," "what should we measure for this," or needs each
   strategy-map objective assigned 1-3 measures with an explicit lead/lag
   classification and a check on the overall measure portfolio.
-allowed-tools: Read, Grep, Glob, Write
+allowed-tools: Read, Grep, Glob
 metadata:
   version: "0.2.0"
   owner: "balanced-scorecard practice"
   review_cadence: "quarterly"
   work_shape: "structured-aggregation"
+  permission_tier: advisory
   output_class: "draft-for-review"
   sourcing_policy: "volatile-facts-must-be-sourced"
 ---
-
 # Select Measures
 
 ## When to use

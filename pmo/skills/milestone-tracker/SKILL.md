@@ -11,10 +11,10 @@ metadata:
   owner: "pmo practice"
   review_cadence: "quarterly"
   work_shape: "governance-tracking"
+  permission_tier: advisory
   output_class: "tracking-update"
   sourcing_policy: "volatile-facts-must-be-sourced"
 ---
-
 # Milestone Tracker
 
 ## When to use

@@ -12,10 +12,10 @@ metadata:
   owner: "value-realisation practice"
   review_cadence: "quarterly"
   work_shape: "narrative-synthesis"
+  permission_tier: advisory
   output_class: "draft-for-review"
   sourcing_policy: "volatile-facts-must-be-sourced"
 ---
-
 # Realisation Review
 
 ## When to use

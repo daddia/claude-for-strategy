@@ -15,10 +15,10 @@ metadata:
   owner: "performance practice"
   review_cadence: "quarterly"
   work_shape: "structured-aggregation"
+  permission_tier: artefact-writer
   output_class: "structured-data"
   sourcing_policy: "volatile-facts-must-be-sourced"
 ---
-
 # Cold-Start Interview — performance
 
 ## When to use

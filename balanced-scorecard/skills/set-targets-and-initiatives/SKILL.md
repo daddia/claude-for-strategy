@@ -5,16 +5,16 @@ description: >
   scorecard," "what initiatives support this objective," or needs each
   measure given a target and each objective checked against whether a real
   program of work is actually driving it.
-allowed-tools: Read, Grep, Glob, Write
+allowed-tools: Read, Grep, Glob
 metadata:
   version: "0.2.0"
   owner: "balanced-scorecard practice"
   review_cadence: "quarterly"
   work_shape: "structured-aggregation"
+  permission_tier: advisory
   output_class: "draft-for-review"
   sourcing_policy: "volatile-facts-must-be-sourced"
 ---
-
 # Set Targets and Initiatives
 
 ## When to use

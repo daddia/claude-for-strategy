@@ -11,10 +11,10 @@ metadata:
   owner: "operating-model practice"
   review_cadence: "quarterly"
   work_shape: "hypothesis-driven-analysis"
+  permission_tier: advisory
   output_class: "draft-for-review"
   sourcing_policy: "volatile-facts-must-be-sourced"
 ---
-
 # Diagnose Structure Fit
 
 ## When to use

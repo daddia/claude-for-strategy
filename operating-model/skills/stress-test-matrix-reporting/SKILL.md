@@ -11,10 +11,10 @@ metadata:
   owner: "operating-model practice"
   review_cadence: "quarterly"
   work_shape: "governance-tracking"
+  permission_tier: advisory
   output_class: "draft-for-review"
   sourcing_policy: "volatile-facts-must-be-sourced"
 ---
-
 # Stress-Test Matrix Reporting
 
 ## When to use

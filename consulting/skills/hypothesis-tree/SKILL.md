@@ -5,16 +5,16 @@ description: >
   "structure this as an issue tree," "what are our hypotheses for X," or
   presents a problem statement that needs to be broken into falsifiable
   sub-hypotheses before analysis starts.
-allowed-tools: Read, Grep, Glob, Write
+allowed-tools: Read, Grep, Glob
 metadata:
   version: "0.2.0"
   owner: "consulting practice"
   review_cadence: "quarterly"
   work_shape: "hypothesis-driven-analysis"
+  permission_tier: advisory
   output_class: "draft-for-review"
   sourcing_policy: "volatile-facts-must-be-sourced"
 ---
-
 # Hypothesis Tree
 
 ## When to use
