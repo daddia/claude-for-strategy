@@ -6,6 +6,7 @@ Objectives and Key Results — drafting, target-setting, instrumentation, cascad
 
 | Agent | What it does | Command |
 |---|---|---|
+| **OKR Cascader** | Maps company OKRs to team-level objectives with coverage checks | `/okr:cascade` |
 | **Check-In Nudge** | Weekly confidence pulses to KR owners; flags staleness and sharp drops to the OKR lead | scheduled agent |
 
 ## What this plugin does NOT do

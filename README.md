@@ -43,7 +43,6 @@ Each agent is named for the job it does. They're the most common surface — sta
 | **KPI Tree Builder** | North Star metric → MECE drivers → leading indicators | `performance` | `/performance:kpi-tree-builder` |
 | **Tracker Builder** | Builds a `.xlsx` tracker wired to your Daily Log → Summary pattern | `performance` | `/performance:tracker-builder` |
 | **Board Narrative Writer** | Metrics/results → BLUF-structured narrative for your stated audience | `performance` | `/performance:performance-narrative` |
-| **OKR Cascader** | Maps company OKRs to team-level objectives with coverage checks | `performance` | `/performance:okr-cascade` |
 | **KPI Breach Watcher** | Daily scan for metrics crossing targets/thresholds; Honeycomb for telemetry | `performance` | scheduled agent |
 | **Cadence Reporter** | Assembles period performance narrative draft on reporting cadence | `performance` | scheduled agent |
 | **RAID Logger** | Logs/updates a Risk, Assumption, Issue, or Dependency; flags escalation | `pmo` | `/pmo:raid-log` |
@@ -54,6 +53,7 @@ Each agent is named for the job it does. They're the most common surface — sta
 | **Escalation Watcher** | Weekly + post-`raid-log` scan for items crossing escalation threshold | `pmo` | scheduled agent |
 | **Slippage Watcher** | Weekly critical-path milestone check against tolerance; flags knock-on effects | `pmo` | scheduled agent |
 | **Steering Prep** | N days before steering (from `~~calendar`), assembles inputs for steering pack | `pmo` | scheduled agent |
+| **OKR Cascader** | Maps company OKRs to team-level objectives with coverage checks | `okr` | `/okr:cascade` |
 | **Check-In Nudge** | Weekly confidence pulses to KR owners; flags staleness to the OKR lead | `okr` | scheduled agent |
 | **Strategy Review Reminder** | Quarterly scorecard review prompt; separately tracks annual map-refresh cadence | `balanced-scorecard` | scheduled agent |
 | **Portfolio Review Reminder** | Quarterly prompt to run `allocate-resources` and recheck `exit-or-double-down` holds past their re-rating date | `corporate-strategy` | scheduled agent |
@@ -180,7 +180,7 @@ Grouped by where the work sits. Each plugin's cold-start interview is what tailo
 | **[consulting](./consulting)** | Strategic narrative (Minto pyramid), hypothesis trees, hypothesis-driven workplans, deck outlines, exec memos, so-what sharpening, doc/deck review. The craft layer every deliverable should be written in. |
 | **[transformation](./transformation)** | Digital maturity assessment, Now/Next/Later roadmaps, target operating model design, tech strategy briefs, transformation business cases. |
 | **[operating-model](./operating-model)** | Org design and decision rights — structure-strategy fit, RACI/RAPID design, span and layers analysis, matrix-reporting stress tests, Star Model rewards alignment. |
-| **[performance](./performance)** | KPI trees, metrics tracker builder, metrics glossary, performance narratives, OKR cascade helper. |
+| **[performance](./performance)** | KPI trees, metrics tracker builder, metrics glossary, performance narratives. |
 | **[pmo](./pmo)** | RAID logs, status reports, steering committee packs, milestone tracking, decision logs. |
 
 ### Corporate & portfolio strategy
@@ -317,7 +317,6 @@ The full map across all plugins. The cold-start interview is the first thing to 
 | `/performance:tracker-builder` | tracker-builder | Builds `.xlsx` with Daily Log → Summary formulas |
 | `/performance:metrics-glossary` | metrics-glossary | Metric list → single source-of-truth definitions |
 | `/performance:performance-narrative` | performance-narrative | Metrics/results → BLUF narrative |
-| `/performance:okr-cascade` | okr-cascade | Company OKRs → team-level objectives |
 | scheduled | kpi-breach-watcher (agent) | Daily threshold breach scan via `~~chat`; Honeycomb for telemetry |
 | scheduled | cadence-reporter (agent) | Period narrative draft on reporting cadence via `~~chat` |
 

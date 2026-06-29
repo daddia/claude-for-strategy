@@ -9,13 +9,12 @@ KPI trees, metrics tracker builder, metrics glossary, and performance narratives
 | **KPI Tree Builder** | North Star metric → MECE drivers → leading indicators | `/performance:kpi-tree-builder` |
 | **Tracker Builder** | Builds a `.xlsx` — Daily Log tab wired to Summary via live formulas | `/performance:tracker-builder` |
 | **Board Narrative Writer** | Metrics/results → BLUF-structured narrative for your stated audience | `/performance:performance-narrative` |
-| **OKR Cascader** | Maps company OKRs to team-level objectives with coverage checks | `/performance:okr-cascade` |
 | **KPI Breach Watcher** | Daily scan for metrics crossing targets/thresholds; Honeycomb for telemetry | scheduled agent |
 | **Cadence Reporter** | Assembles period performance narrative draft on reporting cadence | scheduled agent |
 
 ## What this plugin does NOT do
 
-- **Define OKR philosophy or run check-in cadence** — that is the [`okr`](../okr) plugin; this plugin owns measurement definitions and reporting.
+- **Draft, cascade, check in on, or score OKRs** — that is the [`okr`](../okr) plugin (`/okr:cascade` for company→team breakdown); this plugin owns measurement definitions and reporting.
 - **Pull live metrics without a connector** — `tracker-builder` replicates your spreadsheet pattern; telemetry metrics need `~~observability` or manual log input.
 - **Certify board-ready numbers** — narratives tag sourcing and gate finals; you verify every figure before it reaches the board.
 - **Ship board-ready narratives without human review** — Cadence Reporter drafts on schedule; you verify every figure and run `/performance:performance-narrative` before anything reaches the board.
@@ -64,7 +63,6 @@ If [`balanced-scorecard`](../balanced-scorecard) is installed, `metrics-glossary
 | `/performance:tracker-builder` | tracker-builder | Builds `.xlsx` with Daily Log → Summary formulas |
 | `/performance:metrics-glossary` | metrics-glossary | Metric list → single source-of-truth definitions |
 | `/performance:performance-narrative` | performance-narrative | Metrics/results → BLUF narrative |
-| `/performance:okr-cascade` | okr-cascade | Company OKRs → team-level objectives |
 | scheduled | kpi-breach-watcher (agent) | Daily threshold breach scan via `~~chat`; Honeycomb for telemetry |
 | scheduled | cadence-reporter (agent) | Period narrative draft on reporting cadence via `~~chat` |
 
