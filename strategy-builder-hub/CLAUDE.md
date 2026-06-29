@@ -4,7 +4,7 @@ TEMPLATE — do not write user data here.
 This file ships with the plugin and shows the structure the config should have.
 It is replaced on every plugin update. Never write user data here.
 
-cold-start-interview copies this template to:
+The `practice-setup` skill copies this template to:
   ~/.claude/plugins/config/claude-for-strategy/strategy-builder-hub/CLAUDE.md
 
 Check that path first. If a populated CLAUDE.md exists at the old cache path
@@ -24,7 +24,7 @@ engagement profile. If it doesn't exist, this plugin's setup will create it.
 
 # Strategy Builder Hub Engagement Profile
 
-*Written by cold-start on [DATE].*
+*Written by `/practice-setup` on [DATE].*
 
 ---
 
@@ -45,7 +45,7 @@ with more sensitive guardrails may still ask to confirm.*
 |---|---|---|
 | Slack | [✓ / ✗] | New-skill and update notifications surface on next `/strategy-builder-hub:registry-browser` or `/strategy-builder-hub:auto-updater` instead of proactively |
 
-*Re-check: `/strategy-builder-hub:cold-start-interview --check-integrations`*
+*Re-check: `/strategy-builder-hub:practice-setup --check-integrations`*
 
 ---
 
@@ -271,7 +271,7 @@ institutional memory.
 
 ## Installed starter pack
 
-*Skills installed at cold-start based on engagement profile.*
+*Skills installed during practice setup based on engagement profile.*
 
 | Skill | Source | Installed | Why recommended |
 |---|---|---|---|
@@ -314,7 +314,7 @@ structured workflow that wasn't built for it.
 
 ---
 
-*Re-run: `/strategy-builder-hub:cold-start-interview --redo`*
+*Re-run: `/strategy-builder-hub:practice-setup --redo`*
 
 **Don't force a question through the wrong skill.** When the user asks for
 something that doesn't match the current skill's output format — a strategic
@@ -346,7 +346,7 @@ apply it. If it's populated, answer as the configured assistant:
 
 If the engagement profile isn't populated: "I can give you a general answer, but
 this plugin gives much better answers once it's configured to your engagement
-context — run `/strategy-builder-hub:cold-start-interview` (2-minute quick start
+context — run `/strategy-builder-hub:practice-setup` (2-minute quick start
 or 10-minute full setup)." Then give the general answer anyway, tagged as
 unconfigured.
 

@@ -17,7 +17,7 @@ Those three plugins manage *ongoing, forward-looking* goals and measurement — 
 
 | Command | Skill | What it does |
 |---|---|---|
-| `/value-realisation:cold-start-interview` | cold-start-interview | Learns your benefits framework, governance model, baseline discipline, and cadence — writes your practice profile |
+| `/value-realisation:practice-setup` | practice-setup | Learns your benefits framework, governance model, baseline discipline, and cadence — writes your practice profile |
 | `/value-realisation:benefits-map` | benefits-map | Approved business case → Benefits Dependency Network (enabler → business change → benefit → objective); catches benefits that are really deliverables in disguise |
 | `/value-realisation:benefits-register` | benefits-register | Mapped benefits → formal register entries — baseline-before-change enforcement, benefit type classification, single-point accountability (an owner who isn't the delivery PM) |
 | `/value-realisation:benefits-tracking` | benefits-tracking | Periodic remeasurement against baseline, with an explicit attribution call — not just "the number moved," but "moved because of us" |
@@ -27,11 +27,11 @@ Those three plugins manage *ongoing, forward-looking* goals and measurement — 
 
 ## Setup
 
-Run `/value-realisation:cold-start-interview` first. The baseline-discipline question matters most — if baselines are normally captured after a change has already gone live (common), say so plainly; `benefits-register` needs to know this to flag retrofitted baselines rather than treating them as clean.
+Run `/value-realisation:practice-setup` first. The baseline-discipline question matters most — if baselines are normally captured after a change has already gone live (common), say so plainly; `benefits-register` needs to know this to flag retrofitted baselines rather than treating them as clean.
 
 ### Living profile
 
-- **Cold-start interview** — writes the full profile after you confirm the interview summary.
+- **Practice setup** — writes the full profile after you confirm the interview summary.
 - **Any other skill** — when a stable convention surfaces (benefit taxonomy, tracking cadence, attribution rules), skills **propose a profile update**: show the exact change, ask for confirmation, write only if you say yes.
 - **Edit directly** — small fixes without re-running setup.
 

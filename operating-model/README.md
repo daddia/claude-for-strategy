@@ -25,7 +25,7 @@ Job-style names in the table map to slash commands — run the command to invoke
 
 | Command | Skill | What it does |
 |---|---|---|
-| `/operating-model:cold-start-interview` | cold-start-interview | Learns current structure, strategic priority it's meant to serve, known decision-rights gaps, reward mechanics |
+| `/operating-model:practice-setup` | practice-setup | Learns current structure, strategic priority it's meant to serve, known decision-rights gaps, reward mechanics |
 | `/operating-model:diagnose-structure-fit` | diagnose-structure-fit | Tests whether the structure actually matches the coordination need the strategy requires; flags "organized around the current leader's chart" |
 | `/operating-model:design-decision-rights` | design-decision-rights | Builds a RACI/RAPID matrix and enforces single-point accountability — flags zero-A and multi-A decisions, flags R/C bloat |
 | `/operating-model:check-span-and-layers` | check-span-and-layers | Diagnoses span of control and layer count against known patterns for over- and under-management |
@@ -38,11 +38,11 @@ Structure changes are cheap to draw and expensive to make real. This skill exist
 
 ## Setup
 
-Run `/operating-model:cold-start-interview` first. The "what is the structure meant to optimize for" question matters most — `diagnose-structure-fit` can't assess fit without a real answer to compare against.
+Run `/operating-model:practice-setup` first. The "what is the structure meant to optimize for" question matters most — `diagnose-structure-fit` can't assess fit without a real answer to compare against.
 
 ### Living profile
 
-- **Cold-start interview** — writes the full profile after you confirm the interview summary.
+- **Practice setup** — writes the full profile after you confirm the interview summary.
 - **Any other skill** — when a stable convention surfaces (decision-rights framework, span targets, reward mechanics), skills **propose a profile update**: show the exact change, ask for confirmation, write only if you say yes.
 - **Edit directly** — small fixes without re-running setup.
 

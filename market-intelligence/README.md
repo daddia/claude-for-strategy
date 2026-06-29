@@ -21,7 +21,7 @@ Runs on the cadence set in the practice profile (default: weekly). A dedicated n
 
 | Command | Skill | What it does |
 |---|---|---|
-| `/market-intelligence:cold-start-interview` | cold-start-interview | Learns market definition, positioning, incentive context, signal-monitoring preferences |
+| `/market-intelligence:practice-setup` | practice-setup | Learns market definition, positioning, incentive context, signal-monitoring preferences |
 | `/market-intelligence:map-competitive-landscape` | map-competitive-landscape | Groups competitors by actual strategic logic (not product category), maps mobility barriers between groups, identifies white space and asks whether it's unoccupied or structurally unattractive |
 | `/market-intelligence:map-incentives` | map-incentives | "Show me the incentive" — maps actual incentive structures (not stated motivations) for any player, internal or external, and tests whether predicted behavior follows from the incentive or only from taking stated motivation at face value |
 | `/market-intelligence:test-positioning` | test-positioning | Forces an explicit statement of what you're choosing not to do; checks for "stuck in the middle"; stress-tests who the position alienates |
@@ -35,11 +35,11 @@ This is the most distinctive skill in the whole repo and the one with no close e
 
 ## Setup
 
-Run `/market-intelligence:cold-start-interview` first. The market-definition question matters most — "who are we actually competing with" is frequently answered wrong (too narrow, by product category, missing the adjacent player who could pivot in), and everything downstream inherits that error if it's wrong here.
+Run `/market-intelligence:practice-setup` first. The market-definition question matters most — "who are we actually competing with" is frequently answered wrong (too narrow, by product category, missing the adjacent player who could pivot in), and everything downstream inherits that error if it's wrong here.
 
 ### Living profile
 
-- **Cold-start interview** — writes the full profile after you confirm the interview summary.
+- **Practice setup** — writes the full profile after you confirm the interview summary.
 - **Any other skill** — when a stable convention surfaces (signal taxonomy, competitor set, materiality thresholds), skills **propose a profile update**: show the exact change, ask for confirmation, write only if you say yes.
 - **Edit directly** — small fixes without re-running setup.
 

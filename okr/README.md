@@ -18,11 +18,11 @@ Objectives and Key Results — drafting, target-setting, instrumentation, cascad
 
 ## Getting started
 
-Run `/okr:cold-start-interview` first. Your practice profile lands at `~/.claude/plugins/config/claude-for-strategy/okr/CLAUDE.md`. The philosophy question (commit-only vs. mixed aspirational) is the one that matters most — `set-targets` and `score-and-retro` behave differently depending on the answer.
+Run `/okr:practice-setup` first. Your practice profile lands at `~/.claude/plugins/config/claude-for-strategy/okr/CLAUDE.md`. The philosophy question (commit-only vs. mixed aspirational) is the one that matters most — `set-targets` and `score-and-retro` behave differently depending on the answer.
 
 ### Living profile
 
-- **Cold-start interview** — writes the full profile after you confirm the interview summary.
+- **Practice setup** — writes the full profile after you confirm the interview summary.
 - **Any other skill** — when a stable convention surfaces (scoring formula, commit vs aspirational mix, cascade ceilings), skills **propose a profile update**: show the exact change, ask for confirmation, write only if you say yes.
 - **Edit directly** — small fixes without re-running setup.
 
@@ -50,7 +50,7 @@ If [`balanced-scorecard`](../balanced-scorecard) is also installed, see that plu
 
 | Command | Skill | What it does |
 |---|---|---|
-| `/okr:cold-start-interview` | cold-start-interview | Learns philosophy, scoring scale, cadence, cascade structure |
+| `/okr:practice-setup` | practice-setup | Learns philosophy, scoring scale, cadence, cascade structure |
 | `/okr:draft-objectives` | draft-objectives | Draft objectives; catch KR-disguised-as-objectives |
 | `/okr:write-key-results` | write-key-results | Outcome-shaped KRs; catch vanity metrics |
 | `/okr:set-targets` | set-targets | Commit vs aspirational labeling; sandbagging detection |

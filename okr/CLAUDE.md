@@ -9,10 +9,10 @@ Shared org profile. Organisation-wide facts live in ~/.claude/plugins/config/cla
 
 # Practice Profile — okr
 
-> **Template only** — not read at runtime. `/okr:cold-start-interview` writes your filled practice profile to `~/.claude/plugins/config/claude-for-strategy/okr/CLAUDE.md`; every other skill reads from that path **and** `~/.claude/plugins/config/claude-for-strategy/org-profile.md`. Edit the user config files directly for small fixes; re-run the interview for material changes. Other skills **propose profile updates** (show the change, ask, then write on confirmation) — only cold-start auto-applies a full write.
+> **Template only** — not read at runtime. `/okr:practice-setup` writes your filled practice profile to `~/.claude/plugins/config/claude-for-strategy/okr/CLAUDE.md`; every other skill reads from that path **and** `~/.claude/plugins/config/claude-for-strategy/org-profile.md`. Edit the user config files directly for small fixes; re-run the interview for material changes. Other skills **propose profile updates** (show the change, ask, then write on confirmation) — only `practice-setup` auto-applies a full write.
 
 ## Status
-`template` — run `/okr:cold-start-interview` to fill this in.
+`template` — run `/okr:practice-setup` to fill this in.
 
 ## Who's using this
 
@@ -28,7 +28,7 @@ Shared org profile. Organisation-wide facts live in ~/.claude/plugins/config/cla
 | Slack | [PLACEHOLDER ✓/✗] | Check-in reminders inline only |
 | `performance` plugin | [PLACEHOLDER ✓/✗] | `instrument-metrics` may duplicate metric work |
 
-*Re-check: `/okr:cold-start-interview --check-integrations`*
+*Re-check: `/okr:practice-setup --check-integrations`*
 
 ## Plugin-specific operating model
 

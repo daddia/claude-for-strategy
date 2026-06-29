@@ -9,10 +9,10 @@ Shared org profile. Organisation-wide facts live in ~/.claude/plugins/config/cla
 
 # Practice Profile — market-intelligence
 
-> **Template only** — not read at runtime. `/market-intelligence:cold-start-interview` writes your filled practice profile to `~/.claude/plugins/config/claude-for-strategy/market-intelligence/CLAUDE.md`; every other skill reads from that path **and** `~/.claude/plugins/config/claude-for-strategy/org-profile.md`. Edit the user config files directly for small fixes; re-run the interview for material changes. Other skills **propose profile updates** (show the change, ask, then write on confirmation) — only cold-start auto-applies a full write.
+> **Template only** — not read at runtime. `/market-intelligence:practice-setup` writes your filled practice profile to `~/.claude/plugins/config/claude-for-strategy/market-intelligence/CLAUDE.md`; every other skill reads from that path **and** `~/.claude/plugins/config/claude-for-strategy/org-profile.md`. Edit the user config files directly for small fixes; re-run the interview for material changes. Other skills **propose profile updates** (show the change, ask, then write on confirmation) — only `practice-setup` auto-applies a full write.
 
 ## Status
-`template` — run `/market-intelligence:cold-start-interview` to fill this in.
+`template` — run `/market-intelligence:practice-setup` to fill this in.
 
 ## Who's using this
 
@@ -26,7 +26,7 @@ Shared org profile. Organisation-wide facts live in ~/.claude/plugins/config/cla
 | Slack | [PLACEHOLDER ✓/✗] | Weekly digests inline only |
 | Google Drive | [PLACEHOLDER ✓/✗] | User uploads landscape decks per task |
 
-*Re-check: `/market-intelligence:cold-start-interview --check-integrations`*
+*Re-check: `/market-intelligence:practice-setup --check-integrations`*
 
 ## Plugin-specific operating model
 

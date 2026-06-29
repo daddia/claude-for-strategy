@@ -23,11 +23,11 @@ RAID logs, status reporting, steering committee packs, milestone tracking, and d
 
 ## Getting started
 
-Run `/pmo:cold-start-interview` first. Your practice profile lands at `~/.claude/plugins/config/claude-for-strategy/pmo/CLAUDE.md`. The RAG definition and Risk/Issue/Assumption/Dependency distinctions are the sections most worth getting precise — vague thresholds are the most common cause of status reports that don't tell anyone anything.
+Run `/pmo:practice-setup` first. Your practice profile lands at `~/.claude/plugins/config/claude-for-strategy/pmo/CLAUDE.md`. The RAG definition and Risk/Issue/Assumption/Dependency distinctions are the sections most worth getting precise — vague thresholds are the most common cause of status reports that don't tell anyone anything.
 
 ### Living profile
 
-- **Cold-start interview** — writes the full profile after you confirm the interview summary.
+- **Practice setup** — writes the full profile after you confirm the interview summary.
 - **Any other skill** — when a stable convention surfaces (RAG thresholds, RAID definitions, escalation rules), skills **propose a profile update**: show the exact change, ask for confirmation, write only if you say yes.
 - **Edit directly** — small fixes without re-running setup.
 
@@ -62,7 +62,7 @@ If [`consulting`](../consulting) is installed, hand `steering-pack` output to `/
 
 | Command | Skill | What it does |
 |---|---|---|
-| `/pmo:cold-start-interview` | cold-start-interview | Learns governance cadence, RAID/RAG definitions, escalation thresholds |
+| `/pmo:practice-setup` | practice-setup | Learns governance cadence, RAID/RAG definitions, escalation thresholds |
 | `/pmo:raid-log` | raid-log | Log/update RAID item; flag escalation |
 | `/pmo:status-report` | status-report | RAID + milestones → RAG status report |
 | `/pmo:steering-pack` | steering-pack | Status + RAID + decisions → steering deck outline |

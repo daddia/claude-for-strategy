@@ -9,10 +9,10 @@ Shared org profile. Organisation-wide facts live in ~/.claude/plugins/config/cla
 
 # Practice Profile — pmo
 
-> **Template only** — not read at runtime. `/pmo:cold-start-interview` writes your filled practice profile to `~/.claude/plugins/config/claude-for-strategy/pmo/CLAUDE.md`; every other skill reads from that path **and** `~/.claude/plugins/config/claude-for-strategy/org-profile.md`. Edit the user config files directly for small fixes; re-run the interview for material changes. Other skills **propose profile updates** (show the change, ask, then write on confirmation) — only cold-start auto-applies a full write.
+> **Template only** — not read at runtime. `/pmo:practice-setup` writes your filled practice profile to `~/.claude/plugins/config/claude-for-strategy/pmo/CLAUDE.md`; every other skill reads from that path **and** `~/.claude/plugins/config/claude-for-strategy/org-profile.md`. Edit the user config files directly for small fixes; re-run the interview for material changes. Other skills **propose profile updates** (show the change, ask, then write on confirmation) — only `practice-setup` auto-applies a full write.
 
 ## Status
-`template` — run `/pmo:cold-start-interview` to fill this in.
+`template` — run `/pmo:practice-setup` to fill this in.
 
 ## Who's using this
 
@@ -30,7 +30,7 @@ Shared org profile. Organisation-wide facts live in ~/.claude/plugins/config/cla
 | Asana | [PLACEHOLDER ✓/✗] | RAID and milestones from user uploads |
 | Google Drive | [PLACEHOLDER ✓/✗] | User uploads status packs per task |
 
-*Re-check: `/pmo:cold-start-interview --check-integrations`*
+*Re-check: `/pmo:practice-setup --check-integrations`*
 
 ## Plugin-specific operating model
 

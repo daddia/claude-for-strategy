@@ -20,15 +20,15 @@ KPI trees, metrics tracker builder, metrics glossary, and performance narratives
 
 ## Getting started
 
-Run `/performance:cold-start-interview` first — this is the plugin where setup matters most. Your practice profile lands at `~/.claude/plugins/config/claude-for-strategy/performance/CLAUDE.md`. If you already have a tracker (Daily Log feeding a summary sheet via `AVERAGEIFS`/`SUMIFS`), describe its exact structure during setup so `tracker-builder` replicates *your* pattern.
+Run `/performance:practice-setup` first — this is the plugin where setup matters most. Your practice profile lands at `~/.claude/plugins/config/claude-for-strategy/performance/CLAUDE.md`. If you already have a tracker (Daily Log feeding a summary sheet via `AVERAGEIFS`/`SUMIFS`), describe its exact structure during setup so `tracker-builder` replicates *your* pattern.
 
 ### Living profile
 
-- **Cold-start interview** — writes the full profile after you confirm the interview summary.
+- **Practice setup** — writes the full profile after you confirm the interview summary.
 - **Any other skill** — when a stable convention surfaces (metric codes, tracker columns, reporting cadence), skills **propose a profile update**: show the exact change, ask for confirmation, write only if you say yes.
 - **Edit directly** — small fixes without re-running setup.
 
-`tracker-builder` builds real spreadsheet files. No additional setup beyond the cold-start interview.
+`tracker-builder` builds real spreadsheet files. No additional setup beyond the practice setup.
 
 ## Usage
 
@@ -57,7 +57,7 @@ If [`balanced-scorecard`](../balanced-scorecard) is installed, `metrics-glossary
 
 | Command | Skill | What it does |
 |---|---|---|
-| `/performance:cold-start-interview` | cold-start-interview | Learns KPI taxonomy, tracker structure, reporting cadence |
+| `/performance:practice-setup` | practice-setup | Learns KPI taxonomy, tracker structure, reporting cadence |
 | `/performance:kpi-tree-builder` | kpi-tree-builder | North Star → MECE drivers → leading indicators |
 | `/performance:tracker-builder` | tracker-builder | Builds `.xlsx` with Daily Log → Summary formulas |
 | `/performance:metrics-glossary` | metrics-glossary | Metric list → single source-of-truth definitions |

@@ -22,11 +22,11 @@ Digital maturity assessment, transformation roadmaps, target operating model des
 
 ## Getting started
 
-Run `/transformation:cold-start-interview` first. Your practice profile lands at `~/.claude/plugins/config/claude-for-strategy/transformation/CLAUDE.md`. Record your platform vocabulary, delivery track model, and risk posture — `roadmap-builder` and `business-case` both read this directly.
+Run `/transformation:practice-setup` first. Your practice profile lands at `~/.claude/plugins/config/claude-for-strategy/transformation/CLAUDE.md`. Record your platform vocabulary, delivery track model, and risk posture — `roadmap-builder` and `business-case` both read this directly.
 
 ### Living profile
 
-- **Cold-start interview** — writes the full profile after you confirm the interview summary.
+- **Practice setup** — writes the full profile after you confirm the interview summary.
 - **Any other skill** — when a stable convention surfaces (platform vocabulary, roadmap tracks, maturity dimensions), skills **propose a profile update**: show the exact change, ask for confirmation, write only if you say yes.
 - **Edit directly** — small fixes without re-running setup.
 
@@ -57,7 +57,7 @@ If [`operating-model`](../operating-model) is also installed, hand off `target-o
 
 | Command | Skill | What it does |
 |---|---|---|
-| `/transformation:cold-start-interview` | cold-start-interview | Learns platform vocabulary, delivery model, maturity framework |
+| `/transformation:practice-setup` | practice-setup | Learns platform vocabulary, delivery model, maturity framework |
 | `/transformation:maturity-assessment` | maturity-assessment | Observations → maturity scorecard with binding-constraint analysis |
 | `/transformation:roadmap-builder` | roadmap-builder | Current state + ambition → phased roadmap |
 | `/transformation:target-operating-model` | target-operating-model | Current state + ambition → TOM |

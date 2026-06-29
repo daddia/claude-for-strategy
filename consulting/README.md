@@ -23,11 +23,11 @@ Job-style names in the table map to slash commands — run the command to invoke
 
 ## Getting started
 
-Run `/consulting:cold-start-interview` first. It writes your practice profile to `~/.claude/plugins/config/claude-for-strategy/consulting/CLAUDE.md`, which every other skill reads before producing output. A quick-start (4 questions) or full interview (with 2–3 seed documents) are both supported.
+Run `/consulting:practice-setup` first. It writes your practice profile to `~/.claude/plugins/config/claude-for-strategy/consulting/CLAUDE.md`, which every other skill reads before producing output. A quick-start (4 questions) or full interview (with 2–3 seed documents) are both supported.
 
 ### Living profile
 
-- **Cold-start interview** — writes the full profile after you confirm the interview summary.
+- **Practice setup** — writes the full profile after you confirm the interview summary.
 - **Any other skill** — when a stable convention surfaces (tone, pyramid style, deck rules), skills **propose a profile update**: show the exact change, ask for confirmation, write only if you say yes.
 - **Edit directly** — small fixes without re-running setup.
 - **Convention Monitor** (planned V1.2) — will propose the same kind of update when delivered decks/memos diverge from the profile repeatedly.
@@ -48,7 +48,7 @@ narrative-builder → exec-memo
 
 | Command | Skill | What it does |
 |---|---|---|
-| `/consulting:cold-start-interview` | cold-start-interview | Learns narrative/deck/memo conventions; writes practice profile |
+| `/consulting:practice-setup` | practice-setup | Learns narrative/deck/memo conventions; writes practice profile |
 | `/consulting:narrative-builder` | narrative-builder | Raw notes → governing thought + MECE key line + support |
 | `/consulting:hypothesis-tree` | hypothesis-tree | Problem statement → root hypothesis + falsifiable MECE sub-hypotheses |
 | `/consulting:workplan-builder` | workplan-builder | Hypothesis tree → owned, timed workplan |

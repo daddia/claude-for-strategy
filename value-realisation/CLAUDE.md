@@ -9,10 +9,10 @@ Shared org profile. Organisation-wide facts live in ~/.claude/plugins/config/cla
 
 # Practice Profile — value-realisation
 
-> **Template only** — not read at runtime. `/value-realisation:cold-start-interview` writes your filled practice profile to `~/.claude/plugins/config/claude-for-strategy/value-realisation/CLAUDE.md`; every other skill reads from that path **and** `~/.claude/plugins/config/claude-for-strategy/org-profile.md`. Edit the user config files directly for small fixes; re-run the interview for material changes. Other skills **propose profile updates** (show the change, ask, then write on confirmation) — only cold-start auto-applies a full write.
+> **Template only** — not read at runtime. `/value-realisation:practice-setup` writes your filled practice profile to `~/.claude/plugins/config/claude-for-strategy/value-realisation/CLAUDE.md`; every other skill reads from that path **and** `~/.claude/plugins/config/claude-for-strategy/org-profile.md`. Edit the user config files directly for small fixes; re-run the interview for material changes. Other skills **propose profile updates** (show the change, ask, then write on confirmation) — only `practice-setup` auto-applies a full write.
 
 ## Status
-`template` — run `/value-realisation:cold-start-interview` to fill this in.
+`template` — run `/value-realisation:practice-setup` to fill this in.
 
 ## Who's using this
 
@@ -33,7 +33,7 @@ Shared org profile. Organisation-wide facts live in ~/.claude/plugins/config/cla
 | Asana | [PLACEHOLDER ✓/✗] | Benefits tracking from user uploads |
 | Monday.com | [PLACEHOLDER ✓/✗] | Benefits tracking from user uploads |
 
-*Re-check: `/value-realisation:cold-start-interview --check-integrations`*
+*Re-check: `/value-realisation:practice-setup --check-integrations`*
 
 ## Plugin-specific operating model
 

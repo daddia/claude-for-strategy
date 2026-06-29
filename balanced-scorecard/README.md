@@ -23,11 +23,11 @@ OKRs and BSC are two different answers to "how do you connect strategy to what p
 
 ## Getting started
 
-Run `/balanced-scorecard:cold-start-interview` first. Your practice profile lands at `~/.claude/plugins/config/claude-for-strategy/balanced-scorecard/CLAUDE.md`. The sector question matters most — it determines the perspective set and which perspective sits at the top of the causal chain. Getting this wrong (e.g. defaulting to Financial-at-top for a mission-driven org) means every downstream skill optimizes the map toward the wrong ultimate objective.
+Run `/balanced-scorecard:practice-setup` first. Your practice profile lands at `~/.claude/plugins/config/claude-for-strategy/balanced-scorecard/CLAUDE.md`. The sector question matters most — it determines the perspective set and which perspective sits at the top of the causal chain. Getting this wrong (e.g. defaulting to Financial-at-top for a mission-driven org) means every downstream skill optimizes the map toward the wrong ultimate objective.
 
 ### Living profile
 
-- **Cold-start interview** — writes the full profile after you confirm the interview summary.
+- **Practice setup** — writes the full profile after you confirm the interview summary.
 - **Any other skill** — when a stable convention surfaces (perspective names, measure ceiling, review cadence), skills **propose a profile update**: show the exact change, ask for confirmation, write only if you say yes.
 - **Edit directly** — small fixes without re-running setup.
 
@@ -55,7 +55,7 @@ If [`performance`](../performance) is installed, `select-measures` defers to `/p
 
 | Command | Skill | What it does |
 |---|---|---|
-| `/balanced-scorecard:cold-start-interview` | cold-start-interview | Learns sector, perspective model, cadence, cascade structure |
+| `/balanced-scorecard:practice-setup` | practice-setup | Learns sector, perspective model, cadence, cascade structure |
 | `/balanced-scorecard:define-perspectives` | define-perspectives | Perspective set and causal-chain top perspective |
 | `/balanced-scorecard:build-strategy-map` | build-strategy-map | Objectives per perspective with explicit causal mechanisms |
 | `/balanced-scorecard:select-measures` | select-measures | Lead/lag classification per measure |

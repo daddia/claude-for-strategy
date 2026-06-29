@@ -27,7 +27,7 @@ Job-style names in the table map to slash commands — run the command to invoke
 
 | Command | Skill | What it does |
 |---|---|---|
-| `/corporate-strategy:cold-start-interview` | cold-start-interview | Learns portfolio composition, growth ambition, capital allocation process, risk posture |
+| `/corporate-strategy:practice-setup` | practice-setup | Learns portfolio composition, growth ambition, capital allocation process, risk posture |
 | `/corporate-strategy:assess-growth-vectors` | assess-growth-vectors | Categorizes growth initiatives core/adjacent/transformational, applies realistic success-rate priors per category, and does the arithmetic the growth ambition usually skips: does the portfolio of initiatives actually sum to the stated target |
 | `/corporate-strategy:allocate-resources` | allocate-resources | Maps spend/headcount/attention against strategic priority; flags misallocation — especially legacy units absorbing resources disproportionate to their importance |
 | `/corporate-strategy:exit-or-double-down` | exit-or-double-down | Forces the blank-page test on each unit, detects sunk-cost reasoning explicitly, and produces an exit/hold/double-down call |
@@ -41,11 +41,11 @@ Portfolio strategy fails more often by *not exiting* than by entering the wrong 
 
 ## Setup
 
-Run `/corporate-strategy:cold-start-interview` first. Your practice profile lands at `~/.claude/plugins/config/claude-for-strategy/corporate-strategy/CLAUDE.md`. The growth ambition number and the capital allocation stickiness question matter most — without a real target, `assess-growth-vectors` has nothing to test against; without knowing the org's allocation history, `allocate-resources` can't tell you anything you don't already suspect.
+Run `/corporate-strategy:practice-setup` first. Your practice profile lands at `~/.claude/plugins/config/claude-for-strategy/corporate-strategy/CLAUDE.md`. The growth ambition number and the capital allocation stickiness question matter most — without a real target, `assess-growth-vectors` has nothing to test against; without knowing the org's allocation history, `allocate-resources` can't tell you anything you don't already suspect.
 
 ### Living profile
 
-- **Cold-start interview** — writes the full profile after you confirm the interview summary.
+- **Practice setup** — writes the full profile after you confirm the interview summary.
 - **Any other skill** — when a stable convention surfaces (portfolio review cadence, hold re-rating timelines, growth-category priors), skills **propose a profile update**: show the exact change, ask for confirmation, write only if you say yes.
 - **Edit directly** — small fixes without re-running setup.
 

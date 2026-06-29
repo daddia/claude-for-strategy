@@ -4,15 +4,15 @@ Config location rules:
 2. If a populated profile exists at ~/.claude/plugins/cache/claude-for-strategy/consulting/*/CLAUDE.md but not at the config path, copy it forward before proceeding.
 3. This file is the TEMPLATE. It ships with the plugin and is replaced on every plugin update. Never write user data here.
 
-Shared org profile. Organisation-wide facts (sector, cadence, risk appetite, audiences, financial conventions, escalation, house style) live in ~/.claude/plugins/config/claude-for-strategy/org-profile.md — shared by all plugins. Read it before this plugin's practice profile. If it doesn't exist, cold-start will create it.
+Shared org profile. Organisation-wide facts (sector, cadence, risk appetite, audiences, financial conventions, escalation, house style) live in ~/.claude/plugins/config/claude-for-strategy/org-profile.md — shared by all plugins. Read it before this plugin's practice profile. If it doesn't exist, `/practice-setup` will create it.
 -->
 
 # Practice Profile — consulting
 
-> **Template only** — not read at runtime. `/consulting:cold-start-interview` writes your filled practice profile to `~/.claude/plugins/config/claude-for-strategy/consulting/CLAUDE.md`; every other skill reads from that path **and** `~/.claude/plugins/config/claude-for-strategy/org-profile.md`. Edit the user config files directly for small fixes; re-run the interview for material changes. Other skills **propose profile updates** (show the change, ask, then write on confirmation) — only cold-start auto-applies a full write.
+> **Template only** — not read at runtime. `/consulting:practice-setup` writes your filled practice profile to `~/.claude/plugins/config/claude-for-strategy/consulting/CLAUDE.md`; every other skill reads from that path **and** `~/.claude/plugins/config/claude-for-strategy/org-profile.md`. Edit the user config files directly for small fixes; re-run the interview for material changes. Other skills **propose profile updates** (show the change, ask, then write on confirmation) — only `practice-setup` auto-applies a full write.
 
 ## Status
-`template` — run `/consulting:cold-start-interview` to fill this in.
+`template` — run `/consulting:practice-setup` to fill this in.
 
 ## Who's using this
 
@@ -28,7 +28,7 @@ Shared org profile. Organisation-wide facts (sector, cadence, risk appetite, aud
 | Slack | [PLACEHOLDER ✓/✗] | Deliverables inline in session |
 | Google Calendar | [PLACEHOLDER ✓/✗] | User states review/meeting dates manually |
 
-*Re-check: `/consulting:cold-start-interview --check-integrations`*
+*Re-check: `/consulting:practice-setup --check-integrations`*
 
 ## Plugin-specific operating model
 

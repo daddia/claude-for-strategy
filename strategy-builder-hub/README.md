@@ -1,6 +1,6 @@
 # strategy-builder-hub
 
-Community strategy skills discovery and installation. Browses GitHub registries and others, installs and auto-updates, surfaces related community skills inside your other strategy plugins. The cold-start interview IS the starter pack recommender — asks your engagement type, recommends what to install.
+Community strategy skills discovery and installation. Browses GitHub registries and others, installs and auto-updates, surfaces related community skills inside your other strategy plugins. The practice setup IS the starter pack recommender — asks your engagement type, recommends what to install.
 
 **Every community skill is surfaced raw before install, scanned for prompt-injection patterns, and evaluated against the Strategy Skill Design Framework. The plugin helps you find and evaluate; you decide what to trust.**
 
@@ -8,12 +8,12 @@ Community strategy skills discovery and installation. Browses GitHub registries 
 
 Everyone using the other strategy plugins. This is the app store.
 
-## First run: cold-start
+## First run: practice-setup
 
 Asks your engagement type, industry, team size, tooling comfort. Recommends a starter pack of community skills that match. Installs the ones you pick.
 
 ```
-/strategy-builder-hub:cold-start-interview
+/strategy-builder-hub:practice-setup
 ```
 
 Your configuration is stored at `~/.claude/plugins/config/claude-for-strategy/strategy-builder-hub/CLAUDE.md` and survives plugin updates.
@@ -40,7 +40,7 @@ If a skill goes wrong after install: `/strategy-builder-hub:disable [skill]` qui
 
 | Command | Does |
 |---|---|
-| `/strategy-builder-hub:cold-start-interview` | Engagement profile + starter pack recommendation |
+| `/strategy-builder-hub:practice-setup` | Engagement profile + starter pack recommendation |
 | `/strategy-builder-hub:registry-browser [query]` | Search watched registries for skills |
 | `/strategy-builder-hub:skill-installer [skill]` | Install a community skill |
 | `/strategy-builder-hub:auto-updater` | Check for updates to installed skills |
@@ -53,7 +53,7 @@ If a skill goes wrong after install: `/strategy-builder-hub:disable [skill]` qui
 
 | Skill | Purpose |
 |---|---|
-| **cold-start-interview** | Engagement profile → starter pack |
+| **practice-setup** | Engagement profile → starter pack |
 | **registry-browser** | Search across watched registries |
 | **skill-installer** | Allowlist-gate, fetch, show raw SKILL.md, trust-check, QA, install community skills |
 | **uninstall** | Uninstall a community skill installed through the hub (first-party plugin skills are off-limits) |
@@ -77,7 +77,7 @@ The watched-registries table in your engagement profile ships empty. Add registr
 
 ## How it learns
 
-Your engagement profile at `~/.claude/plugins/config/claude-for-strategy/strategy-builder-hub/CLAUDE.md` isn't static — it improves as you use the plugin. The hub re-reads it on every `/strategy-builder-hub:registry-browser` and `/strategy-builder-hub:related-skills-surfacer`, so adjusting your engagement type, industry, or watched registries sharpens future recommendations. Edit the file directly or re-run `/strategy-builder-hub:cold-start-interview --redo` when your work shifts.
+Your engagement profile at `~/.claude/plugins/config/claude-for-strategy/strategy-builder-hub/CLAUDE.md` isn't static — it improves as you use the plugin. The hub re-reads it on every `/strategy-builder-hub:registry-browser` and `/strategy-builder-hub:related-skills-surfacer`, so adjusting your engagement type, industry, or watched registries sharpens future recommendations. Edit the file directly or re-run `/strategy-builder-hub:practice-setup --redo` when your work shifts.
 
 ## Notes
 

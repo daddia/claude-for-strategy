@@ -9,10 +9,10 @@ Shared org profile. Organisation-wide facts live in ~/.claude/plugins/config/cla
 
 # Practice Profile — transformation
 
-> **Template only** — not read at runtime. `/transformation:cold-start-interview` writes your filled practice profile to `~/.claude/plugins/config/claude-for-strategy/transformation/CLAUDE.md`; every other skill reads from that path **and** `~/.claude/plugins/config/claude-for-strategy/org-profile.md`. Edit the user config files directly for small fixes; re-run the interview for material changes. Other skills **propose profile updates** (show the change, ask, then write on confirmation) — only cold-start auto-applies a full write.
+> **Template only** — not read at runtime. `/transformation:practice-setup` writes your filled practice profile to `~/.claude/plugins/config/claude-for-strategy/transformation/CLAUDE.md`; every other skill reads from that path **and** `~/.claude/plugins/config/claude-for-strategy/org-profile.md`. Edit the user config files directly for small fixes; re-run the interview for material changes. Other skills **propose profile updates** (show the change, ask, then write on confirmation) — only `practice-setup` auto-applies a full write.
 
 ## Status
-`template` — run `/transformation:cold-start-interview` to fill this in.
+`template` — run `/transformation:practice-setup` to fill this in.
 
 ## Who's using this
 
@@ -31,7 +31,7 @@ Shared org profile. Organisation-wide facts live in ~/.claude/plugins/config/cla
 | Asana | [PLACEHOLDER ✓/✗] | Roadmap/milestone status from user uploads |
 | Google Drive | [PLACEHOLDER ✓/✗] | User uploads architecture docs and roadmaps per task |
 
-*Re-check: `/transformation:cold-start-interview --check-integrations`*
+*Re-check: `/transformation:practice-setup --check-integrations`*
 
 ## Plugin-specific operating model
 
