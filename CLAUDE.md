@@ -28,6 +28,10 @@ references/                       # repo-root mirror of consulting/references/ (
 
 ## Validation — run before opening a PR
 
+Optional Python deps for `scripts/lint-tool-scope.py` and `scripts/validate.py`
+(managed-agent cookbooks): `python3 -m venv .venv && source .venv/bin/activate &&
+pip install -r requirements.txt`. Other checks use the stdlib only.
+
 This repo follows the same conventions `anthropics/claude-plugins-official`
 enforces in CI. Run the equivalent checks locally:
 
