@@ -361,6 +361,18 @@ The full map across all plugins. The cold-start interview is the first thing to 
 | `/okr:score-and-retro` | score-and-retro | End-of-cycle grading; keep/kill/revise |
 | scheduled | check-in-nudge (agent) | Weekly KR confidence nudges via `~~chat` |
 
+### value-realisation
+
+| Command | Skill | What it does |
+|---|---|---|
+| `/value-realisation:cold-start-interview` | cold-start-interview | Learns benefits framework, governance model, baseline discipline, and cadence |
+| `/value-realisation:benefits-map` | benefits-map | Approved business case → Benefits Dependency Network; catches deliverables disguised as benefits |
+| `/value-realisation:benefits-register` | benefits-register | Mapped benefits → register entries with baseline-before-change enforcement and single-point accountability |
+| `/value-realisation:benefits-tracking` | benefits-tracking | Periodic remeasurement against baseline with explicit attribution call |
+| `/value-realisation:benefits-recovery` | benefits-recovery | At-risk benefit → root-cause split and continue-or-write-down decision |
+| `/value-realisation:realisation-review` | realisation-review | End-of-window portfolio PIR; optimism-bias calibration for future business cases |
+| scheduled | realisation-checkpoint-reminder (agent) | Monthly benefits-tracking prompts via `~~chat`; escalates go-live benefits missing baseline |
+
 ### strategy-builder-hub
 
 | Command | Skill | What it does |
@@ -389,3 +401,8 @@ Everything here is markdown and JSON. Fork, edit, PR.
 Licensed under the [MIT License](LICENSE).
 
 Copyright 2026 Jonathan Daddia.
+
+`scripts/validate.py` and `scripts/deploy-managed-agent.sh` are adapted from
+[anthropics/claude-for-legal](https://github.com/anthropics/claude-for-legal)
+and remain under the Apache License 2.0 (Anthropic PBC). See [NOTICE](NOTICE)
+for attribution and modification details.
