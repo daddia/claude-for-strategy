@@ -70,7 +70,7 @@ Each plugin learns your playbook through a cold-start interview. Organisation-wi
 
 ## What's in the box
 
-Eleven first-party plugins — ten practice areas plus the Strategy Builder Hub for discovering and installing community skills — scheduled watch agents across PMO/performance/transformation/OKR/scorecard/corporate-strategy/market-intelligence, and connectors (Slack, Google Workspace, Atlassian, Linear, Asana, Monday.com, and plugin-specific GitHub/observability/hosting). The full reference is in [README.md](./README.md).
+Eleven first-party plugins — ten practice areas plus the Strategy Builder Hub for discovering and installing community skills — scheduled watch agents across PMO/performance/transformation/OKR/scorecard/corporate-strategy/market-intelligence, and connectors (Slack, Google Workspace, Atlassian, Linear, Asana, Monday.com, and plugin-specific GitHub/Miro/observability/hosting). The full reference is in [README.md](./README.md).
 
 ## Stuck?
 

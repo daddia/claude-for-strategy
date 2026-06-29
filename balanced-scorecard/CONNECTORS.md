@@ -16,11 +16,11 @@ Plugins are tool-agnostic — they describe workflows in terms of categories rat
 | Project tracker | `~~project tracker` | Atlassian (Jira), Linear, Asana, Monday.com | — |
 | Knowledge base | `~~knowledge base` | Atlassian (Confluence), Notion | Guru, Slite |
 | Calendar | `~~calendar` | Google Calendar | Microsoft 365 |
-| Whiteboard | `~~whiteboard` | — | Miro, Figma, Lucidchart, Mural |
+| Whiteboard | `~~whiteboard` | Miro | Figma, Lucidchart, Mural |
 
 ## Notes
 
-- **Whiteboard** matters more here than anywhere else in the repo — `build-strategy-map`'s output is a causal diagram by nature (boxes and arrows across four perspectives), and a markdown table is a lossy way to represent it. Nothing pre-wired since it's account-specific; this is the strongest candidate in the whole repo for adding your own connector.
+- **Whiteboard** (Miro) matters more here than anywhere else in the repo — `build-strategy-map`'s output is a causal diagram by nature (boxes and arrows across four perspectives), and a markdown table is a lossy way to represent it.
 - **Calendar** drives two different cadences here, not one — `review-and-validate` runs quarterly (or whatever the profile records), but the strategy map itself (`build-strategy-map`) should be revisited far less often, typically annually or on a material strategy change. Don't let the quarterly cadence pull you into re-litigating the map every quarter — see the agent notes.
 - **Atlassian** (Rovo) covers both `~~project tracker` and `~~knowledge base`.
 - **Linear**, **Asana**, and **Monday.com** cover `~~project tracker` only — issues, projects, initiatives, and milestones (Linear); tasks, projects, portfolios, and goals (Asana); or boards, items, columns, and users (Monday.com). Use Atlassian when you also need `~~knowledge base`.

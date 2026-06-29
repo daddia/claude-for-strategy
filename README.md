@@ -13,7 +13,7 @@ What's in the repo:
 
 - **Practice-area plugins** covering consulting craft, corporate strategy, market intelligence, transformation, org design, performance, PMO, balanced scorecards, OKRs, and value realisation — each built around a cold-start interview that learns your playbook, a living `CLAUDE.md` practice profile every skill reads from, and a **propose profile update** flow so conventions can be recorded mid-engagement without re-running setup.
 - **Strategy Builder Hub** for discovering, installing, and QAing community strategy skills from trusted registries.
-- **MCP connectors** across general productivity (Slack, Google Workspace, Atlassian, Linear, Asana, Monday.com) and strategy-specific categories (GitHub, observability, hosting, spreadsheets).
+- **MCP connectors** across general productivity (Slack, Google Workspace, Atlassian, Linear, Asana, Monday.com) and strategy-specific categories (GitHub, Miro, observability, hosting, spreadsheets).
 - **[Named agents](#agents)** — job-style entry points (Narrative Architect, Roadmap Architect, RAID Logger, …) with a single command to run each one.
 - **Scheduled agents** in `pmo`, `performance`, `transformation`, `okr`, `balanced-scorecard`, `corporate-strategy`, `market-intelligence`, and `value-realisation` — escalation/slippage/steering prep, KPI breach watching, cadence reporting, assumption-decay/roadmap-drift, check-in nudges, scorecard review reminders, portfolio review prompts, competitive signal scanning, benefits-tracking checkpoints. Convention Monitor (`consulting`) is still planned for V1.2.
 

@@ -70,4 +70,4 @@ The `data/` folder is the local home for BSC artifacts when you are not using `~
 
 ## Customization
 
-See [CONNECTORS.md](./CONNECTORS.md) — `~~whiteboard` is the connector most worth adding, since the strategy map is fundamentally a diagram.
+See [CONNECTORS.md](./CONNECTORS.md) — Miro is pre-wired for `~~whiteboard`; the strategy map is fundamentally a diagram.

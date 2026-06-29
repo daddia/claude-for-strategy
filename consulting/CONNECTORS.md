@@ -15,12 +15,12 @@ Plugins are tool-agnostic — they describe workflows in terms of categories rat
 | Documents | `~~documents` | Google Workspace (Drive) | Microsoft 365 |
 | Project tracker | `~~project tracker` | Atlassian (Jira), Linear, Asana, Monday.com | — |
 | Knowledge base | `~~knowledge base` | Atlassian (Confluence), Notion | Guru, Slite |
-| Whiteboard | `~~whiteboard` | — | Miro, Figma, Lucidchart, Mural |
+| Whiteboard | `~~whiteboard` | Miro | Figma, Lucidchart, Mural |
 
 ## Notes
 
 - **Atlassian** is a single connector (Rovo) covering both Jira (`~~project tracker`) and Confluence (`~~knowledge base`) — one entry in `.mcp.json`, two categories.
 - **Linear**, **Asana**, and **Monday.com** cover `~~project tracker` only — issues, projects, initiatives, and milestones (Linear); tasks, projects, portfolios, and goals (Asana); or boards, items, columns, and users (Monday.com). Use Atlassian when you also need `~~knowledge base`.
 - **Notion** has no fixed server URL — it's workspace-specific. It's listed as a knowledge base option but not pre-wired in `.mcp.json`; add your own server entry if you use it.
-- **Whiteboard** has nothing pre-wired — useful for sketching a hypothesis tree or pyramid visually with `hypothesis-tree` or `narrative-builder` output, but optional.
+- **Whiteboard** (Miro) is pre-wired — useful for sketching a hypothesis tree or pyramid visually with `hypothesis-tree` or `narrative-builder` output, but optional.
 - `workplan-builder` output is the thing most likely to land in `~~project tracker`; `deck-outline` / `exec-memo` output is the thing most likely to land in `~~documents` or get sent via `~~email`.
