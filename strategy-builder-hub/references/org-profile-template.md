@@ -1,9 +1,9 @@
 # Organisation profile — claude-for-strategy
 
-> Written by any plugin's `/cold-start-interview` (org layer). Every plugin reads this file before producing output. Edit directly for small fixes; re-run any plugin's cold-start with `--redo` to refresh org facts.
+> Written by any plugin's `/practice-setup` (org layer). Every plugin reads this file before producing output. Edit directly for small fixes; re-run any plugin's practice-setup with `--redo` to refresh org facts.
 
 ## Status
-`template` — run `/<any-plugin>:cold-start-interview` to fill this in.
+`template` — run `/<any-plugin>:practice-setup` to fill this in.
 
 ## Organisation / client
 
