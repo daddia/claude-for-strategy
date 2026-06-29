@@ -4,7 +4,7 @@ Every scheduled watcher in this repo ships **two ways**: as a Claude Code plugin
 
 These are **cookbooks, not products.** Adapt them to your RAID source, roadmap artefacts, Slack workspace, notification routing, and review cadence. They will not work out of the box without that adaptation, and they are not supposed to.
 
-Post the resolved manifest from each directory to `POST /v1/agents` using the [Managed Agents API](https://docs.claude.com/en/api/managed-agents). A `deploy-managed-agent.sh` script is planned; until it lands, resolve `system: {file: ...}` references and `skills: [{from_plugin: ...}]` manually or with your own deploy tooling.
+Deploy with [`scripts/deploy-managed-agent.sh`](../scripts/deploy-managed-agent.sh) — it resolves `system: {file: ...}` references, `skills: [{from_plugin: ...}]`, and callable subagents before posting to `POST /v1/agents` using the [Managed Agents API](https://docs.claude.com/en/api/managed-agents).
 
 | Agent | Plugin | What it watches | Example steering event | Leaf workers |
 |---|---|---|---|---|
