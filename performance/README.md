@@ -16,8 +16,7 @@ KPI trees, metrics tracker builder, metrics glossary, and performance narratives
 
 - **Draft, cascade, check in on, or score OKRs** — that is the [`okr`](../okr) plugin (`/okr:cascade` for company→team breakdown); this plugin owns measurement definitions and reporting.
 - **Pull live metrics without a connector** — `tracker-builder` replicates your spreadsheet pattern; telemetry metrics need `~~observability` or manual log input.
-- **Certify board-ready numbers** — narratives tag sourcing and gate finals; you verify every figure before it reaches the board.
-- **Ship board-ready narratives without human review** — Cadence Reporter drafts on schedule; you verify every figure and run `/performance:performance-narrative` before anything reaches the board.
+- **Ship board-ready narratives without human review** — Cadence Reporter drafts on schedule; you verify every figure before anything reaches the board.
 
 ## Getting started
 

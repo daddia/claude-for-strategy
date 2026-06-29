@@ -1,4 +1,4 @@
-# Strategy Builder Hub Plugin
+# strategy-builder-hub
 
 Community strategy skills discovery and installation. Browses GitHub registries and others, installs and auto-updates, surfaces related community skills inside your other strategy plugins. The cold-start interview IS the starter pack recommender — asks your engagement type, recommends what to install.
 
@@ -34,7 +34,7 @@ If a skill goes wrong after install: `/strategy-builder-hub:disable [skill]` qui
 ## Prerequisites
 
 - Slack notifications from the registry-sync agent require a Slack MCP server configured in your environment. Without one, the agent writes its digest to a file.
-- The default registry list in `~/.claude/plugins/config/claude-for-strategy/strategy-builder-hub/CLAUDE.md` ships empty. Add registries you trust via `/strategy-builder-hub:registry-browser` or by editing `~/.claude/plugins/config/claude-for-strategy/strategy-builder-hub/CLAUDE.md`.
+- The default watched-registries table in `~/.claude/plugins/config/claude-for-strategy/strategy-builder-hub/CLAUDE.md` ships empty. Add registries you trust via `/strategy-builder-hub:registry-browser` or by editing that file. The allowlist at `allowlist.yaml` in the same directory controls which registries, publishers, and connectors community skills may use — see `skills/skill-installer/references/allowlist.md`.
 
 ## Commands
 
@@ -73,7 +73,7 @@ The commands above run when you invoke them — for when you're working an engag
 
 ## Watched registries (default)
 
-The default allowlist ships empty. Add registries you trust via `/strategy-builder-hub:registry-browser` or by editing `~/.claude/plugins/config/claude-for-strategy/strategy-builder-hub/allowlist.yaml`.
+The watched-registries table in your engagement profile ships empty. Add registries you trust via `/strategy-builder-hub:registry-browser` or by editing `~/.claude/plugins/config/claude-for-strategy/strategy-builder-hub/CLAUDE.md`. Security allowlisting is separate — configure `allowlist.yaml` in the same directory.
 
 ## How it learns
 

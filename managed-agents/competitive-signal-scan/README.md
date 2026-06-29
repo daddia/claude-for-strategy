@@ -18,11 +18,10 @@ This is a **cookbook, not a product.** It works with native `web_search` on the 
 export ANTHROPIC_API_KEY=sk-ant-...
 # Optional — enable exa on reader.yaml for curated search
 export EXA_MCP_URL=...
-# When deploy script ships:
-# ../../scripts/deploy-managed-agent.sh competitive-signal-scan
+../../scripts/deploy-managed-agent.sh competitive-signal-scan
 ```
 
-Until `scripts/deploy-managed-agent.sh` lands in this repo, post the resolved manifest from this directory to `POST /v1/agents` using the Managed Agents API.
+Or post the resolved manifest from this directory to `POST /v1/agents` using the [Managed Agents API](https://docs.claude.com/en/api/managed-agents).
 
 ## Steering events
 

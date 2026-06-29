@@ -76,7 +76,7 @@ value-realisation/        # benefits mapping, baseline discipline, tracking, rec
 strategy-builder-hub/     # community skill discovery, installation, QA, and update management
 external-plugins/         # vendor plugins (future)
 managed-agents/           # CMA cookbooks — escalation-watcher, steering-prep, roadmap-drift-watcher, competitive-signal-scan, realisation-checkpoint-reminder
-scripts/                  # sync-references.py · check-marketplace-sync.py · check-connector-taxonomy.py · lint-tool-scope.py
+scripts/                  # validate.py · sync-references.py · check-marketplace-sync.py · check-skill-frontmatter.py · check-connector-taxonomy.py · lint-tool-scope.py · deploy-managed-agent.sh
 references/               # repo-root mirror of consulting/references/ · connector-taxonomy.json
 .claude-plugin/
   marketplace.json        # plugin registry
@@ -122,6 +122,7 @@ After install, skills fire automatically when relevant, slash commands are avail
 /plugin install pmo@claude-for-strategy
 /plugin install balanced-scorecard@claude-for-strategy
 /plugin install okr@claude-for-strategy
+/plugin install value-realisation@claude-for-strategy
 /plugin install strategy-builder-hub@claude-for-strategy
 
 # Restart Claude Code, then run setup for each plugin you installed.
@@ -135,6 +136,7 @@ After install, skills fire automatically when relevant, slash commands are avail
 /pmo:cold-start-interview
 /balanced-scorecard:cold-start-interview
 /okr:cold-start-interview
+/value-realisation:cold-start-interview
 /strategy-builder-hub:cold-start-interview
 ```
 
@@ -218,7 +220,8 @@ These plugins ship connectors for the systems strategy teams live in. A connecto
 | Connector | What it gives Claude | Plugins | Notes |
 |---|---|---|---|
 | **Slack** | Read channels, search, send messages | all plugins | `~~chat` |
-| **Google Workspace** | Drive, Sheets, Gmail, Calendar | all plugins | `~~documents`, `~~spreadsheet`, `~~calendar`, `~~email` |
+| **Google Workspace** | Drive, Sheets, Gmail | all plugins | `~~documents`, `~~spreadsheet`, `~~email` |
+| **Google Calendar** | Steering cadence, review cycles, go-live dates | corporate-strategy, transformation, balanced-scorecard, okr, pmo, value-realisation | `~~calendar` |
 | **Atlassian (Rovo)** | Jira issues, Confluence pages | all plugins | `~~project tracker`, `~~knowledge base` |
 | **Linear** | Issues, projects, initiatives, milestones | balanced-scorecard, consulting, corporate-strategy, okr, performance, pmo, transformation, value-realisation | `~~project tracker` |
 | **Asana** | Tasks, projects, portfolios, goals | balanced-scorecard, consulting, corporate-strategy, okr, performance, pmo, transformation, value-realisation | `~~project tracker` |

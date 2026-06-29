@@ -16,11 +16,10 @@ This is a **cookbook, not a product.** It assumes the RAID log lives in the work
 
 ```bash
 export ANTHROPIC_API_KEY=sk-ant-...
-# When deploy script ships:
-# ../../scripts/deploy-managed-agent.sh escalation-watcher
+../../scripts/deploy-managed-agent.sh escalation-watcher
 ```
 
-Until `scripts/deploy-managed-agent.sh` lands in this repo, post the resolved manifest from this directory to `POST /v1/agents` using the Managed Agents API.
+Or post the resolved manifest from this directory to `POST /v1/agents` using the [Managed Agents API](https://docs.claude.com/en/api/managed-agents).
 
 ## Steering events
 

@@ -2,6 +2,18 @@
 
 Org design and decision rights.
 
+## Agents
+
+Job-style names in the table map to slash commands — run the command to invoke the skill. This plugin has no scheduled agents under `agents/`.
+
+| Agent | What it does | Command |
+|---|---|---|
+| **Structure Fit Diagnostician** | Tests whether org structure matches the coordination need the strategy requires | `/operating-model:diagnose-structure-fit` |
+| **Decision Rights Designer** | Builds RACI/RAPID with single-point accountability; flags zero-A and multi-A decisions | `/operating-model:design-decision-rights` |
+| **Span & Layers Checker** | Diagnoses span of control and layer count against over- and under-management patterns | `/operating-model:check-span-and-layers` |
+| **Matrix Reporting Stress Tester** | Forces explicit tie-breakers for dual-reporting relationships | `/operating-model:stress-test-matrix-reporting` |
+| **Rewards Alignment Checker** | Star Model check — structure, process, rewards, and people fit | `/operating-model:align-rewards-and-incentives` |
+
 ## Components
 
 | Command | What it does |
@@ -20,6 +32,12 @@ Structure changes are cheap to draw and expensive to make real. This skill exist
 ## Setup
 
 Run `/operating-model:cold-start-interview` first. The "what is the structure meant to optimize for" question matters most — `diagnose-structure-fit` can't assess fit without a real answer to compare against.
+
+### Living profile
+
+- **Cold-start interview** — writes the full profile after you confirm the interview summary.
+- **Any other skill** — when a stable convention surfaces (decision-rights framework, span targets, reward mechanics), skills **propose a profile update**: show the exact change, ask for confirmation, write only if you say yes.
+- **Edit directly** — small fixes without re-running setup.
 
 ## Usage
 

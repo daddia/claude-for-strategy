@@ -18,11 +18,10 @@ This is a **cookbook, not a product.** It assumes programme artefacts live in th
 export ANTHROPIC_API_KEY=sk-ant-...
 # Optional — enable gcal on reader.yaml for calendar-backed steering dates
 export GOOGLE_CALENDAR_MCP_URL=...
-# When deploy script ships:
-# ../../scripts/deploy-managed-agent.sh steering-prep
+../../scripts/deploy-managed-agent.sh steering-prep
 ```
 
-Until `scripts/deploy-managed-agent.sh` lands in this repo, post the resolved manifest from this directory to `POST /v1/agents` using the Managed Agents API.
+Or post the resolved manifest from this directory to `POST /v1/agents` using the [Managed Agents API](https://docs.claude.com/en/api/managed-agents).
 
 ## Steering events
 

@@ -29,18 +29,19 @@ This is the most distinctive skill in the whole repo and the one with no close e
 
 Run `/market-intelligence:cold-start-interview` first. The market-definition question matters most — "who are we actually competing with" is frequently answered wrong (too narrow, by product category, missing the adjacent player who could pivot in), and everything downstream inherits that error if it's wrong here.
 
+### Living profile
+
+- **Cold-start interview** — writes the full profile after you confirm the interview summary.
+- **Any other skill** — when a stable convention surfaces (signal taxonomy, competitor set, materiality thresholds), skills **propose a profile update**: show the exact change, ask for confirmation, write only if you say yes.
+- **Edit directly** — small fixes without re-running setup.
+
 ## Usage
 
 ```
 map-competitive-landscape → forecast-competitive-response (for a specific planned move)
-
 map-incentives → forecast-competitive-response (incentive map grounds the response prediction)
-
 map-incentives → operating-model:align-rewards-and-incentives (when the incentive problem is internal)
-
-test-positioning ↔ map-information-asymmetry (a position is often a bet on which side of an
-
-asymmetry you're on)
+test-positioning ↔ map-information-asymmetry (a position is often a bet on which side of an asymmetry you're on)
 ```
 
 ## Boundary with `corporate-strategy`

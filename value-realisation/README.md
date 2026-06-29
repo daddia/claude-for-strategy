@@ -21,6 +21,12 @@ Those three plugins manage *ongoing, forward-looking* goals and measurement — 
 
 Run `/value-realisation:cold-start-interview` first. The baseline-discipline question matters most — if baselines are normally captured after a change has already gone live (common), say so plainly; `benefits-register` needs to know this to flag retrofitted baselines rather than treating them as clean.
 
+### Living profile
+
+- **Cold-start interview** — writes the full profile after you confirm the interview summary.
+- **Any other skill** — when a stable convention surfaces (benefit taxonomy, tracking cadence, attribution rules), skills **propose a profile update**: show the exact change, ask for confirmation, write only if you say yes.
+- **Edit directly** — small fixes without re-running setup.
+
 ## Usage
 
 The loop, roughly:
@@ -45,7 +51,11 @@ If [`consulting`](../consulting) is installed, hand `realisation-review` output 
 
 ## Agents
 
-`agents/realisation-checkpoint-reminder.md` runs on the cadence set in the practice profile (default: monthly) — prompts a `benefits-tracking` run for benefits due, and separately escalates any benefit approaching go-live with no baseline captured yet, since a missed baseline is unrecoverable once change starts. See the agent file for what happens with no `~~chat` connected.
+| Agent | What it does | Command |
+|---|---|---|
+| **Realisation Checkpoint Reminder** | Prompts benefits-tracking on cadence; escalates benefits approaching go-live with no baseline captured | scheduled agent |
+
+Runs on the cadence set in the practice profile (default: monthly). See `agents/realisation-checkpoint-reminder.md` for what happens with no `~~chat` connected.
 
 ## Data directory
 

@@ -88,8 +88,8 @@ Every `skills/<name>/SKILL.md` needs `description`. Multi-line descriptions use
 ### Keep `marketplace.json` in sync with `plugin.json`
 
 For first-party plugins, `marketplace.json`'s `name`, `description`, and
-`author` should match the plugin's own `.claude-plugin/plugin.json` field for
-field. If you change a plugin's description in one place, change it in the
+`author` should match the corresponding fields in the plugin's own
+`.claude-plugin/plugin.json`. If you change a plugin's description in one place, change it in the
 other.
 
 ### Plugin agents vs job-style names
@@ -125,7 +125,7 @@ write only on confirmation. All eleven plugins share the cold-start framework in
 copied to each plugin's `references/`). Documented in each plugin's `cold-start-interview`
 skill and in user-facing README/QUICKSTART.
 
-### `external-plugins/` is vendor 
+### `external-plugins/` is vendor-authored
 
 Plugins under `external-plugins/` are built and maintained by the vendor
 (README.md has the policy). Don't change vendor-authored content without
