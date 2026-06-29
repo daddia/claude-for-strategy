@@ -14,10 +14,10 @@ metadata:
   owner: "strategy-builder-hub practice"
   review_cadence: "quarterly"
   work_shape: "governance-tracking"
+  permission_tier: elevated
   output_class: "decision-support"
   sourcing_policy: "volatile-facts-must-be-sourced"
 ---
-
 # /skill-installer
 
 ## When to use
@@ -199,9 +199,11 @@ Also run the schema validation (Parameter 12) and conflict detection
   server: name, URL, type, operator. Cross-check against the allowlist's
   `connectors` list. In restrictive mode, any connector not on the list
   refuses the install.
-- **`allowed-tools` / `tools` in command and agent frontmatter** — Read, Write,
-  Glob are expected. Bash, WebFetch, WebSearch, and MCP wildcards are elevated
-  and each needs a stated reason.
+- **`allowed-tools` / `tools` in command and agent frontmatter** — check
+  `metadata.permission_tier` against `skill-design-framework.md` § Permission
+  tiers. Advisory skills should be `Read, Grep, Glob` only; `Write` without
+  an artefact-writer tier is overreach. Bash, WebFetch, WebSearch, and MCP
+  wildcards are elevated and each needs a stated reason.
 - **File-write paths** — does any instruction write to `~/.claude/`, any
   `CLAUDE.md`, `.gitignore`, `hooks/`, or paths that modify how the environment
   behaves?

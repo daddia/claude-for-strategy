@@ -16,10 +16,10 @@ metadata:
   owner: "strategy-builder-hub practice"
   review_cadence: "quarterly"
   work_shape: "hypothesis-driven-analysis"
+  permission_tier: advisory
   output_class: "decision-support"
   sourcing_policy: "volatile-facts-must-be-sourced"
 ---
-
 # /skills-qa
 
 ## When to use
@@ -304,17 +304,17 @@ This parameter checks the skill's execution surface — the set of things it is 
 
 - **Hooks (`hooks/hooks.json`):** Do any hooks exist? Hooks can execute arbitrary shell commands on events. Every hook is an arbitrary-code-execution path. List each one and what it claims to do.
 - **MCP declarations (`.mcp.json`):** Does the skill declare MCP servers? Each server runs with the user's credentials and can access external services. Name each server, its URL, and whether the operator is who the skill says it is.
-- **Tool permissions (`allowed-tools` / `tools` frontmatter):** What tools do the commands and agents declare? Read/Write/Glob are expected. Bash, WebFetch, WebSearch, and MCP wildcards are elevated — each needs a reason.
+- **Tool permissions (`allowed-tools` / `tools` frontmatter):** What tools do the commands and agents declare? Check `metadata.permission_tier` against `skill-design-framework.md` § Permission tiers — advisory skills should be `Read, Grep, Glob` only; `Write` on advisory-tier skills is a 🔴 overreach. `Bash`, `WebFetch`, `WebSearch`, and MCP wildcards are elevated — each needs a reason.
 - **Network calls in instructions:** Does the SKILL.md tell Claude to fetch URLs? To where?
 - **File writes outside the skill's own directory:** Does the skill write to `~/.claude/`, any `CLAUDE.md`, `hooks/`, `.gitignore`, or other paths that change how the environment behaves?
 - **Prompt-injection risk:** HTML comments with directives, unusual unicode, base64 blobs, "ignore previous instructions" patterns.
 - **Authority overclaiming:** Does the skill describe itself as giving definitive strategic direction, substituting for expert judgment, or having proprietary information access it doesn't actually have?
 
-**Flag 🔴 if:** Any hook, any undeclared MCP dependency, Bash without a clear and limited purpose, WebFetch to a URL not obviously tied to the skill's purpose, writes outside the skill directory, or authority overclaiming.
+**Flag 🔴 if:** Any hook, any undeclared MCP dependency, Bash without a clear and limited purpose, WebFetch to a URL not obviously tied to the skill's purpose, writes outside the skill directory, authority overclaiming, or `allowed-tools` broader than the declared `permission_tier` (e.g. `Write` on an `advisory` skill).
 
-**Flag 🟡 if:** WebSearch, MCP wildcards, or Bash with a clear but broad purpose.
+**Flag 🟡 if:** WebSearch, MCP wildcards, or Bash with a clear but broad purpose; `elevated` tier; `artefact-writer` with `Write` but no explicit persist step in the workflow.
 
-**Flag 🟢 if:** Read/Write/Glob only, no hooks, no MCP, no network.
+**Flag 🟢 if:** `permission_tier: advisory` with `Read, Grep, Glob` only; or `artefact-writer` / `elevated` with tools matching the tier table and a documented reason for each elevated tool.
 
 ---
 

@@ -13,10 +13,10 @@ metadata:
   owner: "strategy-builder-hub practice"
   review_cadence: "quarterly"
   work_shape: "governance-tracking"
+  permission_tier: elevated
   output_class: "structured-data"
   sourcing_policy: "volatile-facts-must-be-sourced"
 ---
-
 # Skill Manager
 
 ## When to use

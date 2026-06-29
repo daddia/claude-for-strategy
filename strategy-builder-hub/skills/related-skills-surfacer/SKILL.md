@@ -13,10 +13,10 @@ metadata:
   owner: "strategy-builder-hub practice"
   review_cadence: "quarterly"
   work_shape: "structured-aggregation"
+  permission_tier: advisory
   output_class: "draft-for-review"
   sourcing_policy: "volatile-facts-must-be-sourced"
 ---
-
 # /related-skills-surfacer
 
 ## When to use

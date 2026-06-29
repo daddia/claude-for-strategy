@@ -6,16 +6,16 @@ description: >
   the user says "browse", "search skills", "find a skill for", "what's out
   there for", or wants to add a new registry to the watchlist.
 argument-hint: "[search query]"
-allowed-tools: Read, Grep, Glob, WebFetch, Write
+allowed-tools: Read, Grep, Glob, Write, WebFetch
 metadata:
   version: "0.3.0"
   owner: "strategy-builder-hub practice"
   review_cadence: "quarterly"
   work_shape: "structured-aggregation"
+  permission_tier: elevated
   output_class: "structured-data"
   sourcing_policy: "volatile-facts-must-be-sourced"
 ---
-
 # /registry-browser
 
 ## When to use
