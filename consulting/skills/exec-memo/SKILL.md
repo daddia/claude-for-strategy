@@ -30,7 +30,7 @@ BLUF executive memo from narrative, notes, or `narrative-builder` output. Conclu
 
 | Input | If missing |
 |---|---|
-| Practice profile (length, audience) | Default one page; flag cold-start |
+| Practice profile (length, audience) | Default one page; flag practice-setup |
 | Source material or narrative | Ask for notes or run `narrative-builder` |
 
 ## Provisional mode

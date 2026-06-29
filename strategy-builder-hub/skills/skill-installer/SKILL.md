@@ -80,7 +80,7 @@ until you explicitly say yes.
 ### Step 1: Read the allowlist (before fetching anything)
 
 Read `~/.claude/plugins/config/claude-for-strategy/strategy-builder-hub/allowlist.yaml`.
-If the file does not exist, tell the user before proceeding: "No allowlist found at [path]. Run `/strategy-builder-hub:cold-start-interview` to create one — without it, every source is treated as trusted and the installer has no structural gate, only the AI trust review (which a well-crafted injection can manipulate). For now I'll proceed in permissive mode with an empty allowlist, which means I'll flag unknown sources but won't refuse anything." Then proceed in permissive mode with empty lists.
+If the file does not exist, tell the user before proceeding: "No allowlist found at [path]. Run `/strategy-builder-hub:practice-setup` to create one — without it, every source is treated as trusted and the installer has no structural gate, only the AI trust review (which a well-crafted injection can manipulate). For now I'll proceed in permissive mode with an empty allowlist, which means I'll flag unknown sources but won't refuse anything." Then proceed in permissive mode with empty lists.
 See `references/allowlist.md` for schema and rationale.
 
 Check the registry URL and publisher from the user's command against
@@ -273,7 +273,7 @@ Then:
   do not present the install prompt on MATERIAL CONCERNS/REFUSE. Tell the
   user: "I'd normally route this to your supervising strategist, but the
   engagement profile doesn't name one. Before installing, please (a) run
-  `/strategy-builder-hub:cold-start-interview --redo` to add a practitioner
+  `/strategy-builder-hub:practice-setup --redo` to add a practitioner
   contact, or (b) tell me who at your firm or company should sign off on
   installing community skills."
 

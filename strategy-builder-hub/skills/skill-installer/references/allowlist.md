@@ -124,7 +124,7 @@ a trusted publisher does not make it so.
 
 ## Cold-start note
 
-The cold-start interview should ask whether to enable restrictive mode when
+The practice setup should ask whether to enable restrictive mode when
 setting up the plugin for an enterprise or firm environment. The recommended
 default for any multi-user deployment is restrictive with an explicit allowlist
 maintained by the administrator. Individual practitioners may reasonably choose

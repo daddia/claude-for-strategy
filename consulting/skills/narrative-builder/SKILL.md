@@ -33,7 +33,7 @@ Turn raw input into Minto pyramid: governing thought, 3–5 MECE key line points
 |---|---|
 | Raw findings/notes | Ask user to provide |
 | Reader's real question | Ask before structuring |
-| Practice profile | Default inductive; flag cold-start |
+| Practice profile | Default inductive; flag practice-setup |
 
 ## Provisional mode
 

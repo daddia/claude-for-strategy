@@ -27,7 +27,7 @@ Suggest community skills matching recent task — once, non-intrusively; strong 
 
 | Input | If missing |
 |---|---|
-| Hub engagement profile | Offer cold-start |
+| Hub engagement profile | Offer practice-setup |
 | Task context or user query | Ask what they were doing |
 
 ## Provisional mode

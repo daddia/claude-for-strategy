@@ -55,14 +55,14 @@ If either file is missing or still has template placeholders, surface this bounc
 > I notice your practice profile isn't configured yet — that's how I tailor options discipline, approval gates, and risk framing to your org.
 >
 > **Two choices:**
-> - Run `/transformation:cold-start-interview` (a few minutes) to configure your profile, then I'll build a case calibrated to your governance and funding model.
+> - Run `/transformation:practice-setup` (a few minutes) to configure your profile, then I'll build a case calibrated to your governance and funding model.
 > - Say **"provisional"** and I'll build against generic defaults — balanced risk posture, quarterly planning, standard four-option structure — and tag every output `[PROVISIONAL — configure your profile for tailored output]`.
 
 ### Provisional mode
 
 If the user says "provisional," run the workflow using: balanced risk posture, no named approval gates (flag "confirm with finance/sponsor"), generic Now/Next/Later sequencing grain, business-case threshold = full case above $500K `[unverified — generic default]`. Tag the reviewer note and confidence line with `[PROVISIONAL]`. At the end, append:
 
-> "That was a generic run. Run `/transformation:cold-start-interview` to calibrate approval gates, funding model, and business-case thresholds to your org."
+> "That was a generic run. Run `/transformation:practice-setup` to calibrate approval gates, funding model, and business-case thresholds to your org."
 
 ## Workflow
 

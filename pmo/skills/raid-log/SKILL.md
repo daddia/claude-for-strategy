@@ -87,7 +87,7 @@ ESCALATION FLAG: [if threshold met — why]
 
 ## Propose profile update
 
-When a stable convention surfaces during this run (RAID column names, Risk/Issue/Assumption definitions, severity scale, escalation thresholds), **propose a profile update**: show the exact diff against `~/.claude/plugins/config/claude-for-strategy/pmo/CLAUDE.md` (org-wide facts go to `org-profile.md`), ask for confirmation, and write only on yes. Only `/pmo:cold-start-interview` auto-applies a full profile write.
+When a stable convention surfaces during this run (RAID column names, Risk/Issue/Assumption definitions, severity scale, escalation thresholds), **propose a profile update**: show the exact diff against `~/.claude/plugins/config/claude-for-strategy/pmo/CLAUDE.md` (org-wide facts go to `org-profile.md`), ask for confirmation, and write only on yes. Only `/pmo:practice-setup` auto-applies a full profile write.
 
 ## Outputs
 

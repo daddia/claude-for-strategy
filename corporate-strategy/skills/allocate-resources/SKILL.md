@@ -32,7 +32,7 @@ For CSO, portfolio managers, or strategy leads diagnosing whether capital, headc
 
 | Input | If missing |
 |---|---|
-| Org + corporate-strategy profiles | Surface cold-start or `[PROVISIONAL]` |
+| Org + corporate-strategy profiles | Surface practice-setup or `[PROVISIONAL]` |
 | Strategic priority ranking | Halt — get or confirm before comparing |
 | Allocation data (capital, HC, attention) | Ask; mark partial/missing per row |
 

@@ -30,7 +30,7 @@ For consultants building a storyline-first, action-titled deck outline before sl
 
 | Input | If missing |
 |---|---|
-| Practice profile (slide title style, exhibits) | Proceed with action titles default; flag cold-start |
+| Practice profile (slide title style, exhibits) | Proceed with action titles default; flag practice-setup |
 | Governing thought / narrative | Ask to run `narrative-builder` first |
 
 ## Provisional mode

@@ -26,7 +26,7 @@ Check installed community skills for updates; show diff; apply only after explic
 
 | Input | If missing |
 |---|---|
-| Hub engagement profile with installed list | Offer cold-start |
+| Hub engagement profile with installed list | Offer practice-setup |
 | User approval for each apply | Never auto-apply |
 
 ## Provisional mode

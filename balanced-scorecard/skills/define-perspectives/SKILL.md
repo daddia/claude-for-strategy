@@ -26,7 +26,7 @@ For strategy office or FP&A practitioners deciding the perspective set and causa
 - **Does not draft objectives** — output feeds `/balanced-scorecard:build-strategy-map` only.
 - **Does not select measures or targets** — route to `/balanced-scorecard:select-measures` and `/balanced-scorecard:set-targets-and-initiatives`.
 - **Does not decide hybrid top perspective for the user** — runs pressure test and surfaces trade-offs; strategist chooses.
-- **Does not replace cold-start** — reads practice profile; run `/balanced-scorecard:cold-start-interview` if profile is empty.
+- **Does not replace practice-setup** — reads practice profile; run `/balanced-scorecard:practice-setup` if profile is empty.
 
 ## Preconditions
 

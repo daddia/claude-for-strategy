@@ -32,7 +32,7 @@ Portfolio pruning — explicit exit/hold/double-down with blank-page test first 
 
 | Input | If missing |
 |---|---|
-| Org + corporate-strategy profiles | cold-start or `[PROVISIONAL]` |
+| Org + corporate-strategy profiles | practice-setup or `[PROVISIONAL]` |
 | Unit scope and decision forum | Ask |
 
 ## Provisional mode

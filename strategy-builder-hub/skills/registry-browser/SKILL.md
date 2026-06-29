@@ -26,7 +26,7 @@ Search watched registries; preview full SKILL.md; add registries to watchlist on
 
 | Input | If missing |
 |---|---|
-| Hub profile with watched registries | Offer to add registry or cold-start |
+| Hub profile with watched registries | Offer to add registry or practice-setup |
 
 ## Provisional mode
 

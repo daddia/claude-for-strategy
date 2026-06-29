@@ -49,7 +49,7 @@ Produce an evidence-backed maturity scorecard where every score cites specific o
 - `~/.claude/plugins/config/claude-for-strategy/org-profile.md`
 - `~/.claude/plugins/config/claude-for-strategy/transformation/CLAUDE.md`
 
-If missing or template, surface cold-start bounce with `/transformation:cold-start-interview` or **"provisional"**.
+If missing or template, surface practice setup bounce with `/transformation:practice-setup` or **"provisional"**.
 
 ### Provisional mode
 

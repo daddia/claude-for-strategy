@@ -60,7 +60,7 @@ Produce a steering pack where decisions come first and status supports them — 
 - `~/.claude/plugins/config/claude-for-strategy/org-profile.md`
 - `~/.claude/plugins/config/claude-for-strategy/pmo/CLAUDE.md`
 
-If missing or template, surface cold-start bounce with `/pmo:cold-start-interview` or **"provisional"**.
+If missing or template, surface practice setup bounce with `/pmo:practice-setup` or **"provisional"**.
 
 ### Provisional mode
 

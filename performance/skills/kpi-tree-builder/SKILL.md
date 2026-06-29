@@ -30,7 +30,7 @@ Decompose a North Star into MECE drivers and leading indicators — math or caus
 
 | Input | If missing |
 |---|---|
-| Org + performance profiles | Tag `[PROVISIONAL]`; bounce to cold-start |
+| Org + performance profiles | Tag `[PROVISIONAL]`; bounce to practice-setup |
 | North Star metric name | Ask; halt decomposition until supplied |
 | Relationship type (multiplicative/additive/causal) | Ask once |
 

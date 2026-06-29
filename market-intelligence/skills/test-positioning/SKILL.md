@@ -23,7 +23,7 @@ When a positioning claim needs trade-off discipline — what you're choosing not
 
 ## What this skill does not do
 
-- **Does not write positioning from scratch** — tests an existing claim; cold-start captures baseline.
+- **Does not write positioning from scratch** — tests an existing claim; practice-setup captures baseline.
 - **Does not map competitors** — route to `/market-intelligence:map-competitive-landscape`.
 - **Does not validate marketing slogans without trade-offs** — flags aspiration vs. strategic choice.
 

@@ -50,7 +50,7 @@ Produce a sequencing argument — not a flat initiative list. Each item is place
 - `~/.claude/plugins/config/claude-for-strategy/org-profile.md`
 - `~/.claude/plugins/config/claude-for-strategy/transformation/CLAUDE.md`
 
-If missing or still template, surface the cold-start bounce (same pattern as `business-case`) with `/transformation:cold-start-interview` or **"provisional"**.
+If missing or still template, surface the practice setup bounce (same pattern as `business-case`) with `/transformation:practice-setup` or **"provisional"**.
 
 ### Provisional mode
 

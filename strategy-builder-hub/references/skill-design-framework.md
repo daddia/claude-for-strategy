@@ -69,7 +69,7 @@ consistency on all first-party skills.
 | Tier | `metadata.permission_tier` | Default `allowed-tools` | When to use |
 |---|---|---|---|
 | **Advisory** | `advisory` | `Read, Grep, Glob` (or none) | Narrative, memo, roadmap, TOM, OKR drafting — output is a structured response in session; may *read* practice profiles and project files but does not mutate disk. |
-| **Local artefact writer** | `artefact-writer` | `Read, Grep, Glob, Write` (+ `Bash` only when building binaries such as `.xlsx`) | Tracker builder, deck export, decision/RAID/check-in logs, strategy-map persistence, cold-start profile writes — the user asked for (or the workflow requires) a file at a known path. |
+| **Local artefact writer** | `artefact-writer` | `Read, Grep, Glob, Write` (+ `Bash` only when building binaries such as `.xlsx`) | Tracker builder, deck export, decision/RAID/check-in logs, strategy-map persistence, practice-setup profile writes — the user asked for (or the workflow requires) a file at a known path. |
 | **Elevated / supply-chain** | `elevated` | `Write` plus `WebFetch` / `WebSearch` / `Bash` / MCP as needed | Strategy Builder Hub install, registry sync, auto-update, disable/uninstall — touches supply chain or external registries. |
 
 **Classification rules:**
@@ -79,7 +79,7 @@ consistency on all first-party skills.
   document (outline, memo, register table).
 - **Governance-tracking** skills that append to a persisted log the practice
   profile points at are **artefact-writer**, not advisory.
-- **cold-start-interview** is **artefact-writer** in every plugin (writes
+- **practice-setup** is **artefact-writer** in every plugin (writes
   `~/.claude/plugins/config/claude-for-strategy/`).
 - Hub **installer / updater / registry** skills are **elevated**; hub
   **skills-qa** and **related-skills-surfacer** stay **advisory**.
