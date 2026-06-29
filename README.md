@@ -15,7 +15,7 @@ What's in the repo:
 - **Strategy Builder Hub** for discovering, installing, and QAing community strategy skills from trusted registries.
 - **MCP connectors** across general productivity (Slack, Google Workspace, Atlassian) and strategy-specific categories (observability, hosting, spreadsheets).
 - **[Named agents](#agents)** — job-style entry points (Narrative Architect, Roadmap Architect, RAID Logger, …) with a single command to run each one.
-- **Scheduled agents** in `pmo`, `performance`, `transformation`, `okr`, `balanced-scorecard`, `corporate-strategy`, and `market-intelligence` — escalation/slippage/steering prep, KPI breach watching, cadence reporting, assumption-decay/roadmap-drift, check-in nudges, scorecard review reminders, portfolio review prompts, competitive signal scanning. Convention Monitor (`consulting`) is still planned for V1.2.
+- **Scheduled agents** in `pmo`, `performance`, `transformation`, `okr`, `balanced-scorecard`, `corporate-strategy`, `market-intelligence`, and `value-realisation` — escalation/slippage/steering prep, KPI breach watching, cadence reporting, assumption-decay/roadmap-drift, check-in nudges, scorecard review reminders, portfolio review prompts, competitive signal scanning, benefits-tracking checkpoints. Convention Monitor (`consulting`) is still planned for V1.2.
 
 ## Agents
 
@@ -58,6 +58,7 @@ Each agent is named for the job it does. They're the most common surface — sta
 | **Strategy Review Reminder** | Quarterly scorecard review prompt; separately tracks annual map-refresh cadence | `balanced-scorecard` | scheduled agent |
 | **Portfolio Review Reminder** | Quarterly prompt to run `allocate-resources` and recheck `exit-or-double-down` holds past their re-rating date | `corporate-strategy` | scheduled agent |
 | **Competitive Signal Scan** | Weekly scan for competitor moves that would change the strategic-group or incentive map; works with native web search, no connector required | `market-intelligence` | scheduled agent |
+| **Realisation Checkpoint Reminder** | Prompts benefits-tracking on cadence; escalates benefits approaching go-live with no baseline captured | `value-realisation` | scheduled agent |
 
 ## Repository layout
 
