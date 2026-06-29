@@ -220,7 +220,7 @@ Map the profile to registry skills:
 | Corporate strategy, in-house | corporate-strategy plugin + any community strategic-planning skills |
 | Management consulting | consulting plugin + community market-sizing or deck-building skills |
 | Market intelligence | market-intelligence plugin + community competitive-research skills |
-| Transformation lead | transformation plugin + community change-management skills |
+| Transformation lead | transformation + change-management plugins + community skills as needed |
 | PMO / performance | pmo + performance plugins + community OKR or roadmap skills |
 | Builder | the raw registries and the skills-qa framework — they'll build and validate their own |
 

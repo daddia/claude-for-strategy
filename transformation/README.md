@@ -30,7 +30,7 @@ Run `/transformation:practice-setup` first. Your practice profile lands at `~/.c
 - **Any other skill** — when a stable convention surfaces (platform vocabulary, roadmap tracks, maturity dimensions), skills **propose a profile update**: show the exact change, ask for confirmation, write only if you say yes.
 - **Edit directly** — small fixes without re-running setup.
 
-No environment variables or connectors are required for V1. Optional MCP servers are listed in [CONNECTORS.md](./CONNECTORS.md). For scheduled watchers, connect `~~chat` so Assumption-Decay and Roadmap-Drift summaries reach you; install [`pmo`](../pmo) if you want Assumption-Decay to scan the decision log for revisit triggers.
+No environment variables or connectors are required for V1. Optional MCP servers are listed in [CONNECTORS.md](./CONNECTORS.md). For scheduled watchers, connect `~~chat` so Assumption-Decay and Roadmap-Drift summaries reach you; install [`pmo`](../pmo) if you want Assumption-Decay to scan the decision log for revisit triggers; install [`change-management`](../change-management) when you need stakeholder impact, readiness, sponsor, comms, and resistance work on the people side.
 
 ## Usage
 
@@ -52,6 +52,8 @@ roadmap-drift-watcher — weekly phase-slippage check with downstream knock-on e
 If [`consulting`](../consulting) is also installed, hand off `business-case` or `tech-strategy-brief` output to `/consulting:deck-outline` for a steering committee version.
 
 If [`operating-model`](../operating-model) is also installed, hand off `target-operating-model` org-layer output to `/operating-model:diagnose-structure-fit` or `/operating-model:design-decision-rights` when org design — not the full TOM — needs depth.
+
+If [`change-management`](../change-management) is also installed, hand off `target-operating-model` or `roadmap-builder` output to `/change-management:stakeholder-impact-map` so adoption planning reuses the same change detail.
 
 ## Skill & command reference
 

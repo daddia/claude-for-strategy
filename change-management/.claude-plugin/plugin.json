@@ -1,0 +1,10 @@
+{
+  "name": "change-management",
+  "version": "1.0.0",
+  "description": "Stakeholder impact mapping, change readiness assessment, sponsor roadmaps, communications planning, and resistance diagnosis — the people side of transformation, separate from program governance and operating model design.",
+  "author": {
+    "name": "Jonathan Daddia",
+    "url": "https://github.com/daddia"
+  },
+  "keywords": ["change-management", "transformation", "stakeholders", "communications", "readiness"]
+}

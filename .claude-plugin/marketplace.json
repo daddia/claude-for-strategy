@@ -7,7 +7,7 @@
     "url": "https://github.com/daddia"
   },
   "metadata": {
-    "description": "Reference agents and skills for strategy and transformation work — consulting craft, corporate strategy, market intelligence, digital transformation, org design and decision rights, performance management, balanced scorecards, OKRs, transformation PMO, and post-investment value realisation.",
+    "description": "Reference agents and skills for strategy and transformation work — consulting craft, corporate strategy, market intelligence, digital transformation, change management, org design and decision rights, performance management, balanced scorecards, OKRs, transformation PMO, and post-investment value realisation.",
     "homepage": "https://github.com/daddia/claude-for-strategy"
   },
   "plugins": [
@@ -50,6 +50,17 @@
       "source": "./transformation",
       "category": "productivity",
       "description": "Digital maturity assessment, Now/Next/Later transformation roadmaps, target operating model design, technology strategy briefs, and transformation business cases.",
+      "author": {
+        "name": "Jonathan Daddia",
+        "url": "https://github.com/daddia"
+      }
+    },
+    {
+      "name": "change-management",
+      "displayName": "Change Management",
+      "source": "./change-management",
+      "category": "productivity",
+      "description": "Stakeholder impact mapping, change readiness assessment, sponsor roadmaps, communications planning, and resistance diagnosis — the people side of transformation, separate from program governance and operating model design.",
       "author": {
         "name": "Jonathan Daddia",
         "url": "https://github.com/daddia"

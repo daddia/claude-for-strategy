@@ -23,14 +23,14 @@ Connectors shipped in the default `.mcp.json` of each plugin:
 
 | Connector | Plugins | Category placeholder |
 |---|---|---|
-| **Slack** | all eleven first-party plugins | `~~chat` |
-| **Gmail** | all eleven first-party plugins | `~~email` |
-| **Google Drive** | all eleven first-party plugins | `~~documents`, `~~spreadsheet` |
-| **Google Calendar** | corporate-strategy, transformation, balanced-scorecard, okr, pmo, value-realisation | `~~calendar` |
-| **Atlassian (Rovo)** | all eleven first-party plugins | `~~project tracker`, `~~knowledge base` |
-| **Linear** | balanced-scorecard, consulting, corporate-strategy, okr, performance, pmo, transformation, value-realisation | `~~project tracker` |
-| **Asana** | balanced-scorecard, consulting, corporate-strategy, okr, performance, pmo, transformation, value-realisation | `~~project tracker` |
-| **Monday.com** | balanced-scorecard, consulting, corporate-strategy, okr, performance, pmo, transformation, value-realisation | `~~project tracker` |
+| **Slack** | all twelve first-party plugins | `~~chat` |
+| **Gmail** | all twelve first-party plugins | `~~email` |
+| **Google Drive** | all twelve first-party plugins | `~~documents`, `~~spreadsheet` |
+| **Google Calendar** | corporate-strategy, transformation, change-management, balanced-scorecard, okr, pmo, value-realisation | `~~calendar` |
+| **Atlassian (Rovo)** | all twelve first-party plugins | `~~project tracker`, `~~knowledge base` |
+| **Linear** | balanced-scorecard, consulting, corporate-strategy, change-management, okr, performance, pmo, transformation, value-realisation | `~~project tracker` |
+| **Asana** | balanced-scorecard, consulting, corporate-strategy, change-management, okr, performance, pmo, transformation, value-realisation | `~~project tracker` |
+| **Monday.com** | balanced-scorecard, consulting, corporate-strategy, change-management, okr, performance, pmo, transformation, value-realisation | `~~project tracker` |
 | **GitHub** | transformation, strategy-builder-hub | `~~source control`; `~~strategy skills registry` (hub) |
 | **Honeycomb** | transformation, performance | `~~observability` |
 | **Vercel** | transformation | `~~hosting` |
@@ -108,6 +108,7 @@ Each first-party plugin ships its own connector reference:
 | corporate-strategy | [corporate-strategy/CONNECTORS.md](./corporate-strategy/CONNECTORS.md) |
 | market-intelligence | [market-intelligence/CONNECTORS.md](./market-intelligence/CONNECTORS.md) |
 | transformation | [transformation/CONNECTORS.md](./transformation/CONNECTORS.md) |
+| change-management | [change-management/CONNECTORS.md](./change-management/CONNECTORS.md) |
 | operating-model | [operating-model/CONNECTORS.md](./operating-model/CONNECTORS.md) |
 | performance | [performance/CONNECTORS.md](./performance/CONNECTORS.md) |
 | balanced-scorecard | [balanced-scorecard/CONNECTORS.md](./balanced-scorecard/CONNECTORS.md) |

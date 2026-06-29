@@ -18,7 +18,7 @@ update. Never write user data here.
 **Shared org profile.** Organisation-level facts (who you are, what you do,
 where you operate, your risk posture, key people) live in
 `~/.claude/plugins/config/claude-for-strategy/org-profile.md` — one level
-above this file, shared by all eleven first-party plugins. Read it before this plugin's
+above this file, shared by all twelve first-party plugins. Read it before this plugin's
 engagement profile. If it doesn't exist, this plugin's setup will create it.
 -->
 
@@ -158,6 +158,7 @@ These plugins ship with claude-for-strategy and are managed by `/plugin`, not by
 - `corporate-strategy`
 - `market-intelligence`
 - `transformation`
+- `change-management`
 - `operating-model`
 - `performance`
 - `balanced-scorecard`

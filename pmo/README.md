@@ -18,7 +18,7 @@ RAID logs, status reporting, steering committee packs, milestone tracking, and d
 ## What this plugin does NOT do
 
 - **Write directly into Jira, Asana, Linear, or Monday.com** — V1 works against log content you paste or point to; connectors are the path to live tracker integration.
-- **Replace the program manager** — it drafts reports and flags escalation; humans own decisions and stakeholder management.
+- **Replace the program manager** — it drafts reports and flags escalation; humans own decisions and stakeholder management. For people-side adoption work (stakeholder impact, readiness, comms, resistance), use [`change-management`](../change-management) when installed.
 - **Post watcher alerts without `~~chat`** — Escalation Watcher, Slippage Watcher, and Steering Prep compile flags from log data and surface them in conversation when no chat connector is configured.
 
 ## Getting started
@@ -57,6 +57,8 @@ steering-prep — N days before steering; assembles RAID + milestones + decision
 ```
 
 If [`consulting`](../consulting) is installed, hand `steering-pack` output to `/consulting:doc-reviewer` for a structural check before the meeting.
+
+If [`change-management`](../change-management) is installed, people-side readiness and resistance escalations that need a governance decision belong in `/pmo:decision-log` — the change-management plugin structures the diagnosis; this plugin holds the audit log.
 
 ## Skill & command reference
 

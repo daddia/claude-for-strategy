@@ -1,6 +1,6 @@
 # Claude for Strategy & Transformation
 
-Reference agents, skills, and data connectors for the strategy and transformation workflows we see most — consulting craft, corporate strategy, market intelligence, digital transformation, org design, performance management, program PMO, balanced scorecards, OKRs, value realisation, and a Strategy Builder Hub for discovering community skills.
+Reference agents, skills, and data connectors for the strategy and transformation workflows we see most — consulting craft, corporate strategy, market intelligence, digital transformation, change management, org design, performance management, program PMO, balanced scorecards, OKRs, value realisation, and a Strategy Builder Hub for discovering community skills.
 
 > **New here?** Start with [QUICKSTART.md](QUICKSTART.md) — install in 60 seconds. This README is the full reference.
 
@@ -11,7 +11,7 @@ Everything here ships as [Claude Cowork](https://claude.com/product/cowork) or [
 
 What's in the repo:
 
-- **Practice-area plugins** covering consulting craft, corporate strategy, market intelligence, transformation, org design, performance, PMO, balanced scorecards, OKRs, and value realisation — each built around a practice setup that learns your playbook, a living `CLAUDE.md` practice profile every skill reads from, and a **propose profile update** flow so conventions can be recorded mid-engagement without re-running setup.
+- **Practice-area plugins** covering consulting craft, corporate strategy, market intelligence, transformation, change management, org design, performance, PMO, balanced scorecards, OKRs, and value realisation — each built around a practice setup that learns your playbook, a living `CLAUDE.md` practice profile every skill reads from, and a **propose profile update** flow so conventions can be recorded mid-engagement without re-running setup.
 - **Strategy Builder Hub** for discovering, installing, and QAing community strategy skills from trusted registries.
 - **MCP connectors** across general productivity (Slack, Google Workspace, Atlassian, Linear, Asana, Monday.com) and strategy-specific categories (GitHub, Miro, observability, hosting, spreadsheets).
 - **[Named agents](#agents)** — job-style entry points (Narrative Architect, Roadmap Architect, RAID Logger, …) with a single command to run each one.
@@ -40,6 +40,11 @@ Each agent is named for the job it does. They're the most common surface — sta
 | **Business Case Builder** | Initiative scope → problem, options, cost/benefit, sequencing, risk, ask | `transformation` | `/transformation:business-case` |
 | **Assumption-Decay Watcher** | Business cases, roadmaps, decision log → assumptions with revisit-trigger dates now due | `transformation` | scheduled agent |
 | **Roadmap-Drift Watcher** | Roadmap vs. actual progress → initiatives slipping phase, with knock-on effects | `transformation` | scheduled agent |
+| **Stakeholder Impact Mapper** | Initiative scope → influence/impact segmentation with specific behavior changes per group | `change-management` | `/change-management:stakeholder-impact-map` |
+| **Readiness Assessor** | Context + stakeholders → people-side readiness scorecard with binding-constraint analysis | `change-management` | `/change-management:change-readiness-assessment` |
+| **Sponsor Roadmap Builder** | Program phases → sponsor visibility, actions, and asks per checkpoint | `change-management` | `/change-management:sponsor-roadmap` |
+| **Comms Planner** | Audiences and milestones → audience × message × channel × timing × owner plan | `change-management` | `/change-management:communications-plan` |
+| **Resistance Diagnostician** | Observed resistance → root-cause split and response options | `change-management` | `/change-management:resistance-diagnosis` |
 | **KPI Tree Builder** | North Star metric → MECE drivers → leading indicators | `performance` | `/performance:kpi-tree-builder` |
 | **Tracker Builder** | Builds a `.xlsx` tracker wired to your Daily Log → Summary pattern | `performance` | `/performance:tracker-builder` |
 | **Board Narrative Writer** | Metrics/results → BLUF-structured narrative for your stated audience | `performance` | `/performance:performance-narrative` |
@@ -73,6 +78,7 @@ consulting/               # narrative, hypothesis trees, workplans, decks, memos
 corporate-strategy/       # growth vectors, resource allocation, portfolio calls, strategic options
 market-intelligence/      # competitive landscape, incentives, positioning, information asymmetry
 transformation/           # maturity, roadmaps, TOM, tech strategy, business cases
+change-management/        # stakeholder impact, readiness, sponsor roadmaps, comms, resistance
 operating-model/          # structure fit, decision rights, span/layers, matrix reporting, rewards alignment
 performance/              # KPI trees, trackers, glossary, performance narrative
 pmo/                      # RAID, status reports, steering packs, milestones, decisions
@@ -123,6 +129,7 @@ After install, skills fire automatically when relevant, slash commands are avail
 /plugin install corporate-strategy@claude-for-strategy
 /plugin install market-intelligence@claude-for-strategy
 /plugin install transformation@claude-for-strategy
+/plugin install change-management@claude-for-strategy
 /plugin install operating-model@claude-for-strategy
 /plugin install performance@claude-for-strategy
 /plugin install pmo@claude-for-strategy
@@ -137,6 +144,7 @@ After install, skills fire automatically when relevant, slash commands are avail
 /corporate-strategy:practice-setup
 /market-intelligence:practice-setup
 /transformation:practice-setup
+/change-management:practice-setup
 /operating-model:practice-setup
 /performance:practice-setup
 /pmo:practice-setup
@@ -190,6 +198,7 @@ Grouped by where the work sits. Each plugin's practice setup is what tailors it 
 |---|---|
 | **[consulting](./consulting)** | Strategic narrative (Minto pyramid), hypothesis trees, hypothesis-driven workplans, deck outlines, exec memos, so-what sharpening, doc/deck review. The craft layer every deliverable should be written in. |
 | **[transformation](./transformation)** | Digital maturity assessment, Now/Next/Later roadmaps, target operating model design, tech strategy briefs, transformation business cases. |
+| **[change-management](./change-management)** | Stakeholder impact mapping, change readiness assessment, sponsor roadmaps, communications planning, and resistance diagnosis — the people side of transformation. |
 | **[operating-model](./operating-model)** | Org design and decision rights — structure-strategy fit, RACI/RAPID design, span and layers analysis, matrix-reporting stress tests, Star Model rewards alignment. |
 | **[performance](./performance)** | KPI trees, metrics tracker builder, metrics glossary, performance narratives. |
 | **[pmo](./pmo)** | RAID logs, status reports, steering committee packs, milestone tracking, decision logs. |
@@ -217,7 +226,7 @@ Grouped by where the work sits. Each plugin's practice setup is what tailors it 
 |---|---|
 | **[strategy-builder-hub](./strategy-builder-hub)** | Community strategy skill discovery, installation, QA, and update management. Browses GitHub registries, surfaces related community skills inside other plugins, and applies a four-layer security gate (allowlist, raw display, heuristic scan, human approval) before anything is written. The practice setup IS the starter pack recommender — ask your engagement type and it recommends what to install. |
 
-**Planned, not yet built:** `change-management`, `thought-leadership`.
+**Planned, not yet built:** `thought-leadership`.
 
 ## MCP connectors
 
@@ -227,11 +236,11 @@ These plugins ship connectors for the systems strategy teams live in. A connecto
 |---|---|---|---|
 | **Slack** | Read channels, search, send messages | all plugins | `~~chat` |
 | **Google Workspace** | Drive, Sheets, Gmail | all plugins | `~~documents`, `~~spreadsheet`, `~~email` |
-| **Google Calendar** | Steering cadence, review cycles, go-live dates | corporate-strategy, transformation, balanced-scorecard, okr, pmo, value-realisation | `~~calendar` |
+| **Google Calendar** | Steering cadence, review cycles, go-live dates | corporate-strategy, transformation, change-management, balanced-scorecard, okr, pmo, value-realisation | `~~calendar` |
 | **Atlassian (Rovo)** | Jira issues, Confluence pages | all plugins | `~~project tracker`, `~~knowledge base` |
-| **Linear** | Issues, projects, initiatives, milestones | balanced-scorecard, consulting, corporate-strategy, okr, performance, pmo, transformation, value-realisation | `~~project tracker` |
-| **Asana** | Tasks, projects, portfolios, goals | balanced-scorecard, consulting, corporate-strategy, okr, performance, pmo, transformation, value-realisation | `~~project tracker` |
-| **Monday.com** | Boards, items, columns, users | balanced-scorecard, consulting, corporate-strategy, okr, performance, pmo, transformation, value-realisation | `~~project tracker` |
+| **Linear** | Issues, projects, initiatives, milestones | balanced-scorecard, consulting, corporate-strategy, change-management, okr, performance, pmo, transformation, value-realisation | `~~project tracker` |
+| **Asana** | Tasks, projects, portfolios, goals | balanced-scorecard, consulting, corporate-strategy, change-management, okr, performance, pmo, transformation, value-realisation | `~~project tracker` |
+| **Monday.com** | Boards, items, columns, users | balanced-scorecard, consulting, corporate-strategy, change-management, okr, performance, pmo, transformation, value-realisation | `~~project tracker` |
 | **GitHub** | Repositories, issues, pull requests, file contents | `transformation`, `strategy-builder-hub` | `~~source control`; `~~strategy skills registry` in hub |
 | **Honeycomb** | Product/system telemetry | `transformation`, `performance` | `~~observability` |
 | **Vercel** | Deployment and hosting context | `transformation` | `~~hosting` |
@@ -389,6 +398,17 @@ The full map across all plugins. The practice setup is the first thing to run in
 | `/value-realisation:benefits-recovery` | benefits-recovery | At-risk benefit → root-cause split and continue-or-write-down decision |
 | `/value-realisation:realisation-review` | realisation-review | End-of-window portfolio PIR; optimism-bias calibration for future business cases |
 | scheduled | realisation-checkpoint-reminder (agent) | Monthly benefits-tracking prompts via `~~chat`; escalates go-live benefits missing baseline |
+
+### change-management
+
+| Command | Skill | What it does |
+|---|---|---|
+| `/change-management:practice-setup` | practice-setup | Learns change methodology, sponsor model, comms approval path, and readiness gates |
+| `/change-management:stakeholder-impact-map` | stakeholder-impact-map | Initiative scope → influence/impact segmentation with specific behavior changes per group |
+| `/change-management:change-readiness-assessment` | change-readiness-assessment | Context + stakeholders → readiness scorecard with binding-constraint analysis |
+| `/change-management:sponsor-roadmap` | sponsor-roadmap | Program phases → sponsor visibility, actions, and asks per checkpoint |
+| `/change-management:communications-plan` | communications-plan | Audiences and milestones → audience × message × channel × timing × owner plan |
+| `/change-management:resistance-diagnosis` | resistance-diagnosis | Observed resistance → root-cause split and response options |
 
 ### strategy-builder-hub
 

@@ -58,10 +58,10 @@ files inside a first-party plugin.
 
 ## Built-in plugins (do not touch)
 
-The eleven first-party plugins that ship with claude-for-strategy are off-limits from this
+The twelve first-party plugins that ship with claude-for-strategy are off-limits from this
 command. The canonical list lives in the hub's CLAUDE.md under "Built-in
 plugins." Examples include `consulting`, `corporate-strategy`,
-`market-intelligence`, `transformation`, `operating-model`, `performance`,
+`market-intelligence`, `transformation`, `change-management`, `operating-model`, `performance`,
 `balanced-scorecard`, `okr`, `pmo`, `value-realisation`, and the hub itself
 (`strategy-builder-hub`).
 If the caller names a skill that resolves into any of these, refuse.

@@ -28,6 +28,7 @@ FIRST_PARTY_PLUGINS = (
     "corporate-strategy",
     "market-intelligence",
     "transformation",
+    "change-management",
     "operating-model",
     "performance",
     "balanced-scorecard",
