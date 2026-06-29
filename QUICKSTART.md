@@ -31,7 +31,7 @@
    ```
    Other flags: `--full`, `--redo`, `--resume` (continue a paused interview).
 
-6. **Connect your tools.** Skills work without connectors, but scheduled agents and live-data skills need them. In Cowork: Settings → Connectors → add Slack, Google Workspace, Atlassian, Linear, Asana, Monday.com, or GitHub. In Claude Code: each plugin lists its MCP servers in `.mcp.json`; you'll be prompted to authorize the first time a skill needs one.
+6. **Connect your tools.** Skills work without connectors, but scheduled agents and live-data skills need them. In Cowork: Settings → Connectors → add Slack, Google Workspace, or Atlassian (all plugins); add Linear, Asana, or Monday.com when your plugin uses `~~project tracker`; add GitHub for `transformation` and `strategy-builder-hub`; add Miro for `consulting`, `balanced-scorecard`, `market-intelligence`, or `operating-model` when you use `~~whiteboard`. In Claude Code: each plugin lists its MCP servers in `.mcp.json`; you'll be prompted to authorize the first time a skill needs one.
 
 ## Install user-scoped, not project-scoped
 
@@ -70,7 +70,7 @@ Each plugin learns your playbook through a cold-start interview. Organisation-wi
 
 ## What's in the box
 
-Eleven first-party plugins — ten practice areas plus the Strategy Builder Hub for discovering and installing community skills — scheduled watch agents across PMO/performance/transformation/OKR/scorecard/corporate-strategy/market-intelligence, and connectors (Slack, Google Workspace, Atlassian, Linear, Asana, Monday.com, GitHub, and plugin-specific observability/hosting). The full reference is in [README.md](./README.md).
+Eleven first-party plugins — ten practice areas plus the Strategy Builder Hub for discovering and installing community skills — scheduled watch agents across PMO/performance/transformation/OKR/scorecard/corporate-strategy/market-intelligence, and connectors (Slack, Google Workspace, Atlassian, Linear, Asana, Monday.com, and plugin-specific GitHub/observability/hosting). The full reference is in [README.md](./README.md).
 
 ## Stuck?
 

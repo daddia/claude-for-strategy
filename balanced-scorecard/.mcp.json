@@ -48,11 +48,11 @@
       "title": "Monday.com",
       "description": "Search, read, and update monday.com boards, items, columns, and users scoped to the user's permissions."
     },
-    "github": {
+    "miro": {
       "type": "http",
-      "url": "https://api.githubcopilot.com/mcp/",
-      "title": "GitHub",
-      "description": "Search and read repositories, issues, pull requests, and file contents scoped to the user's permissions."
+      "url": "https://mcp.miro.com/",
+      "title": "Miro",
+      "description": "Read and create board content on Miro \u2014 diagrams, strategy maps, and workshop canvases scoped to the user's permissions."
     }
   },
   "recommendedCategories": [

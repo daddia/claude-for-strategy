@@ -13,7 +13,7 @@ What's in the repo:
 
 - **Practice-area plugins** covering consulting craft, corporate strategy, market intelligence, transformation, org design, performance, PMO, balanced scorecards, OKRs, and value realisation — each built around a cold-start interview that learns your playbook, a living `CLAUDE.md` practice profile every skill reads from, and a **propose profile update** flow so conventions can be recorded mid-engagement without re-running setup.
 - **Strategy Builder Hub** for discovering, installing, and QAing community strategy skills from trusted registries.
-- **MCP connectors** across general productivity (Slack, Google Workspace, Atlassian, Linear, Asana, Monday.com, GitHub) and strategy-specific categories (observability, hosting, spreadsheets).
+- **MCP connectors** across general productivity (Slack, Google Workspace, Atlassian, Linear, Asana, Monday.com) and strategy-specific categories (GitHub, observability, hosting, spreadsheets).
 - **[Named agents](#agents)** — job-style entry points (Narrative Architect, Roadmap Architect, RAID Logger, …) with a single command to run each one.
 - **Scheduled agents** in `pmo`, `performance`, `transformation`, `okr`, `balanced-scorecard`, `corporate-strategy`, `market-intelligence`, and `value-realisation` — escalation/slippage/steering prep, KPI breach watching, cadence reporting, assumption-decay/roadmap-drift, check-in nudges, scorecard review reminders, portfolio review prompts, competitive signal scanning, benefits-tracking checkpoints. Convention Monitor (`consulting`) is still planned for V1.2.
 
@@ -220,12 +220,13 @@ These plugins ship connectors for the systems strategy teams live in. A connecto
 | **Slack** | Read channels, search, send messages | all plugins | `~~chat` |
 | **Google Workspace** | Drive, Sheets, Gmail, Calendar | all plugins | `~~documents`, `~~spreadsheet`, `~~calendar`, `~~email` |
 | **Atlassian (Rovo)** | Jira issues, Confluence pages | all plugins | `~~project tracker`, `~~knowledge base` |
-| **Linear** | Issues, projects, initiatives, milestones | all plugins | `~~project tracker` |
-| **Asana** | Tasks, projects, portfolios, goals | all plugins | `~~project tracker` |
-| **Monday.com** | Boards, items, columns, users | all plugins | `~~project tracker` |
-| **GitHub** | Repositories, issues, pull requests, file contents | all plugins | `~~source control`; `~~strategy skills registry` in hub |
+| **Linear** | Issues, projects, initiatives, milestones | balanced-scorecard, consulting, corporate-strategy, okr, performance, pmo, transformation, value-realisation | `~~project tracker` |
+| **Asana** | Tasks, projects, portfolios, goals | balanced-scorecard, consulting, corporate-strategy, okr, performance, pmo, transformation, value-realisation | `~~project tracker` |
+| **Monday.com** | Boards, items, columns, users | balanced-scorecard, consulting, corporate-strategy, okr, performance, pmo, transformation, value-realisation | `~~project tracker` |
+| **GitHub** | Repositories, issues, pull requests, file contents | `transformation`, `strategy-builder-hub` | `~~source control`; `~~strategy skills registry` in hub |
 | **Honeycomb** | Product/system telemetry | `transformation`, `performance` | `~~observability` |
 | **Vercel** | Deployment and hosting context | `transformation` | `~~hosting` |
+| **Miro** | Board diagrams and workshop canvases | `consulting`, `balanced-scorecard`, `market-intelligence`, `operating-model` | `~~whiteboard` |
 | **HRIS** | Headcount and reporting-line data | `operating-model` | `~~hris` — Workday, BambooHR, Rippling, HiBob |
 | **Notion** | Knowledge base (workspace-specific) | all plugins | Add your own MCP server URL |
 | **Web & news monitoring** | Curated competitive/news feeds | `market-intelligence` | Exa, Tavily, NewsAPI, Feedly — optional; `competitive-signal-scan` works with native web search |

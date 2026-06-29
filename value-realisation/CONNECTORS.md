@@ -16,7 +16,6 @@ Plugins are tool-agnostic — they describe workflows in terms of categories rat
 | Project tracker | `~~project tracker` | Atlassian (Jira), Linear, Asana, Monday.com | — |
 | Knowledge base | `~~knowledge base` | Atlassian (Confluence), Notion | Guru, Slite |
 | Calendar | `~~calendar` | Google Calendar | Microsoft 365 |
-| Source control | `~~source control` | GitHub | GitLab, Bitbucket |
 
 ## Notes
 

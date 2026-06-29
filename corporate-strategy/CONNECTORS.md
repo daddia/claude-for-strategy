@@ -14,7 +14,6 @@ Plugin files use `~~category` as a placeholder for whatever tool you connect in 
 | Project tracker | `~~project tracker` | Atlassian (Jira), Linear, Asana, Monday.com | — |
 | Knowledge base | `~~knowledge base` | Atlassian (Confluence), Notion | Guru, Slite |
 | Calendar | `~~calendar` | Google Calendar | Microsoft 365 |
-| Source control | `~~source control` | GitHub | GitLab, Bitbucket |
 | BI / analytics | `~~bi analytics` | — | Looker, Tableau, Power BI, Mode |
 
 ## Notes

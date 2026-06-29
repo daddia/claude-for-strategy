@@ -28,12 +28,13 @@ Connectors shipped in the default `.mcp.json` of each plugin:
 | **Google Drive** | all eleven first-party plugins | `~~documents`, `~~spreadsheet` |
 | **Google Calendar** | corporate-strategy, transformation, balanced-scorecard, okr, pmo, value-realisation | `~~calendar` |
 | **Atlassian (Rovo)** | all eleven first-party plugins | `~~project tracker`, `~~knowledge base` |
-| **Linear** | all eleven first-party plugins | `~~project tracker` |
-| **Asana** | all eleven first-party plugins | `~~project tracker` |
-| **Monday.com** | all eleven first-party plugins | `~~project tracker` |
-| **GitHub** | all eleven first-party plugins | `~~source control`, `~~strategy skills registry` (hub) |
+| **Linear** | balanced-scorecard, consulting, corporate-strategy, okr, performance, pmo, transformation, value-realisation | `~~project tracker` |
+| **Asana** | balanced-scorecard, consulting, corporate-strategy, okr, performance, pmo, transformation, value-realisation | `~~project tracker` |
+| **Monday.com** | balanced-scorecard, consulting, corporate-strategy, okr, performance, pmo, transformation, value-realisation | `~~project tracker` |
+| **GitHub** | transformation, strategy-builder-hub | `~~source control`; `~~strategy skills registry` (hub) |
 | **Honeycomb** | transformation, performance | `~~observability` |
 | **Vercel** | transformation | `~~hosting` |
+| **Miro** | consulting, balanced-scorecard, market-intelligence, operating-model | `~~whiteboard` |
 
 See the `.mcp.json` in each plugin directory for the authoritative list, including `title` and `description` on every entry.
 
@@ -44,7 +45,7 @@ These would make specific plugins significantly more useful. If you build or ope
 | Category | Examples | Most useful for |
 |---|---|---|
 | Slides | Google Slides, PowerPoint/OneDrive | consulting (`deck-outline`), corporate-strategy, pmo (`steering-prep`) |
-| Whiteboard | Miro, FigJam, Lucid | consulting (`hypothesis-tree`), balanced-scorecard (`build-strategy-map`), market-intelligence (`map-strategic-groups`), operating-model |
+| Whiteboard | FigJam, Lucid | plugins that already ship Miro for `~~whiteboard` |
 | Enterprise architecture | LeanIX, Ardoq | transformation (`target-operating-model`, `tech-strategy-brief`), corporate-strategy |
 | Portfolio/PPM | Jira Align, Planview, Aha!, Productboard | corporate-strategy (`allocate-resources`), pmo, transformation (`roadmap-builder`) |
 | BI/metrics | Looker, Tableau, Power BI, Mode | performance (`performance-narrative`, `tracker-builder`), corporate-strategy (`allocate-resources`), balanced-scorecard |

@@ -24,29 +24,11 @@
       "title": "Atlassian",
       "description": "Read Jira issues, plans, Confluence pages, decisions, RAID logs and delivery artefacts scoped to the user's permissions."
     },
-    "linear": {
+    "miro": {
       "type": "http",
-      "url": "https://mcp.linear.app/mcp",
-      "title": "Linear",
-      "description": "Search, read, and update Linear issues, projects, initiatives, and milestones scoped to the user's permissions."
-    },
-    "asana": {
-      "type": "http",
-      "url": "https://mcp.asana.com/v2/mcp",
-      "title": "Asana",
-      "description": "Search, read, and update Asana tasks, projects, portfolios, and goals scoped to the user's permissions."
-    },
-    "monday": {
-      "type": "http",
-      "url": "https://mcp.monday.com/mcp",
-      "title": "Monday.com",
-      "description": "Search, read, and update monday.com boards, items, columns, and users scoped to the user's permissions."
-    },
-    "github": {
-      "type": "http",
-      "url": "https://api.githubcopilot.com/mcp/",
-      "title": "GitHub",
-      "description": "Search and read repositories, issues, pull requests, and file contents scoped to the user's permissions."
+      "url": "https://mcp.miro.com/",
+      "title": "Miro",
+      "description": "Read and create board content on Miro \u2014 diagrams, strategy maps, and workshop canvases scoped to the user's permissions."
     }
   },
   "recommendedCategories": [
