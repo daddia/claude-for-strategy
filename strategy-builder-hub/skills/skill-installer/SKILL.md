@@ -46,12 +46,6 @@ N/A — approval gate always required.
 
 Governance-tracking; read-only subagent for analysis when possible; human-in-the-loop install.
 
-## Workflow
-
-Get a community skill from a registry to running locally. Safely — you see the
-raw SKILL.md, you see what the skill can touch, and nothing is written to disk
-until you explicitly say yes.
-
 ## A note on the limits of AI-mediated trust
 
 This skill is a sequence of instructions to Claude. Claude reads the
@@ -78,6 +72,10 @@ install step (Step 6) is the first time elevated tools are needed; gate it on
 a fresh, explicit "yes" from the user in their own words.
 
 ## Workflow
+
+Get a community skill from a registry to running locally. Safely — you see the
+raw SKILL.md, you see what the skill can touch, and nothing is written to disk
+until you explicitly say yes.
 
 ### Step 1: Read the allowlist (before fetching anything)
 
