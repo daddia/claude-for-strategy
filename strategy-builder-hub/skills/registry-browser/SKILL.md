@@ -16,7 +16,7 @@ metadata:
   output_class: "structured-data"
   sourcing_policy: "volatile-facts-must-be-sourced"
 ---
-# /registry-browser
+# /strategy-builder-hub:registry-browser
 
 ## When to use
 

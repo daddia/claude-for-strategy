@@ -18,7 +18,7 @@ metadata:
   output_class: "decision-support"
   sourcing_policy: "volatile-facts-must-be-sourced"
 ---
-# /skill-installer
+# /strategy-builder-hub:skill-installer
 
 ## When to use
 

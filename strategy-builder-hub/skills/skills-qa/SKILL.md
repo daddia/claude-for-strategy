@@ -20,7 +20,7 @@ metadata:
   output_class: "decision-support"
   sourcing_policy: "volatile-facts-must-be-sourced"
 ---
-# /skills-qa
+# /strategy-builder-hub:skills-qa
 
 ## When to use
 

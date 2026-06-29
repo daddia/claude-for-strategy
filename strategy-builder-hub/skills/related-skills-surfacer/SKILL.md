@@ -17,7 +17,7 @@ metadata:
   output_class: "draft-for-review"
   sourcing_policy: "volatile-facts-must-be-sourced"
 ---
-# /related-skills-surfacer
+# /strategy-builder-hub:related-skills-surfacer
 
 ## When to use
 

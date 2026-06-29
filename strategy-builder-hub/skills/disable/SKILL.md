@@ -17,7 +17,7 @@ metadata:
   output_class: "tracking-update"
   sourcing_policy: "volatile-facts-must-be-sourced"
 ---
-# /disable
+# /strategy-builder-hub:disable
 
 ## When to use
 

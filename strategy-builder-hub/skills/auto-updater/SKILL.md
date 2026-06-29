@@ -16,7 +16,7 @@ metadata:
   output_class: "tracking-update"
   sourcing_policy: "volatile-facts-must-be-sourced"
 ---
-# /auto-updater
+# /strategy-builder-hub:auto-updater
 
 ## When to use
 

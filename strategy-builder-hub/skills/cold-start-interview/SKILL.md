@@ -19,7 +19,7 @@ metadata:
   output_class: "structured-data"
   sourcing_policy: "volatile-facts-must-be-sourced"
 ---
-# /cold-start-interview
+# /strategy-builder-hub:cold-start-interview
 
 ## When to use
 

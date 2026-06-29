@@ -17,7 +17,7 @@ metadata:
   output_class: "tracking-update"
   sourcing_policy: "volatile-facts-must-be-sourced"
 ---
-# /uninstall
+# /strategy-builder-hub:uninstall
 
 ## When to use
 
