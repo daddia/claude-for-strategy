@@ -163,6 +163,7 @@ These plugins ship with claude-for-strategy and are managed by `/plugin`, not by
 - `balanced-scorecard`
 - `okr`
 - `pmo`
+- `value-realisation`
 - `strategy-builder-hub`
 
 ---
