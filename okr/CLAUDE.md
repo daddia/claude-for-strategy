@@ -23,7 +23,8 @@ Shared org profile. Organisation-wide facts live in ~/.claude/plugins/config/cla
 
 | Integration | Status | Fallback if unavailable |
 |---|---|---|
-| Atlassian / project tracker | [PLACEHOLDER ✓/✗] | OKR artifacts in docs or plugin `data/` |
+| Atlassian (Jira / Confluence) | [PLACEHOLDER ✓/✗] | OKR artifacts in docs or plugin `data/` |
+| Linear | [PLACEHOLDER ✓/✗] | OKR artifacts in docs or plugin `data/` |
 | Slack | [PLACEHOLDER ✓/✗] | Check-in reminders inline only |
 | `performance` plugin | [PLACEHOLDER ✓/✗] | `instrument-metrics` may duplicate metric work |
 

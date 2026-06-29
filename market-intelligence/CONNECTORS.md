@@ -17,6 +17,6 @@ Plugin files use `~~category` as a placeholder for whatever tool you connect in 
 
 ## Notes
 
-- **No project tracker listed** — this plugin produces analysis, not tracked work items; if a finding needs follow-up action, hand off to whichever plugin owns that action (a competitive threat might become a `corporate-strategy:evaluate-strategic-option`, an incentive misalignment might become an `operating-model:align-rewards-and-incentives` review).
+- **No project tracker listed** — this plugin produces analysis, not tracked work items; if a finding needs follow-up action, hand off to whichever plugin owns that action (a competitive threat might become a `corporate-strategy:evaluate-strategic-option`, an incentive misalignment might become an `operating-model:align-rewards-and-incentives` review). **Linear** is pre-wired in `.mcp.json` if your team tracks competitive follow-ups there.
 - **Whiteboard** matters here — strategic-group maps are genuinely visual (clusters with mobility-barrier arrows between them); a table is a lossy representation. Worth adding if you do this work often.
 - **Web & news monitoring** has nothing pre-wired *as an MCP connector*, but the `competitive-signal-scan` agent doesn't strictly need one — this environment's native web search is sufficient for most competitive-signal scanning out of the box. A dedicated connector (Feedly-style curated feeds, or a structured news API) would give more reliable recurring coverage than ad hoc search, which is why it's still listed as an option worth adding for serious ongoing use.

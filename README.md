@@ -13,7 +13,7 @@ What's in the repo:
 
 - **Practice-area plugins** covering consulting craft, corporate strategy, market intelligence, transformation, org design, performance, PMO, balanced scorecards, OKRs, and value realisation — each built around a cold-start interview that learns your playbook, a living `CLAUDE.md` practice profile every skill reads from, and a **propose profile update** flow so conventions can be recorded mid-engagement without re-running setup.
 - **Strategy Builder Hub** for discovering, installing, and QAing community strategy skills from trusted registries.
-- **MCP connectors** across general productivity (Slack, Google Workspace, Atlassian) and strategy-specific categories (observability, hosting, spreadsheets).
+- **MCP connectors** across general productivity (Slack, Google Workspace, Atlassian, Linear) and strategy-specific categories (observability, hosting, spreadsheets).
 - **[Named agents](#agents)** — job-style entry points (Narrative Architect, Roadmap Architect, RAID Logger, …) with a single command to run each one.
 - **Scheduled agents** in `pmo`, `performance`, `transformation`, `okr`, `balanced-scorecard`, `corporate-strategy`, `market-intelligence`, and `value-realisation` — escalation/slippage/steering prep, KPI breach watching, cadence reporting, assumption-decay/roadmap-drift, check-in nudges, scorecard review reminders, portfolio review prompts, competitive signal scanning, benefits-tracking checkpoints. Convention Monitor (`consulting`) is still planned for V1.2.
 
@@ -220,6 +220,7 @@ These plugins ship connectors for the systems strategy teams live in. A connecto
 | **Slack** | Read channels, search, send messages | all plugins | `~~chat` |
 | **Google Workspace** | Drive, Sheets, Gmail, Calendar | all plugins | `~~documents`, `~~spreadsheet`, `~~calendar`, `~~email` |
 | **Atlassian (Rovo)** | Jira issues, Confluence pages | all plugins | `~~project tracker`, `~~knowledge base` |
+| **Linear** | Issues, projects, initiatives, milestones | all plugins | `~~project tracker` |
 | **Honeycomb** | Product/system telemetry | `transformation`, `performance` | `~~observability` |
 | **Vercel** | Deployment and hosting context | `transformation` | `~~hosting` |
 | **HRIS** | Headcount and reporting-line data | `operating-model` | `~~hris` — Workday, BambooHR, Rippling, HiBob |

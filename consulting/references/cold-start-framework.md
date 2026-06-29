@@ -85,6 +85,7 @@ Read the installed plugin's `.mcp.json` (in-repo: `../../.mcp.json` from the ski
 | google-drive | Seed documents, shared decks/trackers |
 | google-calendar | Steering prep, review reminders, cadence-driven agents |
 | atlassian | Jira/Confluence status, RAID, decision logs |
+| linear | Issues, projects, initiatives, milestones, cycle status |
 
 For each: **connected** (user has authorized), **available but not connected**, or **not in this plugin's manifest**. Name which agents/skills are degraded without each connector. Offer to continue setup after the report.
 

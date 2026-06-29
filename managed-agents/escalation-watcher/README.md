@@ -4,7 +4,7 @@
 
 Scans the RAID log for items crossing the escalation threshold in the practice profile and writes an alert report for human review. Same source as the [`escalation-watcher`](../../pmo/agents/escalation-watcher.md) Claude Code agent — this directory is the Managed Agent cookbook for `POST /v1/agents`.
 
-This is a **cookbook, not a product.** It assumes the RAID log lives in the workspace (markdown table, spreadsheet export, or pasted content). Teams that keep RAID in Jira or another tracker should wire a read connector on the reader tier or export to a local file before the run.
+This is a **cookbook, not a product.** It assumes the RAID log lives in the workspace (markdown table, spreadsheet export, or pasted content). Teams that keep RAID in Jira, Linear, or another tracker should wire a read connector on the reader tier or export to a local file before the run.
 
 ## Before you deploy
 
@@ -48,7 +48,7 @@ RAID log rows, status comments, and tracker exports are **untrusted input.** Thr
 
 Before you trust the output on your workflow:
 
-- **Point at your RAID source.** The default reader tier reads local files only. If RAID lives in Jira via Atlassian MCP, add an `mcp_toolset` for `atlassian` on `reader.yaml` only — never on compute or write-holder.
+- **Point at your RAID source.** The default reader tier reads local files only. If RAID lives in Jira via Atlassian MCP or Linear via Linear MCP, add an `mcp_toolset` for `atlassian` or `linear` on `reader.yaml` only — never on compute or write-holder.
 - **Set the Slack channel.** The write-holder emits a `handoff_request` that names a Slack channel. Set **escalation-alerts** in the practice profile before the first scheduled run or the handoff will dead-letter.
 - **Tune escalation thresholds.** The compute tier reads severity/impact rules from the practice profile. Confirm they match your governance model (what triggers escalation above the working level) before enabling scheduled runs.
 - **Confirm the work-product header.** The headless append in `agent.yaml` instructs the agent to prepend your profile's work-product header. Verify the language with your sponsor before turning this on.

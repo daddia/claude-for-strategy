@@ -28,6 +28,7 @@ Connectors shipped in the default `.mcp.json` of each plugin:
 | **Google Drive** | all eleven first-party plugins | `~~documents`, `~~spreadsheet` |
 | **Google Calendar** | corporate-strategy, transformation, balanced-scorecard, okr, pmo, value-realisation | `~~calendar` |
 | **Atlassian (Rovo)** | all eleven first-party plugins | `~~project tracker`, `~~knowledge base` |
+| **Linear** | all eleven first-party plugins | `~~project tracker` |
 | **Honeycomb** | transformation, performance | `~~observability` |
 | **Vercel** | transformation | `~~hosting` |
 

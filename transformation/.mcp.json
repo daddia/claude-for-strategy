@@ -30,6 +30,12 @@
       "title": "Atlassian",
       "description": "Read Jira issues, plans, Confluence pages, decisions, RAID logs and delivery artefacts scoped to the user's permissions."
     },
+    "linear": {
+      "type": "http",
+      "url": "https://mcp.linear.app/mcp",
+      "title": "Linear",
+      "description": "Search, read, and update Linear issues, projects, initiatives, and milestones scoped to the user's permissions."
+    },
     "honeycomb": {
       "type": "http",
       "url": "https://mcp.honeycomb.io/mcp",

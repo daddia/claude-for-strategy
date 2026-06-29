@@ -11,7 +11,7 @@ Plugin files use `~~category` as a placeholder for whatever tool you connect in 
 | Chat | `~~chat` | Slack | Microsoft Teams, Discord |
 | Email | `~~email` | Google Mail | Microsoft 365 |
 | Documents | `~~documents` | Google Workspace (Drive) | Microsoft 365 |
-| Project tracker | `~~project tracker` | Atlassian (Jira) | Asana, Linear, Monday |
+| Project tracker | `~~project tracker` | Atlassian (Jira), Linear | Asana, Monday |
 | Knowledge base | `~~knowledge base` | Atlassian (Confluence), Notion | Guru, Slite |
 | Calendar | `~~calendar` | Google Calendar | Microsoft 365 |
 | BI / analytics | `~~bi analytics` | — | Looker, Tableau, Power BI, Mode |
@@ -19,6 +19,7 @@ Plugin files use `~~category` as a placeholder for whatever tool you connect in 
 ## Notes
 
 - **Calendar** is here for the portfolio-review cadence — see `agents/portfolio-review-reminder.md`.
+- **Linear** and **Atlassian** (Jira) are both pre-wired for `~~project tracker`; Atlassian also covers `~~knowledge base` (Confluence).
 - **BI/analytics** has nothing pre-wired — `allocate-resources` is meaningfully better grounded pulling actual spend/headcount-by-business-unit from a live BI tool than from a description of it, but that's account-specific and left to you.
 - No market-data connector (Bloomberg, PitchBook, CB Insights) — would help `evaluate-strategic-option` and `synergy-stress-test` ground comparable-deal data, but nothing in this category has a broadly available MCP server yet.
 - Cross-plugin seam: `evaluate-strategic-option` is the portfolio-level sibling of `transformation:business-case` — see this plugin's README for where the boundary sits.

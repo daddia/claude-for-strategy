@@ -26,6 +26,7 @@ Shared org profile. Organisation-wide facts live in ~/.claude/plugins/config/cla
 | Google Drive / Sheets | [PLACEHOLDER ✓/✗] | User describes tracker structure manually |
 | Slack | [PLACEHOLDER ✓/✗] | Performance narratives inline only |
 | Atlassian | [PLACEHOLDER ✓/✗] | Delivery metrics from user uploads |
+| Linear | [PLACEHOLDER ✓/✗] | Delivery metrics from user uploads |
 
 *Re-check: `/performance:cold-start-interview --check-integrations`*
 

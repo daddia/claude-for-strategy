@@ -29,6 +29,7 @@ Shared org profile. Organisation-wide facts live in ~/.claude/plugins/config/cla
 | Google Drive | [PLACEHOLDER ✓/✗] | User uploads business cases and registers per task |
 | Google Calendar | [PLACEHOLDER ✓/✗] | Go-live and baseline cutoff dates stated manually |
 | Atlassian (Jira / Confluence) | [PLACEHOLDER ✓/✗] | Benefits register and tracking from user uploads |
+| Linear | [PLACEHOLDER ✓/✗] | Benefits tracking from user uploads |
 
 *Re-check: `/value-realisation:cold-start-interview --check-integrations`*
 
