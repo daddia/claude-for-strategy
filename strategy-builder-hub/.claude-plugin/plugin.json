@@ -1,8 +1,9 @@
 {
-    "name": "strategy-builder-hub",
-    "version": "1.0.0",
-    "description": "Finds, evaluates, and installs community strategy skills with a security review gate before anything lands in your environment.",
-    "author": {
-      "name": "Jonathan Daddia"
-    }
+  "name": "strategy-builder-hub",
+  "version": "1.0.0",
+  "description": "Finds, evaluates, and installs community strategy skills with a security review gate before anything lands in your environment.",
+  "author": {
+    "name": "Jonathan Daddia",
+    "url": "https://github.com/daddia"
+  }
 }
