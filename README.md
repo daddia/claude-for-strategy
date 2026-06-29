@@ -71,6 +71,7 @@ performance/              # KPI trees, trackers, glossary, performance narrative
 pmo/                      # RAID, status reports, steering packs, milestones, decisions
 balanced-scorecard/       # strategy maps, perspectives, measures, cascade, review
 okr/                      # objectives, key results, targets, cascade, check-ins, scoring
+value-realisation/        # benefits mapping, baseline discipline, tracking, recovery, PIR
 strategy-builder-hub/     # community skill discovery, installation, QA, and update management
 external-plugins/         # vendor plugins (future)
 managed-agents/           # CMA cookbooks — escalation-watcher, steering-prep, roadmap-drift-watcher, competitive-signal-scan
