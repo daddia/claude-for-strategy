@@ -225,12 +225,12 @@ def main() -> int:
         return 1
 
     if errs:
-        print("skill frontmatter lint FAILED:", file=sys.stderr)
+        print("skill validation FAILED:", file=sys.stderr)
         for message in errs:
             print(f"  {message}", file=sys.stderr)
         return 1
 
-    print(f"  ✓ {len(paths)} skill(s) frontmatter clean")
+    print(f"  ✓ {len(paths)} skill(s) valid")
     return 0
 
 

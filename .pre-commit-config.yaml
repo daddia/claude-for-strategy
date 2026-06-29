@@ -3,8 +3,8 @@
 repos:
   - repo: local
     hooks:
-      - id: check-skill-frontmatter
-        name: check skill frontmatter
-        entry: python3 scripts/check-skill-frontmatter.py --check
+      - id: validate-skills
+        name: validate skills
+        entry: python3 scripts/validate-skills.py --check
         language: system
         files: (^|/)skills/.+/SKILL\.md$

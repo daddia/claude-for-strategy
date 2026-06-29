@@ -11,7 +11,7 @@ skill well-designed. Three things consume it:
   than restating the definitions below; do not let the two drift apart.
 - **`references/skill-authoring-template.md`** — the starting skeleton for
   any new skill, built to pass this framework by construction.
-- **`scripts/check-skill-frontmatter.py`** — mechanically validates the
+- **`scripts/validate-skills.py`** — mechanically validates the
   parts of this framework that don't require judgment (the Work Shape enum,
   permission tier ↔ `allowed-tools` consistency, required headings,
   required frontmatter fields).
