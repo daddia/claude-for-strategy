@@ -23,7 +23,7 @@ ELEVATED_WEBFETCH_TOOLS = "Read, Grep, Glob, Write, WebFetch"
 
 ARTEFACT_SKILL_NAMES = frozenset(
     {
-        "cold-start-interview",
+        "practice-setup",
         "decision-log",
         "raid-log",
         "check-in",

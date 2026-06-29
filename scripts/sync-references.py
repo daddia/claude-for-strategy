@@ -19,7 +19,7 @@ REFERENCE_FILES = (
     "bluf-conventions.md",
     "mece.md",
     "trust-conventions.md",
-    "cold-start-framework.md",
+    "practice-setup-framework.md",
     "org-profile-template.md",
 )
 
@@ -37,7 +37,7 @@ FIRST_PARTY_PLUGINS = (
 )
 
 SHARED_PLUGIN_REFERENCES = (
-    "cold-start-framework.md",
+    "practice-setup-framework.md",
     "org-profile-template.md",
 )
 
