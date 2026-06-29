@@ -5,14 +5,13 @@ description: >
   set in the practice profile, and separately escalates any benefit
   approaching its business change's go-live with no baseline captured
   yet — a point-of-no-return distinct from an ordinary reminder.
-schedule: "0 9 1 * *"
-metadata:
-  version: "0.1.0"
+model: sonnet
+tools: [Read, Grep, "mcp__*__slack_send_message"]
 ---
 
 # Realisation Checkpoint Reminder
 
-Runs monthly by default (9am on the 1st, per the cron schedule above) — override to match the practice profile's recorded tracking cadence if it differs from monthly.
+Runs monthly by default (9am on the 1st) — override to match the practice profile's recorded tracking cadence if it differs from monthly.
 
 ## What it does
 
