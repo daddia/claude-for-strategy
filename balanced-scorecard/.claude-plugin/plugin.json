@@ -1,10 +1,16 @@
 {
-    "name": "balanced-scorecard",
-    "version": "1.0.0",
-    "description": "Strategy maps and balanced scorecards — perspective design, causal-link strategy mapping, lead/lag measure selection, target-and-initiative setting, cascaded business-unit scorecards, and periodic reviews that test the strategy's causal theory, not just the numbers.",
-    "author": {
-      "name": "Jonathan Daddia",
-      "url": "https://github.com/daddia"
-    },
-    "keywords": ["balanced-scorecard", "strategy-map", "kaplan-norton", "strategy-execution", "performance-management"]
+  "name": "balanced-scorecard",
+  "version": "1.0.0",
+  "description": "Strategy maps and balanced scorecards — perspective design, causal-link strategy mapping, lead/lag measure selection, target-and-initiative setting, cascaded business-unit scorecards, and periodic reviews that test the strategy's causal theory, not just the numbers.",
+  "author": {
+    "name": "Jonathan Daddia",
+    "url": "https://github.com/daddia"
+  },
+  "keywords": [
+    "balanced-scorecard",
+    "strategy-map",
+    "kaplan-norton",
+    "strategy-execution",
+    "performance-management"
+  ]
 }
