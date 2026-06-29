@@ -418,8 +418,3 @@ Everything here is markdown and JSON. Fork, edit, PR.
 Licensed under the [MIT License](LICENSE).
 
 Copyright 2026 Jonathan Daddia.
-
-`scripts/deploy-managed-agent.sh` is adapted from
-[anthropics/claude-for-legal](https://github.com/anthropics/claude-for-legal)
-and remains under the Apache License 2.0 (Anthropic PBC). See [NOTICE](NOTICE)
-for attribution and modification details.

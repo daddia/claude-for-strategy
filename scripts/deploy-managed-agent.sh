@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
-# Copyright 2026 Anthropic PBC
-# SPDX-License-Identifier: Apache-2.0
-# Modified for claude-for-strategy: cookbook path is managed-agents/ (upstream:
-# managed-agent-cookbooks/). See NOTICE.
+# Copyright 2026 Jonathan Daddia
+# SPDX-License-Identifier: MIT
 # Deploy a managed-agent template to POST /v1/agents.
 #
 # Resolves manifest conveniences before posting:
