@@ -1,7 +1,7 @@
 # Strategy Skill Design Framework
 
-**Version:** 0.1.0
-**Last updated:** 2026-06-23
+**Version:** 0.1.1
+**Last updated:** 2026-06-29
 
 This is the single source of truth for what makes a `claude-for-strategy`
 skill well-designed. Three things consume it:
@@ -13,7 +13,10 @@ skill well-designed. Three things consume it:
   any new skill, built to pass this framework by construction.
 - **`scripts/check-skill-frontmatter.py`** — mechanically validates the
   parts of this framework that don't require judgment (the Work Shape enum,
-  required headings, required frontmatter fields).
+  permission tier ↔ `allowed-tools` consistency, required headings,
+  required frontmatter fields).
+- **`scripts/sync-skill-permission-tiers.py`** — canonical tier assignment
+  for first-party skills; run with `--check` in CI.
 
 If you change the Work Shape enum or the Failure Mode set, change all three
 consumers in the same commit. A skill's `work_shape` frontmatter value that
@@ -49,6 +52,45 @@ a skill you haven't read.
 | `structured-aggregation` | MECE-complete, every figure source-tagged | Mostly complete, some items marked `needs_review` | Scaffold only, explicitly marked incomplete |
 | `narrative-synthesis` | Every claim traces to an underlying analysis artifact | Mostly traceable, some connective narrative not yet evidenced | The story runs ahead of the evidence — flag explicitly, don't smooth over it |
 | `governance-tracking` | Data current and instrumented, not self-reported | Partially current or partially self-reported | Stale or fully self-reported — flag, don't present as fact |
+
+---
+
+## Permission tiers
+
+Every skill declares exactly one permission tier in frontmatter
+(`metadata.permission_tier`). The tier is the **least privilege** the skill
+needs for its designed workflow — public users judge trust by the tool surface
+as much as by the prose. `allowed-tools` must match the tier; do not grant
+`Write` for structured chat output alone.
+
+`scripts/sync-skill-permission-tiers.py --check` enforces tier ↔ tool
+consistency on all first-party skills.
+
+| Tier | `metadata.permission_tier` | Default `allowed-tools` | When to use |
+|---|---|---|---|
+| **Advisory** | `advisory` | `Read, Grep, Glob` (or none) | Narrative, memo, roadmap, TOM, OKR drafting — output is a structured response in session; may *read* practice profiles and project files but does not mutate disk. |
+| **Local artefact writer** | `artefact-writer` | `Read, Grep, Glob, Write` (+ `Bash` only when building binaries such as `.xlsx`) | Tracker builder, deck export, decision/RAID/check-in logs, strategy-map persistence, cold-start profile writes — the user asked for (or the workflow requires) a file at a known path. |
+| **Elevated / supply-chain** | `elevated` | `Write` plus `WebFetch` / `WebSearch` / `Bash` / MCP as needed | Strategy Builder Hub install, registry sync, auto-update, disable/uninstall — touches supply chain or external registries. |
+
+**Classification rules:**
+
+- If the skill's `## Workflow` never names a write path and `## Output format`
+  is chat-only, tier is **advisory** even when the output *looks* like a
+  document (outline, memo, register table).
+- **Governance-tracking** skills that append to a persisted log the practice
+  profile points at are **artefact-writer**, not advisory.
+- **cold-start-interview** is **artefact-writer** in every plugin (writes
+  `~/.claude/plugins/config/claude-for-strategy/`).
+- Hub **installer / updater / registry** skills are **elevated**; hub
+  **skills-qa** and **related-skills-surfacer** stay **advisory**.
+
+**Trust Surface (Parameter 10) calibration:**
+
+| Tier | Default flag |
+|---|---|
+| `advisory` | 🟢 when `allowed-tools` is `Read, Grep, Glob` only |
+| `artefact-writer` | 🟢 when `Write` (or `Bash` for declared binary builds) matches an explicit persist step; 🟡 if `Write` is granted without one |
+| `elevated` | 🟡 minimum — each elevated tool needs a one-line reason in the skill or installer trust check |
 
 ---
 
@@ -301,4 +343,6 @@ sits above Material Concerns; it is not advisory.
 
 ## Changelog
 
+- **0.1.1** (2026-06-29) — Permission tiers (`advisory` / `artefact-writer` /
+  `elevated`); Trust Surface calibration; `scripts/sync-skill-permission-tiers.py`.
 - **0.1.0** (2026-06-23) — Initial version.

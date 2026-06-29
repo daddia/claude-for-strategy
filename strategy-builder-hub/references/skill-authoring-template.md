@@ -22,10 +22,9 @@ description: >
   the body. Spell out adjacent phrasings a user might say, not just the
   formal task name.
 allowed-tools: Read, Grep, Glob
-  # Read/Write/Glob/Grep only = 🟢 on Trust Surface (Parameter 10).
-  # Anything beyond this (Bash, WebFetch, WebSearch, MCP wildcards) is
-  # elevated — add it only with a one-line reason in this comment; skills-qa
-  # will ask for one anyway.
+  # Default advisory tier — see skill-design-framework.md#permission-tiers.
+  # artefact-writer: add Write (+ Bash only for binary builds like .xlsx).
+  # elevated: add WebFetch/WebSearch/MCP only for supply-chain skills.
 metadata:
   version: "0.1.0"
   owner: "team-or-role"           # Parameter 5 — named owner, required for first-party skills
@@ -42,6 +41,8 @@ metadata:
                                    # that's a change to the framework doc
                                    # FIRST, in the same PR as this skill —
                                    # never a quiet new value here.
+  permission_tier: "advisory"      # advisory | artefact-writer | elevated —
+                                   # must match allowed-tools; see framework.
   output_class: "draft-for-review"  # Parameter 3 — Delegation Threshold,
                                      # made structural instead of a prose
                                      # disclaimer. One of: draft-for-review /
