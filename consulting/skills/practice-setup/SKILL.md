@@ -51,7 +51,7 @@ Quick mode or complete org profile: skip answered org questions; use "no strong 
 
 Read and follow `../../references/practice-setup-framework.md` with `consulting` as the plugin name.
 
-**Org profile:** `~/.claude/plugins/config/claude-for-strategy/org-profile.md`  
+**Org profile:** `~/.claude/plugins/config/claude-for-strategy/org-profile.md`
 **Plugin profile:** `~/.claude/plugins/config/claude-for-strategy/consulting/CLAUDE.md`
 
 ## Plugin-specific interview

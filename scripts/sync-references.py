@@ -35,6 +35,7 @@ FIRST_PARTY_PLUGINS = (
     "okr",
     "pmo",
     "value-realisation",
+    "strategy-builder-hub",
 )
 
 SHARED_PLUGIN_REFERENCES = (
