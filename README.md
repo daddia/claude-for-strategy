@@ -167,7 +167,7 @@ Four scheduled watchers ship as managed-agent cookbooks today — same system pr
 | [`roadmap-drift-watcher`](./managed-agents/roadmap-drift-watcher/) | transformation | Roadmap phase slippage |
 | [`competitive-signal-scan`](./managed-agents/competitive-signal-scan/) | market-intelligence | Competitor signal digest |
 
-See [`managed-agents/README.md`](./managed-agents/README.md) for manifest conventions, security tiers, and steering-event examples. Post the resolved manifest from each directory to `POST /v1/agents` using the [Managed Agents API](https://docs.claude.com/en/api/managed-agents). A `deploy-managed-agent.sh` script is planned.
+See [`managed-agents/README.md`](./managed-agents/README.md) for manifest conventions, security tiers, and steering-event examples. Deploy with [`scripts/deploy-managed-agent.sh`](./scripts/deploy-managed-agent.sh), which resolves manifest conveniences before posting to `POST /v1/agents` using the [Managed Agents API](https://docs.claude.com/en/api/managed-agents).
 
 ## Vertical plugins
 
