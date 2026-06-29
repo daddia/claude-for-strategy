@@ -12,6 +12,7 @@ Plugin files use `~~category` as a placeholder for whatever tool you connect in 
 | Email | `~~email` | Google Mail | Microsoft 365 |
 | Documents | `~~documents` | Google Workspace (Drive) | Microsoft 365 |
 | Knowledge base | `~~knowledge base` | Atlassian (Confluence), Notion | Guru, Slite |
+| Source control | `~~source control` | GitHub | GitLab, Bitbucket |
 | HRIS / People system | `~~hris` | — | Workday, BambooHR, Rippling, HiBob |
 | Whiteboard | `~~whiteboard` | — | Miro, Figma, Lucidchart |
 

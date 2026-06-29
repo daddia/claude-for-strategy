@@ -16,6 +16,7 @@ Plugins are tool-agnostic — they describe workflows in terms of categories rat
 | Project tracker | `~~project tracker` | Atlassian (Jira), Linear, Asana, Monday.com | — |
 | Knowledge base | `~~knowledge base` | Atlassian (Confluence), Notion | Guru, Slite |
 | Observability | `~~observability` | Honeycomb | Datadog, New Relic |
+| Source control | `~~source control` | GitHub | GitLab, Bitbucket |
 | BI / analytics | `~~bi analytics` | — | Looker, Tableau, Power BI, Mode |
 
 ## Notes

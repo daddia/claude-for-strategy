@@ -31,6 +31,7 @@ Connectors shipped in the default `.mcp.json` of each plugin:
 | **Linear** | all eleven first-party plugins | `~~project tracker` |
 | **Asana** | all eleven first-party plugins | `~~project tracker` |
 | **Monday.com** | all eleven first-party plugins | `~~project tracker` |
+| **GitHub** | all eleven first-party plugins | `~~source control`, `~~strategy skills registry` (hub) |
 | **Honeycomb** | transformation, performance | `~~observability` |
 | **Vercel** | transformation | `~~hosting` |
 

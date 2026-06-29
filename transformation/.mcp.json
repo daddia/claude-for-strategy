@@ -59,6 +59,12 @@
       "url": "https://mcp.vercel.com",
       "title": "Vercel",
       "description": "Read deployment, project, and hosting context for tech strategy and delivery assessments."
+    },
+    "github": {
+      "type": "http",
+      "url": "https://api.githubcopilot.com/mcp/",
+      "title": "GitHub",
+      "description": "Search and read repositories, issues, pull requests, and file contents scoped to the user's permissions."
     }
   },
   "recommendedCategories": [

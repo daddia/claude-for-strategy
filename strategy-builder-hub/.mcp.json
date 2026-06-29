@@ -11,11 +11,18 @@
       "url": "https://drivemcp.googleapis.com/mcp/v1",
       "title": "Google Drive",
       "description": "Search, read, and fetch documents from Google Drive."
+    },
+    "github": {
+      "type": "http",
+      "url": "https://api.githubcopilot.com/mcp/",
+      "title": "GitHub",
+      "description": "Search and read repositories, issues, pull requests, and file contents scoped to the user's permissions."
     }
   },
   "recommendedCategories": [
     "strategy-skills-registry",
     "chat",
-    "documents"
+    "documents",
+    "source-control"
   ]
 }

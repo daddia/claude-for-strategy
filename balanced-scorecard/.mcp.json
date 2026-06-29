@@ -47,6 +47,12 @@
       "url": "https://mcp.monday.com/mcp",
       "title": "Monday.com",
       "description": "Search, read, and update monday.com boards, items, columns, and users scoped to the user's permissions."
+    },
+    "github": {
+      "type": "http",
+      "url": "https://api.githubcopilot.com/mcp/",
+      "title": "GitHub",
+      "description": "Search and read repositories, issues, pull requests, and file contents scoped to the user's permissions."
     }
   },
   "recommendedCategories": [

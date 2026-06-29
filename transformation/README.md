@@ -72,4 +72,4 @@ If [`operating-model`](../operating-model) is also installed, hand off `target-o
 
 ## Customization
 
-See [CONNECTORS.md](./CONNECTORS.md) — `~~observability` and `~~hosting` are the categories most specific to this plugin. V1 skills produce markdown output; wiring those connectors lets `tech-strategy-brief` and `target-operating-model` ground against real system context.
+See [CONNECTORS.md](./CONNECTORS.md) — `~~observability`, `~~hosting`, and `~~source control` (GitHub) are the categories most specific to this plugin. V1 skills produce markdown output; wiring those connectors lets `tech-strategy-brief`, `target-operating-model`, and `maturity-assessment` ground against real system and repository context.
