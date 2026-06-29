@@ -1,4 +1,4 @@
-# Claude for Strategy
+# Claude for Strategy & Transformation
 
 Reference agents, skills, and data connectors for the strategy and transformation workflows we see most — consulting craft, corporate strategy, market intelligence, digital transformation, org design, performance management, program PMO, balanced scorecards, OKRs, value realisation, and a Strategy Builder Hub for discovering community skills.
 
