@@ -75,7 +75,7 @@ okr/                      # objectives, key results, targets, cascade, check-ins
 value-realisation/        # benefits mapping, baseline discipline, tracking, recovery, PIR
 strategy-builder-hub/     # community skill discovery, installation, QA, and update management
 external-plugins/         # vendor plugins (future)
-managed-agents/           # CMA cookbooks — escalation-watcher, steering-prep, roadmap-drift-watcher, competitive-signal-scan
+managed-agents/           # CMA cookbooks — escalation-watcher, steering-prep, roadmap-drift-watcher, competitive-signal-scan, realisation-checkpoint-reminder
 scripts/                  # sync-references.py · check-marketplace-sync.py · check-connector-taxonomy.py · lint-tool-scope.py
 references/               # repo-root mirror of consulting/references/ · connector-taxonomy.json
 .claude-plugin/
@@ -160,7 +160,7 @@ Everything is markdown and JSON. No build step.
 
 ### Claude Managed Agents
 
-Four scheduled watchers ship as managed-agent cookbooks today — same system prompts and skills as their plugin agents, deployable headlessly behind your own workflow engine:
+Five scheduled watchers ship as managed-agent cookbooks today — same system prompts and skills as their plugin agents, deployable headlessly behind your own workflow engine:
 
 | Cookbook | Plugin agent | What it does |
 |---|---|---|
@@ -168,6 +168,7 @@ Four scheduled watchers ship as managed-agent cookbooks today — same system pr
 | [`steering-prep`](./managed-agents/steering-prep/) | pmo | Pre-steering brief assembly |
 | [`roadmap-drift-watcher`](./managed-agents/roadmap-drift-watcher/) | transformation | Roadmap phase slippage |
 | [`competitive-signal-scan`](./managed-agents/competitive-signal-scan/) | market-intelligence | Competitor signal digest |
+| [`realisation-checkpoint-reminder`](./managed-agents/realisation-checkpoint-reminder/) | value-realisation | Benefits tracking due + missing-baseline escalations |
 
 See [`managed-agents/README.md`](./managed-agents/README.md) for manifest conventions, security tiers, and steering-event examples. Deploy with [`scripts/deploy-managed-agent.sh`](./scripts/deploy-managed-agent.sh), which resolves manifest conveniences before posting to `POST /v1/agents` using the [Managed Agents API](https://docs.claude.com/en/api/managed-agents).
 

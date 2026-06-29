@@ -1,0 +1,14 @@
+[
+  {
+    "event": "Monthly benefits checkpoint as-of 2026-06-01",
+    "description": "Scheduled monthly run — tracking-due benefits and missing-baseline escalations"
+  },
+  {
+    "event": "Pre-go-live baseline scan: benefits with go-live within 14 days and no baseline",
+    "description": "Ad-hoc run between scheduled cycles when a release date is close"
+  },
+  {
+    "event": "Quarterly realisation window review: all active benefits in register",
+    "description": "Broader scan before a portfolio realisation review"
+  }
+]

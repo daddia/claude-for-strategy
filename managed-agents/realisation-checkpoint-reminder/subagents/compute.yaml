@@ -1,0 +1,110 @@
+name: realisation-checkpoint-compute
+model: claude-opus-4-8
+system:
+  text: |
+    You receive the validated benefits list from the reader tier. You perform
+    pure computation against the deploying team's practice profile
+    (`~/.claude/plugins/config/claude-for-strategy/value-realisation/CLAUDE.md`):
+
+    1. Identify benefits **due for tracking this cycle** based on the profile's
+       tracking cadence and each benefit's last tracked date.
+
+    2. Separately, and with higher urgency, identify benefits whose business
+       change is scheduled to go live — or has already gone live — within the
+       profile's baseline window, with **no baseline value yet recorded**
+       (`baseline_check: MISSING` or absent baseline). This is distinct from
+       ordinary tracking reminders.
+
+    3. Flag benefits that did not respond to last cycle's tracking prompt when
+       the tracking log shows silence or stale data past the due date.
+
+    Produce a one-line reason a reviewer would want for each flagged benefit.
+    You are pure computation. You have no MCP, no web, no Write. Return only
+    schema-validated JSON.
+
+tools:
+  - type: agent_toolset_20260401
+    default_config: { enabled: false }
+    configs:
+      - { name: read, enabled: true }
+      - { name: grep, enabled: true }
+      - { name: glob, enabled: true }
+
+mcp_servers: []
+skills: []
+callable_agents: []
+
+output_schema:
+  type: object
+  required: [as_of, tracking_due, missing_baseline, stale_tracking]
+  additionalProperties: false
+  properties:
+    as_of:
+      type: string
+      maxLength: 10
+      pattern: "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+    tracking_due:
+      type: array
+      maxItems: 100
+      items:
+        type: object
+        additionalProperties: false
+        required: [name, owner, reason]
+        properties:
+          name:
+            type: string
+            maxLength: 200
+            pattern: "^[A-Za-z0-9 .,&()_/'-]+$"
+          owner:
+            type: string
+            maxLength: 120
+            pattern: "^[A-Za-z0-9 .,@'_-]*$"
+          reason:
+            type: string
+            maxLength: 300
+          last_tracked_date:
+            type: string
+            maxLength: 10
+            pattern: "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+    missing_baseline:
+      type: array
+      maxItems: 50
+      items:
+        type: object
+        additionalProperties: false
+        required: [name, owner, reason]
+        properties:
+          name:
+            type: string
+            maxLength: 200
+            pattern: "^[A-Za-z0-9 .,&()_/'-]+$"
+          owner:
+            type: string
+            maxLength: 120
+            pattern: "^[A-Za-z0-9 .,@'_-]*$"
+          go_live_date:
+            type: string
+            maxLength: 10
+            pattern: "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+          reason:
+            type: string
+            maxLength: 300
+    stale_tracking:
+      type: array
+      maxItems: 50
+      items:
+        type: object
+        additionalProperties: false
+        required: [name, owner, reason]
+        properties:
+          name:
+            type: string
+            maxLength: 200
+            pattern: "^[A-Za-z0-9 .,&()_/'-]+$"
+          owner:
+            type: string
+            maxLength: 120
+            pattern: "^[A-Za-z0-9 .,@'_-]*$"
+          reason:
+            type: string
+            maxLength: 300

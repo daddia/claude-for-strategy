@@ -12,6 +12,7 @@ Deploy with [`scripts/deploy-managed-agent.sh`](../scripts/deploy-managed-agent.
 | [`steering-prep`](./steering-prep/) | pmo | Calendar + RAID + milestones + decisions before steering | `Daily steering prep check as-of <date>` | reader · compute · **write-holder** |
 | [`roadmap-drift-watcher`](./roadmap-drift-watcher/) | transformation | Roadmap phase vs actual progress | `Weekly roadmap drift scan as-of <date>` | reader · compute · **write-holder** |
 | [`competitive-signal-scan`](./competitive-signal-scan/) | market-intelligence | Competitor moves vs profile signal taxonomy | `Weekly competitive signal scan as-of <date>` | reader · compute · **write-holder** |
+| [`realisation-checkpoint-reminder`](./realisation-checkpoint-reminder/) | value-realisation | Benefits tracking due + missing-baseline escalations | `Monthly benefits checkpoint as-of <date>` | reader · compute · **write-holder** |
 
 **Bold** leaf = the only worker with `Write`.
 
