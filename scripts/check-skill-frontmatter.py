@@ -5,6 +5,7 @@ Checks the parts of `strategy-builder-hub/references/skill-design-framework.md`
 that do not require judgment:
 
   - `metadata.work_shape` (or top-level `work_shape`) is one of five enum values
+  - `metadata.permission_tier` is one of three enum values and matches `allowed-tools`
   - `metadata.version`, `metadata.owner`, `metadata.review_cadence` are present
   - body contains `## Outputs` and `## Worked example` headings
 
@@ -16,6 +17,7 @@ from __future__ import annotations
 import argparse
 import json
 import re
+import subprocess
 import sys
 from pathlib import Path
 
@@ -30,7 +32,7 @@ WORK_SHAPES: tuple[str, ...] = (
     "governance-tracking",
 )
 
-REQUIRED_METADATA_FIELDS = ("version", "owner", "review_cadence")
+REQUIRED_METADATA_FIELDS = ("version", "owner", "review_cadence", "permission_tier")
 REQUIRED_HEADINGS = ("## Outputs", "## Worked example")
 
 _FRONTMATTER_RE = re.compile(r"^---\s*\n(.*?)\n---\s*\n", re.DOTALL)
@@ -210,6 +212,18 @@ def main() -> int:
         return 2
 
     errs = check_skills(paths)
+    tier_script = REPO_ROOT / "scripts" / "sync-skill-permission-tiers.py"
+    tier_result = subprocess.run(
+        [sys.executable, str(tier_script), "--check"],
+        cwd=REPO_ROOT,
+        capture_output=True,
+        text=True,
+    )
+    if tier_result.returncode != 0:
+        if tier_result.stderr:
+            print(tier_result.stderr, file=sys.stderr, end="")
+        return 1
+
     if errs:
         print("skill frontmatter lint FAILED:", file=sys.stderr)
         for message in errs:

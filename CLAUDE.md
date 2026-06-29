@@ -47,7 +47,7 @@ python3 scripts/lint-tool-scope.py
 # 5. marketplace ↔ plugin.json field sync (name, description, author)
 python3 scripts/check-marketplace-sync.py --check
 
-# 6. skill frontmatter + required headings (skill-design-framework.md)
+# 6. skill frontmatter, permission tiers, and required headings (skill-design-framework.md)
 python3 scripts/check-skill-frontmatter.py --check
 
 # 7. connector placeholder taxonomy (references/connector-taxonomy.json)
