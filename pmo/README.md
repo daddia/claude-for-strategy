@@ -17,7 +17,7 @@ RAID logs, status reporting, steering committee packs, milestone tracking, and d
 
 ## What this plugin does NOT do
 
-- **Write directly into Jira, Asana, or Linear** — V1 works against log content you paste or point to; connectors are the path to live tracker integration.
+- **Write directly into Jira, Asana, Linear, or Monday.com** — V1 works against log content you paste or point to; connectors are the path to live tracker integration.
 - **Replace the program manager** — it drafts reports and flags escalation; humans own decisions and stakeholder management.
 - **Post watcher alerts without `~~chat`** — Escalation Watcher, Slippage Watcher, and Steering Prep compile flags from log data and surface them in conversation when no chat connector is configured.
 

@@ -4,7 +4,7 @@
       "type": "http",
       "url": "https://mcp.slack.com/mcp",
       "title": "Slack",
-      "description": "Search messages, read channels, and post summaries — the delivery surface for watchers, check-ins, and status updates."
+      "description": "Search messages, read channels, and post summaries \u2014 the delivery surface for watchers, check-ins, and status updates."
     },
     "gmail": {
       "type": "http",
@@ -35,6 +35,12 @@
       "url": "https://mcp.asana.com/v2/mcp",
       "title": "Asana",
       "description": "Search, read, and update Asana tasks, projects, portfolios, and goals scoped to the user's permissions."
+    },
+    "monday": {
+      "type": "http",
+      "url": "https://mcp.monday.com/mcp",
+      "title": "Monday.com",
+      "description": "Search, read, and update monday.com boards, items, columns, and users scoped to the user's permissions."
     },
     "honeycomb": {
       "type": "http",

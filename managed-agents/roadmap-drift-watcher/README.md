@@ -4,7 +4,7 @@
 
 Scans the transformation roadmap for initiatives slipping their planned phase and writes a summary with downstream knock-on effects. Same source as the [`roadmap-drift-watcher`](../../transformation/agents/roadmap-drift-watcher.md) Claude Code agent — this directory is the Managed Agent cookbook for `POST /v1/agents`.
 
-This is a **cookbook, not a product.** It assumes the roadmap and progress signals live in the workspace (latest `roadmap-builder` output, seed documents, milestone exports). Teams that track delivery in Jira, Linear, or Asana should wire a read connector on the reader tier or export before the run.
+This is a **cookbook, not a product.** It assumes the roadmap and progress signals live in the workspace (latest `roadmap-builder` output, seed documents, milestone exports). Teams that track delivery in Jira, Linear, Asana, or Monday.com should wire a read connector on the reader tier or export before the run.
 
 ## Before you deploy
 

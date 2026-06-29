@@ -4,7 +4,7 @@
       "type": "http",
       "url": "https://mcp.slack.com/mcp",
       "title": "Slack",
-      "description": "Search messages, read channels, and post summaries — the delivery surface for checkpoint reminders and owner nudges."
+      "description": "Search messages, read channels, and post summaries \u2014 the delivery surface for checkpoint reminders and owner nudges."
     },
     "gmail": {
       "type": "http",
@@ -41,6 +41,12 @@
       "url": "https://mcp.asana.com/v2/mcp",
       "title": "Asana",
       "description": "Read Asana tasks, projects, and goals for benefits registers, tracking logs, and recovery decisions."
+    },
+    "monday": {
+      "type": "http",
+      "url": "https://mcp.monday.com/mcp",
+      "title": "Monday.com",
+      "description": "Read monday.com boards, items, and columns for benefits registers, tracking logs, and recovery decisions."
     }
   },
   "recommendedCategories": [

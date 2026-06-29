@@ -4,7 +4,7 @@
 
 N days before the next steering committee meeting, assembles current RAID, milestones, and pending decisions into a steering-pack prompt ready for review. Same source as the [`steering-prep`](../../pmo/agents/steering-prep.md) Claude Code agent — this directory is the Managed Agent cookbook for `POST /v1/agents`.
 
-This is a **cookbook, not a product.** It assumes programme artefacts live in the workspace (markdown RAID, milestone exports, decision log). Teams that keep RAID and milestones in Jira, Linear, or Asana should wire a read connector on the reader tier or export to local files before the run.
+This is a **cookbook, not a product.** It assumes programme artefacts live in the workspace (markdown RAID, milestone exports, decision log). Teams that keep RAID and milestones in Jira, Linear, Asana, or Monday.com should wire a read connector on the reader tier or export to local files before the run.
 
 ## Before you deploy
 
@@ -50,7 +50,7 @@ RAID rows, milestone comments, decision-log entries, and calendar titles are **u
 
 Before you trust the output on your workflow:
 
-- **Point at your RAID and milestone sources.** The default reader tier reads local files only. If RAID lives in Jira via Atlassian MCP, Linear via Linear MCP, or Asana via Asana MCP, add an `mcp_toolset` for `atlassian`, `linear`, or `asana` on `reader.yaml` only — never on compute or write-holder.
+- **Point at your RAID and milestone sources.** The default reader tier reads local files only. If RAID lives in Jira via Atlassian MCP, Linear via Linear MCP, Asana via Asana MCP, or Monday.com via Monday MCP, add an `mcp_toolset` for `atlassian`, `linear`, `asana`, or `monday` on `reader.yaml` only — never on compute or write-holder.
 - **Enable calendar when available.** Flip `gcal` to `default_config: { enabled: true }` in `reader.yaml` and set `GOOGLE_CALENDAR_MCP_URL`. Without calendar, the reader uses the profile's steering cadence to estimate the next date and flags `profile_estimate` in the JSON.
 - **Set the Slack channel.** Set **steering-prep-alerts** in the practice profile before the first scheduled run or the handoff will dead-letter.
 - **Tune prep lead time.** Default is 5 days before steering. Record your lead time in the practice profile so compute opens the window at the right time.

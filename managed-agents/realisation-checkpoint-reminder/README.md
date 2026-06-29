@@ -4,7 +4,7 @@
 
 Prompts a benefits-tracking run on the cadence set in the practice profile and separately escalates benefits approaching go-live with no baseline captured yet. Same source as the [`realisation-checkpoint-reminder`](../../value-realisation/agents/realisation-checkpoint-reminder.md) Claude Code agent — this directory is the Managed Agent cookbook for `POST /v1/agents`.
 
-This is a **cookbook, not a product.** It assumes the benefits register and tracking log live in the workspace (markdown, spreadsheet export, or files under `value-realisation/data/`). Teams that keep registers in Confluence, Jira, Linear, or Asana should wire a read connector on the reader tier or export to a local file before the run.
+This is a **cookbook, not a product.** It assumes the benefits register and tracking log live in the workspace (markdown, spreadsheet export, or files under `value-realisation/data/`). Teams that keep registers in Confluence, Jira, Linear, Asana, or Monday.com should wire a read connector on the reader tier or export to a local file before the run.
 
 ## Before you deploy
 
@@ -47,7 +47,7 @@ Benefits register rows and tracking log entries are **untrusted input.** Three-t
 
 Before you trust the output on your workflow:
 
-- **Point at your register source.** The default reader tier reads local files only. If the register lives in Confluence via Atlassian MCP, Linear via Linear MCP, or Asana via Asana MCP, add an `mcp_toolset` for `atlassian`, `linear`, or `asana` on `reader.yaml` only — never on compute or write-holder.
+- **Point at your register source.** The default reader tier reads local files only. If the register lives in Confluence via Atlassian MCP, Linear via Linear MCP, Asana via Asana MCP, or Monday.com via Monday MCP, add an `mcp_toolset` for `atlassian`, `linear`, `asana`, or `monday` on `reader.yaml` only — never on compute or write-holder.
 - **Set the Slack channel.** Set **benefits-checkpoint-alerts** in the practice profile before the first scheduled run or the handoff will dead-letter.
 - **Confirm tracking cadence and baseline window.** The compute tier reads these from the value-realisation practice profile. Verify they match your governance model before enabling scheduled runs.
 - **Cadence.** Monthly is the default (`0 9 1 * *`). High-volatility programmes may run weekly; stable portfolios may run quarterly. The cadence lives in your workflow engine — the cookbook does not schedule itself.

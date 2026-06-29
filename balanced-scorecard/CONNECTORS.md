@@ -13,7 +13,7 @@ Plugins are tool-agnostic — they describe workflows in terms of categories rat
 | Chat | `~~chat` | Slack | Microsoft Teams, Discord |
 | Email | `~~email` | Google Mail | Microsoft 365 |
 | Documents | `~~documents` | Google Workspace (Drive) | Microsoft 365 |
-| Project tracker | `~~project tracker` | Atlassian (Jira), Linear, Asana | Monday |
+| Project tracker | `~~project tracker` | Atlassian (Jira), Linear, Asana, Monday.com | — |
 | Knowledge base | `~~knowledge base` | Atlassian (Confluence), Notion | Guru, Slite |
 | Calendar | `~~calendar` | Google Calendar | Microsoft 365 |
 | Whiteboard | `~~whiteboard` | — | Miro, Figma, Lucidchart, Mural |
@@ -23,6 +23,6 @@ Plugins are tool-agnostic — they describe workflows in terms of categories rat
 - **Whiteboard** matters more here than anywhere else in the repo — `build-strategy-map`'s output is a causal diagram by nature (boxes and arrows across four perspectives), and a markdown table is a lossy way to represent it. Nothing pre-wired since it's account-specific; this is the strongest candidate in the whole repo for adding your own connector.
 - **Calendar** drives two different cadences here, not one — `review-and-validate` runs quarterly (or whatever the profile records), but the strategy map itself (`build-strategy-map`) should be revisited far less often, typically annually or on a material strategy change. Don't let the quarterly cadence pull you into re-litigating the map every quarter — see the agent notes.
 - **Atlassian** (Rovo) covers both `~~project tracker` and `~~knowledge base`.
-- **Linear** and **Asana** cover `~~project tracker` only — issues, projects, initiatives, and milestones (Linear) or tasks, projects, portfolios, and goals (Asana). Use Atlassian when you also need `~~knowledge base`.
+- **Linear**, **Asana**, and **Monday.com** cover `~~project tracker` only — issues, projects, initiatives, and milestones (Linear); tasks, projects, portfolios, and goals (Asana); or boards, items, columns, and users (Monday.com). Use Atlassian when you also need `~~knowledge base`.
 - Cross-plugin seam: `select-measures` hands off to `performance:metrics-glossary` for formal metric definitions if that plugin is installed, same pattern as `okr:instrument-metrics`.
 - If both `okr` and `balanced-scorecard` are installed: see the README's integration note before running `cascade-to-scorecards` and `okr:cascade` on the same objective set — they're meant to operate at different layers, not duplicate each other.

@@ -13,7 +13,7 @@ Plugins are tool-agnostic — they describe workflows in terms of categories rat
 | Chat | `~~chat` | Slack | Microsoft Teams, Discord |
 | Email | `~~email` | Google Mail | Microsoft 365 |
 | Documents | `~~documents` | Google Workspace (Drive) | Microsoft 365 |
-| Project tracker | `~~project tracker` | Atlassian (Jira), Linear, Asana | Monday |
+| Project tracker | `~~project tracker` | Atlassian (Jira), Linear, Asana, Monday.com | — |
 | Knowledge base | `~~knowledge base` | Atlassian (Confluence), Notion | Guru, Slite |
 | Calendar | `~~calendar` | Google Calendar | Microsoft 365 |
 
@@ -22,6 +22,6 @@ Plugins are tool-agnostic — they describe workflows in terms of categories rat
 - **Calendar** matters more here than in most plugins — `check-in` and the scheduled `check-in-nudge` agent are cadence-driven (weekly/biweekly confidence pulses, quarterly cycle boundaries), and `~~calendar` is the source of truth for when those land.
 - **Chat** is the primary surface for `check-in-nudge` — see the agent's own notes for what happens with no `~~chat` connected.
 - **Atlassian** (Rovo) covers both `~~project tracker` and `~~knowledge base`.
-- **Linear** and **Asana** cover `~~project tracker` only — issues, projects, initiatives, and milestones (Linear) or tasks, projects, portfolios, and goals (Asana). Use Atlassian when you also need `~~knowledge base`.
+- **Linear**, **Asana**, and **Monday.com** cover `~~project tracker` only — issues, projects, initiatives, and milestones (Linear); tasks, projects, portfolios, and goals (Asana); or boards, items, columns, and users (Monday.com). Use Atlassian when you also need `~~knowledge base`.
 - This plugin has a real dependency relationship with `performance`: `instrument-metrics` hands off to `performance:metrics-glossary` for canonical metric definitions if that plugin is installed. No connector implication either way — noted here because it's the one cross-plugin seam in this plugin.
 - If [`balanced-scorecard`](../balanced-scorecard) is also installed, see that plugin's README before running `okr:cascade` and `balanced-scorecard:cascade-to-scorecards` on the same objective set — they're meant to operate at different layers.

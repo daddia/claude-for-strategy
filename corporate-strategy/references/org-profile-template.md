@@ -57,7 +57,7 @@
 
 - **Systems of record:** _(ERP, CRM, BI, Jira, HRIS, etc.)_
 - **Source hierarchy when numbers disagree:** _(e.g. finance ERP > CRM pipeline > survey)_
-- **Connectors in use:** _(Slack, Drive, Atlassian, Linear, Asana, calendar — note what's authorized)_
+- **Connectors in use:** _(Slack, Drive, Atlassian, Linear, Asana, Monday.com, calendar — note what's authorized)_
 
 ## Escalation / approval model
 

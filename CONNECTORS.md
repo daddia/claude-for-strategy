@@ -30,6 +30,7 @@ Connectors shipped in the default `.mcp.json` of each plugin:
 | **Atlassian (Rovo)** | all eleven first-party plugins | `~~project tracker`, `~~knowledge base` |
 | **Linear** | all eleven first-party plugins | `~~project tracker` |
 | **Asana** | all eleven first-party plugins | `~~project tracker` |
+| **Monday.com** | all eleven first-party plugins | `~~project tracker` |
 | **Honeycomb** | transformation, performance | `~~observability` |
 | **Vercel** | transformation | `~~hosting` |
 
@@ -62,7 +63,7 @@ This section documents the `~~category` placeholder convention used across plugi
 
 ### The placeholder convention
 
-Plugin markdown uses `~~category` as a stand-in for whatever MCP-backed tool the user connects in that category — e.g. `~~chat` for Slack or Teams, `~~project tracker` for Jira, Linear, or Asana. Skills describe workflows in terms of categories, not products, so the repo stays fork-friendly.
+Plugin markdown uses `~~category` as a stand-in for whatever MCP-backed tool the user connects in that category — e.g. `~~chat` for Slack or Teams, `~~project tracker` for Jira, Linear, Asana, or Monday.com. Skills describe workflows in terms of categories, not products, so the repo stays fork-friendly.
 
 **Human placeholders vs machine categories.** Prose and skills use human-readable placeholders (`~~knowledge base`). Each plugin's `.mcp.json` `recommendedCategories` uses machine slugs (`knowledge-base`). The canonical mapping lives in [`references/connector-taxonomy.json`](./references/connector-taxonomy.json); `python3 scripts/check-connector-taxonomy.py --check` enforces it.
 
