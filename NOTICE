@@ -8,9 +8,6 @@ The following files are adapted from anthropics/claude-for-legal
 License, Version 2.0. Each file retains Anthropic's copyright notice and
 SPDX-License-Identifier header.
 
-  scripts/validate.py
-    Unmodified from the upstream file.
-
   scripts/deploy-managed-agent.sh
     Modified: cookbook directory path is managed-agents/ (upstream uses
     managed-agent-cookbooks/).

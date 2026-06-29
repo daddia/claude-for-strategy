@@ -24,7 +24,7 @@ SOFTWARE.
 
 Third-party components
 
-scripts/validate.py and scripts/deploy-managed-agent.sh are adapted from
-anthropics/claude-for-legal (https://github.com/anthropics/claude-for-legal)
-and are licensed under the Apache License, Version 2.0 by Anthropic PBC. See
-NOTICE for attribution and modification details.
+scripts/deploy-managed-agent.sh is adapted from anthropics/claude-for-legal
+(https://github.com/anthropics/claude-for-legal) and is licensed under the
+Apache License, Version 2.0 by Anthropic PBC. See NOTICE for attribution and
+modification details.

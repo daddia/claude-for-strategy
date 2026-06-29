@@ -402,7 +402,7 @@ Licensed under the [MIT License](LICENSE).
 
 Copyright 2026 Jonathan Daddia.
 
-`scripts/validate.py` and `scripts/deploy-managed-agent.sh` are adapted from
+`scripts/deploy-managed-agent.sh` is adapted from
 [anthropics/claude-for-legal](https://github.com/anthropics/claude-for-legal)
-and remain under the Apache License 2.0 (Anthropic PBC). See [NOTICE](NOTICE)
+and remains under the Apache License 2.0 (Anthropic PBC). See [NOTICE](NOTICE)
 for attribution and modification details.
