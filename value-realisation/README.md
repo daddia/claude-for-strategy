@@ -6,16 +6,17 @@ Benefits mapping, baseline-and-accountability discipline, realisation tracking w
 
 Those three plugins manage *ongoing, forward-looking* goals and measurement — what should we hit next quarter, how do we know we're on track. `value-realisation` answers a different question: did *this specific, already-approved investment* deliver the value its business case promised, on a finite window, traced back to one decision, with the result feeding directly into how confidently the *next* business case gets sized. It's a post-investment audit function, not a performance-management cadence.
 
-## Components
+## Skill & command reference
 
-| Command | What it does |
-|---|---|
-| `/value-realisation:cold-start-interview` | Learns your benefits framework, governance model, baseline discipline, and cadence — writes your practice profile |
-| `/value-realisation:benefits-map` | Approved business case → Benefits Dependency Network (enabler → business change → benefit → objective); catches benefits that are really deliverables in disguise |
-| `/value-realisation:benefits-register` | Mapped benefits → formal register entries — baseline-before-change enforcement, benefit type classification, single-point accountability (an owner who isn't the delivery PM) |
-| `/value-realisation:benefits-tracking` | Periodic remeasurement against baseline, with an explicit attribution call — not just "the number moved," but "moved because of us" |
-| `/value-realisation:benefits-recovery` | At-risk benefit → root-cause split (measurement lag / not embedded / enabler gap / theory problem / structurally lost) and a sunk-cost-clean continue-or-write-down decision |
-| `/value-realisation:realisation-review` | End-of-window portfolio PIR — planned vs. actual, optimism-bias calibration fed back into future business cases |
+| Command | Skill | What it does |
+|---|---|---|
+| `/value-realisation:cold-start-interview` | cold-start-interview | Learns your benefits framework, governance model, baseline discipline, and cadence — writes your practice profile |
+| `/value-realisation:benefits-map` | benefits-map | Approved business case → Benefits Dependency Network (enabler → business change → benefit → objective); catches benefits that are really deliverables in disguise |
+| `/value-realisation:benefits-register` | benefits-register | Mapped benefits → formal register entries — baseline-before-change enforcement, benefit type classification, single-point accountability (an owner who isn't the delivery PM) |
+| `/value-realisation:benefits-tracking` | benefits-tracking | Periodic remeasurement against baseline, with an explicit attribution call — not just "the number moved," but "moved because of us" |
+| `/value-realisation:benefits-recovery` | benefits-recovery | At-risk benefit → root-cause split (measurement lag / not embedded / enabler gap / theory problem / structurally lost) and a sunk-cost-clean continue-or-write-down decision |
+| `/value-realisation:realisation-review` | realisation-review | End-of-window portfolio PIR — planned vs. actual, optimism-bias calibration fed back into future business cases |
+| scheduled | realisation-checkpoint-reminder (agent) | Monthly benefits-tracking prompts via `~~chat`; escalates go-live benefits missing baseline |
 
 ## Setup
 

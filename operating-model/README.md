@@ -14,16 +14,16 @@ Job-style names in the table map to slash commands — run the command to invoke
 | **Matrix Reporting Stress Tester** | Forces explicit tie-breakers for dual-reporting relationships | `/operating-model:stress-test-matrix-reporting` |
 | **Rewards Alignment Checker** | Star Model check — structure, process, rewards, and people fit | `/operating-model:align-rewards-and-incentives` |
 
-## Components
+## Skill & command reference
 
-| Command | What it does |
-|---|---|
-| `/operating-model:cold-start-interview` | Learns current structure, strategic priority it's meant to serve, known decision-rights gaps, reward mechanics |
-| `/operating-model:diagnose-structure-fit` | Tests whether the structure actually matches the coordination need the strategy requires; flags "organized around the current leader's chart" |
-| `/operating-model:design-decision-rights` | Builds a RACI/RAPID matrix and enforces single-point accountability — flags zero-A and multi-A decisions, flags R/C bloat |
-| `/operating-model:check-span-and-layers` | Diagnoses span of control and layer count against known patterns for over- and under-management |
-| `/operating-model:stress-test-matrix-reporting` | Forces an explicit tie-breaker for every dual-reporting relationship; flags matrix-as-unresolved-compromise |
-| `/operating-model:align-rewards-and-incentives` | Star Model check — does the reward system reinforce or undermine the structure's intent; checks process and people fit too |
+| Command | Skill | What it does |
+|---|---|---|
+| `/operating-model:cold-start-interview` | cold-start-interview | Learns current structure, strategic priority it's meant to serve, known decision-rights gaps, reward mechanics |
+| `/operating-model:diagnose-structure-fit` | diagnose-structure-fit | Tests whether the structure actually matches the coordination need the strategy requires; flags "organized around the current leader's chart" |
+| `/operating-model:design-decision-rights` | design-decision-rights | Builds a RACI/RAPID matrix and enforces single-point accountability — flags zero-A and multi-A decisions, flags R/C bloat |
+| `/operating-model:check-span-and-layers` | check-span-and-layers | Diagnoses span of control and layer count against known patterns for over- and under-management |
+| `/operating-model:stress-test-matrix-reporting` | stress-test-matrix-reporting | Forces an explicit tie-breaker for every dual-reporting relationship; flags matrix-as-unresolved-compromise |
+| `/operating-model:align-rewards-and-incentives` | align-rewards-and-incentives | Star Model check — does the reward system reinforce or undermine the structure's intent; checks process and people fit too |
 
 ## The skill that matters most: `align-rewards-and-incentives`
 

@@ -8,17 +8,17 @@ Growth strategy, portfolio and resource allocation, and strategic options.
 |---|---|---|
 | **Portfolio Review Reminder** | Quarterly prompt to run `allocate-resources` and recheck `exit-or-double-down` holds past their re-rating date | scheduled agent |
 
-## Components
+## Skill & command reference
 
-| Command | What it does |
-|---|---|
-| `/corporate-strategy:cold-start-interview` | Learns portfolio composition, growth ambition, capital allocation process, risk posture |
-| `/corporate-strategy:assess-growth-vectors` | Categorizes growth initiatives core/adjacent/transformational, applies realistic success-rate priors per category, and does the arithmetic the growth ambition usually skips: does the portfolio of initiatives actually sum to the stated target |
-| `/corporate-strategy:allocate-resources` | Maps spend/headcount/attention against strategic priority; flags misallocation — especially legacy units absorbing resources disproportionate to their importance |
-| `/corporate-strategy:exit-or-double-down` | Forces the blank-page test on each unit, detects sunk-cost reasoning explicitly, and produces an exit/hold/double-down call |
-| `/corporate-strategy:evaluate-strategic-option` | Real-options framing for a major decision — staging, kill criteria set in advance, the case against written by the skill, not just collected |
-| `/corporate-strategy:build-vs-buy-vs-partner` | Evaluates a capability gap against known failure priors per path (build underestimates cost, buy overestimates synergy, partner underestimates exit difficulty) |
-| `/corporate-strategy:synergy-stress-test` | Separates cost from revenue synergies, applies a base-rate haircut to revenue synergy claims, checks for double-counting |
+| Command | Skill | What it does |
+|---|---|---|
+| `/corporate-strategy:cold-start-interview` | cold-start-interview | Learns portfolio composition, growth ambition, capital allocation process, risk posture |
+| `/corporate-strategy:assess-growth-vectors` | assess-growth-vectors | Categorizes growth initiatives core/adjacent/transformational, applies realistic success-rate priors per category, and does the arithmetic the growth ambition usually skips: does the portfolio of initiatives actually sum to the stated target |
+| `/corporate-strategy:allocate-resources` | allocate-resources | Maps spend/headcount/attention against strategic priority; flags misallocation — especially legacy units absorbing resources disproportionate to their importance |
+| `/corporate-strategy:exit-or-double-down` | exit-or-double-down | Forces the blank-page test on each unit, detects sunk-cost reasoning explicitly, and produces an exit/hold/double-down call |
+| `/corporate-strategy:evaluate-strategic-option` | evaluate-strategic-option | Real-options framing for a major decision — staging, kill criteria set in advance, the case against written by the skill, not just collected |
+| `/corporate-strategy:build-vs-buy-vs-partner` | build-vs-buy-vs-partner | Evaluates a capability gap against known failure priors per path (build underestimates cost, buy overestimates synergy, partner underestimates exit difficulty) |
+| `/corporate-strategy:synergy-stress-test` | synergy-stress-test | Separates cost from revenue synergies, applies a base-rate haircut to revenue synergy claims, checks for double-counting |
 
 ## The skill that matters most: `exit-or-double-down`
 
