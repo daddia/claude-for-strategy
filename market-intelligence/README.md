@@ -56,6 +56,10 @@ test-positioning ↔ map-information-asymmetry (a position is often a bet on whi
 
 This plugin operates at the competitive-dynamics level — who you're actually competing with, what incentives predict their behavior, and how they'll respond to a move. `corporate-strategy` operates at the portfolio/capital-allocation level — whether a competitive threat or opportunity should change what you fund, exit, or double down on. Run `map-competitive-landscape` and `forecast-competitive-response` here; hand off to `corporate-strategy:evaluate-strategic-option` when a signal becomes a capital-allocation decision.
 
+## Data directory
+
+The `data/` folder holds local competitive-intelligence artifacts when you are not using `~~whiteboard` or `~~documents`. You may store strategic-group maps from `map-competitive-landscape`, incentive maps from `map-incentives`, positioning briefs, and append-only signal digests the `competitive-signal-scan` agent references. Point skills at files here by path, or paste content when running a skill — both work. Files you add here are yours — only `.gitkeep` ships with the plugin.
+
 ## Customization
 
 See [CONNECTORS.md](./CONNECTORS.md).

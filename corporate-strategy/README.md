@@ -66,6 +66,10 @@ evaluate-strategic-option → build-vs-buy-vs-partner (if the option is a capabi
 
 `market-intelligence` operates at the competitive-dynamics level — who you're actually competing with, what incentives predict their behavior, and how they'll respond to a move. This plugin operates at the portfolio/capital-allocation level — whether a competitive threat or opportunity should change what you fund, exit, or double down on. Run `map-competitive-landscape` and `forecast-competitive-response` in `market-intelligence`; hand off to `evaluate-strategic-option` here when a signal becomes a capital-allocation decision.
 
+## Data directory
+
+The `data/` folder holds local portfolio artifacts when you are not using `~~documents` or a `~~bi analytics` connector. You may store portfolio unit lists, allocation snapshots, hold re-rating notes from `exit-or-double-down`, and option-evaluation memos from `evaluate-strategic-option`. Point skills at files here by path, or paste content when running a skill — both work. Files you add here are yours — only `.gitkeep` ships with the plugin.
+
 ## Customization
 
 See [CONNECTORS.md](./CONNECTORS.md).
