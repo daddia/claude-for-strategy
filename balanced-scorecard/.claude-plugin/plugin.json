@@ -1,6 +1,6 @@
 {
     "name": "balanced-scorecard",
-    "version": "0.1.0",
+    "version": "1.0.0",
     "description": "Strategy maps and balanced scorecards — perspective design, causal-link strategy mapping, lead/lag measure selection, target-and-initiative setting, cascaded business-unit scorecards, and periodic reviews that test the strategy's causal theory, not just the numbers.",
     "author": {
       "name": "Jonathan Daddia",

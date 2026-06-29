@@ -1,7 +1,7 @@
 {
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
   "name": "claude-for-strategy",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "owner": {
     "name": "Jonathan Daddia",
     "url": "https://github.com/daddia"

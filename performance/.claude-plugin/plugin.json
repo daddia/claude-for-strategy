@@ -1,6 +1,6 @@
 {
   "name": "performance",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "KPI trees, metrics tracker builder, metrics glossary, and performance narratives.",
   "author": {
     "name": "Jonathan Daddia",

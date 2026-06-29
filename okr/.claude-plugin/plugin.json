@@ -1,6 +1,6 @@
 {
     "name": "okr",
-    "version": "0.1.0",
+    "version": "1.0.0",
     "description": "Objectives and Key Results — drafting objectives that aren't disguised metrics, writing outcome-based key results, target calibration, cascading with conflict detection, confidence-based check-ins, and end-of-cycle scoring with retro.",
     "author": {
       "name": "Jonathan Daddia",
