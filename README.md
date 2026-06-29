@@ -11,7 +11,7 @@ Everything here ships as [Claude Cowork](https://claude.com/product/cowork) or [
 
 What's in the repo:
 
-- **Practice-area plugins** covering consulting craft, corporate strategy, market intelligence, transformation, org design, performance, PMO, balanced scorecards, OKRs, and value realisation — each built around a cold-start interview that learns your playbook, a living `CLAUDE.md` practice profile every skill reads from, and a **propose profile update** flow so conventions can be recorded mid-engagement without re-running setup.
+- **Practice-area plugins** covering consulting craft, corporate strategy, market intelligence, transformation, org design, performance, PMO, balanced scorecards, OKRs, and value realisation — each built around a practice setup that learns your playbook, a living `CLAUDE.md` practice profile every skill reads from, and a **propose profile update** flow so conventions can be recorded mid-engagement without re-running setup.
 - **Strategy Builder Hub** for discovering, installing, and QAing community strategy skills from trusted registries.
 - **MCP connectors** across general productivity (Slack, Google Workspace, Atlassian, Linear, Asana, Monday.com) and strategy-specific categories (GitHub, Miro, observability, hosting, spreadsheets).
 - **[Named agents](#agents)** — job-style entry points (Narrative Architect, Roadmap Architect, RAID Logger, …) with a single command to run each one.
@@ -95,7 +95,7 @@ Each plugin directory has the same shape:
 ```
 <plugin>/
   .claude-plugin/plugin.json
-  CLAUDE.md               # template practice profile — filled in by /<plugin>:cold-start-interview
+  CLAUDE.md               # template practice profile — filled in by /<plugin>:practice-setup
   README.md
   skills/                 # skills — each is a /<plugin>:<skill> slash command
   agents/                 # scheduled/background watcher definitions only (if any)
@@ -133,20 +133,20 @@ After install, skills fire automatically when relevant, slash commands are avail
 
 # Restart Claude Code, then run setup for each plugin you installed.
 # This writes org-profile.md (once) and per-plugin CLAUDE.md to ~/.claude/plugins/config/claude-for-strategy/
-/consulting:cold-start-interview
-/corporate-strategy:cold-start-interview
-/market-intelligence:cold-start-interview
-/transformation:cold-start-interview
-/operating-model:cold-start-interview
-/performance:cold-start-interview
-/pmo:cold-start-interview
-/balanced-scorecard:cold-start-interview
-/okr:cold-start-interview
-/value-realisation:cold-start-interview
-/strategy-builder-hub:cold-start-interview
+/consulting:practice-setup
+/corporate-strategy:practice-setup
+/market-intelligence:practice-setup
+/transformation:practice-setup
+/operating-model:practice-setup
+/performance:practice-setup
+/pmo:practice-setup
+/balanced-scorecard:practice-setup
+/okr:practice-setup
+/value-realisation:practice-setup
+/strategy-builder-hub:practice-setup
 ```
 
-**Run the cold-start interview first.** Every other skill in a plugin reads from the practice profile it writes. Skipping setup is the single most common reason a skill produces generic output. The interview takes 10–20 minutes per plugin and will ask you to point at seed documents. More seed material is better; a **quick start** option is available if you want to be productive in 2 minutes and refine later.
+**Run the practice setup first.** Every other skill in a plugin reads from the practice profile it writes. Skipping setup is the single most common reason a skill produces generic output. The interview takes 10–20 minutes per plugin and will ask you to point at seed documents. More seed material is better; a **quick start** option is available if you want to be productive in 2 minutes and refine later.
 
 **Which plugin is for me?** See the [role routing table in QUICKSTART.md](QUICKSTART.md#which-plugin-is-for-me).
 
@@ -182,7 +182,7 @@ See [`managed-agents/README.md`](./managed-agents/README.md) for manifest conven
 
 ## Vertical plugins
 
-Grouped by where the work sits. Each plugin's cold-start interview is what tailors it to your team — start there.
+Grouped by where the work sits. Each plugin's practice setup is what tailors it to your team — start there.
 
 ### Craft & delivery
 
@@ -215,7 +215,7 @@ Grouped by where the work sits. Each plugin's cold-start interview is what tailo
 
 | Plugin | What it adds |
 |---|---|
-| **[strategy-builder-hub](./strategy-builder-hub)** | Community strategy skill discovery, installation, QA, and update management. Browses GitHub registries, surfaces related community skills inside other plugins, and applies a four-layer security gate (allowlist, raw display, heuristic scan, human approval) before anything is written. The cold-start interview IS the starter pack recommender — ask your engagement type and it recommends what to install. |
+| **[strategy-builder-hub](./strategy-builder-hub)** | Community strategy skill discovery, installation, QA, and update management. Browses GitHub registries, surfaces related community skills inside other plugins, and applies a four-layer security gate (allowlist, raw display, heuristic scan, human approval) before anything is written. The practice setup IS the starter pack recommender — ask your engagement type and it recommends what to install. |
 
 **Planned, not yet built:** `change-management`, `thought-leadership`.
 
@@ -248,10 +248,10 @@ Per-plugin connector details: each plugin's [CONNECTORS.md](./CONNECTORS.md) (co
 
 These are reference templates. They get better when you tune them to how your team works — and the customization mechanism is the plugin itself, not a config file buried in a repo.
 
-- **Run the cold-start interview.** It **is** the customization mechanism. It asks how your practice works, reads your seed documents, and writes your practice profile after you confirm the summary. Every other skill reads from that profile.
+- **Run the practice setup.** It **is** the customization mechanism. It asks how your practice works, reads your seed documents, and writes your practice profile after you confirm the summary. Every other skill reads from that profile.
 - **Edit the practice profile.** Org-wide facts live at `~/.claude/plugins/config/claude-for-strategy/org-profile.md`; plugin-specific conventions at `~/.claude/plugins/config/claude-for-strategy/<plugin>/CLAUDE.md`. Edit either file directly for small fixes. They survive plugin updates.
-- **Propose profile updates from any skill.** When a stable convention surfaces during work (repeated tone corrections, a new RAID threshold, tracker column names), skills show the exact profile change and ask before writing. Only `cold-start-interview` auto-applies a full profile write — everything else proposes first.
-- **Re-run setup.** `/<plugin>:cold-start-interview` again for a full re-interview when your practice shifts materially.
+- **Propose profile updates from any skill.** When a stable convention surfaces during work (repeated tone corrections, a new RAID threshold, tracker column names), skills show the exact profile change and ask before writing. Only `practice-setup` auto-applies a full profile write — everything else proposes first.
+- **Re-run setup.** `/<plugin>:practice-setup` again for a full re-interview when your practice shifts materially.
 - **Swap connectors.** Point `.mcp.json` at your project tracker, slides tool, observability platform, and data sources. Skills fall back gracefully when a connector isn't configured.
 - **Bring your playbook and templates.** Drop your terminology, house style, and branded templates into the practice profile and `references/`. The skills will pick them up.
 - **Fork skills for house style.** Every skill is a markdown file under `skills/`. Edit the steps, the gates, the output format.
@@ -261,13 +261,13 @@ No build step. Everything is markdown and JSON.
 
 ## Skill & command reference
 
-The full map across all plugins. The cold-start interview is the first thing to run in any plugin.
+The full map across all plugins. The practice setup is the first thing to run in any plugin.
 
 ### consulting
 
 | Command | Skill | What it does |
 |---|---|---|
-| `/consulting:cold-start-interview` | cold-start-interview | Learns narrative/deck/memo conventions; writes practice profile |
+| `/consulting:practice-setup` | practice-setup | Learns narrative/deck/memo conventions; writes practice profile |
 | `/consulting:narrative-builder` | narrative-builder | Raw notes → governing thought + MECE key line + support |
 | `/consulting:hypothesis-tree` | hypothesis-tree | Problem statement → root hypothesis + falsifiable MECE sub-hypotheses |
 | `/consulting:workplan-builder` | workplan-builder | Hypothesis tree → owned, timed workplan |
@@ -280,7 +280,7 @@ The full map across all plugins. The cold-start interview is the first thing to 
 
 | Command | Skill | What it does |
 |---|---|---|
-| `/corporate-strategy:cold-start-interview` | cold-start-interview | Learns portfolio composition, growth ambition, capital allocation process, risk posture |
+| `/corporate-strategy:practice-setup` | practice-setup | Learns portfolio composition, growth ambition, capital allocation process, risk posture |
 | `/corporate-strategy:assess-growth-vectors` | assess-growth-vectors | Categorizes initiatives core/adjacent/transformational; tests whether the portfolio sums to the stated growth target |
 | `/corporate-strategy:allocate-resources` | allocate-resources | Maps spend/headcount/attention against strategic priority; flags misallocation |
 | `/corporate-strategy:exit-or-double-down` | exit-or-double-down | Blank-page test per unit; surfaces sunk-cost reasoning; exit/hold/double-down call |
@@ -293,7 +293,7 @@ The full map across all plugins. The cold-start interview is the first thing to 
 
 | Command | Skill | What it does |
 |---|---|---|
-| `/market-intelligence:cold-start-interview` | cold-start-interview | Learns market definition, positioning, incentive context, signal-monitoring preferences |
+| `/market-intelligence:practice-setup` | practice-setup | Learns market definition, positioning, incentive context, signal-monitoring preferences |
 | `/market-intelligence:map-competitive-landscape` | map-competitive-landscape | Strategic-group map with mobility barriers; white-space attractiveness test |
 | `/market-intelligence:map-incentives` | map-incentives | Actual incentive structures vs. stated motivations; behavior prediction |
 | `/market-intelligence:test-positioning` | test-positioning | Explicit trade-offs; stuck-in-the-middle check; alienation stress test |
@@ -305,7 +305,7 @@ The full map across all plugins. The cold-start interview is the first thing to 
 
 | Command | Skill | What it does |
 |---|---|---|
-| `/transformation:cold-start-interview` | cold-start-interview | Learns platform vocabulary, delivery model, maturity framework |
+| `/transformation:practice-setup` | practice-setup | Learns platform vocabulary, delivery model, maturity framework |
 | `/transformation:maturity-assessment` | maturity-assessment | Observations → maturity scorecard with binding-constraint analysis |
 | `/transformation:roadmap-builder` | roadmap-builder | Current state + ambition → phased roadmap |
 | `/transformation:target-operating-model` | target-operating-model | Current state + ambition → TOM |
@@ -318,7 +318,7 @@ The full map across all plugins. The cold-start interview is the first thing to 
 
 | Command | Skill | What it does |
 |---|---|---|
-| `/operating-model:cold-start-interview` | cold-start-interview | Learns current structure, strategic priority, decision-rights gaps, reward mechanics |
+| `/operating-model:practice-setup` | practice-setup | Learns current structure, strategic priority, decision-rights gaps, reward mechanics |
 | `/operating-model:diagnose-structure-fit` | diagnose-structure-fit | Tests structure against strategy coordination needs; flags leader-centric charts |
 | `/operating-model:design-decision-rights` | design-decision-rights | RACI/RAPID with single-point accountability; flags zero-A and multi-A decisions |
 | `/operating-model:check-span-and-layers` | check-span-and-layers | Span of control and layer count vs. over- and under-management patterns |
@@ -329,7 +329,7 @@ The full map across all plugins. The cold-start interview is the first thing to 
 
 | Command | Skill | What it does |
 |---|---|---|
-| `/performance:cold-start-interview` | cold-start-interview | Learns KPI taxonomy, tracker structure, reporting cadence |
+| `/performance:practice-setup` | practice-setup | Learns KPI taxonomy, tracker structure, reporting cadence |
 | `/performance:kpi-tree-builder` | kpi-tree-builder | North Star → MECE drivers → leading indicators |
 | `/performance:tracker-builder` | tracker-builder | Builds `.xlsx` with Daily Log → Summary formulas |
 | `/performance:metrics-glossary` | metrics-glossary | Metric list → single source-of-truth definitions |
@@ -341,7 +341,7 @@ The full map across all plugins. The cold-start interview is the first thing to 
 
 | Command | Skill | What it does |
 |---|---|---|
-| `/pmo:cold-start-interview` | cold-start-interview | Learns governance cadence, RAID/RAG definitions, escalation thresholds |
+| `/pmo:practice-setup` | practice-setup | Learns governance cadence, RAID/RAG definitions, escalation thresholds |
 | `/pmo:raid-log` | raid-log | Log/update RAID item; flag escalation |
 | `/pmo:status-report` | status-report | RAID + milestones → RAG status report |
 | `/pmo:steering-pack` | steering-pack | Status + RAID + decisions → steering deck outline |
@@ -355,7 +355,7 @@ The full map across all plugins. The cold-start interview is the first thing to 
 
 | Command | Skill | What it does |
 |---|---|---|
-| `/balanced-scorecard:cold-start-interview` | cold-start-interview | Learns sector, perspective model, cadence, cascade structure |
+| `/balanced-scorecard:practice-setup` | practice-setup | Learns sector, perspective model, cadence, cascade structure |
 | `/balanced-scorecard:define-perspectives` | define-perspectives | Perspective set and causal-chain top perspective |
 | `/balanced-scorecard:build-strategy-map` | build-strategy-map | Objectives per perspective with explicit causal mechanisms |
 | `/balanced-scorecard:select-measures` | select-measures | Lead/lag classification per measure |
@@ -368,7 +368,7 @@ The full map across all plugins. The cold-start interview is the first thing to 
 
 | Command | Skill | What it does |
 |---|---|---|
-| `/okr:cold-start-interview` | cold-start-interview | Learns philosophy, scoring scale, cadence, cascade structure |
+| `/okr:practice-setup` | practice-setup | Learns philosophy, scoring scale, cadence, cascade structure |
 | `/okr:draft-objectives` | draft-objectives | Draft objectives; catch KR-disguised-as-objectives |
 | `/okr:write-key-results` | write-key-results | Outcome-shaped KRs; catch vanity metrics |
 | `/okr:set-targets` | set-targets | Commit vs aspirational labeling; sandbagging detection |
@@ -382,7 +382,7 @@ The full map across all plugins. The cold-start interview is the first thing to 
 
 | Command | Skill | What it does |
 |---|---|---|
-| `/value-realisation:cold-start-interview` | cold-start-interview | Learns benefits framework, governance model, baseline discipline, and cadence |
+| `/value-realisation:practice-setup` | practice-setup | Learns benefits framework, governance model, baseline discipline, and cadence |
 | `/value-realisation:benefits-map` | benefits-map | Approved business case → Benefits Dependency Network; catches deliverables disguised as benefits |
 | `/value-realisation:benefits-register` | benefits-register | Mapped benefits → register entries with baseline-before-change enforcement and single-point accountability |
 | `/value-realisation:benefits-tracking` | benefits-tracking | Periodic remeasurement against baseline with explicit attribution call |
@@ -394,7 +394,7 @@ The full map across all plugins. The cold-start interview is the first thing to 
 
 | Command | Skill | What it does |
 |---|---|---|
-| `/strategy-builder-hub:cold-start-interview` | cold-start-interview | Engagement profile → starter pack recommendation; asks engagement type and recommends community skills to install |
+| `/strategy-builder-hub:practice-setup` | practice-setup | Engagement profile → starter pack recommendation; asks engagement type and recommends community skills to install |
 | `/strategy-builder-hub:registry-browser [query]` | registry-browser | Search watched registries for community strategy skills |
 | `/strategy-builder-hub:skill-installer [skill]` | skill-installer | Allowlist-gate, fetch, raw display, heuristic scan, QA, and install a community skill |
 | `/strategy-builder-hub:auto-updater` | auto-updater | Check for updates to installed skills; show full diff and trust review; apply only on explicit approval |

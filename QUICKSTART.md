@@ -25,9 +25,9 @@
 
 5. **Run setup.** Takes 2 minutes (`--quick`) or 10–20 minutes (`--full`). The first plugin you set up also writes a shared org profile reused by the others.
    ```
-   /consulting:cold-start-interview
-   /consulting:cold-start-interview --quick
-   /consulting:cold-start-interview --check-integrations
+   /consulting:practice-setup
+   /consulting:practice-setup --quick
+   /consulting:practice-setup --check-integrations
    ```
    Other flags: `--full`, `--redo`, `--resume` (continue a paused interview).
 
@@ -47,24 +47,24 @@ If you already installed the wrong scope and want to switch: `/plugin uninstall 
 
 | You are a… | Install… | First command |
 |---|---|---|
-| Strategy consultant or narrative lead | `consulting` | `/consulting:cold-start-interview` |
-| Corporate strategy or portfolio lead | `corporate-strategy` | `/corporate-strategy:cold-start-interview` — connect `~~chat` and `~~calendar` for portfolio-review reminders; pair with `transformation` when options narrow to initiative-level business cases |
-| Competitive strategy or market intelligence lead | `market-intelligence` | `/market-intelligence:cold-start-interview` — `competitive-signal-scan` works with native web search; connect `~~chat` for weekly digests; pair with `corporate-strategy` when signals become portfolio decisions |
-| Transformation or digital lead | `transformation` | `/transformation:cold-start-interview` — connect `~~chat` for Assumption-Decay and Roadmap-Drift watchers; pair with `pmo` for decision-log revisit triggers |
-| Org design or operating-model lead | `operating-model` | `/operating-model:cold-start-interview` — connect `~~hris` for headcount and reporting-line data; pair with `transformation` when org design is one layer of a broader TOM |
-| Performance or metrics lead | `performance` | `/performance:cold-start-interview` |
-| Program or PMO lead | `pmo` | `/pmo:cold-start-interview` — then connect `~~chat` and `~~calendar` for scheduled watchers |
-| Agency principal (multi-client delivery) | `performance` + `pmo` | `/performance:cold-start-interview` then `/pmo:cold-start-interview` |
-| OKR cycle owner | `okr` | `/okr:cold-start-interview` |
-| Balanced scorecard owner | `balanced-scorecard` | `/balanced-scorecard:cold-start-interview` |
-| Benefits realisation or post-implementation review lead | `value-realisation` | `/value-realisation:cold-start-interview` — pair with `transformation` when benefits trace back to approved business cases; distinct from `performance`/`okr`/`balanced-scorecard` (those are forward-looking cadences) |
-| Anyone extending the built-in plugins with community skills | `strategy-builder-hub` | `/strategy-builder-hub:cold-start-interview` — install alongside your practice-area plugin; recommends a starter pack by engagement type |
+| Strategy consultant or narrative lead | `consulting` | `/consulting:practice-setup` |
+| Corporate strategy or portfolio lead | `corporate-strategy` | `/corporate-strategy:practice-setup` — connect `~~chat` and `~~calendar` for portfolio-review reminders; pair with `transformation` when options narrow to initiative-level business cases |
+| Competitive strategy or market intelligence lead | `market-intelligence` | `/market-intelligence:practice-setup` — `competitive-signal-scan` works with native web search; connect `~~chat` for weekly digests; pair with `corporate-strategy` when signals become portfolio decisions |
+| Transformation or digital lead | `transformation` | `/transformation:practice-setup` — connect `~~chat` for Assumption-Decay and Roadmap-Drift watchers; pair with `pmo` for decision-log revisit triggers |
+| Org design or operating-model lead | `operating-model` | `/operating-model:practice-setup` — connect `~~hris` for headcount and reporting-line data; pair with `transformation` when org design is one layer of a broader TOM |
+| Performance or metrics lead | `performance` | `/performance:practice-setup` |
+| Program or PMO lead | `pmo` | `/pmo:practice-setup` — then connect `~~chat` and `~~calendar` for scheduled watchers |
+| Agency principal (multi-client delivery) | `performance` + `pmo` | `/performance:practice-setup` then `/pmo:practice-setup` |
+| OKR cycle owner | `okr` | `/okr:practice-setup` |
+| Balanced scorecard owner | `balanced-scorecard` | `/balanced-scorecard:practice-setup` |
+| Benefits realisation or post-implementation review lead | `value-realisation` | `/value-realisation:practice-setup` — pair with `transformation` when benefits trace back to approved business cases; distinct from `performance`/`okr`/`balanced-scorecard` (those are forward-looking cadences) |
+| Anyone extending the built-in plugins with community skills | `strategy-builder-hub` | `/strategy-builder-hub:practice-setup` — install alongside your practice-area plugin; recommends a starter pack by engagement type |
 
 After setup, run the agent that matches your job — see the [Agents table in README.md](./README.md#agents). Examples: `/consulting:narrative-builder`, `/transformation:roadmap-builder`, `/pmo:status-report`.
 
 ## What you're installing
 
-Each plugin learns your playbook through a cold-start interview. Organisation-wide facts go to `~/.claude/plugins/config/claude-for-strategy/org-profile.md` (written once, shared across plugins). Plugin-specific conventions go to `~/.claude/plugins/config/claude-for-strategy/<plugin>/CLAUDE.md`. Every skill reads both. Edit either file directly, re-run setup (`--redo` for a full refresh), or accept a **propose profile update** when a skill surfaces a stable convention (it shows the diff and asks before writing).
+Each plugin learns your playbook through a practice setup. Organisation-wide facts go to `~/.claude/plugins/config/claude-for-strategy/org-profile.md` (written once, shared across plugins). Plugin-specific conventions go to `~/.claude/plugins/config/claude-for-strategy/<plugin>/CLAUDE.md`. Every skill reads both. Edit either file directly, re-run setup (`--redo` for a full refresh), or accept a **propose profile update** when a skill surfaces a stable convention (it shows the diff and asks before writing).
 
 **Every output is a draft for your review.** The plugins flag what they're unsure about, tag market figures and dollar amounts by source, surface load-bearing assumptions, and gate board- or exec-facing finals. You review, verify, and take responsibility. They make that review faster; they don't replace it.
 
@@ -76,7 +76,7 @@ Eleven first-party plugins — ten practice areas plus the Strategy Builder Hub 
 
 - **Plugin not visible after install** → confirm the marketplace registered: `/plugin marketplace list` should show `claude-for-strategy`. If not, re-run step 2. Then check `/plugin` — your plugin (e.g. `consulting@claude-for-strategy`) should appear. In Cowork: Customize → Browse plugins. Still missing? You forgot step 4 — restart Claude Code.
 - **"Command not found"** or **slash command not found** after install → you forgot step 4. Restart Claude Code.
-- **"Run setup first"** or **practice profile not loading** → run `/<plugin>:cold-start-interview` before any other command. Profiles live at `~/.claude/plugins/config/claude-for-strategy/org-profile.md` and `~/.claude/plugins/config/claude-for-strategy/<plugin>/CLAUDE.md` — if missing or empty, re-run setup (`--redo` to overwrite).
+- **"Run setup first"** or **practice profile not loading** → run `/<plugin>:practice-setup` before any other command. Profiles live at `~/.claude/plugins/config/claude-for-strategy/org-profile.md` and `~/.claude/plugins/config/claude-for-strategy/<plugin>/CLAUDE.md` — if missing or empty, re-run setup (`--redo` to overwrite).
 - **Skill wants to update my profile** → that's the living-profile flow. It should show the exact text change and ask for confirmation before writing. Say yes to apply, no to skip, or edit `~/.claude/plugins/config/claude-for-strategy/<plugin>/CLAUDE.md` yourself.
 - **Numbers look invented** or missing `[sourced:]` / `[unverified —]` tags → connect your data connectors (step 6). Without live sources, every figure is from training data. Run a consequential skill (`business-case`, `performance-narrative`, `deck-outline`, …) and verify the trust spine on the output.
 - **"I can't read [file]"** → most often this means the plugin is project-scoped and the file is outside the project folder. See "Install user-scoped, not project-scoped" above — reinstall user-scoped or move the file into the project folder.

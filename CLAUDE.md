@@ -12,7 +12,7 @@ Guidance for working on this repo. `claude-for-strategy` is a Claude Code plugin
   CLAUDE.md                       # practice-profile TEMPLATE (see "Plugin CLAUDE.md" below)
   README.md                       # per-plugin docs
   skills/<name>/SKILL.md          # one skill per directory
-  references/                     # consulting: method refs; all plugins: cold-start-framework + org-profile-template
+  references/                     # consulting: method refs; all plugins: practice-setup-framework + org-profile-template
   agents/<name>.md                # scheduled/background watcher definitions only (if any)
   hooks/hooks.json                # hook config (most plugins ship an empty stub)
   .gitignore
@@ -104,7 +104,7 @@ Job-style on-demand agents are README labels that map to slash commands under
 
 ### Skill names in prose must be canonical
 
-When a `SKILL.md` (especially `customize` or `cold-start-interview`) tells the
+When a `SKILL.md` (especially `customize` or `practice-setup`) tells the
 user "run `/foo`," `foo` must be the actual `skills/<foo>/` directory name.
 Short forms like `/deck` for `/deck-outline` look right in prose but are
 dead commands — the user types them and nothing happens. Refs to Claude Code
@@ -114,19 +114,19 @@ are fine.
 ### Plugin CLAUDE.md is a template, not project context
 
 Each `<plugin>/CLAUDE.md` is a practice-profile template that the
-`cold-start-interview` skill copies to `~/.claude/plugins/config/claude-for-strategy/<plugin>/CLAUDE.md`
+`practice-setup` skill copies to `~/.claude/plugins/config/claude-for-strategy/<plugin>/CLAUDE.md`
 on the user's machine. Organisation-wide facts live once in
 `~/.claude/plugins/config/claude-for-strategy/org-profile.md` (template:
 `consulting/references/org-profile-template.md`). It is *not* loaded as project context when the plugin is
 installed — `claude plugin validate` warns about this and the warning is
 expected. Don't "fix" it by moving the content into a skill.
 
-**Living profile.** `cold-start-interview` is the only skill that auto-applies a
+**Living profile.** `practice-setup` is the only skill that auto-applies a
 full profile write (after the user confirms the interview summary). Every other
 skill must use **propose profile update** — show the exact change, ask, then
-write only on confirmation. All eleven plugins share the cold-start framework in
-`references/cold-start-framework.md` (canonical under `consulting/references/`,
-copied to each plugin's `references/`). Documented in each plugin's `cold-start-interview`
+write only on confirmation. All eleven plugins share the practice-setup framework in
+`references/practice-setup-framework.md` (canonical under `consulting/references/`,
+copied to each plugin's `references/`). Documented in each plugin's `practice-setup`
 skill and in user-facing README/QUICKSTART.
 
 ### `external-plugins/` is vendor-authored
@@ -140,7 +140,7 @@ fine since the vendor lands changes via PR rather than mirroring a fork.
 
 The method and trust reference files (`minto-pyramid`, `hypothesis-driven-approach`,
 `bluf-conventions`, `mece`, `trust-conventions`) plus shared setup refs
-(`cold-start-framework`, `org-profile-template`) live in `consulting/references/`
+(`practice-setup-framework`, `org-profile-template`) live in `consulting/references/`
 so they ship when the consulting plugin is installed. Other plugins carry copies
 of the two setup refs in their own `references/` for standalone install. Skills
 cite them plugin-relative (`../../references/<file>.md` from `skills/<name>/`).
