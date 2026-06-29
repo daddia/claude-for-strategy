@@ -88,6 +88,10 @@ DOUBLE-COUNTING FLAGS: [list, or "none"]
 - [ ] Owner distinct from delivery PM or flagged
 - [ ] Double-counting assessed
 
+## Propose profile update
+
+When a stable convention surfaces during this run (benefit type taxonomy, baseline discipline, attribution rules, owner-role expectations), **propose a profile update**: show the exact diff against `~/.claude/plugins/config/claude-for-strategy/value-realisation/CLAUDE.md` (org-wide facts go to `org-profile.md`), ask for confirmation, and write only on yes. Only `/value-realisation:cold-start-interview` auto-applies a full profile write.
+
 ## Outputs
 
 Follows plugin `CLAUDE.md` § Outputs. Next: `benefits-tracking`.

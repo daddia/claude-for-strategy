@@ -99,6 +99,10 @@ KR: NPS 50 by Q3
 - [ ] Log appended, not overwritten
 - [ ] Gaming-pattern check run
 
+## Propose profile update
+
+When a stable convention surfaces during this run (check-in frequency, confidence scale, staleness thresholds, flat-confidence rules), **propose a profile update**: show the exact diff against `~/.claude/plugins/config/claude-for-strategy/okr/CLAUDE.md` (org-wide facts go to `org-profile.md`), ask for confirmation, and write only on yes. Only `/okr:cold-start-interview` auto-applies a full profile write.
+
 ## Outputs
 
 Follows plugin `CLAUDE.md` § Outputs. Next: manager conversation on flagged KRs, revise targets via `set-targets`, or continue cadence (`check-in-nudge` agent).

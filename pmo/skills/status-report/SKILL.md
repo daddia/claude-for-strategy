@@ -199,6 +199,10 @@ HEADLINE: Integration milestone 2 weeks late on critical path [sourced: mileston
 ASK: Sponsor decision on descoping vs. adding vendor capacity [review]
 ```
 
+## Propose profile update
+
+When a stable convention surfaces during this run (RAG thresholds, audience-specific section order, reporting cadence labels), **propose a profile update**: show the exact diff against `~/.claude/plugins/config/claude-for-strategy/pmo/CLAUDE.md` (org-wide facts go to `org-profile.md`), ask for confirmation, and write only on yes. Only `/pmo:cold-start-interview` auto-applies a full profile write.
+
 ## Outputs
 
 Follows plugin `CLAUDE.md` § Outputs. Next: provide missing inputs and re-run, `steering-pack`, or confirm GATE before external distribution.
