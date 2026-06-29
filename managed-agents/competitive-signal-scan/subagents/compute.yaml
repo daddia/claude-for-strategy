@@ -1,5 +1,5 @@
 name: competitive-signal-compute
-model: claude-opus-4-7
+model: claude-opus-4-8
 system:
   text: |
     You receive the validated signal list from the reader tier. You perform pure

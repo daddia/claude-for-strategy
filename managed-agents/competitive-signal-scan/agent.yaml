@@ -1,7 +1,7 @@
 # Competitive Signal Scan — managed-agent cookbook
 
 name: competitive-signal-scan
-model: claude-opus-4-7
+model: claude-opus-4-8
 
 system:
   file: ../../market-intelligence/agents/competitive-signal-scan.md

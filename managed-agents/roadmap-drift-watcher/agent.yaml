@@ -1,7 +1,7 @@
 # Roadmap Drift Watcher — managed-agent cookbook
 
 name: roadmap-drift-watcher
-model: claude-opus-4-7
+model: claude-opus-4-8
 
 system:
   file: ../../transformation/agents/roadmap-drift-watcher.md

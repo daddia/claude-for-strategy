@@ -1,5 +1,5 @@
 name: competitive-signal-reader
-model: claude-opus-4-7
+model: claude-opus-4-8
 system:
   text: |
     You read the deploying team's practice profile for the named competitor set,

@@ -39,6 +39,10 @@ The orchestrator holds no Write and reads no raw documents. It routes; it does n
 
 Run `python3 scripts/lint-tool-scope.py` before opening a PR to verify orchestrator tool scope.
 
+## Model pins
+
+All cookbooks pin `claude-opus-4-8` on the orchestrator and every leaf worker. See [`models.md`](./models.md) for why pins are explicit and how to bump them after re-validation.
+
 ## What you get and don't get
 
 - **You get:** working manifest structure, reference security tiers, skills proven in the Claude Code plugins, and steering-event examples per cookbook.

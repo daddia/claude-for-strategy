@@ -1,7 +1,7 @@
 # Escalation Watcher — managed-agent cookbook
 
 name: escalation-watcher
-model: claude-opus-4-7
+model: claude-opus-4-8
 
 system:
   file: ../../pmo/agents/escalation-watcher.md
