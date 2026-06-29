@@ -108,7 +108,7 @@ expected. Don't "fix" it by moving the content into a skill.
 **Living profile.** `cold-start-interview` is the only skill that auto-applies a
 full profile write (after the user confirms the interview summary). Every other
 skill must use **propose profile update** — show the exact change, ask, then
-write only on confirmation. All nine plugins share the cold-start framework in
+write only on confirmation. All eleven plugins share the cold-start framework in
 `references/cold-start-framework.md` (canonical under `consulting/references/`,
 copied to each plugin's `references/`). Documented in each plugin's `cold-start-interview`
 skill and in user-facing README/QUICKSTART.

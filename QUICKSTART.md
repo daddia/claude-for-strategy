@@ -57,6 +57,8 @@ If you already installed the wrong scope and want to switch: `/plugin uninstall 
 | Agency principal (multi-client delivery) | `performance` + `pmo` | `/performance:cold-start-interview` then `/pmo:cold-start-interview` |
 | OKR cycle owner | `okr` | `/okr:cold-start-interview` |
 | Balanced scorecard owner | `balanced-scorecard` | `/balanced-scorecard:cold-start-interview` |
+| Benefits realisation or post-implementation review lead | `value-realisation` | `/value-realisation:cold-start-interview` — pair with `transformation` when benefits trace back to approved business cases; distinct from `performance`/`okr`/`balanced-scorecard` (those are forward-looking cadences) |
+| Anyone extending the built-in plugins with community skills | `strategy-builder-hub` | `/strategy-builder-hub:cold-start-interview` — install alongside your practice-area plugin; recommends a starter pack by engagement type |
 
 After setup, run the agent that matches your job — see the [Agents table in README.md](./README.md#agents). Examples: `/consulting:narrative-builder`, `/transformation:roadmap-builder`, `/pmo:status-report`.
 
@@ -68,7 +70,7 @@ Each plugin learns your playbook through a cold-start interview. Organisation-wi
 
 ## What's in the box
 
-Nine practice-area plugins, the Strategy Builder Hub for discovering and installing community skills, scheduled watch agents across PMO/performance/transformation/OKR/scorecard/corporate-strategy/market-intelligence, and connectors. The full reference is in [README.md](./README.md).
+Eleven first-party plugins — ten practice areas plus the Strategy Builder Hub for discovering and installing community skills — scheduled watch agents across PMO/performance/transformation/OKR/scorecard/corporate-strategy/market-intelligence, and connectors. The full reference is in [README.md](./README.md).
 
 ## Stuck?
 

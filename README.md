@@ -1,6 +1,6 @@
 # Claude for Strategy
 
-Reference agents, skills, and data connectors for the strategy and transformation workflows we see most — consulting craft, corporate strategy, market intelligence, digital transformation, org design, performance management, program PMO, balanced scorecards, and OKRs.
+Reference agents, skills, and data connectors for the strategy and transformation workflows we see most — consulting craft, corporate strategy, market intelligence, digital transformation, org design, performance management, program PMO, balanced scorecards, OKRs, value realisation, and a Strategy Builder Hub for discovering community skills.
 
 > **New here?** Start with [QUICKSTART.md](QUICKSTART.md) — install in 60 seconds. This README is the full reference.
 
@@ -11,7 +11,8 @@ Everything here ships as [Claude Cowork](https://claude.com/product/cowork) or [
 
 What's in the repo:
 
-- **Practice-area plugins** covering consulting craft, corporate strategy, market intelligence, transformation, org design, performance, PMO, balanced scorecards, and OKRs — each built around a cold-start interview that learns your playbook, a living `CLAUDE.md` practice profile every skill reads from, and a **propose profile update** flow so conventions can be recorded mid-engagement without re-running setup.
+- **Practice-area plugins** covering consulting craft, corporate strategy, market intelligence, transformation, org design, performance, PMO, balanced scorecards, OKRs, and value realisation — each built around a cold-start interview that learns your playbook, a living `CLAUDE.md` practice profile every skill reads from, and a **propose profile update** flow so conventions can be recorded mid-engagement without re-running setup.
+- **Strategy Builder Hub** for discovering, installing, and QAing community strategy skills from trusted registries.
 - **MCP connectors** across general productivity (Slack, Google Workspace, Atlassian) and strategy-specific categories (observability, hosting, spreadsheets).
 - **[Named agents](#agents)** — job-style entry points (Narrative Architect, Roadmap Architect, RAID Logger, …) with a single command to run each one.
 - **Scheduled agents** in `pmo`, `performance`, `transformation`, `okr`, `balanced-scorecard`, `corporate-strategy`, and `market-intelligence` — escalation/slippage/steering prep, KPI breach watching, cadence reporting, assumption-decay/roadmap-drift, check-in nudges, scorecard review reminders, portfolio review prompts, competitive signal scanning. Convention Monitor (`consulting`) is still planned for V1.2.
