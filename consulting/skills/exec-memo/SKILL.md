@@ -6,7 +6,7 @@ description: >
   notes condensed into a conclusion-first executive memo.
 allowed-tools: Read, Grep, Glob
 metadata:
-  version: "0.2.0"
+  version: "0.3.0"
   owner: "consulting practice"
   review_cadence: "quarterly"
   work_shape: "narrative-synthesis"

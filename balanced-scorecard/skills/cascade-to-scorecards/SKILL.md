@@ -7,7 +7,7 @@ description: >
   via a genuine causal-mechanism test, not just contribution-counting.
 allowed-tools: Read, Grep, Glob
 metadata:
-  version: "0.2.0"
+  version: "0.3.0"
   owner: "balanced-scorecard practice"
   review_cadence: "quarterly"
   work_shape: "structured-aggregation"

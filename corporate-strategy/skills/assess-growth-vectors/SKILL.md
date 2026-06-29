@@ -7,7 +7,7 @@ description: >
   a real growth target — not just sorted into categories.
 allowed-tools: Read, Grep, Glob
 metadata:
-  version: "0.2.0"
+  version: "0.3.0"
   owner: "corporate-strategy practice"
   review_cadence: "quarterly"
   work_shape: "hypothesis-driven-analysis"

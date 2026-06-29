@@ -7,7 +7,7 @@ description: >
   known failure pattern each path tends toward.
 allowed-tools: Read, Grep, Glob
 metadata:
-  version: "0.2.0"
+  version: "0.3.0"
   owner: "corporate-strategy practice"
   review_cadence: "quarterly"
   work_shape: "option-evaluation"
