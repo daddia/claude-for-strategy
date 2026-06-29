@@ -74,8 +74,8 @@ okr/                      # objectives, key results, targets, cascade, check-ins
 strategy-builder-hub/     # community skill discovery, installation, QA, and update management
 external-plugins/         # vendor plugins (future)
 managed-agents/           # CMA cookbooks — escalation-watcher, steering-prep, roadmap-drift-watcher, competitive-signal-scan
-scripts/                  # sync-references.py · check-marketplace-sync.py · lint-tool-scope.py · (deploy script planned)
-references/               # repo-root mirror of consulting/references/
+scripts/                  # sync-references.py · check-marketplace-sync.py · check-connector-taxonomy.py · lint-tool-scope.py
+references/               # repo-root mirror of consulting/references/ · connector-taxonomy.json
 .claude-plugin/
   marketplace.json        # plugin registry
 CONNECTORS.md             # contributor guide to the ~~ placeholder convention
@@ -215,7 +215,7 @@ These plugins ship connectors for the systems strategy teams live in. A connecto
 | Connector | What it gives Claude | Plugins | Notes |
 |---|---|---|---|
 | **Slack** | Read channels, search, send messages | all plugins | `~~chat` |
-| **Google Workspace** | Drive, Sheets, Gmail, Calendar | all plugins | `~~productivity suite`, `~~spreadsheet`, `~~calendar`, `~~email` |
+| **Google Workspace** | Drive, Sheets, Gmail, Calendar | all plugins | `~~documents`, `~~spreadsheet`, `~~calendar`, `~~email` |
 | **Atlassian (Rovo)** | Jira issues, Confluence pages | all plugins | `~~project tracker`, `~~knowledge base` |
 | **Honeycomb** | Product/system telemetry | `transformation`, `performance` | `~~observability` |
 | **Vercel** | Deployment and hosting context | `transformation` | `~~hosting` |

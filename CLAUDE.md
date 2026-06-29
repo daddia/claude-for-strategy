@@ -13,14 +13,16 @@ Guidance for working on this repo. `claude-for-strategy` is a Claude Code plugin
   README.md                       # per-plugin docs
   skills/<name>/SKILL.md          # one skill per directory
   references/                     # consulting: method refs; all plugins: cold-start-framework + org-profile-template
-  agents/<name>.md                # subagent definitions
+  agents/<name>.md                # scheduled/background watcher definitions only (if any)
   hooks/hooks.json                # hook config (most plugins ship an empty stub)
   .gitignore
 external-plugins/<vendor>/        # vendor plugins
 managed-agents/<name>/   # agent.yaml + subagents/ + steering-examples.json
 scripts/                          # validate.py, lint-tool-scope.py, orchestrate.py,
-                                  # deploy-managed-agent.sh, test-cookbooks.sh
-references/                       # repo-root mirror of consulting/references/ (see sync script)
+                                  # check-connector-taxonomy.py, deploy-managed-agent.sh,
+                                  # test-cookbooks.sh
+references/                       # repo-root mirror of consulting/references/ (see sync script);
+                                  # connector-taxonomy.json (canonical ~~ placeholder map)
 ```
 
 ## Validation — run before opening a PR
@@ -47,6 +49,9 @@ python3 scripts/check-marketplace-sync.py --check
 
 # 6. skill frontmatter + required headings (skill-design-framework.md)
 python3 scripts/check-skill-frontmatter.py --check
+
+# 7. connector placeholder taxonomy (references/connector-taxonomy.json)
+python3 scripts/check-connector-taxonomy.py --check
 ```
 
 Install the optional pre-commit hook to run step 6 on staged `SKILL.md` files only:
@@ -85,6 +90,12 @@ For first-party plugins, `marketplace.json`'s `name`, `description`, and
 `author` should match the plugin's own `.claude-plugin/plugin.json` field for
 field. If you change a plugin's description in one place, change it in the
 other.
+
+### Plugin agents vs job-style names
+
+`agents/<name>.md` files are scheduled/background watcher definitions only.
+Job-style on-demand agents are README labels that map to slash commands under
+`skills/` — do not add duplicate files under `agents/`.
 
 ### Skill names in prose must be canonical
 

@@ -23,11 +23,11 @@ Connectors shipped in the default `.mcp.json` of each plugin:
 
 | Connector | Plugins | Category placeholder |
 |---|---|---|
-| **Slack** | all 9 | `~~chat` |
-| **Gmail** | all 9 | `~~email` |
-| **Google Drive** | all 9 | `~~productivity suite`, `~~spreadsheet` |
-| **Google Calendar** | corporate-strategy, transformation, balanced-scorecard, okr, pmo | `~~calendar` |
-| **Atlassian (Rovo)** | all 9 | `~~project tracker`, `~~knowledge base` |
+| **Slack** | all eleven first-party plugins | `~~chat` |
+| **Gmail** | all eleven first-party plugins | `~~email` |
+| **Google Drive** | all eleven first-party plugins | `~~documents`, `~~spreadsheet` |
+| **Google Calendar** | corporate-strategy, transformation, balanced-scorecard, okr, pmo, value-realisation | `~~calendar` |
+| **Atlassian (Rovo)** | all eleven first-party plugins | `~~project tracker`, `~~knowledge base` |
 | **Honeycomb** | transformation, performance | `~~observability` |
 | **Vercel** | transformation | `~~hosting` |
 
@@ -62,9 +62,34 @@ This section documents the `~~category` placeholder convention used across plugi
 
 Plugin markdown uses `~~category` as a stand-in for whatever MCP-backed tool the user connects in that category — e.g. `~~chat` for Slack or Teams, `~~project tracker` for Jira or Linear. Skills describe workflows in terms of categories, not products, so the repo stays fork-friendly.
 
+**Human placeholders vs machine categories.** Prose and skills use human-readable placeholders (`~~knowledge base`). Each plugin's `.mcp.json` `recommendedCategories` uses machine slugs (`knowledge-base`). The canonical mapping lives in [`references/connector-taxonomy.json`](./references/connector-taxonomy.json); `python3 scripts/check-connector-taxonomy.py --check` enforces it.
+
+| Human placeholder | Machine category |
+|---|---|
+| `~~chat` | `chat` |
+| `~~email` | `email` |
+| `~~calendar` | `calendar` |
+| `~~knowledge base` | `knowledge-base` |
+| `~~project tracker` | `project-tracker` |
+| `~~documents` | `documents` |
+| `~~spreadsheet` | `spreadsheet` |
+| `~~observability` | `observability` |
+| `~~hosting` | `hosting` |
+| `~~hris` | `hris` |
+
+Extension categories (plugin-specific; same placeholder/slug rules):
+
+| Human placeholder | Machine category |
+|---|---|
+| `~~whiteboard` | `whiteboard` |
+| `~~bi analytics` | `bi-analytics` |
+| `~~source control` | `source-control` |
+| `~~web monitoring` | `web-monitoring` |
+| `~~strategy skills registry` | `strategy-skills-registry` |
+
 Rules when authoring skills:
 
-1. Use the category placeholders defined in the plugin's own `CONNECTORS.md`, not product names (no "post to Slack" — use `~~chat`).
+1. Use the category placeholders from the taxonomy and the plugin's own `CONNECTORS.md`, not product names (no "post to Slack" — use `~~chat`).
 2. Skills must produce usable output (markdown, files, chat) when no connector in that category is configured — connectors are enhancements, not hard dependencies unless explicitly documented.
 3. When a skill is described as writing to a connector, the V1 fallback is always "produce the same content as a draft the user places manually."
 
@@ -84,6 +109,7 @@ Each first-party plugin ships its own connector reference:
 | okr | [okr/CONNECTORS.md](./okr/CONNECTORS.md) |
 | pmo | [pmo/CONNECTORS.md](./pmo/CONNECTORS.md) |
 | value-realisation | [value-realisation/CONNECTORS.md](./value-realisation/CONNECTORS.md) |
+| strategy-builder-hub | [strategy-builder-hub/CONNECTORS.md](./strategy-builder-hub/CONNECTORS.md) |
 
 The per-plugin file is authoritative for which categories that plugin uses, which MCP servers are pre-configured in `.mcp.json`, and plugin-specific notes.
 
@@ -91,7 +117,7 @@ The per-plugin file is authoritative for which categories that plugin uses, whic
 
 When contributing:
 
-1. **Category name** — use lowercase; spaces are allowed (`~~project tracker`). Match an existing category across plugins when the semantic is the same.
+1. **Category name** — add human placeholder and machine slug to `references/connector-taxonomy.json` when introducing a new category; reuse an existing pair when the semantic meaning is the same. Run `python3 scripts/check-connector-taxonomy.py --check` before opening a PR.
 2. **`.mcp.json`** — add the HTTP MCP server URL when there's a well-known public endpoint; include `title` and `description` on every entry; add the category to `recommendedCategories` when relevant. Leave account-specific categories as "add your own" in the plugin's `CONNECTORS.md`.
 3. **`CONNECTORS.md`** — update the plugin's file, not this one, unless you're documenting a new cross-repo convention or updating the wanted-connectors table.
 4. **Skills** — reference a category in prose only where the skill actually uses it; don't wire every skill to every connector.
