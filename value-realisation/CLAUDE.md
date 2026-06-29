@@ -31,11 +31,13 @@ Shared org profile. Organisation-wide facts live in ~/.claude/plugins/config/cla
 | Atlassian (Jira / Confluence) | [PLACEHOLDER ✓/✗] | Benefits register and tracking from user uploads |
 | Linear | [PLACEHOLDER ✓/✗] | Benefits tracking from user uploads |
 | Asana | [PLACEHOLDER ✓/✗] | Benefits tracking from user uploads |
+| Monday.com | [PLACEHOLDER ✓/✗] | Benefits tracking from user uploads |
 
 *Re-check: `/value-realisation:cold-start-interview --check-integrations`*
 
 ## Plugin-specific operating model
 
+- **Artifact storage:** _(benefits register, dependency network, tracking log — plugin `data/` or `~~project tracker` / `~~knowledge base` home)_
 - **Benefit owner role:** _(who typically holds this — a business sponsor, ops lead — and is it already distinguished from the delivery PM today?)_
 - **Escalation path for at-risk benefits:** _(who decides to continue funding recovery vs. write down)_
 - **Decision log / RAID home:** _(e.g. `pmo:decision-log`, or somewhere else)_
