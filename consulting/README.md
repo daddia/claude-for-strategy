@@ -19,7 +19,7 @@ Job-style names in the table map to slash commands — run the command to invoke
 - **Replace your analysis or client judgment** — it structures and sharpens; you own the recommendation.
 - **Build finished slides or Word documents** — `deck-outline` and `exec-memo` produce markdown skeletons; hand off to your presentation or doc toolchain.
 - **Run market research or source verification automatically** — figures need `[sourced:]` tags you supply; untagged claims are flagged `[unverified —]`.
-- **Install community skills from arbitrary registries** — `strategy-builder-hub` (trust-gated browse, install, and skill QA) is planned for V2; today only first-party marketplace plugins.
+- **Install community skills from arbitrary registries** — use the [`strategy-builder-hub`](../strategy-builder-hub) plugin for trust-gated browse, install, and skill QA alongside first-party marketplace plugins.
 
 ## Getting started
 
