@@ -2,6 +2,13 @@
 
 Org design and decision rights.
 
+## What this plugin does NOT do
+
+- **Replace HR, comp, or legal on people decisions** — org design memos and RACI artifacts are drafts for HR and exec review before implementation.
+- **Pull headcount or reporting lines without `~~hris`** — span, layers, and matrix analysis work from org charts you provide; live HRIS integration is via connectors you wire.
+- **Design the full target operating model** — process, technology, and data layers are [`transformation:target-operating-model`](../transformation); this plugin goes deep on org design and decision rights only.
+- **Run on a fixed calendar schedule** — no scheduled agent ships here; re-run the relevant skill when a reorg, integration, or strategy pivot triggers review.
+
 ## Agents
 
 Job-style names in the table map to slash commands — run the command to invoke the skill. This plugin has no scheduled agents under `agents/`.

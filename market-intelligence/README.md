@@ -2,6 +2,13 @@
 
 Competitive landscape, incentive mapping, positioning, and information asymmetry.
 
+## What this plugin does NOT do
+
+- **Make portfolio or capital-allocation calls** — competitive findings inform decisions; [`corporate-strategy`](../corporate-strategy) owns fund/exit/double-down when a signal crosses materiality.
+- **Replace primary research or verified market data** — competitor claims and market sizes need sourcing tags; untagged figures are flagged `[unverified —]`.
+- **Monitor competitors without your signal taxonomy** — `competitive-signal-scan` uses the profile's competitor set and meaningful-signal definitions; vague definitions produce noisy or empty digests.
+- **Design internal reward systems** — external incentive mapping lives here; internal misalignment is [`operating-model:align-rewards-and-incentives`](../operating-model).
+
 ## Agents
 
 | Agent | What it does | Command |

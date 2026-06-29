@@ -6,6 +6,13 @@ Benefits mapping, baseline-and-accountability discipline, realisation tracking w
 
 Those three plugins manage *ongoing, forward-looking* goals and measurement — what should we hit next quarter, how do we know we're on track. `value-realisation` answers a different question: did *this specific, already-approved investment* deliver the value its business case promised, on a finite window, traced back to one decision, with the result feeding directly into how confidently the *next* business case gets sized. It's a post-investment audit function, not a performance-management cadence.
 
+## What this plugin does NOT do
+
+- **Replace finance sign-off on realised benefits** — tracking and PIR outputs tag attribution assumptions; finance owns official benefit numbers.
+- **Capture baselines after go-live without flagging them** — retrofitted baselines are allowed but marked; a missed pre-change baseline is treated as unrecoverable.
+- **Own the canonical metric glossary** — formal definitions defer to [`performance:metrics-glossary`](../performance) when that plugin is installed.
+- **Log governance decisions** — continue-or-write-down calls belong in [`pmo:decision-log`](../pmo) when that plugin is installed; this plugin does not duplicate the audit log.
+
 ## Skill & command reference
 
 | Command | Skill | What it does |

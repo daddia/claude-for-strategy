@@ -2,6 +2,13 @@
 
 Growth strategy, portfolio and resource allocation, and strategic options.
 
+## What this plugin does NOT do
+
+- **Replace investment committee or board judgment** — portfolio calls are structured first passes; humans own capital allocation and divestiture decisions.
+- **Pull live spend or headcount from BI without a connector** — `allocate-resources` works from data you point at; wiring `~~bi analytics` is account-specific.
+- **Run competitive landscape or response analysis** — that is [`market-intelligence`](../market-intelligence); hand off here when a signal becomes a capital-allocation decision.
+- **Build initiative-level business cases** — once a strategic direction is set, use [`transformation:business-case`](../transformation) for program-level cases.
+
 ## Agents
 
 | Agent | What it does | Command |
