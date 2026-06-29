@@ -27,6 +27,7 @@ Run before benefits skills produce tailored output. Baseline-discipline answer m
 
 - **Does not map or track benefits** — writes profile only.
 - **Does not auto-write without confirmation.**
+- **Does not replace propose profile update** — other skills must show diffs and ask before profile changes.
 
 ## Preconditions
 
@@ -55,8 +56,10 @@ Read `../../references/cold-start-framework.md` with `value-realisation` as plug
 5. Cadence — realisation window, tracking, review triggers.
 6. Cross-plugin: transformation/corporate-strategy installed?
 7. Seed documents (full mode).
-8. Write profile per `../../CLAUDE.md`.
+8. Write profile per `../../CLAUDE.md` template into the config path above.
 9. Confirm and summarize.
+
+**Propose profile update:** all other skills — org facts to org profile; benefits framework, baseline discipline, and cadence facts to plugin profile.
 
 ## Output format
 
