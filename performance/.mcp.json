@@ -30,6 +30,12 @@
       "title": "Linear",
       "description": "Search, read, and update Linear issues, projects, initiatives, and milestones scoped to the user's permissions."
     },
+    "asana": {
+      "type": "http",
+      "url": "https://mcp.asana.com/v2/mcp",
+      "title": "Asana",
+      "description": "Search, read, and update Asana tasks, projects, portfolios, and goals scoped to the user's permissions."
+    },
     "honeycomb": {
       "type": "http",
       "url": "https://mcp.honeycomb.io/mcp",

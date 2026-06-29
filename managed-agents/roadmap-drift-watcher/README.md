@@ -4,7 +4,7 @@
 
 Scans the transformation roadmap for initiatives slipping their planned phase and writes a summary with downstream knock-on effects. Same source as the [`roadmap-drift-watcher`](../../transformation/agents/roadmap-drift-watcher.md) Claude Code agent — this directory is the Managed Agent cookbook for `POST /v1/agents`.
 
-This is a **cookbook, not a product.** It assumes the roadmap and progress signals live in the workspace (latest `roadmap-builder` output, seed documents, milestone exports). Teams that track delivery in Jira or Linear should wire a read connector on the reader tier or export before the run.
+This is a **cookbook, not a product.** It assumes the roadmap and progress signals live in the workspace (latest `roadmap-builder` output, seed documents, milestone exports). Teams that track delivery in Jira, Linear, or Asana should wire a read connector on the reader tier or export before the run.
 
 ## Before you deploy
 
@@ -51,6 +51,6 @@ Before you trust the output on your workflow:
 - **Point at your roadmap source.** Record seed-document locations and the default track model in the transformation practice profile. The reader tier reads local files only by default.
 - **Set the Slack channel.** Set **roadmap-drift-alerts** in the practice profile before the first scheduled run or the handoff will dead-letter.
 - **Tune the planning horizon.** Now/Next/Later (or your named tracks) must match how `roadmap-builder` labels phases or compute will mis-classify drift.
-- **Wire PMO milestone actuals when available.** If the PMO plugin is installed, export milestone actuals to a path the reader can grep, or add a read connector (`atlassian` or `linear`) on the reader leaf only.
+- **Wire PMO milestone actuals when available.** If the PMO plugin is installed, export milestone actuals to a path the reader can grep, or add a read connector (`atlassian`, `linear`, or `asana`) on the reader leaf only.
 - **Confirm the work-product header.** Verify the header language with your sponsor before turning this on.
 - **Cadence.** Weekly (Thursday 09:00) is the default. The cadence lives in your workflow engine — the cookbook does not schedule itself.

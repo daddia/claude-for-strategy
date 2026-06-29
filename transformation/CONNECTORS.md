@@ -13,7 +13,7 @@ Plugins are tool-agnostic — they describe workflows in terms of categories rat
 | Chat | `~~chat` | Slack | Microsoft Teams, Discord |
 | Email | `~~email` | Google Mail | Microsoft 365 |
 | Documents | `~~documents` | Google Workspace (Drive) | Microsoft 365 |
-| Project tracker | `~~project tracker` | Atlassian (Jira), Linear | Asana, Monday |
+| Project tracker | `~~project tracker` | Atlassian (Jira), Linear, Asana | Monday |
 | Knowledge base | `~~knowledge base` | Atlassian (Confluence), Notion | Guru, Slite |
 | Calendar | `~~calendar` | Google Calendar | Microsoft 365 |
 | Source control | `~~source control` | — | GitHub, GitLab, Bitbucket |
@@ -23,7 +23,7 @@ Plugins are tool-agnostic — they describe workflows in terms of categories rat
 ## Notes
 
 - **Atlassian** (Rovo) covers both `~~project tracker` and `~~knowledge base` in one connector.
-- **Linear** covers `~~project tracker` only — issues, projects, initiatives, and milestones. Use Atlassian when you also need `~~knowledge base`.
+- **Linear** and **Asana** cover `~~project tracker` only — issues, projects, initiatives, and milestones (Linear) or tasks, projects, portfolios, and goals (Asana). Use Atlassian when you also need `~~knowledge base`.
 - **Calendar, observability, and hosting** are the additions specific to this plugin — `tech-strategy-brief` and `target-operating-model` are meaningfully better grounded when they can check real system behavior (`~~observability`) or real deployment context (`~~hosting`) instead of relying only on what you describe.
 - **Chat** is the delivery surface for scheduled watchers (`assumption-decay-watcher`, `roadmap-drift-watcher`) — see each agent file for file fallback when no chat connector is configured. Assumption-Decay also reads revisit triggers from the PMO decision log when `pmo` is installed.
 - **Source control** has nothing pre-wired — useful for `tech-strategy-brief` and `maturity-assessment` to read actual architecture/config rather than working from your description of it, but optional and account-specific, so it's left to you to add.

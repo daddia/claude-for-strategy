@@ -27,6 +27,7 @@ Shared org profile. Organisation-wide facts live in ~/.claude/plugins/config/cla
 | Google Calendar | [PLACEHOLDER ✓/✗] | Steering prep without calendar context |
 | Atlassian (Jira) | [PLACEHOLDER ✓/✗] | RAID and milestones from user uploads |
 | Linear | [PLACEHOLDER ✓/✗] | RAID and milestones from user uploads |
+| Asana | [PLACEHOLDER ✓/✗] | RAID and milestones from user uploads |
 | Google Drive | [PLACEHOLDER ✓/✗] | User uploads status packs per task |
 
 *Re-check: `/pmo:cold-start-interview --check-integrations`*

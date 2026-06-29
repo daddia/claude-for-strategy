@@ -35,6 +35,12 @@
       "url": "https://mcp.linear.app/mcp",
       "title": "Linear",
       "description": "Read Linear issues, projects, and milestones for benefits registers, tracking logs, and recovery decisions."
+    },
+    "asana": {
+      "type": "http",
+      "url": "https://mcp.asana.com/v2/mcp",
+      "title": "Asana",
+      "description": "Read Asana tasks, projects, and goals for benefits registers, tracking logs, and recovery decisions."
     }
   },
   "recommendedCategories": [

@@ -28,6 +28,7 @@ Shared org profile. Organisation-wide facts live in ~/.claude/plugins/config/cla
 | Google Calendar | [PLACEHOLDER ✓/✗] | Steering prep without calendar context |
 | Atlassian (Jira) | [PLACEHOLDER ✓/✗] | Roadmap/milestone status from user uploads |
 | Linear | [PLACEHOLDER ✓/✗] | Roadmap/milestone status from user uploads |
+| Asana | [PLACEHOLDER ✓/✗] | Roadmap/milestone status from user uploads |
 | Google Drive | [PLACEHOLDER ✓/✗] | User uploads architecture docs and roadmaps per task |
 
 *Re-check: `/transformation:cold-start-interview --check-integrations`*
