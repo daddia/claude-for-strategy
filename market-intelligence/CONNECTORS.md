@@ -10,7 +10,7 @@ Plugin files use `~~category` as a placeholder for whatever tool you connect in 
 |---|---|---|---|
 | Chat | `~~chat` | Slack | Microsoft Teams, Discord |
 | Email | `~~email` | Google Mail | Microsoft 365 |
-| Productivity suite | `~~productivity suite` | Google Workspace (Drive) | Microsoft 365 |
+| Documents | `~~documents` | Google Workspace (Drive) | Microsoft 365 |
 | Knowledge base | `~~knowledge base` | Atlassian (Confluence), Notion | Guru, Slite |
 | Whiteboard | `~~whiteboard` | — | Miro, Figma, Lucidchart, Mural |
 | Web & news monitoring | `~~web monitoring` | — | Exa, Tavily, NewsAPI, Feedly |

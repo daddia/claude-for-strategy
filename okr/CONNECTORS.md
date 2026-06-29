@@ -12,7 +12,7 @@ Plugins are tool-agnostic — they describe workflows in terms of categories rat
 |---|---|---|---|
 | Chat | `~~chat` | Slack | Microsoft Teams, Discord |
 | Email | `~~email` | Google Mail | Microsoft 365 |
-| Productivity suite | `~~productivity suite` | Google Workspace (Drive) | Microsoft 365 |
+| Documents | `~~documents` | Google Workspace (Drive) | Microsoft 365 |
 | Project tracker | `~~project tracker` | Atlassian (Jira) | Asana, Linear, Monday |
 | Knowledge base | `~~knowledge base` | Atlassian (Confluence), Notion | Guru, Slite |
 | Calendar | `~~calendar` | Google Calendar | Microsoft 365 |

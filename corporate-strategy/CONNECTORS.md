@@ -10,11 +10,11 @@ Plugin files use `~~category` as a placeholder for whatever tool you connect in 
 |---|---|---|---|
 | Chat | `~~chat` | Slack | Microsoft Teams, Discord |
 | Email | `~~email` | Google Mail | Microsoft 365 |
-| Productivity suite | `~~productivity suite` | Google Workspace (Drive) | Microsoft 365 |
+| Documents | `~~documents` | Google Workspace (Drive) | Microsoft 365 |
 | Project tracker | `~~project tracker` | Atlassian (Jira) | Asana, Linear, Monday |
 | Knowledge base | `~~knowledge base` | Atlassian (Confluence), Notion | Guru, Slite |
 | Calendar | `~~calendar` | Google Calendar | Microsoft 365 |
-| BI / analytics | `~~bi` | — | Looker, Tableau, Power BI, Mode |
+| BI / analytics | `~~bi analytics` | — | Looker, Tableau, Power BI, Mode |
 
 ## Notes
 

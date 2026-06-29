@@ -12,15 +12,15 @@ Plugins are tool-agnostic — they describe workflows in terms of categories rat
 |---|---|---|---|
 | Chat | `~~chat` | Slack | Microsoft Teams, Discord |
 | Email | `~~email` | Google Mail | Microsoft 365 |
-| Productivity suite / Spreadsheet | `~~spreadsheet` | Google Workspace (Sheets via Drive) | Microsoft 365 (Excel), Airtable |
+| Spreadsheet | `~~spreadsheet` | Google Workspace (Sheets via Drive) | Microsoft 365 (Excel), Airtable |
 | Project tracker | `~~project tracker` | Atlassian (Jira) | Asana, Linear, Monday |
 | Knowledge base | `~~knowledge base` | Atlassian (Confluence), Notion | Guru, Slite |
 | Observability | `~~observability` | Honeycomb | Datadog, New Relic |
-| BI / analytics | `~~bi` | — | Looker, Tableau, Power BI, Mode |
+| BI / analytics | `~~bi analytics` | — | Looker, Tableau, Power BI, Mode |
 
 ## Notes
 
-- **Spreadsheet** is the one category renamed from the baseline "Productivity suite" — `tracker-builder` writes directly into a spreadsheet, so this is the category that matters most for this plugin specifically.
+- **Spreadsheet** is the primary file surface for this plugin — `tracker-builder` writes directly into a spreadsheet, so this is the category that matters most here specifically.
 - **Atlassian** (Rovo) covers both `~~project tracker` and `~~knowledge base`.
 - **Observability** (Honeycomb) is here because your B2/B3 categories include Digital Product Performance — if any tracked metric is really a system/product telemetry number rather than a manually-logged one, `kpi-tree-builder`, **KPI Breach Watcher**, and **Cadence Reporter** are better grounded pulling it from `~~observability` than from a manually maintained Daily Log column. KPI Breach Watcher and Cadence Reporter also post summaries via `~~chat` when configured.
 - **BI/analytics** has nothing pre-wired — relevant once `performance-narrative` needs to pull from a dashboard tool rather than the tracker spreadsheet directly, optional for now.
