@@ -7,7 +7,7 @@ Competitive landscape, incentive mapping, positioning, and information asymmetry
 - **Make portfolio or capital-allocation calls** — competitive findings inform decisions; [`corporate-strategy`](../corporate-strategy) owns fund/exit/double-down when a signal crosses materiality.
 - **Replace primary research or verified market data** — competitor claims and market sizes need sourcing tags; untagged figures are flagged `[unverified —]`.
 - **Monitor competitors without your signal taxonomy** — `competitive-signal-scan` uses the profile's competitor set and meaningful-signal definitions; vague definitions produce noisy or empty digests.
-- **Design internal reward systems** — external incentive mapping lives here; internal misalignment is [`operating-model:align-rewards-and-incentives`](../operating-model).
+- **Design internal reward systems** — external incentive mapping lives here; internal misalignment is [`/operating-model:align-rewards-and-incentives`](../operating-model).
 
 ## Agents
 
@@ -46,15 +46,15 @@ Run `/market-intelligence:cold-start-interview` first. The market-definition que
 ## Usage
 
 ```
-map-competitive-landscape → forecast-competitive-response (for a specific planned move)
-map-incentives → forecast-competitive-response (incentive map grounds the response prediction)
-map-incentives → operating-model:align-rewards-and-incentives (when the incentive problem is internal)
-test-positioning ↔ map-information-asymmetry (a position is often a bet on which side of an asymmetry you're on)
+/market-intelligence:map-competitive-landscape → /market-intelligence:forecast-competitive-response (for a specific planned move)
+/market-intelligence:map-incentives → /market-intelligence:forecast-competitive-response (incentive map grounds the response prediction)
+/market-intelligence:map-incentives → /operating-model:align-rewards-and-incentives (when the incentive problem is internal)
+/market-intelligence:test-positioning ↔ /market-intelligence:map-information-asymmetry (a position is often a bet on which side of an asymmetry you're on)
 ```
 
 ## Boundary with `corporate-strategy`
 
-This plugin operates at the competitive-dynamics level — who you're actually competing with, what incentives predict their behavior, and how they'll respond to a move. `corporate-strategy` operates at the portfolio/capital-allocation level — whether a competitive threat or opportunity should change what you fund, exit, or double down on. Run `map-competitive-landscape` and `forecast-competitive-response` here; hand off to `corporate-strategy:evaluate-strategic-option` when a signal becomes a capital-allocation decision.
+This plugin operates at the competitive-dynamics level — who you're actually competing with, what incentives predict their behavior, and how they'll respond to a move. `corporate-strategy` operates at the portfolio/capital-allocation level — whether a competitive threat or opportunity should change what you fund, exit, or double down on. Run `/market-intelligence:map-competitive-landscape` and `/market-intelligence:forecast-competitive-response` here; hand off to `/corporate-strategy:evaluate-strategic-option` when a signal becomes a capital-allocation decision.
 
 ## Data directory
 

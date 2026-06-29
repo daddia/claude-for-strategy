@@ -7,7 +7,7 @@ Growth strategy, portfolio and resource allocation, and strategic options.
 - **Replace investment committee or board judgment** — portfolio calls are structured first passes; humans own capital allocation and divestiture decisions.
 - **Pull live spend or headcount from BI without a connector** — `allocate-resources` works from data you point at; wiring `~~bi analytics` is account-specific.
 - **Run competitive landscape or response analysis** — that is [`market-intelligence`](../market-intelligence); hand off here when a signal becomes a capital-allocation decision.
-- **Build initiative-level business cases** — once a strategic direction is set, use [`transformation:business-case`](../transformation) for program-level cases.
+- **Build initiative-level business cases** — once a strategic direction is set, use [`/transformation:business-case`](../transformation) for program-level cases.
 
 ## Agents
 
@@ -58,13 +58,13 @@ evaluate-strategic-option → build-vs-buy-vs-partner (if the option is a capabi
 → synergy-stress-test (if the option is M&A)
 ```
 
-## Boundary with `transformation:business-case`
+## Boundary with `/transformation:business-case`
 
-`evaluate-strategic-option` operates at the portfolio/capital-allocation level — bigger bets, competing against every other claim on capital across the whole portfolio. `transformation:business-case` operates at the initiative level — once a strategic direction is set, what's the case for *this specific* transformation program. If you're deciding whether to enter a market or acquire a company, use this plugin. If you're deciding whether to fund a specific transformation initiative inside an already-chosen direction, use `transformation`.
+`/corporate-strategy:evaluate-strategic-option` operates at the portfolio/capital-allocation level — bigger bets, competing against every other claim on capital across the whole portfolio. `/transformation:business-case` operates at the initiative level — once a strategic direction is set, what's the case for *this specific* transformation program. If you're deciding whether to enter a market or acquire a company, use this plugin. If you're deciding whether to fund a specific transformation initiative inside an already-chosen direction, use `transformation`.
 
 ## Boundary with `market-intelligence`
 
-`market-intelligence` operates at the competitive-dynamics level — who you're actually competing with, what incentives predict their behavior, and how they'll respond to a move. This plugin operates at the portfolio/capital-allocation level — whether a competitive threat or opportunity should change what you fund, exit, or double down on. Run `map-competitive-landscape` and `forecast-competitive-response` in `market-intelligence`; hand off to `evaluate-strategic-option` here when a signal becomes a capital-allocation decision.
+`market-intelligence` operates at the competitive-dynamics level — who you're actually competing with, what incentives predict their behavior, and how they'll respond to a move. This plugin operates at the portfolio/capital-allocation level — whether a competitive threat or opportunity should change what you fund, exit, or double down on. Run `/market-intelligence:map-competitive-landscape` and `/market-intelligence:forecast-competitive-response` in `market-intelligence`; hand off to `/corporate-strategy:evaluate-strategic-option` here when a signal becomes a capital-allocation decision.
 
 ## Data directory
 

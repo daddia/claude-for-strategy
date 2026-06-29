@@ -10,8 +10,8 @@ Those three plugins manage *ongoing, forward-looking* goals and measurement — 
 
 - **Replace finance sign-off on realised benefits** — tracking and PIR outputs tag attribution assumptions; finance owns official benefit numbers.
 - **Capture baselines after go-live without flagging them** — retrofitted baselines are allowed but marked; a missed pre-change baseline is treated as unrecoverable.
-- **Own the canonical metric glossary** — formal definitions defer to [`performance:metrics-glossary`](../performance) when that plugin is installed.
-- **Log governance decisions** — continue-or-write-down calls belong in [`pmo:decision-log`](../pmo) when that plugin is installed; this plugin does not duplicate the audit log.
+- **Own the canonical metric glossary** — formal definitions defer to [`/performance:metrics-glossary`](../performance) when that plugin is installed.
+- **Log governance decisions** — continue-or-write-down calls belong in [`/pmo:decision-log`](../pmo) when that plugin is installed; this plugin does not duplicate the audit log.
 
 ## Skill & command reference
 
@@ -46,16 +46,16 @@ benefits-tracking (repeated through the realisation window)
 ↓ (if a benefit goes off-track)
 benefits-recovery
 ↓ (at window close)
-realisation-review → feeds back into the next transformation:business-case / corporate-strategy:evaluate-strategic-option
+realisation-review → feeds back into the next `/transformation:business-case` / `/corporate-strategy:evaluate-strategic-option`
 ```
 
-If [`transformation`](../transformation) is installed, run `benefits-map` directly against an approved `transformation:business-case` output rather than starting blank — the case's cost/benefit table is the natural seed. The same seam applies to `corporate-strategy:evaluate-strategic-option`, if installed, for option-level decisions upstream of a formal business case.
+If [`transformation`](../transformation) is installed, run `/value-realisation:benefits-map` directly against an approved `/transformation:business-case` output rather than starting blank — the case's cost/benefit table is the natural seed. The same seam applies to `/corporate-strategy:evaluate-strategic-option`, if installed, for option-level decisions upstream of a formal business case.
 
-If [`performance`](../performance) is installed, `benefits-register` defers to `performance:metrics-glossary` for the formal metric definition (exact formula, source, owner, refresh cadence) — same seam pattern as `okr:instrument-metrics` and `balanced-scorecard:select-measures`. This plugin only owns the benefit-to-measure mapping, the baseline, and the accountability assignment.
+If [`performance`](../performance) is installed, `/value-realisation:benefits-register` defers to `/performance:metrics-glossary` for the formal metric definition (exact formula, source, owner, refresh cadence) — same seam pattern as `/okr:instrument-metrics` and `/balanced-scorecard:select-measures`. This plugin only owns the benefit-to-measure mapping, the baseline, and the accountability assignment.
 
-If [`pmo`](../pmo) is installed, a `benefits-recovery` continue-or-write-down call is a governance decision worth a `pmo:decision-log` entry — this plugin doesn't duplicate that log.
+If [`pmo`](../pmo) is installed, a `/value-realisation:benefits-recovery` continue-or-write-down call is a governance decision worth a `/pmo:decision-log` entry — this plugin doesn't duplicate that log.
 
-If [`consulting`](../consulting) is installed, hand `realisation-review` output to `consulting:exec-memo` or `deck-outline` for a steering-committee version.
+If [`consulting`](../consulting) is installed, hand `/value-realisation:realisation-review` output to `/consulting:exec-memo` or `/consulting:deck-outline` for a steering-committee version.
 
 ## Agents
 

@@ -6,7 +6,7 @@ Org design and decision rights.
 
 - **Replace HR, comp, or legal on people decisions** — org design memos and RACI artifacts are drafts for HR and exec review before implementation.
 - **Pull headcount or reporting lines without `~~hris`** — span, layers, and matrix analysis work from org charts you provide; live HRIS integration is via connectors you wire.
-- **Design the full target operating model** — process, technology, and data layers are [`transformation:target-operating-model`](../transformation); this plugin goes deep on org design and decision rights only.
+- **Design the full target operating model** — process, technology, and data layers are [`/transformation:target-operating-model`](../transformation); this plugin goes deep on org design and decision rights only.
 - **Run on a fixed calendar schedule** — no scheduled agent ships here; re-run the relevant skill when a reorg, integration, or strategy pivot triggers review.
 
 ## Agents
@@ -64,8 +64,8 @@ No scheduled agent ships with this plugin — org design review is naturally eve
 
 ## Cross-plugin seams
 
-- **`transformation:target-operating-model`** does a lighter-weight org layer as one part of a broader TOM design (alongside process, technology, and data). Use this plugin instead when org design itself — not the full TOM — is the primary problem, or hand off to this plugin for depth once `transformation:target-operating-model` has scoped the organization layer.
-- **`market-intelligence:map-incentives`** applies the same "show me the incentive" logic externally (to competitors, customers); `align-rewards-and-incentives` applies it internally (to your own structure). They share a discipline, not an output — no duplication, just the same underlying idea pointed in two directions.
+- **`/transformation:target-operating-model`** does a lighter-weight org layer as one part of a broader TOM design (alongside process, technology, and data). Use this plugin instead when org design itself — not the full TOM — is the primary problem, or hand off to this plugin for depth once `/transformation:target-operating-model` has scoped the organization layer.
+- **`/market-intelligence:map-incentives`** applies the same "show me the incentive" logic externally (to competitors, customers); `/operating-model:align-rewards-and-incentives` applies it internally (to your own structure). They share a discipline, not an output — no duplication, just the same underlying idea pointed in two directions.
 
 ## Customization
 
