@@ -18,9 +18,10 @@ Guidance for working on this repo. `claude-for-strategy` is a Claude Code plugin
   .gitignore
 external-plugins/<vendor>/        # vendor plugins
 managed-agents/<name>/   # agent.yaml + subagents/ + steering-examples.json
-scripts/                          # validate.py, lint-tool-scope.py, orchestrate.py,
-                                  # check-connector-taxonomy.py, deploy-managed-agent.sh,
-                                  # test-cookbooks.sh
+scripts/                          # validate.py, lint-tool-scope.py, check-marketplace-sync.py,
+                                  # check-skill-frontmatter.py, sync-skill-permission-tiers.py,
+                                  # check-connector-taxonomy.py, sync-references.py,
+                                  # deploy-managed-agent.sh
 references/                       # repo-root mirror of consulting/references/ (see sync script);
                                   # connector-taxonomy.json (canonical ~~ placeholder map)
 ```
