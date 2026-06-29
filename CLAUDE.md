@@ -20,7 +20,7 @@ external-plugins/<vendor>/        # vendor plugins
 managed-agents/<name>/   # agent.yaml + subagents/ + steering-examples.json
 scripts/                          # validate.py, lint-tool-scope.py, check-marketplace-sync.py,
                                   # check-skill-frontmatter.py, sync-skill-permission-tiers.py,
-                                  # check-connector-taxonomy.py, sync-references.py,
+                                  # validate-connectors.py, sync-references.py,
                                   # deploy-managed-agent.sh
 references/                       # repo-root mirror of consulting/references/ (see sync script);
                                   # connector-taxonomy.json (canonical ~~ placeholder map)
@@ -56,7 +56,7 @@ python3 scripts/check-marketplace-sync.py --check
 python3 scripts/check-skill-frontmatter.py --check
 
 # 7. connector placeholder taxonomy (references/connector-taxonomy.json)
-python3 scripts/check-connector-taxonomy.py --check
+python3 scripts/validate-connectors.py --check
 ```
 
 Install the optional pre-commit hook to run step 6 on staged `SKILL.md` files only:

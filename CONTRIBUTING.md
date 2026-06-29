@@ -69,7 +69,8 @@ Examples of this rule in practice:
   additions; minor bumps for new skills or new required inputs.
 - **Run the validators.** See [CLAUDE.md](CLAUDE.md) — `claude plugin validate`,
   `scripts/sync-references.py --check`, `scripts/check-marketplace-sync.py
-  --check`, `scripts/check-skill-frontmatter.py --check`, and for cookbooks
+  --check`, `scripts/check-skill-frontmatter.py --check`,
+  `scripts/validate-connectors.py --check`, and for cookbooks
   `scripts/lint-tool-scope.py`. Optional: `pre-commit install` runs the skill
   frontmatter linter on staged `SKILL.md` files.
 - **Do not remove the trust spine from consequential skills or

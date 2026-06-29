@@ -128,7 +128,7 @@ def check_mcp_json(path: Path, machine_categories: set[str]) -> list[str]:
     return errors
 
 
-def check_connector_taxonomy() -> list[str]:
+def validate_connectors() -> list[str]:
     if not TAXONOMY_PATH.is_file():
         return [f"missing taxonomy file: {_display_path(TAXONOMY_PATH)}"]
 
@@ -164,9 +164,9 @@ def main() -> int:
     if not args.check and len(sys.argv) == 1:
         args.check = True
 
-    errors = check_connector_taxonomy()
+    errors = validate_connectors()
     if errors:
-        print("connector taxonomy lint FAILED:", file=sys.stderr)
+        print("connector validation FAILED:", file=sys.stderr)
         for message in errors:
             print(f"  {message}", file=sys.stderr)
         return 1
@@ -174,7 +174,7 @@ def main() -> int:
     md_count = len(_iter_markdown_files())
     mcp_count = len(_iter_mcp_json_files())
     print(
-        f"  ✓ connector taxonomy clean "
+        f"  ✓ connectors valid "
         f"({md_count} markdown file(s), {mcp_count} .mcp.json file(s))"
     )
     return 0

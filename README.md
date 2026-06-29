@@ -82,7 +82,7 @@ value-realisation/        # benefits mapping, baseline discipline, tracking, rec
 strategy-builder-hub/     # community skill discovery, installation, QA, and update management
 external-plugins/         # vendor plugins (future)
 managed-agents/           # CMA cookbooks — escalation-watcher, steering-prep, roadmap-drift-watcher, competitive-signal-scan, realisation-checkpoint-reminder
-scripts/                  # validate.py · sync-references.py · check-marketplace-sync.py · check-skill-frontmatter.py · check-connector-taxonomy.py · lint-tool-scope.py · deploy-managed-agent.sh
+scripts/                  # validate.py · sync-references.py · check-marketplace-sync.py · check-skill-frontmatter.py · validate-connectors.py · lint-tool-scope.py · deploy-managed-agent.sh
 references/               # repo-root mirror of consulting/references/ · connector-taxonomy.json
 .claude-plugin/
   marketplace.json        # plugin registry

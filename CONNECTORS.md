@@ -67,7 +67,7 @@ This section documents the `~~category` placeholder convention used across plugi
 
 Plugin markdown uses `~~category` as a stand-in for whatever MCP-backed tool the user connects in that category — e.g. `~~chat` for Slack or Teams, `~~project tracker` for Jira, Linear, Asana, or Monday.com. Skills describe workflows in terms of categories, not products, so the repo stays fork-friendly.
 
-**Human placeholders vs machine categories.** Prose and skills use human-readable placeholders (`~~knowledge base`). Each plugin's `.mcp.json` `recommendedCategories` uses machine slugs (`knowledge-base`). The canonical mapping lives in [`references/connector-taxonomy.json`](./references/connector-taxonomy.json); `python3 scripts/check-connector-taxonomy.py --check` enforces it.
+**Human placeholders vs machine categories.** Prose and skills use human-readable placeholders (`~~knowledge base`). Each plugin's `.mcp.json` `recommendedCategories` uses machine slugs (`knowledge-base`). The canonical mapping lives in [`references/connector-taxonomy.json`](./references/connector-taxonomy.json); `python3 scripts/validate-connectors.py --check` enforces it.
 
 | Human placeholder | Machine category |
 |---|---|
@@ -122,7 +122,7 @@ The per-plugin file is authoritative for which categories that plugin uses, whic
 
 When contributing:
 
-1. **Category name** — add human placeholder and machine slug to `references/connector-taxonomy.json` when introducing a new category; reuse an existing pair when the semantic meaning is the same. Run `python3 scripts/check-connector-taxonomy.py --check` before opening a PR.
+1. **Category name** — add human placeholder and machine slug to `references/connector-taxonomy.json` when introducing a new category; reuse an existing pair when the semantic meaning is the same. Run `python3 scripts/validate-connectors.py --check` before opening a PR.
 2. **`.mcp.json`** — add the HTTP MCP server URL when there's a well-known public endpoint; include `title` and `description` on every entry; add the category to `recommendedCategories` when relevant. Leave account-specific categories as "add your own" in the plugin's `CONNECTORS.md`.
 3. **`CONNECTORS.md`** — update the plugin's file, not this one, unless you're documenting a new cross-repo convention or updating the wanted-connectors table.
 4. **Skills** — reference a category in prose only where the skill actually uses it; don't wire every skill to every connector.
