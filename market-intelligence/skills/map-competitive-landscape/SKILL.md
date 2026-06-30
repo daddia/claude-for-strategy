@@ -7,7 +7,7 @@ description: >
   than by surface product category.
 allowed-tools: Read, Grep, Glob
 metadata:
-  version: "0.3.0"
+  version: "0.4.0"
   owner: "market-intelligence practice"
   review_cadence: "quarterly"
   work_shape: "structured-aggregation"
@@ -52,6 +52,38 @@ Thin competitor list: output groups with explicit **UNDER-THE-RADAR THREAT: unkn
   - **Analytical Rigor:** Groups MECE by strategic logic; mobility barriers falsifiable.
   - **Incentive Gaming:** N/A for this shape.
 - **Escalation triggers:** User insists on category-only grouping — explain failure mode, proceed only if acknowledged.
+
+## Assumption audit
+
+Before grouping, audit assumptions that would invalidate the map:
+
+| Assumption | Status | If wrong, what breaks |
+|---|---|---|
+| Market boundary definition | [confirmed / user-stated / assumed] | Wrong competitors included or excluded |
+| Competitor set completeness | [complete / partial / unknown] | White space is artefact of missing players |
+| Mobility barrier ratings | [evidence-backed / judgment / unknown] | False sense of defensibility |
+| Share or size figures used | [sourced / omitted / verify] | Attractive segments mis-sized |
+
+List audited assumptions in the output header when any row is `assumed` or `unknown`.
+
+## Red flags
+
+**Non-negotiable** — do not deliver High confidence without passing every check:
+
+- **MUST NOT** group by product category labels alone when strategic logic (cost structure, segment, channel, model) is available — category grouping causes false white-space signals.
+- **Do not proceed** to white-space recommendations if the competitor set is incomplete — incomplete sets tend to cause phantom gaps.
+- **Hard stop:** presenting market size or share without `[verify]` or a named source — invented share data causes bad entry bets.
+- **MUST NOT** rate mobility barriers "high" from inertia alone — inertia is not a structural barrier and causes overconfidence in moats.
+
+## Outside-view step
+
+After step 4 (white space), compare the proposed map to a **reference class** of markets with similar structure (number of strategic groups, typical barrier height, consolidation pattern):
+
+1. Name the reference class (e.g. "B2B SaaS workflow tools, 3–5 strategic groups, winner-take-most in enterprise").
+2. State whether this market's group count and barrier pattern matches or diverges — divergence needs explicit rationale.
+3. If white space looks attractive vs. the reference class, ask: **did peers also see this gap and fail to capture it?** Absence of entrants may mean structural unattractiveness, not opportunity.
+
+**Always sanity-check white space against peer-market reference classes** because unseen gaps in one map often reflect missing competitors rather than genuine opportunity — incomplete scans tend to cause false white-space calls.
 
 ## Workflow
 

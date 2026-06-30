@@ -7,7 +7,7 @@ description: >
   together into a decision-ready business case.
 allowed-tools: Read, Grep, Glob
 metadata:
-  version: "0.3.0"
+  version: "0.4.0"
   owner: "transformation practice"
   review_cadence: "quarterly"
   work_shape: "option-evaluation"
@@ -38,6 +38,39 @@ See workflow section below — generic defaults with `[PROVISIONAL]` tags.
 ## Trust spine
 
 Option-evaluation bands; benefit confidence labels; GATE before board/exec final. Guards invented financials and unsigned assumptions.
+
+## Assumption audit
+
+Before drafting options, surface every load-bearing assumption explicitly — not buried in tables:
+
+| Assumption | Source | If wrong, what breaks |
+|---|---|---|
+| Adoption / uptake rate | [sourced / user estimate / unknown] | Benefit case collapses or shifts payback |
+| Cost estimate completeness | [sourced / partial / missing] | ROI overstated |
+| Timeline to value | [sourced / judgment / unknown] | Sequencing and funding tranches misaligned |
+| Baseline performance | [measured / inferred / missing] | Delta benefits invented |
+| Dependency readiness | [confirmed / assumed / unknown] | Recommended option not executable |
+
+**Do not proceed to a defensible recommendation** when adoption, baseline, or cost completeness are all `unknown` without tagging confidence **structured first pass** and listing assumptions in `LOAD-BEARING ASSUMPTIONS`.
+
+## Red flags
+
+These checks are **non-negotiable** — halt and fix before delivering a board- or finance-facing final:
+
+- **MUST NOT** present ROI, NPV, or payback without sourced baseline and cost inputs — use `INPUT NEEDED` instead.
+- **MUST NOT** treat soft benefits as hard P&L without a confidence label and mechanism — optimism bias causes boards to fund on phantom cash.
+- **Do not proceed** if the recommended option lacks kill/revisit criteria dated before the decision — without them, sunk-cost momentum tends to cause spend continuation after failure signals.
+- **Hard stop:** any hard benefit line with Low confidence that carries more than 25% of the headline case value — escalate to sponsor before polish.
+
+## Outside-view step
+
+After Step 5 (benefit realism), run a **reference-class check** before sensitivity:
+
+1. Name 2–3 comparable initiatives (same org, peer sector, or public case studies) with documented cost/benefit/timeline outcomes.
+2. Compare this case's headline timeline and benefit uplift to the reference-class median — if this case is faster or larger than the class without explicit rationale, apply an optimism-bias uplift per HM Treasury Green Book guidance (state the % applied and why) or downgrade confidence.
+3. Record in output: `OUTSIDE-VIEW: [reference class] — median realisation [X%]; this case [above/at/below] class; adjustment [none | haircut Y%]`.
+
+**Always apply a reference-class haircut to benefit timelines** because optimism bias causes systematic overstatement of delivery speed and adoption — the Green Book documents this as a demonstrated, systematic tendency.
 
 ## Purpose
 
