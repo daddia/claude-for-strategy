@@ -70,6 +70,7 @@ Examples of this rule in practice:
 - **Run the validators.** See [CLAUDE.md](CLAUDE.md) — `claude plugin validate`,
   `scripts/sync-references.py --check`, `scripts/check-marketplace-sync.py
   --check`, `scripts/validate-skills.py --check`,
+  `scripts/validate-submission.py --with-cli`,
   `scripts/validate-connectors.py --check`, and for cookbooks
   `scripts/lint-tool-scope.py`. Optional: `pre-commit install` runs the skill
   validator on staged `SKILL.md` files.

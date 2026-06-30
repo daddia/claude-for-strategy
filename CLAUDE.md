@@ -19,7 +19,7 @@ Guidance for working on this repo. `claude-for-strategy` is a Claude Code plugin
 external-plugins/<vendor>/        # vendor plugins
 managed-agents/<name>/   # agent.yaml + subagents/ + steering-examples.json
 scripts/                          # validate.py, lint-tool-scope.py, check-marketplace-sync.py,
-                                  # validate-skills.py, sync-skill-permission-tiers.py,
+                                  # validate-skills.py, validate-submission.py, sync-skill-permission-tiers.py,
                                   # validate-connectors.py, sync-references.py,
                                   # deploy-managed-agent.sh
 references/                       # repo-root mirror of consulting/references/ (see sync script);
@@ -55,7 +55,10 @@ python3 scripts/check-marketplace-sync.py --check
 # 6. skill frontmatter, permission tiers, and required headings (skill-design-framework.md)
 python3 scripts/validate-skills.py --check
 
-# 7. connector placeholder taxonomy (references/connector-taxonomy.json)
+# 7. directory-submission constraints (description length, reference skills)
+python3 scripts/validate-submission.py --with-cli
+
+# 8. connector placeholder taxonomy (references/connector-taxonomy.json)
 python3 scripts/validate-connectors.py --check
 ```
 

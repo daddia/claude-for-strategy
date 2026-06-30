@@ -7,8 +7,7 @@
     "url": "https://github.com/daddia"
   },
   "metadata": {
-    "description": "Reference agents and skills for strategy and transformation work — consulting craft, corporate strategy, market intelligence, digital transformation, change management, org design and decision rights, performance management, balanced scorecards, OKRs, transformation PMO, and post-investment value realisation.",
-    "homepage": "https://github.com/daddia/claude-for-strategy"
+    "description": "Reference agents and skills for strategy and transformation work — consulting craft, corporate strategy, market intelligence, digital transformation, change management, org design and decision rights, performance management, balanced scorecards, OKRs, transformation PMO, and post-investment value realisation."
   },
   "plugins": [
     {
