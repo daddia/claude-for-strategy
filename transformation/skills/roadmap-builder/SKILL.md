@@ -7,7 +7,7 @@ description: >
   into a phased roadmap.
 allowed-tools: Read, Grep, Glob
 metadata:
-  version: "0.3.0"
+  version: "0.4.0"
   owner: "transformation practice"
   review_cadence: "quarterly"
   work_shape: "structured-aggregation"
@@ -38,6 +38,39 @@ Defaults: Now/Next/Later; balanced risk — see workflow below.
 ## Trust spine
 
 Structured-aggregation bands; every initiative has phase rationale tied to dependencies; GATE before board/exec final.
+
+## Assumption audit
+
+Before dependency mapping, audit initiative-prioritisation assumptions:
+
+| Assumption | Status | If wrong, what breaks |
+|---|---|---|
+| Initiative list is complete | [confirmed / partial / unknown] | Critical path missing |
+| Dependency direction (A blocks B) | [confirmed / assumed / unknown] | Wrong phase order |
+| Team capacity per phase | [sourced / estimated / unknown] | Overloaded phases hidden |
+| Funding tranche timing | [confirmed / assumed / unknown] | Now-quarter commitments unfunded |
+| Risk posture applied | [from profile / default / user-stated] | Wrong sequencing bias |
+
+Surface audited assumptions in `LOAD-BEARING ASSUMPTIONS` when any status is `assumed` or `unknown`.
+
+## Red flags
+
+Initiative prioritisation failures are **non-negotiable** to flag before governance publish:
+
+- **MUST NOT** assign initiatives to phases without a one-line dependency rationale — flat lists cause false parallelism.
+- **Do not proceed** to board-final if a phase exceeds plausible capacity without a `CAPACITY FLAGS` line — overload causes slip cascades.
+- **Hard stop:** sequencing high-variance bets in Now when risk posture is conservative without explicit user override — misaligned posture causes funding for foundations to stall.
+- **MUST NOT** invent dates, FTE, or budget to justify phase placement — use `INPUT NEEDED`.
+
+## Outside-view step
+
+After Step 5 (phase placement), run a **reference-class sequencing check**:
+
+1. Name comparable transformation or product programs (internal post-mortems or peer benchmarks) with documented phase-slip patterns.
+2. Compare this roadmap's Now-quarter load and critical-path length to the class median — if this plan is more aggressive, state the optimism gap.
+3. Record: `OUTSIDE-VIEW: [reference class] — typical slip [X weeks/quarters]; this plan [aligned/aggressive]; re-sequence trigger if [condition].`
+
+**Always compare Now-quarter density to reference-class delivery throughput** because programs that pack more concurrent critical-path items than peer programs tend to cause milestone slip that invalidates the sequencing argument.
 
 ## Purpose
 
