@@ -8,7 +8,7 @@ description: >
   benefits before a register can be built.
 allowed-tools: Read, Grep, Glob
 metadata:
-  version: "0.3.0"
+  version: "0.4.0"
   owner: "value-realisation practice"
   review_cadence: "quarterly"
   work_shape: "structured-aggregation"
@@ -41,6 +41,39 @@ Default enabler→change→benefit chain; conservative deadweight and cash-type 
 ## Trust spine
 
 Structured-aggregation bands; benefit-washing and deadweight checks; orphan/coverage gaps flagged.
+
+## Assumption audit
+
+Before building chains, audit assumptions embedded in the source business case:
+
+| Assumption | Status | If wrong, what breaks |
+|---|---|---|
+| Business change will occur as described | [named roles / generic / missing] | Benefit-washing undetected |
+| Baseline will be captured before go-live | [committed / planned / unknown] | Register built on retrofitted numbers |
+| Benefit type classification (cash vs non-cash) | [explicit / implied / wrong] | Headline value overstated |
+| Deadweight / attribution | [considered / ignored / unknown] | Inflated initiative credit |
+| Strategic objective linkage | [traced / asserted / orphan] | Portfolio alignment fiction |
+
+Echo material assumptions in the output when status is not `explicit` or `committed`.
+
+## Red flags
+
+Value-realisation mapping has **non-negotiable** quality gates:
+
+- **MUST NOT** accept "system delivered" as a benefit — deliverables are enablers; missing business change causes benefit-washing.
+- **Do not proceed** to register handoff if cash-releasable benefits are labeled as guaranteed cash-releasing — misclassification causes finance to book unrealised savings.
+- **Hard stop:** orphan benefits with no strategic objective and no user acknowledgment — scope creep tends to cause unfunded workstreams.
+- **MUST NOT** skip the deadweight check on quantified benefits — existing trends cause false attribution.
+
+## Outside-view step
+
+After step 6 (deadweight), apply a **base-rate realisation check** per benefit type:
+
+1. Pull org track record from the value-realisation profile if configured; otherwise use conservative industry base rates (cash-releasing hard benefits often realise 50–70% of plan at 12 months post go-live — tag `[model knowledge — verify]`).
+2. For each quantified benefit, state: `BASE-RATE CHECK: planned [X] vs class median realisation [Y%] — [aligned / optimistic — flag for business-case calibration]`.
+3. If multiple benefits are optimistic vs. class, recommend `/value-realisation:realisation-review` calibration input for future cases.
+
+**Always run a base-rate realisation check on quantified benefits** because benefit-washing causes registers to track deliverables that never produce measurable value.
 
 ## Workflow
 

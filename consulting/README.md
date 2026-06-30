@@ -13,6 +13,8 @@ Job-style names in the table map to slash commands — run the command to invoke
 | **Reviewing Partner** | Existing deck/memo → structural critique against pyramid discipline | `/consulting:doc-reviewer` |
 | **So-What Sharpener** | Observations → implication → insight, point by point | `/consulting:so-what-sharpener` |
 | **Workplan Architect** | Hypothesis tree → owned, timed workplan with expected so-what per row | `/consulting:workplan-builder` |
+| **Reference Class Forecaster** | Inside-view estimates → Flyvbjerg outside-view + Green Book optimism-bias calibration | `/consulting:reference-class-forecaster` |
+| **Pre-Mortem Red Team** | Near-final recommendation → pre-mortem, dis-confirming evidence, devil's-advocate, decision-quality score | `/consulting:pre-mortem-and-red-team` |
 
 ## What this plugin does NOT do
 
@@ -56,6 +58,8 @@ narrative-builder → exec-memo
 | `/consulting:exec-memo` | exec-memo | Narrative or raw notes → BLUF one-pager |
 | `/consulting:so-what-sharpener` | so-what-sharpener | Observations → implication → insight |
 | `/consulting:doc-reviewer` | doc-reviewer | Existing deck/memo → structural critique |
+| `/consulting:reference-class-forecaster` | reference-class-forecaster | Inside-view estimates → outside-view calibration with Green Book uplift |
+| `/consulting:pre-mortem-and-red-team` | pre-mortem-and-red-team | Pre-mortem, dis-confirming evidence, devil's-advocate, decision-quality score |
 
 ## Reference material
 
