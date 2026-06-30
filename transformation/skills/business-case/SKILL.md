@@ -99,6 +99,8 @@ If the user says "provisional," run the workflow using: balanced risk posture, n
 
 ## Workflow
 
+**Before Step 1:** Read and apply `../../references/trust-conventions.md` — source-tagging, `[verify]` on model-only numbers, load-bearing assumptions at top, numbers provenance, confidence labeling, and board-ready gate.
+
 ### Step 1: Orient
 
 Confirm before drafting:

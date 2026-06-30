@@ -87,6 +87,8 @@ After step 4 (white space), compare the proposed map to a **reference class** of
 
 ## Workflow
 
+**Before step 1:** Read and apply `../../references/trust-conventions.md` — source-tagging, `[verify]` on model-only numbers, load-bearing assumptions at top, numbers provenance, confidence labeling, and board-ready gate.
+
 1. **Read the practice profile** — `~/.claude/plugins/config/claude-for-strategy/org-profile.md` and `~/.claude/plugins/config/claude-for-strategy/market-intelligence/CLAUDE.md` — for market definition and known competitor set.
 2. **Group competitors into strategic groups** by cost structure, target segment, channel, business model — not product category labels.
 3. **Identify mobility barriers between groups** — capital, channel, brand, regulatory; rate realistically (inertia ≠ high barrier).

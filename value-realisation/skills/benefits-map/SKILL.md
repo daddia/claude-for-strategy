@@ -77,6 +77,8 @@ After step 6 (deadweight), apply a **base-rate realisation check** per benefit t
 
 ## Workflow
 
+**Before step 1:** Read and apply `../../references/trust-conventions.md` — source-tagging, `[verify]` on model-only numbers, load-bearing assumptions at top, numbers provenance, confidence labeling, and board-ready gate.
+
 1. **Read the practice profile** — `~/.claude/plugins/config/claude-for-strategy/org-profile.md` and `~/.claude/plugins/config/claude-for-strategy/value-realisation/CLAUDE.md` — for the benefit type taxonomy and named framework, if any. If `transformation` or `corporate-strategy` is installed, read the relevant `/transformation:business-case` or `/corporate-strategy:evaluate-strategic-option` output as the seed rather than starting from a blank page — the case's cost/benefit table is the input, not a separate exercise.
 
 2. **For each benefit claimed in the source material, build the chain**:

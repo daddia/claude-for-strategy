@@ -91,6 +91,8 @@ Defaults: Now (this quarter) / Next (1–2 quarters) / Later (beyond); balanced 
 
 ## Workflow
 
+**Before Step 1:** Read and apply `../../references/trust-conventions.md` — source-tagging, `[verify]` on model-only numbers, load-bearing assumptions at top, numbers provenance, confidence labeling, and board-ready gate.
+
 ### Step 1: Orient
 
 | Question | Answer |

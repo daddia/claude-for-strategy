@@ -84,6 +84,8 @@ This skill's core workflow **is** the outside view (Flyvbjerg) plus **optimism-b
 
 ## Workflow
 
+**Before step 1:** Read and apply `../../references/trust-conventions.md` — source-tagging, `[verify]` on model-only numbers, load-bearing assumptions at top, numbers provenance, confidence labeling, and board-ready gate.
+
 1. Confirm project type, scale, and which dimensions to calibrate (cost, duration, benefit).
 2. Run **Assumption audit**; halt on missing inside-view estimate.
 3. Assemble reference class — user comparables first, then tagged public benchmarks.
