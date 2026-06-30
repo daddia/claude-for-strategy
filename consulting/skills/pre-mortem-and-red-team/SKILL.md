@@ -82,6 +82,8 @@ Before the pre-mortem narrative, anchor with a **base-rate failure check**:
 
 ## Workflow
 
+**Before Step 1:** Read and apply `../../references/trust-conventions.md` — source-tagging, `[verify]` on model-only numbers, load-bearing assumptions at top, numbers provenance, confidence labeling, and board-ready gate.
+
 ### Step 1: Freeze the bet
 
 Restate recommendation, success criteria, timeline, and stakeholders in one paragraph. Confirm with user.

@@ -41,6 +41,7 @@ FIRST_PARTY_PLUGINS = (
 SHARED_PLUGIN_REFERENCES = (
     "practice-setup-framework.md",
     "org-profile-template.md",
+    "trust-conventions.md",
 )
 
 
