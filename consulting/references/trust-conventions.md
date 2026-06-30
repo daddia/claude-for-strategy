@@ -17,7 +17,9 @@ Every market figure, benchmark, competitor claim, and financial number must carr
 | Tag | When to use |
 | --- | --- |
 | `[sourced: <where>]` | The figure or claim comes from a document, dataset, URL, interview, or other traceable input the user or a connected tool provided. `<where>` is specific enough to find again — file name, URL, report title + date, "user message 2026-06-22", not "industry research". |
-| `[unverified — from training data, needs a real source]` | The figure or claim is plausible from general knowledge or model training but was **not** grounded in user-supplied or tool-retrieved evidence in this session. |
+| `[verify]` | A factual claim (statistic, date, threshold, market size, dollar amount, company fact) the reader must confirm against a primary source before relying on it. Use on **model-only numbers** — figures from training knowledge or session inference without a traceable input. Shorthand for the longer forms below; do not treat `[verify]` as sourced. |
+| `[unverified — from training data, needs a real source]` | Long form of `[verify]` when the figure or claim is plausible from general knowledge or model training but was **not** grounded in user-supplied or tool-retrieved evidence in this session. |
+| `[model knowledge — verify]` | Use when the specific source is model training knowledge — same gate as `[verify]`, with provenance named explicitly. |
 
 ### Rules
 
@@ -175,7 +177,8 @@ Skills that produce consequential output should include this block (or equivalen
 
 ```
 SOURCING: Tag every market figure, benchmark, competitor claim, and dollar amount as
-  [sourced: <where>] or [unverified — from training data, needs a real source].
+  [sourced: <where>] or [verify] / [unverified — from training data, needs a real source]
+  on model-only numbers.
 ASSUMPTIONS: State load-bearing assumptions at the top of the output — flag, don't fix.
 NUMBERS: Never invent an input — flag what's needed instead.
 CONFIDENCE: Label output defensible recommendation vs structured first pass.
@@ -189,7 +192,7 @@ Full rules: `../../references/trust-conventions.md` (consulting) or the repo-roo
 
 ## Quick self-check
 
-1. Does **every material number or external claim** have `[sourced: …]` or `[unverified — …]`?
+1. Does **every material number or external claim** have `[sourced: …]` or `[verify]` / `[unverified — …]`?
 2. Are **load-bearing assumptions** at the top, with impact if wrong?
 3. Is anything in the output **invented** that should be `INPUT NEEDED` or explicitly unverified?
 4. Is the **confidence label** honest given the sourcing state?
@@ -199,7 +202,8 @@ Full rules: `../../references/trust-conventions.md` (consulting) or the repo-roo
 
 ## Where this shows up
 
-- **High-trust outputs (inline block required in REF01-02):** `business-case`, `performance-narrative`, `deck-outline`, `exec-memo`, `status-report`, `steering-pack`, `roadmap-builder`, `target-operating-model`, `tech-strategy-brief`, `doc-reviewer`
+- **Reasoning-tool upgrades (read full reference in workflow):** `business-case`, `map-competitive-landscape`, `roadmap-builder`, `benefits-map`, `reference-class-forecaster`, `pre-mortem-and-red-team`
+- **High-trust outputs (inline block required):** `performance-narrative`, `deck-outline`, `exec-memo`, `status-report`, `steering-pack`, `target-operating-model`, `tech-strategy-brief`, `doc-reviewer`
 - **Numbers discipline already partial:** `workplan-builder`, `tracker-builder` — "flag, don't invent" promotes here to repo-wide convention
 - **Review pass:** `doc-reviewer` should flag missing tags, hidden assumptions, invented inputs, and finals without a reviewer note
 - **Watcher agents:** `market-intelligence:competitive-signal-scan` and other scheduled agents that emit tagged alerts depend on this spine being real
