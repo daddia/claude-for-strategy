@@ -145,6 +145,10 @@ UNDER-THE-RADAR THREAT: Adjacent C — RPA/automation group — low-barrier path
 - [ ] Under-the-radar threat explicitly named or gap flagged
 - [ ] Market figures source-tagged or omitted
 
+## Propose profile update
+
+When a stable convention surfaces during this run (thresholds, naming, tone, output format, or recurring corrections), **propose a profile update**: show the exact diff against `~/.claude/plugins/config/claude-for-strategy/market-intelligence/CLAUDE.md` (org-wide facts go to `org-profile.md`), ask for confirmation, and write only on yes. Only `/market-intelligence:practice-setup` auto-applies a full profile write.
+
 ## Outputs
 
 Follows plugin `CLAUDE.md` § Outputs. Next: `forecast-competitive-response`, `test-positioning`, or `map-incentives` on key players.

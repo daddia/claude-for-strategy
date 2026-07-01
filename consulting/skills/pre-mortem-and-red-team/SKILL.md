@@ -182,6 +182,10 @@ VERDICT: Proceed with conditions — kill if Identity slip >8 weeks
 - [ ] Decision-quality score filled; low dimensions flagged `[review]`
 - [ ] Base-rate / outside-view check included
 
+## Propose profile update
+
+When a stable convention surfaces during this run (thresholds, naming, tone, output format, or recurring corrections), **propose a profile update**: show the exact diff against `~/.claude/plugins/config/claude-for-strategy/consulting/CLAUDE.md` (org-wide facts go to `org-profile.md`), ask for confirmation, and write only on yes. Only `/consulting:practice-setup` auto-applies a full profile write.
+
 ## Outputs
 
 Follows plugin `CLAUDE.md` § Outputs. Next: revise `/transformation:business-case`, run `/consulting:exec-memo` for IC, or `/consulting:doc-reviewer` on updated narrative.

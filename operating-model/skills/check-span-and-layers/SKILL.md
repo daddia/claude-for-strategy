@@ -98,6 +98,10 @@ RECOMMENDED CHANGES: Widen EM spans to 8–10; remove one coordination layer bet
 - [ ] Recommendations specific, not blanket flattening
 - [ ] Coverage gaps noted if data incomplete
 
+## Propose profile update
+
+When a stable convention surfaces during this run (thresholds, naming, tone, output format, or recurring corrections), **propose a profile update**: show the exact diff against `~/.claude/plugins/config/claude-for-strategy/operating-model/CLAUDE.md` (org-wide facts go to `org-profile.md`), ask for confirmation, and write only on yes. Only `/operating-model:practice-setup` auto-applies a full profile write.
+
 ## Outputs
 
 Follows plugin `CLAUDE.md` § Outputs. Next: exec/HR review, `diagnose-structure-fit`, or org design workshop.

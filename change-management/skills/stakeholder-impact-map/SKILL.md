@@ -93,6 +93,10 @@ GENERIC-BUCKET FLAGS: [segments too broad to action, or "none"]
 - [ ] Losses named where plausible
 - [ ] Coverage gaps listed
 
+## Propose profile update
+
+When a stable convention surfaces during this run (thresholds, naming, tone, output format, or recurring corrections), **propose a profile update**: show the exact diff against `~/.claude/plugins/config/claude-for-strategy/change-management/CLAUDE.md` (org-wide facts go to `org-profile.md`), ask for confirmation, and write only on yes. Only `/change-management:practice-setup` auto-applies a full profile write.
+
 ## Outputs
 
 Follows plugin `CLAUDE.md` § Outputs. Next: `change-readiness-assessment` or `communications-plan`.

@@ -103,6 +103,10 @@ SET-LEVEL CHECK: 2 objectives — within ceiling; overlap: none
 - [ ] Vague objectives flagged with narrowing suggestions
 - [ ] Figures source-tagged or omitted
 
+## Propose profile update
+
+When a stable convention surfaces during this run (thresholds, naming, tone, output format, or recurring corrections), **propose a profile update**: show the exact diff against `~/.claude/plugins/config/claude-for-strategy/okr/CLAUDE.md` (org-wide facts go to `org-profile.md`), ask for confirmation, and write only on yes. Only `/okr:practice-setup` auto-applies a full profile write.
+
 ## Outputs
 
 Follows plugin `CLAUDE.md` § Outputs. Next: `write-key-results`, `cascade`, or revise flagged objectives.

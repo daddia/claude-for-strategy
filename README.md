@@ -336,6 +336,19 @@ Per-plugin connector details: each plugin's [CONNECTORS.md](./CONNECTORS.md) (co
 
 > Connectors marked "customer subscription" need your own account and API key. Configure them in each plugin's `.mcp.json` or via `claude mcp` in Claude Code.
 
+## Cold-start interview and practice profile
+
+Every plugin ships a guided **`practice-setup`** interview — the cold-start path that learns your playbook and writes two layers of profile:
+
+| Layer | Path | Captures |
+|---|---|---|
+| **Org profile** (once) | `~/.claude/plugins/config/claude-for-strategy/org-profile.md` | Company, sector, planning cadence, **board cycle**, house style, risk appetite, tool stack, escalation model |
+| **Plugin profile** (per practice area) | `~/.claude/plugins/config/claude-for-strategy/<plugin>/CLAUDE.md` | Plugin-specific frameworks, thresholds, output formats, review gates |
+
+**Run once per plugin you install:** `/<plugin>:practice-setup` (or `--quick` for 2 minutes, `--full` for seed-document review). The interview shows a summary and writes **only after you confirm**. Framework: [`consulting/references/practice-setup-framework.md`](consulting/references/practice-setup-framework.md).
+
+**Living profile.** Every other skill uses **propose profile update** — show the exact diff, ask, write on yes. No skill except `practice-setup` auto-writes a full profile.
+
 ## Making it yours
 
 These are reference templates. They get better when you tune them to how your team works — and the customization mechanism is the plugin itself, not a config file buried in a repo.

@@ -148,6 +148,10 @@ ADJUSTED FORECAST RANGE: cost $4.8–5.2M; duration 11–13 months; benefits $3.
 - [ ] No single-point defensible forecast without range
 - [ ] Flyvbjerg outside-view and Green Book cited in methodology line
 
+## Propose profile update
+
+When a stable convention surfaces during this run (thresholds, naming, tone, output format, or recurring corrections), **propose a profile update**: show the exact diff against `~/.claude/plugins/config/claude-for-strategy/consulting/CLAUDE.md` (org-wide facts go to `org-profile.md`), ask for confirmation, and write only on yes. Only `/consulting:practice-setup` auto-applies a full profile write.
+
 ## Outputs
 
 Follows plugin `CLAUDE.md` § Outputs. Natural next: `/transformation:business-case` with adjusted inputs, `/consulting:exec-memo` for IC brief, or profile update for org calibration discount.

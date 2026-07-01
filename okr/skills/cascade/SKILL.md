@@ -105,6 +105,10 @@ CROSS-TEAM CONFLICT CHECK:
 - [ ] Cross-team conflict check run across siblings
 - [ ] Output does not read as approved cascade
 
+## Propose profile update
+
+When a stable convention surfaces during this run (thresholds, naming, tone, output format, or recurring corrections), **propose a profile update**: show the exact diff against `~/.claude/plugins/config/claude-for-strategy/okr/CLAUDE.md` (org-wide facts go to `org-profile.md`), ask for confirmation, and write only on yes. Only `/okr:practice-setup` auto-applies a full profile write.
+
 ## Outputs
 
 Follows plugin `CLAUDE.md` § Outputs. Next: revise children via `draft-objectives`/`write-key-results`, or escalate conflicts to leadership.

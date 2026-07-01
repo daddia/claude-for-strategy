@@ -95,6 +95,10 @@ ROOT-CAUSE CLUSTER (from benefits-recovery, this portfolio): [dominant cause(s) 
 - [ ] Root-cause cluster named with planning implication
 - [ ] BLUF recommendation first
 
+## Propose profile update
+
+When a stable convention surfaces during this run (thresholds, naming, tone, output format, or recurring corrections), **propose a profile update**: show the exact diff against `~/.claude/plugins/config/claude-for-strategy/value-realisation/CLAUDE.md` (org-wide facts go to `org-profile.md`), ask for confirmation, and write only on yes. Only `/value-realisation:practice-setup` auto-applies a full profile write.
+
 ## Outputs
 
 Follows plugin `CLAUDE.md` § Outputs. Next: `transformation:business-case` calibration, `consulting:exec-memo`, or steering PIR.

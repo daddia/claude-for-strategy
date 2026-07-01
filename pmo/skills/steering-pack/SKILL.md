@@ -192,6 +192,10 @@ Slide — Approve descoped Phase 2 go-live date
   Ask: Committee approves 30 Sept vs. hold for full scope [review]
 ```
 
+## Propose profile update
+
+When a stable convention surfaces during this run (thresholds, naming, tone, output format, or recurring corrections), **propose a profile update**: show the exact diff against `~/.claude/plugins/config/claude-for-strategy/pmo/CLAUDE.md` (org-wide facts go to `org-profile.md`), ask for confirmation, and write only on yes. Only `/pmo:practice-setup` auto-applies a full profile write.
+
 ## Outputs
 
 Follows plugin `CLAUDE.md` § Outputs. Next: run `status-report` if inputs thin, PMO review, GATE before committee circulation.

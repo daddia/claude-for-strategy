@@ -176,6 +176,10 @@ FIFTH-PERSPECTIVE REQUEST: none
 - [ ] Output ready as input to build-strategy-map (no objectives drafted here)
 - [ ] Hybrid unresolved cases flagged dual-track, not forced to single top
 
+## Propose profile update
+
+When a stable convention surfaces during this run (thresholds, naming, tone, output format, or recurring corrections), **propose a profile update**: show the exact diff against `~/.claude/plugins/config/claude-for-strategy/balanced-scorecard/CLAUDE.md` (org-wide facts go to `org-profile.md`), ask for confirmation, and write only on yes. Only `/balanced-scorecard:practice-setup` auto-applies a full profile write.
+
 ## Outputs
 
 Follows plugin `CLAUDE.md` § Outputs. Natural next branch: `/balanced-scorecard:build-strategy-map` with confirmed perspective order.
