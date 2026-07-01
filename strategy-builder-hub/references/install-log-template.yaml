@@ -1,0 +1,7 @@
+# Install audit log for strategy-builder-hub community skills.
+# Append-only — see skill-installer/references/install-log-schema.md.
+#
+# Created by /strategy-builder-hub:practice-setup if missing.
+# Path: ~/.claude/plugins/config/claude-for-strategy/strategy-builder-hub/install-log.yaml
+
+[]
