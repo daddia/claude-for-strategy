@@ -61,7 +61,8 @@ Without audience in profile: default to sponsor/exec; tag `[PROVISIONAL]`; apply
 4. **Group supporting metrics** into 2–4 MECE points; so-what test.
 5. **State what's needed** — decision, investment, awareness.
 6. **Full metric detail last** as reference appendix.
-7. **MECE/falsifiability check** before output.
+7. **Connector figures.** When metrics are read from `~~bi analytics`, `~~spreadsheet`, `~~crm`, or other MCP sources, tag each number `[sourced: <connector>, <dataset/report>, <as-of date>]` per `../../references/trust-conventions.md`. Uncited connector figures are not allowed in board-facing output; use `[verify]` or `INPUT NEEDED` when the pull fails.
+8. **MECE/falsifiability check** before output.
 
 ## Output format
 

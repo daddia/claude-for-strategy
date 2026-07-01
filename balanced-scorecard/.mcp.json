@@ -4,7 +4,7 @@
       "type": "http",
       "url": "https://mcp.slack.com/mcp",
       "title": "Slack",
-      "description": "Search messages, read channels, and post summaries \u2014 the delivery surface for watchers, check-ins, and status updates."
+      "description": "Search messages, read channels, and post summaries — the delivery surface for watchers, check-ins, and status updates."
     },
     "gmail": {
       "type": "http",
@@ -52,7 +52,31 @@
       "type": "http",
       "url": "https://mcp.miro.com/",
       "title": "Miro",
-      "description": "Read and create board content on Miro \u2014 diagrams, strategy maps, and workshop canvases scoped to the user's permissions."
+      "description": "Read and create board content on Miro — diagrams, strategy maps, and workshop canvases scoped to the user's permissions."
+    },
+    "notion": {
+      "type": "http",
+      "url": "https://mcp.notion.com/mcp",
+      "title": "Notion",
+      "description": "Search and read Notion pages and databases — planning docs and knowledge base scoped to the user's OAuth permissions."
+    },
+    "microsoft-graph-enterprise": {
+      "type": "http",
+      "url": "https://mcp.svc.cloud.microsoft/enterprise",
+      "title": "Microsoft Graph (Enterprise)",
+      "description": "Read Microsoft Entra directory and enterprise Graph context (preview). For Outlook, SharePoint, Excel, and Teams, enable Agent365 MCP in your tenant — see CONNECTORS.md."
+    },
+    "power-bi": {
+      "type": "http",
+      "url": "https://api.fabric.microsoft.com/v1/mcp/powerbi",
+      "title": "Power BI",
+      "description": "Query Power BI semantic models via natural language — DAX-grounded figures with user permissions and tenant policies enforced."
+    },
+    "tableau": {
+      "type": "http",
+      "url": "https://mcp.tableau.com",
+      "title": "Tableau",
+      "description": "Read Tableau Cloud metrics and workbook context — OAuth per user with Tableau permissions enforced."
     }
   },
   "recommendedCategories": [
@@ -62,6 +86,7 @@
     "calendar",
     "project-tracker",
     "knowledge-base",
-    "whiteboard"
+    "whiteboard",
+    "bi-analytics"
   ]
 }

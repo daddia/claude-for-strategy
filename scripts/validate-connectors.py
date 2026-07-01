@@ -13,6 +13,7 @@ from __future__ import annotations
 import argparse
 import json
 import re
+import subprocess
 import sys
 from pathlib import Path
 
@@ -169,6 +170,20 @@ def main() -> int:
         print("connector validation FAILED:", file=sys.stderr)
         for message in errors:
             print(f"  {message}", file=sys.stderr)
+        return 1
+
+    priority_script = REPO_ROOT / "scripts" / "sync-priority-connectors.py"
+    priority_result = subprocess.run(
+        [sys.executable, str(priority_script), "--check"],
+        cwd=REPO_ROOT,
+        capture_output=True,
+        text=True,
+    )
+    if priority_result.returncode != 0:
+        if priority_result.stdout:
+            print(priority_result.stdout, file=sys.stderr, end="")
+        if priority_result.stderr:
+            print(priority_result.stderr, file=sys.stderr, end="")
         return 1
 
     md_count = len(_iter_markdown_files())

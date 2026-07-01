@@ -58,7 +58,7 @@ Portfolio scope, allocation types, review forum, time horizon, evidence pack. Re
 
 ### Step 2: Evidence pack
 
-Capital/budget, headcount, management attention, priority ranking — status and source per row. Management attention: `[user estimate — not verified]` if unsourced.
+Capital/budget, headcount, management attention, priority ranking — status and source per row. Management attention: `[user estimate — not verified]` if unsourced. Figures from `~~bi analytics`, `~~spreadsheet`, or `~~crm` connectors must carry `[sourced: <connector>, <asset>, <as-of>]` on the load-bearing digit.
 
 ### Step 3: Allocation vs priority comparison
 

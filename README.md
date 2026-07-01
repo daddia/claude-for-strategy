@@ -329,7 +329,11 @@ These plugins ship connectors for the systems strategy teams live in. A connecto
 | **Vercel** | Deployment and hosting context | `transformation` | `~~hosting` |
 | **Miro** | Board diagrams and workshop canvases | `consulting`, `balanced-scorecard`, `market-intelligence`, `operating-model` | `~~whiteboard` |
 | **HRIS** | Headcount and reporting-line data | `operating-model` | `~~hris` — Workday, BambooHR, Rippling, HiBob |
-| **Notion** | Knowledge base (workspace-specific) | all plugins | Add your own MCP server URL |
+| **Notion** | Knowledge base pages and databases | all plugins | `~~knowledge base` |
+| **Microsoft Graph (Enterprise)** | Entra directory and enterprise Graph context (preview) | all plugins | `~~documents` (pair with Google Workspace or Agent365 for M365 files) |
+| **Power BI** | Semantic model queries via Fabric MCP | performance, corporate-strategy, balanced-scorecard, transformation, pmo, value-realisation | `~~bi analytics` |
+| **Tableau** | Tableau Cloud metrics and workbooks | performance, corporate-strategy, balanced-scorecard, transformation, pmo, value-realisation | `~~bi analytics` |
+| **Salesforce** | Hosted MCP for commercial/CRM data (org-specific URL) | corporate-strategy | `~~crm` — enable in Salesforce Setup → API Catalog |
 | **Web & news monitoring** | Curated competitive/news feeds | `market-intelligence` | Exa, Tavily, NewsAPI, Feedly — optional; `competitive-signal-scan` works with native web search |
 
 Per-plugin connector details: each plugin's [CONNECTORS.md](./CONNECTORS.md) (contributor index) links to `<plugin>/CONNECTORS.md`.
