@@ -65,23 +65,34 @@ Each example produces a **draft artefact for your review** — paste your contex
 
 **You get:** a BLUF-structured narrative — what changed, what breached, root-cause hypotheses, and recommended actions. Load-bearing assumptions and unverified benchmarks are surfaced before you stamp it final.
 
-More agents and commands: [Agents](#agents) · [Skill & command reference](#skill--command-reference).
+More agents and commands: [Named agents (v2)](#named-agents-v2) · [Extended agent catalog](#extended-agent-catalog) · [Skill & command reference](#skill--command-reference).
 
 ---
 
-Everything here ships as Claude Cowork or Claude Code plugins **and** as [managed-agent cookbooks](./managed-agents/) for headless deployment through the [Claude Managed Agents API](https://docs.claude.com/en/api/managed-agents) — same skills and prompts, two surfaces from one source.
+## Named agents (v2)
 
-What's in the repo:
+Twelve job-titled entry points for strategy and transformation work. Each name maps to **exactly one** slash command under `skills/<skill-name>/` — on-demand agents are not duplicated as files under `agents/` (that directory is for scheduled watchers only).
 
-- **Practice-area plugins** covering consulting craft, corporate strategy, market intelligence, transformation, change management, org design, performance, PMO, balanced scorecards, OKRs, and value realisation — each built around a practice setup that learns your playbook, a living `CLAUDE.md` practice profile every skill reads from, and a **propose profile update** flow so conventions can be recorded mid-engagement without re-running setup.
-- **Strategy Builder Hub** for discovering, installing, and QAing community strategy skills from trusted registries.
-- **MCP connectors** across general productivity (Slack, Google Workspace, Atlassian, Linear, Asana, Monday.com) and strategy-specific categories (GitHub, Miro, observability, hosting, spreadsheets).
-- **[Named agents](#agents)** — job-style entry points (Narrative Architect, Roadmap Architect, RAID Logger, …) with a single command to run each one.
-- **Scheduled agents** in `pmo`, `performance`, `transformation`, `okr`, `balanced-scorecard`, `corporate-strategy`, `market-intelligence`, and `value-realisation` — escalation/slippage/steering prep, KPI breach watching, cadence reporting, assumption-decay/roadmap-drift, check-in nudges, scorecard review reminders, portfolio review prompts, competitive signal scanning, benefits-tracking checkpoints. Convention Monitor (`consulting`) is still planned for V1.2.
+| Agent | What it does | Command |
+|---|---|---|
+| **Board Pack Builder** | RAID, milestones, and pending decisions → decision-led steering committee deck outline | `/pmo:steering-pack` |
+| **Investment Case Architect** | Initiative scope → problem, options, cost/benefit, sequencing, risk, and ask | `/transformation:business-case` |
+| **Operating Model Designer** | Current state + ambition → target operating model across capability, org, process, tech, and data | `/transformation:target-operating-model` |
+| **PMI Integration Lead** | Integration hypothesis tree → owned, timed workplan with expected so-what per workstream | `/consulting:workplan-builder` |
+| **Benefits Realisation Auditor** | Benefits portfolio → post-implementation review with optimism-bias calibration | `/value-realisation:realisation-review` |
+| **Strategic Planning Facilitator** | Strategic themes → causal strategy map across balanced-scorecard perspectives | `/balanced-scorecard:build-strategy-map` |
+| **OKR Cascade Architect** | Company OKRs → team-level objectives with parent-contribution and coverage checks | `/okr:cascade` |
+| **Market & Competitor Analyst** | Market definition → strategic-group map with mobility barriers and white-space test | `/market-intelligence:map-competitive-landscape` |
+| **Due Diligence Grid Builder** | Problem statement → root hypothesis and falsifiable MECE sub-hypotheses | `/consulting:hypothesis-tree` |
+| **Decision-Memo Writer** | Narrative or raw notes → BLUF one-pager for exec decision | `/consulting:exec-memo` |
+| **Executive Comms Drafter** | Audiences and milestones → audience × message × channel × timing × owner plan | `/change-management:communications-plan` |
+| **Stakeholder Map & Pre-wire Planner** | Initiative scope → influence/impact segmentation with behavior changes per group | `/change-management:stakeholder-impact-map` |
 
-## Agents
+Run the plugin's `practice-setup` before first use — every skill reads your practice profile and applies the [trust spine](references/trust-conventions.md) (source tagging, surfaced assumptions, board-ready gate).
 
-Each agent is named for the job it does. They're the most common surface — start with the ones that match your work, then tune the underlying skill, the practice profile, and the connectors to how your team does it.
+## Extended agent catalog
+
+Each agent below is named for the job it does. Start with the [v2 entry points](#named-agents-v2) or the ones that match your work, then tune the underlying skill, practice profile, and connectors to how your team does it.
 
 | Agent | What it does | Plugin | Command |
 |---|---|---|---|
@@ -132,6 +143,16 @@ Each agent is named for the job it does. They're the most common surface — sta
 | **Portfolio Review Reminder** | Quarterly prompt to run `allocate-resources` and recheck `exit-or-double-down` holds past their re-rating date | `corporate-strategy` | scheduled agent |
 | **Competitive Signal Scan** | Weekly scan for competitor moves that would change the strategic-group or incentive map; works with native web search, no connector required | `market-intelligence` | scheduled agent |
 | **Realisation Checkpoint Reminder** | Prompts benefits-tracking on cadence; escalates benefits approaching go-live with no baseline captured | `value-realisation` | scheduled agent |
+
+Everything here ships as Claude Cowork or Claude Code plugins **and** as [managed-agent cookbooks](./managed-agents/) for headless deployment through the [Claude Managed Agents API](https://docs.claude.com/en/api/managed-agents) — same skills and prompts, two surfaces from one source.
+
+What's in the repo:
+
+- **Practice-area plugins** covering consulting craft, corporate strategy, market intelligence, transformation, change management, org design, performance, PMO, balanced scorecards, OKRs, and value realisation — each built around a practice setup that learns your playbook, a living `CLAUDE.md` practice profile every skill reads from, and a **propose profile update** flow so conventions can be recorded mid-engagement without re-running setup.
+- **Strategy Builder Hub** for discovering, installing, and QAing community strategy skills from trusted registries.
+- **MCP connectors** across general productivity (Slack, Google Workspace, Atlassian, Linear, Asana, Monday.com) and strategy-specific categories (GitHub, Miro, observability, hosting, spreadsheets).
+- **[Named agents (v2)](#named-agents-v2)** — twelve job-titled entry points plus the [extended catalog](#extended-agent-catalog) below.
+- **Scheduled agents** in `pmo`, `performance`, `transformation`, `okr`, `balanced-scorecard`, `corporate-strategy`, `market-intelligence`, and `value-realisation` — escalation/slippage/steering prep, KPI breach watching, cadence reporting, assumption-decay/roadmap-drift, check-in nudges, scorecard review reminders, portfolio review prompts, competitive signal scanning, benefits-tracking checkpoints. Convention Monitor (`consulting`) is still planned for V1.2.
 
 ## Repository layout
 
