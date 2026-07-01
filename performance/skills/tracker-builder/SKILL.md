@@ -64,7 +64,8 @@ No existing pattern in profile: default Daily Log + Summary with AVERAGEIFS/SUMI
 5. **Build `.xlsx`** with live formulas per xlsx skill guidance.
 6. **Document formula logic** in notes tab or section.
 7. **Flag unspecified raw inputs** — don't invent.
-8. **Completeness check** before delivery.
+8. **Connector seed data.** When seeding from `~~bi analytics` or `~~spreadsheet` MCP pulls, tag imported figures `[sourced: <connector>, <workbook/dataset>, <as-of>]` in the tracker notes tab; never paste uncited connector numbers into Summary formulas.
+9. **Completeness check** before delivery.
 
 ## Output format
 

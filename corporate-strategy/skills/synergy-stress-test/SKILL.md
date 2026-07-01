@@ -58,7 +58,7 @@ Use profile overrides when configured.
 ## Workflow
 
 1. Separate every line: cost vs revenue.
-2. Grade evidence per line; state tier, haircut %, adjusted value.
+2. Grade evidence per line; state tier, haircut %, adjusted value. Connector-sourced figures (`~~bi analytics`, `~~crm`, `~~spreadsheet`) require `[sourced: <connector>, <asset>, <as-of>]` on each load-bearing number; otherwise use `INPUT NEEDED`.
 3. Revenue mechanism check — missing mechanism → Weak.
 4. Double-counting scan.
 5. Recompute totals; bar test at adjusted number.

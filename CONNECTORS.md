@@ -35,8 +35,24 @@ Connectors shipped in the default `.mcp.json` of each plugin:
 | **Honeycomb** | transformation, performance | `~~observability` |
 | **Vercel** | transformation | `~~hosting` |
 | **Miro** | consulting, balanced-scorecard, market-intelligence, operating-model | `~~whiteboard` |
+| **Notion** | all twelve first-party plugins | `~~knowledge base` |
+| **Microsoft Graph (Enterprise)** | all twelve first-party plugins | `~~documents` (Entra/directory); Agent365 MCP for Outlook/SharePoint/Excel — see below |
+| **Power BI** | performance, corporate-strategy, balanced-scorecard, transformation, pmo, value-realisation | `~~bi analytics` |
+| **Tableau** | performance, corporate-strategy, balanced-scorecard, transformation, pmo, value-realisation | `~~bi analytics` |
+| **Salesforce** | corporate-strategy (commercial data) | `~~crm` — org-specific URL from Setup → API Catalog → MCP Servers |
 
 See the `.mcp.json` in each plugin directory for the authoritative list, including `title` and `description` on every entry.
+
+### Microsoft 365 (Agent365) and Salesforce (org-specific)
+
+Some enterprise connectors do not ship a single global URL:
+
+- **Microsoft 365 productivity** (Outlook, SharePoint, Excel, Teams) — enable Agent365 MCP in your tenant; endpoint pattern `https://agent365.svc.cloud.microsoft/agents/tenants/{tenant_id}/servers/{server_name}`. The bundled **Microsoft Graph (Enterprise)** entry (`https://mcp.svc.cloud.microsoft/enterprise`) covers Entra/directory read scenarios; pair it with Google Workspace or configure Agent365 for document workflows.
+- **Salesforce Hosted MCP (GA)** — enable in **Setup → API Catalog → MCP Servers**, create an External Client App with `mcp_api` scope, then paste the org-specific MCP URL from the API Catalog into your client config. Map to `~~crm` in skills. See [Salesforce MCP client connection guide](https://developer.salesforce.com/docs/platform/hosted-mcp-servers/guide/client-connection-overview.html).
+
+### MCP Registry listings (net-new connectors)
+
+When publishing a net-new connector to the official MCP Registry and claiming on smithery, glama, PulseMCP, or mcp.so, follow [`docs/mcp-registry-submissions.md`](docs/mcp-registry-submissions.md).
 
 ## Wanted connectors
 
@@ -91,6 +107,7 @@ Extension categories (plugin-specific; same placeholder/slug rules):
 | `~~source control` | `source-control` |
 | `~~web monitoring` | `web-monitoring` |
 | `~~strategy skills registry` | `strategy-skills-registry` |
+| `~~crm` | `crm` |
 
 Rules when authoring skills:
 

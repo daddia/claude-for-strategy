@@ -1,0 +1,30 @@
+{
+  "universal": {
+    "notion": {
+      "type": "http",
+      "url": "https://mcp.notion.com/mcp",
+      "title": "Notion",
+      "description": "Search and read Notion pages and databases — planning docs and knowledge base scoped to the user's OAuth permissions."
+    },
+    "microsoft-graph-enterprise": {
+      "type": "http",
+      "url": "https://mcp.svc.cloud.microsoft/enterprise",
+      "title": "Microsoft Graph (Enterprise)",
+      "description": "Read Microsoft Entra directory and enterprise Graph context (preview). For Outlook, SharePoint, Excel, and Teams, enable Agent365 MCP in your tenant — see CONNECTORS.md."
+    }
+  },
+  "bi_analytics": {
+    "power-bi": {
+      "type": "http",
+      "url": "https://api.fabric.microsoft.com/v1/mcp/powerbi",
+      "title": "Power BI",
+      "description": "Query Power BI semantic models via natural language — DAX-grounded figures with user permissions and tenant policies enforced."
+    },
+    "tableau": {
+      "type": "http",
+      "url": "https://mcp.tableau.com",
+      "title": "Tableau",
+      "description": "Read Tableau Cloud metrics and workbook context — OAuth per user with Tableau permissions enforced."
+    }
+  }
+}

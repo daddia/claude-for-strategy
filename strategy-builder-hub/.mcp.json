@@ -17,6 +17,18 @@
       "url": "https://api.githubcopilot.com/mcp/",
       "title": "GitHub",
       "description": "Search and read repositories, issues, pull requests, and file contents scoped to the user's permissions."
+    },
+    "notion": {
+      "type": "http",
+      "url": "https://mcp.notion.com/mcp",
+      "title": "Notion",
+      "description": "Search and read Notion pages and databases — planning docs and knowledge base scoped to the user's OAuth permissions."
+    },
+    "microsoft-graph-enterprise": {
+      "type": "http",
+      "url": "https://mcp.svc.cloud.microsoft/enterprise",
+      "title": "Microsoft Graph (Enterprise)",
+      "description": "Read Microsoft Entra directory and enterprise Graph context (preview). For Outlook, SharePoint, Excel, and Teams, enable Agent365 MCP in your tenant — see CONNECTORS.md."
     }
   },
   "recommendedCategories": [

@@ -128,6 +128,8 @@ Inventory the evidence pack explicitly. **Do not silently assume missing inputs.
 
 **If financials are missing or partial:** produce a **structured first pass** — problem, options, qualitative benefits, sequencing, risks, and explicit `INPUT NEEDED` lines. **Do not fabricate ROI, NPV, or payback.** State: "ROI/payback withheld — baseline and cost inputs not provided."
 
+**Connector-sourced figures:** When costs or benefits are pulled from `~~bi analytics`, `~~spreadsheet`, or finance MCP connectors, tag each number `[sourced: <connector>, <dataset>, <as-of>]` before it appears in options tables. Failed or partial connector pulls become `INPUT NEEDED`, not estimates.
+
 **If only soft benefits exist:** quantify only what's sourced; classify the rest (see Step 4) and keep overall confidence at **structured first pass**.
 
 ### Step 3: State the problem precisely

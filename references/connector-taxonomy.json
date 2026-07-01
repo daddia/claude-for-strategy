@@ -74,6 +74,11 @@
       "machine": "strategy-skills-registry",
       "placeholder": "strategy skills registry",
       "label": "Strategy skills registry"
+    },
+    {
+      "machine": "crm",
+      "placeholder": "crm",
+      "label": "CRM / commercial data"
     }
   ],
   "meta_placeholders": [

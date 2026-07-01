@@ -46,7 +46,7 @@ Governance-tracking bands; gaming-pattern check on claimed-but-not-remeasured; a
 
 1. **Read the practice profile** — `~/.claude/plugins/config/claude-for-strategy/org-profile.md` and `~/.claude/plugins/config/claude-for-strategy/value-realisation/CLAUDE.md` — for the attribution convention and tracking cadence, the benefits register, and the prior tracking log if one exists — this skill appends, it doesn't restart the log each cycle.
 
-2. **For each benefit due for tracking, get the current measured value** against its registered baseline and target.
+2. **For each benefit due for tracking, get the current measured value** against its registered baseline and target. When the value comes from `~~bi analytics`, `~~spreadsheet`, or ERP MCP connectors, tag `[sourced: <connector>, <report/metric>, <as-of>]` on the measured figure before attribution.
 
 3. **Run the attribution call, explicitly, before declaring status.** Ask whether a known external or market factor could explain some or all of the movement — a price change, unrelated attrition, a seasonal swing, a separate initiative touching the same number. State one of:
    - **FULLY ATTRIBUTABLE** — no material external factor identified; the movement plausibly reflects the initiative's business change.
