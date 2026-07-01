@@ -8,6 +8,7 @@ that do not require judgment:
   - `metadata.permission_tier` is one of three enum values and matches `allowed-tools`
   - `metadata.version`, `metadata.owner`, `metadata.review_cadence` are present
   - body contains `## Outputs` and `## Worked example` headings
+  - non-`practice-setup` skills contain `## Propose profile update`
 
 Exits non-zero with one error line per violation. Exits 0 when all checked
 files pass.
@@ -34,6 +35,7 @@ WORK_SHAPES: tuple[str, ...] = (
 
 REQUIRED_METADATA_FIELDS = ("version", "owner", "review_cadence", "permission_tier")
 REQUIRED_HEADINGS = ("## Outputs", "## Worked example")
+PROPOSE_PROFILE_HEADING = "## Propose profile update"
 
 _FRONTMATTER_RE = re.compile(r"^---\s*\n(.*?)\n---\s*\n", re.DOTALL)
 _HEADING_RE = re.compile(r"^## .+$", re.MULTILINE)
@@ -169,6 +171,10 @@ def validate_skill(path: Path) -> list[str]:
     for heading in REQUIRED_HEADINGS:
         if not _heading_present(body, heading):
             errs.append(f"{rel}: missing required heading {heading!r}")
+
+    skill_name = path.parent.name
+    if skill_name != "practice-setup" and not _heading_present(body, PROPOSE_PROFILE_HEADING):
+        errs.append(f"{rel}: missing required heading {PROPOSE_PROFILE_HEADING!r}")
 
     return errs
 

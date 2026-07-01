@@ -149,6 +149,10 @@ Technology: 2/5 — Evidence: releases monthly via manual runbook [user provided
 BINDING CONSTRAINT: Technology blocks Operations target state [review]
 ```
 
+## Propose profile update
+
+When a stable convention surfaces during this run (thresholds, naming, tone, output format, or recurring corrections), **propose a profile update**: show the exact diff against `~/.claude/plugins/config/claude-for-strategy/transformation/CLAUDE.md` (org-wide facts go to `org-profile.md`), ask for confirmation, and write only on yes. Only `/transformation:practice-setup` auto-applies a full profile write.
+
 ## Outputs
 
 Follows plugin `CLAUDE.md` § Outputs. Next: `roadmap-builder`, `business-case`, gather evidence, or steering on binding constraint.

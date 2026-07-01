@@ -194,6 +194,10 @@ If an update breaks something: `/strategy-builder-hub:auto-updater --rollback [s
 
 **Expected output:** Full diff shown; security-surface flag on hooks; "Apply? [y/n]" — no write until yes.
 
+## Propose profile update
+
+When a stable convention surfaces during this run (thresholds, naming, tone, output format, or recurring corrections), **propose a profile update**: show the exact diff against `~/.claude/plugins/config/claude-for-strategy/strategy-builder-hub/CLAUDE.md` (org-wide facts go to `org-profile.md`), ask for confirmation, and write only on yes. Only `/strategy-builder-hub:practice-setup` auto-applies a full profile write.
+
 ## Outputs
 
 Follows plugin `CLAUDE.md` § Outputs. Next: apply approved updates, rollback, or defer.

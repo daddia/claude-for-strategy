@@ -122,6 +122,10 @@ TOTAL MEASURE COUNT: 20 vs. ceiling 22 — within
 - [ ] Performance seam noted when installed
 - [ ] Output does not read as final approved scorecard
 
+## Propose profile update
+
+When a stable convention surfaces during this run (thresholds, naming, tone, output format, or recurring corrections), **propose a profile update**: show the exact diff against `~/.claude/plugins/config/claude-for-strategy/balanced-scorecard/CLAUDE.md` (org-wide facts go to `org-profile.md`), ask for confirmation, and write only on yes. Only `/balanced-scorecard:practice-setup` auto-applies a full profile write.
+
 ## Outputs
 
 Follows plugin `CLAUDE.md` § Outputs. Natural next branches: `/balanced-scorecard:set-targets-and-initiatives`, `/performance:metrics-glossary` for formal definitions, or `/balanced-scorecard:review-and-validate` once actuals exist.

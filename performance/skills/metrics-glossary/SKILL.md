@@ -94,6 +94,10 @@ METRIC: Conversion rate [B3]
 - [ ] Owner and source per metric
 - [ ] Every metric in scope covered
 
+## Propose profile update
+
+When a stable convention surfaces during this run (thresholds, naming, tone, output format, or recurring corrections), **propose a profile update**: show the exact diff against `~/.claude/plugins/config/claude-for-strategy/performance/CLAUDE.md` (org-wide facts go to `org-profile.md`), ask for confirmation, and write only on yes. Only `/performance:practice-setup` auto-applies a full profile write.
+
 ## Outputs
 
 Follows plugin `CLAUDE.md` § Outputs. Next: governance approval, `tracker-builder` wiring, or `okr:instrument-metrics` handoff.

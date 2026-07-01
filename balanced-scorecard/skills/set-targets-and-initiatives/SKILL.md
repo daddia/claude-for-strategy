@@ -124,6 +124,10 @@ INITIATIVE OVERLOAD FLAGS: none
 - [ ] Transformation references used instead of duplicate definitions
 - [ ] No invented baseline values
 
+## Propose profile update
+
+When a stable convention surfaces during this run (thresholds, naming, tone, output format, or recurring corrections), **propose a profile update**: show the exact diff against `~/.claude/plugins/config/claude-for-strategy/balanced-scorecard/CLAUDE.md` (org-wide facts go to `org-profile.md`), ask for confirmation, and write only on yes. Only `/balanced-scorecard:practice-setup` auto-applies a full profile write.
+
 ## Outputs
 
 Follows plugin `CLAUDE.md` § Outputs. Natural next branches: measurement/baseline capture, `/balanced-scorecard:review-and-validate` at period end, or descoping unmapped initiatives.

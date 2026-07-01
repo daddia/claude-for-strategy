@@ -114,6 +114,10 @@ STRATEGIC IMPLICATION: exposed — price assumes stated churn; structure or dili
 - [ ] Strategic implication stated directly
 - [ ] Output does not read as deal recommendation
 
+## Propose profile update
+
+When a stable convention surfaces during this run (thresholds, naming, tone, output format, or recurring corrections), **propose a profile update**: show the exact diff against `~/.claude/plugins/config/claude-for-strategy/market-intelligence/CLAUDE.md` (org-wide facts go to `org-profile.md`), ask for confirmation, and write only on yes. Only `/market-intelligence:practice-setup` auto-applies a full profile write.
+
 ## Outputs
 
 Follows plugin `CLAUDE.md` § Outputs. Next: diligence plan, deal-structure revision, or corp-strategy evaluation.

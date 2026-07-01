@@ -197,6 +197,10 @@ Improve onboarding NPS → Grow ARR 25%
 - [ ] Early refresh flagged if threshold met
 - [ ] RAG-washing pattern checked before output
 
+## Propose profile update
+
+When a stable convention surfaces during this run (thresholds, naming, tone, output format, or recurring corrections), **propose a profile update**: show the exact diff against `~/.claude/plugins/config/claude-for-strategy/balanced-scorecard/CLAUDE.md` (org-wide facts go to `org-profile.md`), ask for confirmation, and write only on yes. Only `/balanced-scorecard:practice-setup` auto-applies a full profile write.
+
 ## Outputs
 
 Follows plugin `CLAUDE.md` § Outputs. Offer dashboard when measure table exceeds ~10 rows. Natural next branches: early `build-strategy-map` refresh, initiative re-commitment, or gather data for inconclusive links.

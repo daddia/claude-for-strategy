@@ -214,6 +214,10 @@ Now: Identity platform — Rationale: blocks portal SSO dependency
 CAPACITY FLAGS: Now quarter overloaded — 3 initiatives vs. 2-team capacity [review]
 ```
 
+## Propose profile update
+
+When a stable convention surfaces during this run (thresholds, naming, tone, output format, or recurring corrections), **propose a profile update**: show the exact diff against `~/.claude/plugins/config/claude-for-strategy/transformation/CLAUDE.md` (org-wide facts go to `org-profile.md`), ask for confirmation, and write only on yes. Only `/transformation:practice-setup` auto-applies a full profile write.
+
 ## Outputs
 
 Follows plugin `CLAUDE.md` § Outputs. Next: `business-case`, resolve capacity flags, or GATE before steering publish.

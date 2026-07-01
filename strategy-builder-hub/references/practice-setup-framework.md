@@ -52,15 +52,16 @@ Ask (quick: organisation + industry + planning cadence + default audiences + hou
 2. **Industry / market** — market, geography, rough scale (revenue band or headcount if comfortable sharing).
 3. **Strategic horizon** — planning window (e.g. 3-year strategy, annual operating plan, quarterly execution).
 4. **Planning cadence** — annual strategy cycle, quarterly business reviews, OKR/BSC rhythm, budget cycle timing.
-5. **Decision forums** — board, exec committee, investment committee, steering bodies; who decides what class of decision.
-6. **Risk appetite** — conservative, balanced, or aggressive as a default; any hard constraints (regulatory, capital, political).
-7. **Financial model conventions** — currency/units, planning basis, case time horizon, sensitivity conventions, who validates numbers.
-8. **Default audiences** — who most outputs are for (board, C-suite, working team, external client).
-9. **Data systems / source hierarchy** — systems of record (ERP, CRM, BI, Jira, HRIS); which source wins when numbers disagree.
-10. **Escalation / approval model** — working level → approver → exec triggers; dollar/impact thresholds if used.
-11. **House writing style** — tone, person/tense, things to avoid, preferred structure (BLUF, pyramid, etc.).
-12. **Preferred frameworks** — house methods (BSC, OKRs, McKinsey-style narrative, SAFe, etc.) and what to avoid.
-13. **Terminology** — internal names for key concepts, banned generic substitutes.
+5. **Board cycle** — board meeting rhythm, annual strategy/budget board timing, materials due dates, standing agenda themes.
+6. **Decision forums** — board, exec committee, investment committee, steering bodies; who decides what class of decision.
+7. **Risk appetite** — conservative, balanced, or aggressive as a default; any hard constraints (regulatory, capital, political).
+8. **Financial model conventions** — currency/units, planning basis, case time horizon, sensitivity conventions, who validates numbers.
+9. **Default audiences** — who most outputs are for (board, C-suite, working team, external client).
+10. **Data systems / source hierarchy** — systems of record (ERP, CRM, BI, Jira, HRIS); which source wins when numbers disagree; tool stack / connectors in use.
+11. **Escalation / approval model** — working level → approver → exec triggers; dollar/impact thresholds if used.
+12. **House writing style** — tone, person/tense, things to avoid, preferred structure (BLUF, pyramid, etc.).
+13. **Preferred frameworks** — house methods (BSC, OKRs, McKinsey-style narrative, SAFe, etc.) and what to avoid.
+14. **Terminology** — internal names for key concepts, banned generic substitutes.
 
 **Write org profile** to `~/.claude/plugins/config/claude-for-strategy/org-profile.md` following `org-profile-template.md`. Set `Status: complete` when done. User confirmation on the org summary authorizes the write (same rule as plugin profile).
 

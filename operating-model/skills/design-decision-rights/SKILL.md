@@ -97,6 +97,10 @@ UNOWNED DECISIONS FOUND: none
 - [ ] House convention (RACI/RAPID) applied
 - [ ] Output does not read as final governance policy
 
+## Propose profile update
+
+When a stable convention surfaces during this run (thresholds, naming, tone, output format, or recurring corrections), **propose a profile update**: show the exact diff against `~/.claude/plugins/config/claude-for-strategy/operating-model/CLAUDE.md` (org-wide facts go to `org-profile.md`), ask for confirmation, and write only on yes. Only `/operating-model:practice-setup` auto-applies a full profile write.
+
 ## Outputs
 
 Follows plugin `CLAUDE.md` § Outputs. Next: exec workshop to resolve flags, socialize artifact, or `stress-test-matrix-reporting`.

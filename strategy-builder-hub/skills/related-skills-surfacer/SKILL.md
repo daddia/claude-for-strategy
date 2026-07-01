@@ -88,6 +88,10 @@ Per `~/.claude/plugins/config/claude-for-strategy/strategy-builder-hub/CLAUDE.md
 
 **Expected output:** One-line suggestion with `/strategy-builder-hub:skill-installer` handoff.
 
+## Propose profile update
+
+When a stable convention surfaces during this run (thresholds, naming, tone, output format, or recurring corrections), **propose a profile update**: show the exact diff against `~/.claude/plugins/config/claude-for-strategy/strategy-builder-hub/CLAUDE.md` (org-wide facts go to `org-profile.md`), ask for confirmation, and write only on yes. Only `/strategy-builder-hub:practice-setup` auto-applies a full profile write.
+
 ## Outputs
 
 Follows plugin `CLAUDE.md` § Outputs. Silent if no strong match. Decision tree when match surfaced.

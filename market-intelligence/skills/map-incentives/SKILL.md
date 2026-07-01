@@ -104,6 +104,10 @@ MISALIGNED INCENTIVE FLAGS: Sales comp undermines premium positioning — fixabl
 - [ ] Misalignments named as fixable problems
 - [ ] Output does not read as concluded org redesign
 
+## Propose profile update
+
+When a stable convention surfaces during this run (thresholds, naming, tone, output format, or recurring corrections), **propose a profile update**: show the exact diff against `~/.claude/plugins/config/claude-for-strategy/market-intelligence/CLAUDE.md` (org-wide facts go to `org-profile.md`), ask for confirmation, and write only on yes. Only `/market-intelligence:practice-setup` auto-applies a full profile write.
+
 ## Outputs
 
 Follows plugin `CLAUDE.md` § Outputs. Next: `forecast-competitive-response`, `test-positioning`, or `operating-model:align-rewards-and-incentives`.

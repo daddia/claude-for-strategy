@@ -27,6 +27,13 @@
 - **Quarterly rhythm:** _(QBR, OKR check-ins, budget true-ups)_
 - **Budget cycle timing:**
 
+## Board cycle
+
+- **Board meeting rhythm:** _(monthly, quarterly, ad hoc)_
+- **Annual strategy / budget board timing:**
+- **Materials due before board:** _(days, owners, format)_
+- **Standing board agenda themes:** _(strategy, portfolio, transformation, risk)_
+
 ## Decision forums
 
 - **Board / exec forums:**

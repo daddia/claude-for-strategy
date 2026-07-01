@@ -187,6 +187,10 @@ STRUCTURAL FLAGS:
 - [ ] Map persisted to profile location (or user told where to save)
 - [ ] Output does not read as a concluded board decision where `output_class` is draft-for-review
 
+## Propose profile update
+
+When a stable convention surfaces during this run (thresholds, naming, tone, output format, or recurring corrections), **propose a profile update**: show the exact diff against `~/.claude/plugins/config/claude-for-strategy/balanced-scorecard/CLAUDE.md` (org-wide facts go to `org-profile.md`), ask for confirmation, and write only on yes. Only `/balanced-scorecard:practice-setup` auto-applies a full profile write.
+
 ## Outputs
 
 Follows plugin `CLAUDE.md` § Outputs — decision tree and reviewer note on delivery. Natural next branches after a map draft: cascade to scorecards, select measures, or schedule `review-and-validate` on UNVALIDATED links.

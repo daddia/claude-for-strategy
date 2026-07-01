@@ -97,6 +97,10 @@ RECOMMENDED TIE-BREAKER: Product VP wins on roadmap priorities; Regional VP wins
 - [ ] Recommended tie-breaker specific where missing
 - [ ] Gaming-pattern check run
 
+## Propose profile update
+
+When a stable convention surfaces during this run (thresholds, naming, tone, output format, or recurring corrections), **propose a profile update**: show the exact diff against `~/.claude/plugins/config/claude-for-strategy/operating-model/CLAUDE.md` (org-wide facts go to `org-profile.md`), ask for confirmation, and write only on yes. Only `/operating-model:practice-setup` auto-applies a full profile write.
+
 ## Outputs
 
 Follows plugin `CLAUDE.md` § Outputs. Next: exec alignment session, update practice profile, or `design-decision-rights`.
