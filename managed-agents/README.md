@@ -14,6 +14,18 @@ Deploy with [`scripts/deploy-managed-agent.sh`](../scripts/deploy-managed-agent.
 | [`competitive-signal-scan`](./competitive-signal-scan/) | market-intelligence | Competitor moves vs profile signal taxonomy | `Weekly competitive signal scan as-of <date>` | reader · compute · **write-holder** |
 | [`realisation-checkpoint-reminder`](./realisation-checkpoint-reminder/) | value-realisation | Benefits tracking due + missing-baseline escalations | `Monthly benefits checkpoint as-of <date>` | reader · compute · **write-holder** |
 
+### Roadmap X4 watch agents (v2)
+
+| Roadmap name | Cookbook | Plugin |
+|---|---|---|
+| Competitor-Move Monitor | [`competitor-move-monitor`](./competitor-move-monitor/) | market-intelligence |
+| Market-Signal Radar | [`market-signal-radar`](./market-signal-radar/) | market-intelligence |
+| Transformation-Programme Health Watcher | [`transformation-programme-health-watcher`](./transformation-programme-health-watcher/) | transformation + pmo |
+| OKR Drift Detector | [`okr-drift-detector`](./okr-drift-detector/) | okr |
+| Board-Cycle Prep | [`board-cycle-prep`](./board-cycle-prep/) | pmo |
+
+Legacy cookbooks [`competitive-signal-scan`](./competitive-signal-scan/) and [`steering-prep`](./steering-prep/) remain aliases with the same behaviour.
+
 **Bold** leaf = the only worker with `Write`.
 
 ## Manifest vs API

@@ -269,6 +269,8 @@ Five scheduled watchers ship as managed-agent cookbooks today — same system pr
 | [`competitive-signal-scan`](./managed-agents/competitive-signal-scan/) | market-intelligence | Competitor signal digest |
 | [`realisation-checkpoint-reminder`](./managed-agents/realisation-checkpoint-reminder/) | value-realisation | Benefits tracking due + missing-baseline escalations |
 
+**Roadmap X4 watch agents** (Competitor-Move Monitor, Market-Signal Radar, Transformation-Programme Health Watcher, OKR Drift Detector, Board-Cycle Prep): see the [X4 table in `managed-agents/README.md`](./managed-agents/README.md#roadmap-x4-watch-agents-v2).
+
 See [`managed-agents/README.md`](./managed-agents/README.md) for manifest conventions, security tiers, and steering-event examples. Deploy with [`scripts/deploy-managed-agent.sh`](./scripts/deploy-managed-agent.sh), which resolves manifest conveniences before posting to `POST /v1/agents` using the [Managed Agents API](https://docs.claude.com/en/api/managed-agents).
 
 ## Vertical plugins

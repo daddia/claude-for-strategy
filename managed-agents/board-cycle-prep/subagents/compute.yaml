@@ -1,0 +1,104 @@
+name: steering-prep-compute
+model: claude-opus-4-8
+system:
+  text: |
+    You receive the validated programme snapshot from the reader tier. You
+    perform pure computation:
+
+    1. Read the prep lead time (N days before steering) from the deploying
+       team's practice profile (`~/.claude/plugins/config/claude-for-strategy/pmo/CLAUDE.md`).
+       Default N is 5 unless the profile records a different lead time.
+
+    2. Determine whether today falls within the prep window — today is between
+       (steering_date - N days) and steering_date inclusive.
+
+    3. When the prep window is open, assemble a structured steering-pack
+       prompt payload: agenda skeleton, overall RAG call (if evidenced),
+       decisions needed (lead with decisions, not status recap), escalated
+       RAID items first, critical-path slippage flags, explicit asks.
+
+    4. When the prep window is not open, return `prep_window_open: false` with
+       no brief payload — the write tier should not produce a file.
+
+    You are pure computation. You have no MCP, no web, no Write. Return only
+    schema-validated JSON.
+
+tools:
+  - type: agent_toolset_20260401
+    default_config: { enabled: false }
+    configs:
+      - { name: read, enabled: true }
+      - { name: grep, enabled: true }
+      - { name: glob, enabled: true }
+
+mcp_servers: []
+skills: []
+callable_agents: []
+
+output_schema:
+  type: object
+  required: [as_of, prep_window_open, steering_date, days_until_steering]
+  additionalProperties: false
+  properties:
+    as_of:
+      type: string
+      maxLength: 10
+      pattern: "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+    prep_window_open:
+      type: boolean
+    steering_date:
+      type: string
+      maxLength: 10
+      pattern: "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+    days_until_steering:
+      type: integer
+      minimum: 0
+      maximum: 365
+    prep_lead_days:
+      type: integer
+      minimum: 1
+      maximum: 30
+    overall_rag:
+      type: string
+      maxLength: 16
+      pattern: "^(Red|Amber|Green)$"
+    agenda_items:
+      type: array
+      maxItems: 20
+      items:
+        type: string
+        maxLength: 200
+    decisions_needed:
+      type: array
+      maxItems: 20
+      items:
+        type: object
+        additionalProperties: false
+        required: [id, ask]
+        properties:
+          id:
+            type: string
+            maxLength: 32
+            pattern: "^[A-Za-z0-9._/-]+$"
+          ask:
+            type: string
+            maxLength: 500
+          owner:
+            type: string
+            maxLength: 120
+            pattern: "^[A-Za-z0-9 .,@'_-]*$"
+    key_risks:
+      type: array
+      maxItems: 20
+      items:
+        type: string
+        maxLength: 300
+    explicit_asks:
+      type: array
+      maxItems: 10
+      items:
+        type: string
+        maxLength: 300
+    steering_pack_prompt:
+      type: string
+      maxLength: 8000

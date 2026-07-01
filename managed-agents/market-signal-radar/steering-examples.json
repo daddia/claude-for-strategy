@@ -1,0 +1,14 @@
+[
+  {
+    "event": "Weekly market signal radar as-of 2026-06-22",
+    "description": "Scheduled scan for macro, regulatory, and category signals beyond named competitors"
+  },
+  {
+    "event": "Post-regulation scan after EU AI Act guidance published",
+    "description": "Event-triggered radar for a specific signal class"
+  },
+  {
+    "event": "Category-only radar: supply-chain disruption signals",
+    "description": "Ad-hoc run scoped to one signal taxonomy bucket"
+  }
+]
