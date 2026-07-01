@@ -1,0 +1,14 @@
+[
+  {
+    "event": "Daily steering prep check as-of 2026-06-22",
+    "description": "Scheduled daily run — open prep window if within N days of next steering committee"
+  },
+  {
+    "event": "Forced prep: steering committee 2026-06-27, assemble RAID + milestones + pending decisions",
+    "description": "Ad-hoc run when steering date is known but calendar connector is unavailable"
+  },
+  {
+    "event": "Pre-steering brief: decisions-only subset for working-group preview",
+    "description": "Narrow run before executive steering when the full RAID log is noisy"
+  }
+]

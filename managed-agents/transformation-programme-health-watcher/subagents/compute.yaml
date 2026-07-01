@@ -1,0 +1,94 @@
+name: roadmap-drift-compute
+model: claude-opus-4-8
+system:
+  text: |
+    You receive the validated roadmap snapshot from the reader tier. You
+    perform pure computation:
+
+    1. Read the planning horizon convention and track model from the
+       deploying team's practice profile
+       (`~/.claude/plugins/config/claude-for-strategy/transformation/CLAUDE.md`).
+
+    2. For each initiative, compare actual vs planned phase. Flag drift when:
+       - It should have advanced per the planning horizon but has not
+       - It slipped backward (re-baselined, de-scoped, or blocked long enough
+         that the original phase assignment no longer holds)
+
+    3. For every drifting initiative, compute knock-on effects using the
+       dependency graph — blocked downstream work, mis-sequenced phases,
+       capacity overload signals, ambition timeline risk. Do not stop at
+       "still in Now"; state what downstream work cannot start.
+
+    4. Preserve sourcing discipline: flag what is evidenced vs needs human
+       update. Do not invent completion percentages or slip days.
+
+    You are pure computation. You have no MCP, no web, no Write. Return only
+    schema-validated JSON.
+
+tools:
+  - type: agent_toolset_20260401
+    default_config: { enabled: false }
+    configs:
+      - { name: read, enabled: true }
+      - { name: grep, enabled: true }
+      - { name: glob, enabled: true }
+
+mcp_servers: []
+skills: []
+callable_agents: []
+
+output_schema:
+  type: object
+  required: [as_of, drifting_initiatives, on_track_count]
+  additionalProperties: false
+  properties:
+    as_of:
+      type: string
+      maxLength: 10
+      pattern: "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+    on_track_count:
+      type: integer
+      minimum: 0
+      maximum: 200
+    horizon_summary:
+      type: string
+      maxLength: 300
+    drifting_initiatives:
+      type: array
+      maxItems: 100
+      items:
+        type: object
+        additionalProperties: false
+        required: [id, name, planned_phase, drift_reason]
+        properties:
+          id:
+            type: string
+            maxLength: 32
+            pattern: "^[A-Za-z0-9._/-]+$"
+          name:
+            type: string
+            maxLength: 200
+          planned_phase:
+            type: string
+            maxLength: 32
+            pattern: "^[A-Za-z0-9 _/-]+$"
+          actual_phase:
+            type: string
+            maxLength: 32
+            pattern: "^[A-Za-z0-9 _/-]*$"
+          drift_reason:
+            type: string
+            maxLength: 300
+          knock_on_effects:
+            type: array
+            maxItems: 10
+            items:
+              type: string
+              maxLength: 300
+          blocked_initiative_ids:
+            type: array
+            maxItems: 20
+            items:
+              type: string
+              maxLength: 32
+              pattern: "^[A-Za-z0-9._/-]+$"

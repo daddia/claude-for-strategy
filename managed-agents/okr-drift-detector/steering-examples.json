@@ -1,0 +1,14 @@
+[
+  {
+    "event": "Weekly OKR drift scan as-of 2026-06-22",
+    "description": "Scheduled Monday run — confidence drops, stale KRs, coverage gaps"
+  },
+  {
+    "event": "Mid-cycle drift check before exec OKR review",
+    "description": "Ad-hoc digest before a calibration session"
+  },
+  {
+    "event": "Targeted scan: Objectives under Sales org only",
+    "description": "Scoped drift check for one cascade branch"
+  }
+]

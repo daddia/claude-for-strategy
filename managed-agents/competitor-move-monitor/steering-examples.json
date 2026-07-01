@@ -1,0 +1,14 @@
+[
+  {
+    "event": "Weekly competitive signal scan as-of 2026-06-22",
+    "description": "Scheduled weekly run — named competitors, profile signal taxonomy, last 7 days"
+  },
+  {
+    "event": "Targeted scan: Acme Corp + BetaCo only, product-launch and pricing signals",
+    "description": "Ad-hoc run before positioning review"
+  },
+  {
+    "event": "Map-refresh check: strategic-group map v3, flag mobility-barrier crossings",
+    "description": "Run when group map was recently updated"
+  }
+]
