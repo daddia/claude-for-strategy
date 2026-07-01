@@ -65,7 +65,19 @@ If the user runs `/strategy-builder-hub:skill-installer` and then asks "should I
 
 Anyone can build a skill. This one checks whether it was built well before it touches your workflows.
 
-Evaluates any skill against the Strategy Skill Design Framework: **thirteen design parameters** (the first nine are substantive design; the tenth is Trust Surface — the skill's execution permissions and injection risk; the eleventh is Freshness — whether bundled reference content is current; the twelfth is Schema — whether the SKILL.md has the structure a well-built skill needs; the thirteenth is Conflicts — whether the skill overlaps or conflicts with skills already installed), **three strategy-specific failure modes**, a dependency map, and a clear verdict. Works for community skills from registries and first-party skills your team is building or deploying.
+Evaluates any skill against the Strategy Skill Design Framework: **nine
+design-parameter checks** (Parameters 1–9 — audience through escalation logic),
+plus trust-surface review (Parameter 10), freshness (11), schema (12), and
+conflicts (13). Parameter 7 embeds the **three strategy-specific failure
+modes**. Step 1.5 runs the **prompt-injection heuristic scan** before the
+nine-parameter evaluation. Produces a dependency map and a clear verdict.
+Works for community skills from registries and first-party skills your team is
+building or deploying.
+
+When invoked from `/strategy-builder-hub:skill-installer`, always run the full
+sequence: injection scan → nine design-parameter checks → Parameters 10–13 →
+verdict. The installer records `skills_qa_verdict` and `skills_qa_run_at` in
+`install-log.yaml` per `skill-installer/references/install-log-schema.md`.
 
 ## Inputs accepted
 

@@ -224,8 +224,9 @@ claimed in Step 1. A mismatch is a security signal:
 ### Step 5: Run skills-qa
 
 Before installing, run the `skills-qa` skill against the candidate. It runs
-its own prompt-injection heuristic and scores the skill against the Strategy
-Skill Design Framework.
+the prompt-injection heuristic scan, the **nine design-parameter checks**
+(Parameters 1–9), trust-surface review (Parameter 10), and the remaining
+framework checks (Parameters 11–13) from the Strategy Skill Design Framework.
 
 If skills-qa returns MATERIAL CONCERNS: surface them and require explicit user
 acceptance before proceeding — subject to the REFUSE and Role-routing gates
@@ -371,24 +372,36 @@ text.** URLs go in the install log; the preamble carries only the COUNT.
 
 #### Install log record
 
+See `references/install-log-schema.md` for the full schema. The install log is
+the authoritative SHA pin and audit trail; the engagement profile table is a
+human-readable summary only.
+
 Record in `~/.claude/plugins/config/claude-for-strategy/strategy-builder-hub/CLAUDE.md`
 → installed starter pack table: skill name, source registry, publisher,
-install date, version (git commit or tag if available), allowlist mode at
-install time.
+install date, **pinned SHA** (40-char commit hash), allowlist mode at install
+time.
 
-Append to the install log at
-`~/.claude/plugins/config/claude-for-strategy/strategy-builder-hub/install-log.yaml`
-the following fields:
+Append an `install` entry to
+`~/.claude/plugins/config/claude-for-strategy/strategy-builder-hub/install-log.yaml`.
+Required fields:
 
-- `last_verified` — the validated ISO date, or `unknown`.
-- `freshness_category` — validated token, or `unknown`.
-- `freshness_window` — validated `N <unit>` string, or `unknown`.
-- `freshness_status` — one of `fresh`, `stale`, `unknown`, or `n/a`.
-- `verified_against` — the validated URL list (hostname + path only).
-- `freshness_raw_rejected` — if any field failed validation.
-- `license` — the extracted SPDX identifier.
-- `license_source` — where the license was read.
-- `deployment_context` — the context recorded in the engagement profile at install time.
+- `skill`, `action: install`, `timestamp`, `path`
+- `pinned_sha` — the 40-character lowercase hex git commit SHA fetched in Step 2.
+  **Mandatory.** If the registry only exposes a branch head or tag, resolve to
+  the commit SHA before install. Refuse to pin tags or branch names — they are
+  mutable.
+- `registry_url`, `publisher`
+- `allowlist_mode`, `allowlist_pass` — whether the source was on the allowlist
+  (or permissive override was recorded)
+- `skills_qa_verdict` — `ready` | `some_concern` | `material_concerns` (lowercase
+  in the log; `refuse` should never reach install)
+- `skills_qa_run_at`, `human_approved_at`
+- `license`, `license_source`, `deployment_context`
+- `freshness_status` — one of `fresh`, `stale`, `unknown`, or `n/a`
+- `last_verified`, `freshness_category`, `freshness_window` — validated tokens
+  or `unknown`
+- `verified_against` — validated URL list (hostname + path only)
+- `freshness_raw_rejected` — if any field failed validation
 
 ### Step 8: Verify
 
@@ -399,8 +412,9 @@ on a non-sensitive test engagement before using it on live work."
 
 ## Version tracking
 
-Record the git commit hash or tag at install time. This lets the auto-updater
-know when there's a newer version.
+Record the git commit SHA as `pinned_sha` in `install-log.yaml` at install
+time. The auto-updater compares registry heads against this pin — not tags,
+not branch names. See `references/install-log-schema.md`.
 
 **Install-time trust does not transfer to updates.** The scan, allowlist
 check, raw-SKILL.md display, and human approval you ran at install time

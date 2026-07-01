@@ -20,12 +20,13 @@ Your configuration is stored at `~/.claude/plugins/config/claude-for-strategy/st
 
 ## Security posture
 
-Installed community skills run with your access to client data, engagement files, and your team's playbook. The hub treats every install and every update as a trust decision. Four layers of defense, none of which is sufficient on its own:
+Installed community skills run with your access to client data, engagement files, and your team's playbook. The hub treats every install and every update as a trust decision. Five layers of defense, none of which is sufficient on its own:
 
-- **Allowlist (admin-controlled):** `~/.claude/plugins/config/claude-for-strategy/strategy-builder-hub/allowlist.yaml` declares which registries, publishers, and MCP connectors community skills may use. `permissive` mode (default) warns on anything off-list; `restrictive` mode (recommended for firm / enterprise deployments) refuses it. The allowlist is checked before the installer reads any third-party content. See `skills/skill-installer/references/allowlist.md` for the schema.
+- **Watched registries:** `registry-browser` and the `registry-sync` agent poll registries you add to the engagement profile. Discovery is separate from trust — watching a registry does not auto-install anything.
+- **Allowlist (admin-controlled):** `~/.claude/plugins/config/claude-for-strategy/strategy-builder-hub/allowlist.yaml` declares which registries, publishers, licenses, and MCP connectors community skills may use. Default template is `restrictive` (fail-closed). `permissive` mode flags unknown sources and asks before install. The allowlist is checked before the installer reads any third-party content. See `skills/skill-installer/references/allowlist.md` for the schema.
+- **Strategy Skill Design Framework QA:** `skills-qa` runs nine design-parameter checks, three strategy-specific failure modes, trust-surface review, and a prompt-injection heuristic scan. The installer invokes it on every candidate before install; the auto-updater re-runs it on every update.
 - **Raw source, not summary:** the installer shows you the full raw `SKILL.md` — not an AI summary — before anything is written. A summary is a convenience; a skill that does something dodgy has to do it in text the raw display will show.
-- **Heuristic scans:** both the installer and `skills-qa` scan the skill for prompt-injection patterns (override/authority claims, out-of-scope reads and writes, external URLs, hidden unicode, shell execution, credential asks). These are AI-heuristic scans, explicitly labeled as such — a clean scan is not a security audit, it is a prompt to read the text yourself.
-- **Human approval, every time:** nothing is written to disk without a fresh typed `yes`. Approval is not inferred from earlier messages. For defense in depth, the installer recommends running the fetch / analysis in a read-only subagent so Write capabilities only become available after approval.
+- **Human approval + SHA pinning:** nothing is written to disk without a fresh typed `yes`. Each install appends an `install-log.yaml` entry with the vetted commit SHA (`pinned_sha`). Updates pin a new SHA only after diff review and re-QA. See `skills/skill-installer/references/install-log-schema.md`.
 
 Updates use the same posture: the auto-updater pins to commit SHAs (not mutable tags), shows the full diff including hooks and MCP changes, and requires explicit approval per update. There is no auto-apply mode.
 

@@ -47,7 +47,8 @@ Installed skills are code running inside your privileged strategy environment. A
 
 ## Load context
 
-`~/.claude/plugins/config/claude-for-strategy/strategy-builder-hub/CLAUDE.md` → installed skills (with version/commit SHA), update preferences (notify / manual).
+- `~/.claude/plugins/config/claude-for-strategy/strategy-builder-hub/CLAUDE.md` → installed skills summary, update preferences (notify / manual).
+- `~/.claude/plugins/config/claude-for-strategy/strategy-builder-hub/install-log.yaml` → authoritative `pinned_sha` per skill (see `skill-installer/references/install-log-schema.md`). Prefer the latest `install` or `update` entry over the CLAUDE.md table when they disagree.
 
 ## Workflow
 
@@ -55,6 +56,8 @@ Installed skills are code running inside your privileged strategy environment. A
 
 For each skill in the installed list:
 
+- Read `pinned_sha` from the latest `install` or `update` entry in
+  `install-log.yaml` for that skill
 - Fetch the current commit SHA from the source registry (the exact commit, not a tag or branch head — tags are mutable and can be retroactively rewritten by the publisher; only commit SHAs are immutable)
 - Compare to the pinned SHA from install time
 - If different: update available
@@ -176,7 +179,7 @@ There is no "auto" mode. Updates to code that runs in your strategy environment 
 
 ### Step 4: Apply (after explicit approval)
 
-Replace the installed skill files with the new version. Update `~/.claude/plugins/config/claude-for-strategy/strategy-builder-hub/CLAUDE.md` installed list with the new commit SHA. Backup the old version first (to `~/.claude/skills/.backups/[skill]-[old-sha]/`) in case of rollback.
+Replace the installed skill files with the new version. Update `~/.claude/plugins/config/claude-for-strategy/strategy-builder-hub/CLAUDE.md` installed list with the new commit SHA. Append an `update` entry to `install-log.yaml` with the new `pinned_sha`, `previous_pinned_sha`, and the same audit fields as install (skills-qa verdict, human approval timestamp, allowlist snapshot). See `skill-installer/references/install-log-schema.md`. Backup the old version first (to `~/.claude/skills/.backups/[skill]-[old-sha]/`) in case of rollback.
 
 ## Rollback
 

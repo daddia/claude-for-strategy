@@ -178,6 +178,13 @@ Record the answer in the profile under `## Sources I trust` as `Deployment conte
 2. Also summarize in the profile's `## Sources I trust` section.
 3. Tell the user where it lives: "Your allowlist is at `~/.claude/plugins/config/claude-for-strategy/strategy-builder-hub/allowlist.yaml`. The installer reads it before fetching anything."
 
+**Initialize install-log.yaml.** If
+`~/.claude/plugins/config/claude-for-strategy/strategy-builder-hub/install-log.yaml`
+does not exist, create it as an empty YAML list (`[]`). Copy from
+`references/install-log-template.yaml` in the plugin if helpful. Tell the user:
+"Your install audit log is at [path]. Every community skill install records a
+SHA-pinned entry here — see `skill-installer/references/install-log-schema.md`."
+
 **Freshness reminders.** After the allowlist question, ask:
 
 > "When a community skill bundles reference material — market frameworks, benchmarks, industry data — how long should it be trusted before I remind you to verify it's still current? (6 months is a common default for market/competitive content. 12 months for methodological/framework content. Set it tighter if you work in a fast-moving area.)"
