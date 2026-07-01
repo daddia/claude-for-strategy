@@ -1,13 +1,75 @@
 # Claude for Strategy & Transformation
 
-Reference agents, skills, and data connectors for the strategy and transformation workflows we see most — consulting craft, corporate strategy, market intelligence, digital transformation, change management, org design, performance management, program PMO, balanced scorecards, OKRs, value realisation, and a Strategy Builder Hub for discovering community skills.
+**Turn messy strategy and transformation work into board-credible drafts in minutes — twelve practice plugins with consulting discipline, trust guardrails, and scheduled watchers.**
 
-> **New here?** Start with [QUICKSTART.md](QUICKSTART.md) — install in 60 seconds. This README is the full reference.
+## Install in one command
 
-Everything here ships as [Claude Cowork](https://claude.com/product/cowork) or [Claude Code](https://claude.com/product/claude-code) plugins **and** as [managed-agent cookbooks](./managed-agents/) for headless deployment through the [Claude Managed Agents API](https://docs.claude.com/en/api/managed-agents) — same skills and prompts, two surfaces from one source.
+In [Claude Code](https://claude.com/product/claude-code) or [Claude Cowork](https://claude.com/product/cowork):
+
+```bash
+/plugin marketplace add <path-to-this-repo>
+/plugin install consulting@claude-for-strategy
+```
+
+Restart Claude Code, then run `/consulting:practice-setup`. Pick user scope when asked. Full walkthrough: [QUICKSTART.md](QUICKSTART.md).
 
 > [!IMPORTANT]
-> **Every output from these plugins is a draft for your review — not a certified methodology, not a board-ready recommendation, not a substitute for your analysis and professional judgment.** They are built with guardrails that reflect that: source tagging on market figures and dollar amounts, load-bearing assumptions surfaced, conservative defaults on invented inputs, confidence labeling, and explicit gates before board- or exec-facing finals. You review, verify, and take responsibility for anything that leaves the building. These plugins make that review faster; they do not replace it.
+> **Every output is a draft for your review — not a certified methodology, not a board-ready recommendation, not a substitute for your analysis and professional judgment.** Source tagging on external claims, load-bearing assumptions surfaced, conservative defaults on invented inputs, and explicit gates before board- or exec-facing finals. You review, verify, and take responsibility for anything that leaves the building.
+
+![Steering Pack Builder — paste RAID log and milestones, get a decision-led steering deck outline](/docs/assets/demo-steering-pack.gif)
+
+## Plugins at a glance
+
+| Plugin | Best for | First command |
+|---|---|---|
+| [consulting](./consulting) | Narrative, decks, memos, workplans | `/consulting:practice-setup` |
+| [corporate-strategy](./corporate-strategy) | Portfolio, growth, resource allocation | `/corporate-strategy:practice-setup` |
+| [market-intelligence](./market-intelligence) | Competitive landscape, incentives, positioning | `/market-intelligence:practice-setup` |
+| [transformation](./transformation) | Roadmaps, TOM, business cases | `/transformation:practice-setup` |
+| [change-management](./change-management) | Stakeholders, readiness, comms | `/change-management:practice-setup` |
+| [operating-model](./operating-model) | Org design, decision rights, spans | `/operating-model:practice-setup` |
+| [performance](./performance) | KPI trees, trackers, board narratives | `/performance:practice-setup` |
+| [pmo](./pmo) | RAID, status, steering packs, milestones | `/pmo:practice-setup` |
+| [balanced-scorecard](./balanced-scorecard) | Strategy maps, measures, cascade | `/balanced-scorecard:practice-setup` |
+| [okr](./okr) | Objectives, key results, check-ins | `/okr:practice-setup` |
+| [value-realisation](./value-realisation) | Benefits mapping, tracking, PIR | `/value-realisation:practice-setup` |
+| [strategy-builder-hub](./strategy-builder-hub) | Community skill discovery and QA | `/strategy-builder-hub:practice-setup` |
+
+Role-based routing (which plugin to install first): [QUICKSTART.md#which-plugin-is-for-me](QUICKSTART.md#which-plugin-is-for-me).
+
+## Worked examples
+
+Each example produces a **draft artefact for your review** — paste your context, run the command, then verify assumptions and numbers before anything goes to a board or steering committee.
+
+### 1. Steering committee pack (PMO)
+
+**You have:** a RAID log, milestone tracker, and two decisions pending approval.
+
+**Run:** `/pmo:steering-pack` — paste or point at your RAID and milestone files.
+
+**You get:** a decision-led steering deck outline — RAG summary, escalations, critical-path slippage, and explicit decision asks with owners. The skill reads your practice profile for governance cadence and escalation thresholds.
+
+### 2. Transformation business case (Transformation)
+
+**You have:** an initiative scope, rough cost/benefit notes, and no formal template yet.
+
+**Run:** `/transformation:business-case` — describe the problem, options considered, and what you know about costs and benefits.
+
+**You get:** a structured business case — problem statement, options (including do-nothing), cost/benefit with provenance tags on every figure, sequencing, risks, and a clear ask. Missing inputs are flagged `INPUT NEEDED`, not invented.
+
+### 3. Board performance narrative (Performance)
+
+**You have:** quarterly metrics in a spreadsheet or bullet list — some on track, some breaching threshold.
+
+**Run:** `/performance:performance-narrative` — paste the metrics and name your audience (board, exec committee, functional lead).
+
+**You get:** a BLUF-structured narrative — what changed, what breached, root-cause hypotheses, and recommended actions. Load-bearing assumptions and unverified benchmarks are surfaced before you stamp it final.
+
+More agents and commands: [Agents](#agents) · [Skill & command reference](#skill--command-reference).
+
+---
+
+Everything here ships as Claude Cowork or Claude Code plugins **and** as [managed-agent cookbooks](./managed-agents/) for headless deployment through the [Claude Managed Agents API](https://docs.claude.com/en/api/managed-agents) — same skills and prompts, two surfaces from one source.
 
 What's in the repo:
 
@@ -426,11 +488,12 @@ The full map across all plugins. The practice setup is the first thing to run in
 
 ## Contributing
 
-Everything here is markdown and JSON. Fork, edit, PR.
+Everything here is markdown and JSON. Fork, edit, PR. See [CONTRIBUTING.md](CONTRIBUTING.md) for design principles and the validation checklist.
 
 - **New skill** → add `<plugin>/skills/<skill-name>/SKILL.md` with `name` and `description` frontmatter. The skill is invokable as `/<plugin>:<skill-name>`.
 - **New job-style name** → add the skill under `<plugin>/skills/<skill-name>/SKILL.md` and a row in the plugin README Agents table mapping the job title to `/<plugin>:<skill-name>`. Do not add a duplicate file under `agents/`.
 - **New scheduled agent** → add `<plugin>/agents/<name>.md` with the system prompt (and schedule/cadence in the body or frontmatter). Add a matching `managed-agents/<name>/` cookbook when the agent should deploy headlessly (see [managed-agents/README.md](managed-agents/README.md)).
+- **Good first issues** → browse [issues labeled `good first issue`](https://github.com/daddia/claude-for-strategy/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22).
 - **Validate before opening a PR** — see [CLAUDE.md](CLAUDE.md) for marketplace invariants and `claude plugin validate`.
 
 ## License
