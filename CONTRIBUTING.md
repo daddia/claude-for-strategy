@@ -4,6 +4,14 @@ Notes for anyone writing or editing a plugin in this repo. Keep this short — t
 design principles that matter most for the quality of the output, not a style
 guide.
 
+## Getting started
+
+1. **Pick an issue.** Open issues labeled [`good first issue`](https://github.com/daddia/claude-for-strategy/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22) are scoped for a first PR. Comment on the issue before you start so we don't duplicate work.
+2. **Fork and branch.** `git checkout -b fix/short-description` from `main`.
+3. **Read before you edit.** Skim the plugin's `CLAUDE.md` and any skill you touch. Most changes are markdown under `skills/` — no build step.
+4. **Validate locally.** Run the checks in [Workflow notes](#workflow-notes) below before opening a PR.
+5. **Open a PR.** Link the issue, describe what you changed, and list the validation commands you ran.
+
 ## Design principle: SKILL.md encodes the right behavior; CLAUDE.md and the trust
 spine are the net
 
